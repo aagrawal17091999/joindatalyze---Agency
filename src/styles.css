@@ -581,9 +581,10 @@ h3 {
   margin: 1rem 0 1.4rem;
 }
 
+
 .case-page {
   display: grid;
-  grid-template-columns: minmax(260px, 1fr) 1.6fr;
+  grid-template-columns: 1fr;
   gap: 1.1rem;
   align-items: stretch;
   background: var(--panel);
@@ -591,6 +592,10 @@ h3 {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+}
+
+.case-page .case-visual {
+  display: none;
 }
 
 .case-visual {
@@ -602,6 +607,8 @@ h3 {
   color: var(--muted);
   display: grid;
   gap: 0.55rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .case-content h3 {
