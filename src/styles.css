@@ -259,6 +259,35 @@ h3 {
   align-items: center;
 }
 
+.why-section {
+  margin-top: 2.5rem;
+}
+
+.feature-grid {
+  align-items: stretch;
+}
+
+.feature-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.35rem;
+  color: var(--muted);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+  display: grid;
+  gap: 0.65rem;
+}
+
+.feature-card h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.feature-card .icon-circle {
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+}
+
 .hero-copy .lead {
   max-width: 680px;
 }
