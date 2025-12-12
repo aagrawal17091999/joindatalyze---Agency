@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimalist, property-led tracking for a fast-moving roadmap | Datalyze Case Study</title>
+    <title>Minimalist, property-driven tracking for a fast-moving product | Datalyze Case Study</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,70 +13,151 @@
   </head>
   <body>
     <div class="page-shell">
-<header class="site-header">
-<div class="brand">
-<span class="brand-mark">D</span>
-<div class="brand-text">
-<span class="brand-name">Datalyze</span>
-<span class="brand-tag">Analytics &amp; Growth</span>
-</div>
-</div>
-<nav class="site-nav">
-<a href="/index.html">Home</a>
-<a href="/about.html">About</a>
-<a href="/services.html">Services</a>
-<a href="/case-studies/">Case Studies</a>
-<a href="/resources.html">Resources</a>
-<a href="/faqs.html">FAQs</a>
-<a class="btn pill" href="/contact.html">Book Audit</a>
-</nav>
-</header>
+      <header class="site-header">
+        <div class="brand">
+          <span class="brand-mark">D</span>
+          <div class="brand-text">
+            <span class="brand-name">Datalyze</span>
+            <span class="brand-tag">Analytics &amp; Growth</span>
+          </div>
+        </div>
+        <nav class="site-nav">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/services.html">Services</a>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/resources.html">Resources</a>
+          <a href="/faqs.html">FAQs</a>
+          <a class="btn pill" href="/contact.html">Book Audit</a>
+        </nav>
+      </header>
       <main>
-<section class="section"><div class="container"><div class="section-header"><p class="eyebrow">Case study</p><h1>Minimalist, property-led tracking for a fast-moving roadmap</h1><p class="section-lead">Sol · Productivity</p></div><article class="case-page" id="sol">
-<div class="case-visual bold"></div>
-<div class="case-content">
-<div class="page-label">Sol · Productivity</div>
-<h3>Minimalist, property-led tracking for a fast-moving roadmap</h3>
-<p>We balanced weekly feature releases with a lean Mixpanel setup.</p>
-<div class="case-detail">
-<h4>Challenge</h4>
-<p>Complex product needed a minimalist tracking structure without event bloat.</p>
-</div>
-<div class="case-detail">
-<h4>Solution</h4>
-<ul class="list">
-<li>Defined core event categories (documents, tasks, workspaces, feature modules) instead of granular events.</li>
-<li>Moved complexity into properties for feature type, action type, and context.</li>
-<li>Ensured new features could plug into the framework and reduced frontend event load.</li>
-</ul>
-</div>
-<div class="case-detail">
-<h4>Result</h4>
-<p>Streamlined, scalable Mixpanel setup with cleaner data, lower load, and easy dashboards.</p>
-</div>
-</div>
-</article><div class="cta-group"><a class="btn ghost" href="/case-studies/">Back to all case studies</a></div></div></section>
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <p class="eyebrow">Case study</p>
+              <h1><a href="https://sol.app/">Minimalist, property-driven tracking for a fast-moving product</a></h1>
+              <p class="section-lead"><a href="https://sol.app/">Sol</a> · Productivity &amp; Collaboration</p>
+            </div>
+            <article class="case-page" id="sol">
+              <div class="case-visual bold"></div>
+              <div class="case-content">
+                <div class="page-label"><a href="https://sol.app/">Sol</a> · Productivity &amp; Collaboration</div>
+                <h3>Minimalist, property-driven tracking for a fast-moving product</h3>
+
+                <div class="case-detail">
+                  <h4>About Sol</h4>
+                  <p>
+                    Sol is a powerful productivity and collaboration app designed for individuals to dive into meditation,
+                    exercises, find new friends and more. With a fast-moving product roadmap and weekly feature releases,
+                    maintaining clean and consistent analytics was becoming a challenge — especially as the team wanted a
+                    <strong>minimalist, property-driven tracking system</strong>.
+                  </p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Challenge: A Complex Product Needing a Minimal Tracking Structure</h4>
+                  <p>Sol’s team wanted a <strong>lean, clean Mixpanel setup</strong>:</p>
+                  <ul class="list">
+                    <li>Fewer events</li>
+                    <li>More insights driven through properties</li>
+                    <li>Easy scalability as new features rolled out</li>
+                  </ul>
+                  <p>However, the product itself was complex, with multiple modules and frequent new releases. This created several issues:</p>
+                  <ul class="list">
+                    <li>Tracking grew messy and inconsistent over time</li>
+                    <li>New features required ad-hoc events, adding to clutter</li>
+                    <li>Maintaining structure across modules was difficult</li>
+                    <li>The frontend was sending too many events, increasing load</li>
+                    <li>The team risked losing clarity on what truly mattered</li>
+                  </ul>
+                  <p>They needed a tracking approach that was <strong>simple, scalable, and future-proof</strong>.</p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Solution</h4>
+                  <p>To strike the right balance between minimalism and coverage, I designed a <strong>flexible, modular event structure</strong> centered around Sol’s core app features.</p>
+
+                  <h5>1. Defined core event categories instead of granular events</h5>
+                  <p>
+                    Rather than creating a new event for every interaction, we grouped behaviours into high-level event types such
+                    as:
+                  </p>
+                  <ul class="list">
+                    <li>Document actions</li>
+                    <li>Task interactions</li>
+                    <li>Workspace activity</li>
+                    <li>Feature modules</li>
+                  </ul>
+                  <p>This meant the same event could serve multiple use cases with the right properties.</p>
+
+                  <h5>2. Moved complexity into properties</h5>
+                  <p>
+                    Most variations: feature type, action type, context, and metadata, were captured through properties rather than
+                    separate events. This reduced:
+                  </p>
+                  <ul class="list">
+                    <li>Event bloat</li>
+                    <li>Engineering overhead</li>
+                    <li>Implementation time for every new feature</li>
+                  </ul>
+
+                  <h5>3. Created a scalable structure for weekly feature releases</h5>
+                  <p>The tracking plan ensured that:</p>
+                  <ul class="list">
+                    <li>New features could plug into the existing framework</li>
+                    <li>Developers didn’t need to rethink event structures</li>
+                    <li>Product teams had consistent, reliable data across modules</li>
+                  </ul>
+
+                  <h5>4. Reduced frontend event load</h5>
+                  <p>
+                    By consolidating events and removing unnecessary granular tracking, we lightened the load on the app’s frontend
+                    and simplified maintenance.
+                  </p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Result</h4>
+                  <p>The new tracking framework delivered clear benefits:</p>
+                  <ul class="list">
+                    <li><strong>A streamlined and scalable Mixpanel setup</strong></li>
+                    <li><strong>Cleaner data that remained consistent even as the product evolved weekly</strong></li>
+                    <li><strong>Fewer events to maintain</strong>, with properties carrying the analytical depth</li>
+                    <li><strong>Lower frontend load</strong>, improving performance</li>
+                    <li><strong>Easier dashboards &amp; insights</strong> for product and growth teams</li>
+                  </ul>
+                  <p>
+                    Sol now has a tracking system that grows effortlessly with the product, without sacrificing clarity, accuracy,
+                    or simplicity.
+                  </p>
+                </div>
+              </div>
+            </article>
+            <div class="cta-group"><a class="btn ghost" href="/case-studies/">Back to all case studies</a></div>
+          </div>
+        </section>
       </main>
-<footer class="site-footer">
-<div class="container footer-grid">
-<div class="footer-brand">
-<div class="brand">
-<span class="brand-mark">D</span>
-<div class="brand-text">
-<span class="brand-name">Datalyze</span>
-<span class="brand-tag">Analytics &amp; Growth</span>
-</div>
-</div>
-<p class="muted">Data, experimentation, and models that move the needle.</p>
-</div>
-<div class="footer-nav">
-<a href="/faqs.html">FAQs</a>
-<a href="/resources.html">Resources</a>
-<a href="/case-studies/">Case studies</a>
-</div>
-<p class="copyright">© <span id="year"></span> Datalyze. All rights reserved.</p>
-</div>
-</footer>
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-mark">D</span>
+              <div class="brand-text">
+                <span class="brand-name">Datalyze</span>
+                <span class="brand-tag">Analytics &amp; Growth</span>
+              </div>
+            </div>
+            <p class="muted">Data, experimentation, and models that move the needle.</p>
+          </div>
+          <div class="footer-nav">
+            <a href="/faqs.html">FAQs</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/case-studies/">Case studies</a>
+          </div>
+          <p class="copyright">© <span id="year"></span> Datalyze. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
