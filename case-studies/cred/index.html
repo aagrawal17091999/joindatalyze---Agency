@@ -13,93 +13,189 @@
   </head>
   <body>
     <div class="page-shell">
-<header class="site-header">
-<div class="brand">
-<span class="brand-mark">D</span>
-<div class="brand-text">
-<span class="brand-name">Datalyze</span>
-<span class="brand-tag">Analytics &amp; Growth</span>
-</div>
-</div>
-<nav class="site-nav">
-<a href="/index.html">Home</a>
-<a href="/about.html">About</a>
-<a href="/services.html">Services</a>
-<a href="/case-studies/">Case Studies</a>
-<a href="/resources.html">Resources</a>
-<a href="/faqs.html">FAQs</a>
-<a class="btn pill" href="/contact.html">Book Audit</a>
-</nav>
-</header>
+      <header class="site-header">
+        <div class="brand">
+          <span class="brand-mark">D</span>
+          <div class="brand-text">
+            <span class="brand-name">Datalyze</span>
+            <span class="brand-tag">Analytics &amp; Growth</span>
+          </div>
+        </div>
+        <nav class="site-nav">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">About</a>
+          <a href="/services.html">Services</a>
+          <a href="/case-studies/">Case Studies</a>
+          <a href="/resources.html">Resources</a>
+          <a href="/faqs.html">FAQs</a>
+          <a class="btn pill" href="/contact.html">Book Audit</a>
+        </nav>
+      </header>
       <main>
-<section class="section"><div class="container"><div class="section-header"><p class="eyebrow">Case study</p><h1>Payment routing optimization and rent success lift</h1><p class="section-lead">CRED · Fintech</p></div><article class="case-page" id="cred">
-<div class="case-visual gradient"></div>
-<div class="case-content">
-<div class="page-label">CRED · Fintech</div>
-<h3>Payment routing optimization and rent success lift</h3>
-<p>For a 16M+ member platform, we balanced reliability, cost, and behavioural UX to improve payments.</p>
-<div class="case-detail">
-<h4>Challenge: Payment routing model</h4>
-<p>Low success rates and high routing costs across multiple providers with no outage detection.</p>
-</div>
-<div class="case-detail">
-<h4>Solution</h4>
-<ul class="list">
-<li>Built a linear programming routing engine to maximize success or minimize cost with guardrails.</li>
-<li>Evaluated provider combinations under business constraints for an optimal mix.</li>
-<li>Added real-time provider outage detection with automatic rerouting.</li>
-</ul>
-</div>
-<div class="case-detail">
-<h4>Result</h4>
-<ul class="list">
-<li><strong>Success rate +7%</strong></li>
-<li><strong>Routing costs -12%</strong></li>
-<li><strong>Operational efficiency +9%</strong> with outages down 93% MoM</li>
-</ul>
-</div>
-<div class="case-detail">
-<h4>Challenge: Improving rent payment success</h4>
-<p>Bank declines, cash-out attempts, and repeated retries on failing cards hurt success rates.</p>
-</div>
-<div class="case-detail">
-<h4>Solution</h4>
-<ul class="list">
-<li>Analysed transactions to show switching cards after failure had 34% higher success.</li>
-<li>Redesigned failure UX to prompt alternative cards with success messaging.</li>
-</ul>
-</div>
-<div class="case-detail">
-<h4>Result</h4>
-<p><strong>Rent payment success +3%</strong>, reducing repeated declines and support volume.</p>
-</div>
-<div class="case-gallery-inline">
-<img alt="CRED routing framework" class="case-image" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/47b43e9d-675f-4f49-a9e5-cf918c05a2a0/b27def8b-35e6-44e3-b40d-d80224cc891d/Untitled.png"/>
-<img alt="CRED outage detection" class="case-image" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/47b43e9d-675f-4f49-a9e5-cf918c05a2a0/4f603613-0a28-4ca2-af2a-953f2e6beb57/Untitled.png"/>
-</div>
-</div>
-</article><div class="cta-group"><a class="btn ghost" href="/case-studies/">Back to all case studies</a></div></div></section>
+        <section class="section">
+          <div class="container">
+            <div class="section-header">
+              <p class="eyebrow">Case study</p>
+              <h1>Payment routing optimization and rent success lift</h1>
+              <p class="section-lead"><a href="https://cred.club/">CRED</a> · Fintech</p>
+            </div>
+            <article class="case-page" id="cred">
+              <div class="case-visual gradient"></div>
+              <div class="case-content">
+                <div class="page-label"><a href="https://cred.club/">CRED</a> · Fintech</div>
+                <h3>Payment routing optimization and rent success lift</h3>
+
+                <div class="case-detail">
+                  <h4>About CRED</h4>
+                  <p>
+                    CRED is one of India’s leading FinTech platforms, offering credit card bill payments, rewards, and financial
+                    services to over 16 million members. With high transaction volumes and complex payment routing logic,
+                    ensuring seamless, reliable, and cost-efficient payments is critical to the platform’s user experience and
+                    bottom line.
+                  </p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Challenge 1: Payment Routing Model</h4>
+                  <p>
+                    CRED’s payments infrastructure relied on multiple providers, each with varying success rates, latencies, and
+                    transaction costs. The team was facing two core issues:
+                  </p>
+                  <ol class="list">
+                    <li><strong>Lower-than-expected payment success rates</strong>, leading to user frustration and increased support load.</li>
+                    <li><strong>High routing costs</strong> because payments were not being optimally distributed across providers.</li>
+                  </ol>
+                  <p>
+                    The existing routing logic could not balance both cost and performance simultaneously, and it also lacked a
+                    mechanism to detect provider outages quickly. This created operational inefficiencies and inconsistent user
+                    experience during peak transaction windows.
+                  </p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Solution</h4>
+                  <p>We designed a two-part optimization framework that transformed how CRED handled routing decisions.</p>
+
+                  <h5>1. Linear Programming–based Routing Engine</h5>
+                  <p>We built a linear optimization model that allowed stakeholders to choose their primary objective:</p>
+                  <ul class="list">
+                    <li><strong>Maximize success rate</strong>, or</li>
+                    <li><strong>Minimize payment processing cost</strong></li>
+                  </ul>
+                  <p>The model then:</p>
+                  <ul class="list">
+                    <li>Applied thresholds for the secondary objective (e.g., maintain cost below X, or success rate above Y)</li>
+                    <li>Evaluated all possible provider combinations</li>
+                    <li>Generated an optimal routing mix that satisfied business constraints and performance goals</li>
+                  </ul>
+                  <p>This gave the team a transparent, data-driven structure for routing decisions.</p>
+
+                  <h5>2. Real-time Provider Outage Detection</h5>
+                  <p>To handle unpredictable outages, I developed a real-time model that:</p>
+                  <ul class="list">
+                    <li>Continuously monitored provider-level success rates</li>
+                    <li>Detected sudden drops using statistical thresholds</li>
+                    <li>Automatically rerouted payments away from failing providers</li>
+                  </ul>
+                  <p>This drastically improved reliability during live outages and reduced manual intervention.</p>
+
+                  <div class="case-gallery-inline">
+                    <img
+                      alt="CRED routing framework"
+                      class="case-image"
+                      src="https://prod-files-secure.s3.us-west-2.amazonaws.com/47b43e9d-675f-4f49-a9e5-cf918c05a2a0/b27def8b-35e6-44e3-b40d-d80224cc891d/Untitled.png"
+                    />
+                    <img
+                      alt="CRED outage detection"
+                      class="case-image"
+                      src="https://prod-files-secure.s3.us-west-2.amazonaws.com/47b43e9d-675f-4f49-a9e5-cf918c05a2a0/4f603613-0a28-4ca2-af2a-953f2e6beb57/Untitled.png"
+                    />
+                  </div>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Result</h4>
+                  <p>The optimization framework delivered significant business impact:</p>
+                  <ul class="list">
+                    <li><strong>Success rate improved by ~7%</strong></li>
+                    <li><strong>Payment routing costs decreased by ~12%</strong></li>
+                    <li><strong>Operational efficiency increased by ~9%</strong></li>
+                    <li><strong>Provider outages decreased by 93% month-over-month</strong> after introducing the real-time rerouting system</li>
+                  </ul>
+                  <p>
+                    CRED’s payment infrastructure became more resilient, predictable, and cost-efficient, directly improving user
+                    experience at massive scale.
+                  </p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Challenge 2: Improving Rent Payment Success Rate</h4>
+                  <p>CRED’s rent payment product allowed users to pay rent via credit card. However, success rates were lower than expected because:</p>
+                  <ul class="list">
+                    <li>Banks frequently declined transactions</li>
+                    <li>A subset of users attempted to use the product for <strong>cash-out behavior</strong>, triggering risk controls</li>
+                    <li>
+                      Users repeatedly retried payments using the <em>same</em> card after failure, even though the card had already shown a low
+                      probability of succeeding
+                    </li>
+                  </ul>
+                  <p>The team needed a behavioural insight that could meaningfully improve success rates.</p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Solution</h4>
+                  <p>We performed a detailed analysis of user-level and transaction-level patterns. The key discovery was:</p>
+                  <blockquote>
+                    <p>If a user’s first attempt failed, retrying with a different card had a 34% higher success rate than retrying with the same card.</p>
+                  </blockquote>
+                  <p>This insight was incorporated directly into the product experience:</p>
+                  <ul class="list">
+                    <li>The payment failure screen was redesigned</li>
+                    <li>Users were prompted to try an alternative card instead of retrying the same one</li>
+                    <li>Messaging highlighted that using a different card increases the chance of a successful payment</li>
+                  </ul>
+                  <p>This small behavioural change created a large improvement in funnel performance.</p>
+                </div>
+
+                <div class="case-detail">
+                  <h4>Result</h4>
+                  <p>
+                    The updated UX and decision logic improved the <strong>rent payment success rate by 3%</strong>, which is a significant lift at
+                    CRED’s transaction scale.
+                  </p>
+                  <p>This translated into:</p>
+                  <ul class="list">
+                    <li>Fewer frustrated users</li>
+                    <li>Higher completed volume</li>
+                    <li>Fewer repeated declines and customer support cycles</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <div class="cta-group"><a class="btn ghost" href="/case-studies/">Back to all case studies</a></div>
+          </div>
+        </section>
       </main>
-<footer class="site-footer">
-<div class="container footer-grid">
-<div class="footer-brand">
-<div class="brand">
-<span class="brand-mark">D</span>
-<div class="brand-text">
-<span class="brand-name">Datalyze</span>
-<span class="brand-tag">Analytics &amp; Growth</span>
-</div>
-</div>
-<p class="muted">Data, experimentation, and models that move the needle.</p>
-</div>
-<div class="footer-nav">
-<a href="/faqs.html">FAQs</a>
-<a href="/resources.html">Resources</a>
-<a href="/case-studies/">Case studies</a>
-</div>
-<p class="copyright">© <span id="year"></span> Datalyze. All rights reserved.</p>
-</div>
-</footer>
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <div class="brand">
+              <span class="brand-mark">D</span>
+              <div class="brand-text">
+                <span class="brand-name">Datalyze</span>
+                <span class="brand-tag">Analytics &amp; Growth</span>
+              </div>
+            </div>
+            <p class="muted">Data, experimentation, and models that move the needle.</p>
+          </div>
+          <div class="footer-nav">
+            <a href="/faqs.html">FAQs</a>
+            <a href="/resources.html">Resources</a>
+            <a href="/case-studies/">Case studies</a>
+          </div>
+          <p class="copyright">© <span id="year"></span> Datalyze. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
