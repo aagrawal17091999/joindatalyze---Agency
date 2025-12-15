@@ -337,9 +337,10 @@ h3 {
 }
 
 .logo-track {
+  --logo-gap: 1.1rem;
   display: inline-flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: var(--logo-gap);
   width: max-content;
   animation: marquee 46s linear infinite;
   padding: 0.25rem 0;
@@ -351,13 +352,15 @@ h3 {
 }
 
 .logo-track img {
-  height: 60px;
-  width: auto;
+  height: 68px;
+  width: 68px;
   object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
   filter: brightness(1.05) saturate(1.08) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
   mix-blend-mode: screen;
-  background: transparent;
-  padding: 0.2rem 0;
+  padding: 0.65rem;
+  flex-shrink: 0;
 }
 
 @keyframes marquee {
@@ -365,7 +368,7 @@ h3 {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - (var(--logo-gap) / 2)));
   }
 }
 
