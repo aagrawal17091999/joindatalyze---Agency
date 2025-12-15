@@ -12,12 +12,22 @@ const ensureSeamlessLogoMarquee = () => {
   const tracks = marquee.querySelectorAll('.logo-track');
 
   tracks.forEach((track) => {
-    const initialLogos = Array.from(track.children);
-    if (initialLogos.length < 2) return;
+    const existingLogos = Array.from(track.children);
+    if (existingLogos.length === 0) return;
 
-    const baseSet = initialLogos.slice(0, initialLogos.length / 2);
-    const requiredWidth = marquee.clientWidth * 2.1;
+    const seen = new Set();
+    const baseSet = [];
 
+    existingLogos.forEach((logo) => {
+      const key = logo.getAttribute('src');
+      if (seen.has(key)) return;
+      seen.add(key);
+      baseSet.push(logo.cloneNode(true));
+    });
+
+    track.replaceChildren(...baseSet.map((logo) => logo.cloneNode(true)));
+
+    const requiredWidth = marquee.clientWidth * 3;
     while (track.scrollWidth < requiredWidth) {
       baseSet.forEach((logo) => {
         const clone = logo.cloneNode(true);
