@@ -1035,6 +1035,73 @@ h3 {
   color: #fff;
 }
 
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin-top: 0.75rem;
+}
+
+.resource-card {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem 1.3rem;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.resource-card::before {
+  content: '';
+  position: absolute;
+  inset: -40% -30% auto auto;
+  height: 120%;
+  width: 65%;
+  background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.28), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(34, 211, 238, 0.18), transparent 60%);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.36);
+}
+
+.resource-card:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.resource-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(124, 58, 237, 0.16);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  color: #d7caff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.resource-link {
+  color: #e7ecff;
+  transition: color 160ms ease;
+}
+
+.resource-link:hover {
+  color: #fff;
+}
+
 .cta-group {
   display: flex;
   flex-wrap: wrap;
