@@ -319,7 +319,12 @@ h3 {
   overflow: hidden;
   position: relative;
   display: grid;
+  grid-template-rows: repeat(2, auto);
   gap: 0.65rem;
+}
+
+.logo-row {
+  overflow: hidden;
 }
 
 .logo-marquee::before,
