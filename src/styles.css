@@ -381,9 +381,9 @@ h3 {
 
 
 .stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
   gap: 0.9rem;
   margin-top: 1.25rem;
   text-align: center;
