@@ -381,16 +381,16 @@ h3 {
 
 
 .stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.9rem;
   margin-top: 1.25rem;
   text-align: center;
-  justify-content: center;
-  align-items: stretch;
 }
 
 .stat {
+  flex: 1 1 220px;
   padding: 0.95rem 1.1rem;
   border-radius: 12px;
   border: 1px solid var(--border);
