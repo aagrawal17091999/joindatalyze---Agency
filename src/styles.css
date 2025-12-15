@@ -303,6 +303,72 @@ h3 {
   margin: 0 auto 1.25rem;
 }
 
+.logo-marquee {
+  margin-top: 1.5rem;
+  padding: 0.6rem 0;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.logo-marquee::before,
+.logo-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+}
+
+.logo-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg) 0%, transparent 100%);
+}
+
+.logo-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marquee 46s linear infinite;
+  padding: 0.25rem 0;
+}
+
+.logo-track.track-2 {
+  animation-direction: reverse;
+  animation-duration: 52s;
+}
+
+.logo-track img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.05) saturate(1.08) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+  mix-blend-mode: screen;
+  background: transparent;
+  padding: 0.2rem 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
