@@ -10,7 +10,7 @@ npm run dev
 ```
 
 - Visit the dev server output by Vite (defaults to `http://localhost:5173`).
-- Edit `src/styles.css` or `index.html`; Vite will hot-reload changes.
+- Edit `src/styles.css` or `index`; Vite will hot-reload changes.
 
 ## Build for static hosting
 
@@ -22,7 +22,7 @@ The production-ready static assets are emitted to `dist/` and can be deployed to
 
 ## Project structure
 
-- `index.html` — Entry HTML file defining the page sections and content blocks.
+- `index` — Entry HTML file defining the page sections and content blocks.
 - `src/main.js` — Minimal client entry that imports global styles and sets the footer year.
 - `src/styles.css` — Global styles, layout system, and component primitives (cards, grids, buttons).
 
@@ -31,6 +31,6 @@ The production-ready static assets are emitted to `dist/` and can be deployed to
 1. **Node 18+** on CI to run `npm install` and `npm run build`.
 2. **A static host** (e.g., Netlify/Vercel/Cloudflare Pages). Configure the publish directory as `dist/` and use `npm run build` as the build command.
 3. **Environment ownership**: DNS (or a temporary subdomain) pointing to the staging host plus deploy keys/API tokens for CI to publish.
-4. **Optional analytics pixels**: If you want staging instrumentation, add provider snippets into `index.html` or wire a tag manager later.
+4. **Optional analytics pixels**: If you want staging instrumentation, add provider snippets into `index` or wire a tag manager later.
 
 Once those are in place, we can connect the repo to the host, add a simple CI workflow, and ship a staging URL automatically on push.
