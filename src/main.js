@@ -12,19 +12,50 @@ const ensureSeamlessLogoMarquee = () => {
   const tracks = marquee.querySelectorAll('.logo-track');
 
   tracks.forEach((track) => {
-    const initialLogos = Array.from(track.children);
-    if (initialLogos.length < 2) return;
+    const existingLogos = Array.from(track.children);
+    if (existingLogos.length === 0) return;
 
-    const baseSet = initialLogos.slice(0, initialLogos.length / 2);
-    const requiredWidth = marquee.clientWidth * 2.1;
+    const seen = new Set();
+    const baseSet = [];
 
-    while (track.scrollWidth < requiredWidth) {
-      baseSet.forEach((logo) => {
-        const clone = logo.cloneNode(true);
+    existingLogos.forEach((logo) => {
+      const key = logo.getAttribute('src');
+      if (seen.has(key)) return;
+      seen.add(key);
+      baseSet.push(logo.cloneNode(true));
+    });
+
+    const cloneLogo = (logo, hidden = false) => {
+      const clone = logo.cloneNode(true);
+      if (hidden) {
         clone.setAttribute('aria-hidden', 'true');
-        track.appendChild(clone);
+      } else {
+        clone.removeAttribute('aria-hidden');
+      }
+      return clone;
+    };
+
+    track.textContent = '';
+
+    baseSet.forEach((logo) => {
+      track.appendChild(cloneLogo(logo));
+    });
+
+    while (track.scrollWidth < marquee.clientWidth) {
+      baseSet.forEach((logo) => {
+        track.appendChild(cloneLogo(logo, true));
       });
     }
+
+    const cycleWidth = track.scrollWidth;
+    Array.from(track.children).forEach((logo) => {
+      track.appendChild(cloneLogo(logo, true));
+    });
+
+    const pixelsPerSecond = 80;
+    const duration = Math.max(cycleWidth / pixelsPerSecond, 18);
+    track.style.setProperty('--loop-distance', `${cycleWidth}px`);
+    track.style.setProperty('--animation-duration', `${duration}s`);
   });
 };
 

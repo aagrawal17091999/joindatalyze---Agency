@@ -352,17 +352,19 @@ h3 {
 
 .logo-track {
   --logo-gap: 1.1rem;
+  --loop-distance: 50%;
+  --animation-duration: 46s;
   display: inline-flex;
   align-items: center;
   gap: var(--logo-gap);
   width: max-content;
-  animation: marquee 46s linear infinite;
+  animation: marquee var(--animation-duration) linear infinite;
   padding: 0.25rem 0;
 }
 
 .logo-track.track-2 {
   animation-direction: reverse;
-  animation-duration: 52s;
+  animation-duration: var(--animation-duration, 52s);
 }
 
 .logo-track img {
@@ -382,7 +384,7 @@ h3 {
     transform: translateX(0);
   }
   to {
-    transform: translateX(calc(-50% - (var(--logo-gap) / 2)));
+    transform: translateX(calc(-1 * var(--loop-distance)));
   }
 }
 
