@@ -40,14 +40,15 @@ const buildLogoTrack = (track, marqueeWidth) => {
 
   track.textContent = '';
 
-  baseSet.forEach((data) => {
-    track.appendChild(createLogo(data));
-  });
-
-  while (track.scrollWidth < marqueeWidth) {
+  const appendCycle = (hidden = false) => {
     baseSet.forEach((data) => {
-      track.appendChild(createLogo(data, true));
+      track.appendChild(createLogo(data, hidden));
     });
+  };
+
+  appendCycle(false);
+  while (track.scrollWidth < marqueeWidth * 2) {
+    appendCycle(true);
   }
 
   const cycleWidth = track.scrollWidth;
