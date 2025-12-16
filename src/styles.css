@@ -208,7 +208,7 @@
   }
 
   .logo-track img {
-    @apply h-10 w-auto scale-100 rounded-md bg-white object-contain px-4 py-2 drop-shadow;
+    @apply h-16 w-40 scale-100 rounded-md bg-white object-contain px-4 py-2 drop-shadow;
     filter: grayscale(0.1) contrast(120%);
   }
 
