@@ -217,15 +217,15 @@
   }
 
   .stat {
-    @apply rounded-2xl border border-border bg-card/70 px-4 py-3 text-left shadow-lg;
+    @apply flex min-h-[120px] flex-col items-center justify-center rounded-2xl border border-border bg-card/70 px-4 py-4 text-center shadow-lg;
   }
 
   .stat-value {
-    @apply block text-2xl font-bold;
+    @apply block text-3xl font-bold;
   }
 
   .stat-label {
-    @apply text-sm text-muted-foreground;
+    @apply text-base text-muted-foreground;
   }
 
   .stats-banner {
