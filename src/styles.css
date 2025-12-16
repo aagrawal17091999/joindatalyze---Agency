@@ -326,8 +326,10 @@ h3 {
   gap: 0.65rem;
 }
 
-.logo-row {
+.logo-marquee .logo-row {
   overflow: hidden;
+  display: block;
+  width: 100%;
 }
 
 .logo-marquee::before,
