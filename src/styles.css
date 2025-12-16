@@ -283,11 +283,11 @@
   }
 
   .tech-item {
-    @apply flex items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-3 text-left shadow-inner;
+    @apply flex flex-col items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-5 text-center shadow-inner;
   }
 
   .tech-item img {
-    @apply h-8 w-auto rounded bg-white/5 p-1;
+    @apply h-12 w-auto object-contain;
   }
 
   .tech-name {
