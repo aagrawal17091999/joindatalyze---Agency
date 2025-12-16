@@ -174,7 +174,7 @@
   }
 
   .hero-grid {
-    @apply grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-center justify-items-center;
+    @apply grid gap-10 items-center justify-items-center text-center;
   }
 
   .hero-copy {
