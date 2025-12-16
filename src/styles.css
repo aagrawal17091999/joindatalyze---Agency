@@ -189,6 +189,18 @@
     @apply text-lg md:text-xl;
   }
 
+  .hero-stats {
+    @apply mt-10;
+  }
+
+  .hero-stats .stats {
+    @apply gap-4 sm:gap-6;
+  }
+
+  .hero-stats .stat {
+    @apply w-full border-white/10 bg-white/5 shadow-[0_18px_50px_rgba(0,0,0,0.3)];
+  }
+
   .cta-group {
     @apply flex flex-wrap items-center justify-center gap-3;
   }
