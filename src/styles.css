@@ -240,11 +240,12 @@
   }
 
   .testimonial-grid {
-    @apply grid grid-cols-1 gap-5 md:grid-cols-2;
+    @apply grid grid-cols-1 gap-5 md:grid-cols-3;
+    grid-auto-rows: 1fr;
   }
 
   .testimonial-card {
-    @apply rounded-2xl border border-border bg-panel/60 p-6 text-left shadow-xl;
+    @apply flex h-96 flex-col rounded-2xl border border-border bg-panel/60 p-6 text-left shadow-xl;
   }
 
   .testimonial-header {
@@ -252,8 +253,13 @@
   }
 
   .testimonial-avatar {
-    @apply h-12 w-12 rounded-full;
+    @apply grid h-12 w-12 place-items-center rounded-full text-lg text-foreground;
     background: linear-gradient(135deg, hsla(var(--accent-2), 0.3), hsla(var(--accent-3), 0.3));
+    background-size: cover;
+  }
+
+  .testimonial-avatar::before {
+    content: "\1F464";
   }
 
   .testimonial-meta h3 {
@@ -262,6 +268,10 @@
 
   .testimonial-body p {
     @apply text-sm text-muted-foreground;
+  }
+
+  .testimonial-body {
+    @apply space-y-3 overflow-y-auto;
   }
 
   .tech-stack {
