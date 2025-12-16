@@ -307,7 +307,15 @@
   }
 
   .growth-item.is-reversed {
-    @apply md:grid-flow-col;
+    @apply md:grid-cols-[0.8fr_1.2fr];
+  }
+
+  .growth-item.is-reversed .growth-copy {
+    @apply md:order-2 md:text-right;
+  }
+
+  .growth-item.is-reversed .growth-visual {
+    @apply md:order-1;
   }
 
   .growth-copy h3 {
