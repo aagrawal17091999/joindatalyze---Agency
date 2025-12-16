@@ -1080,7 +1080,7 @@ h3 {
   border-radius: 14px;
   color: var(--muted);
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
-  text-align: center;
+  text-align: left;
 }
 
 .avatar {
