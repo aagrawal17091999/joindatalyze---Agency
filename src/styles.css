@@ -423,7 +423,15 @@
   }
 
   .about-block.align-right {
-    @apply md:grid-flow-col;
+    @apply md:grid-cols-[0.9fr_1.1fr];
+  }
+
+  .about-block.align-right .about-copy {
+    @apply md:order-2 md:text-right;
+  }
+
+  .about-block.align-right .about-visual {
+    @apply md:order-1;
   }
 
   .about-copy {
