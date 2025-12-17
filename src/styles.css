@@ -631,19 +631,19 @@
   }
 
   .case-thumb {
-    @apply flex h-40 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent p-4;
+    @apply flex h-40 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-white p-4;
   }
 
   .case-thumb.alt {
-    background: linear-gradient(140deg, hsla(var(--accent-2), 0.14), hsla(var(--accent-3), 0.18));
+    background: white;
   }
 
   .case-thumb.gradient {
-    background: linear-gradient(140deg, hsla(var(--accent-3), 0.16), hsla(var(--accent-2), 0.14), hsla(var(--accent), 0.14));
+    background: white;
   }
 
   .case-thumb.bold {
-    background: linear-gradient(140deg, hsla(var(--accent), 0.2), hsla(var(--accent-3), 0.2));
+    background: white;
   }
 
   .case-meta {
@@ -671,11 +671,11 @@
   }
 
   .case-visual {
-    @apply flex min-h-[180px] items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent p-6;
+    @apply flex min-h-[180px] items-center justify-center overflow-hidden rounded-xl border border-border bg-white p-6;
   }
 
   .case-visual.alt {
-    background: linear-gradient(135deg, hsla(var(--accent-2), 0.12), hsla(var(--accent-3), 0.16));
+    background: white;
   }
 
   .case-logo {
