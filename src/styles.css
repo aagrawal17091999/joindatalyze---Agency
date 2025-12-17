@@ -631,7 +631,7 @@
   }
 
   .case-thumb {
-    @apply h-40 w-full rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent;
+    @apply flex h-40 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent p-4;
   }
 
   .case-thumb.alt {
@@ -671,11 +671,19 @@
   }
 
   .case-visual {
-    @apply min-h-[180px] rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent;
+    @apply flex min-h-[180px] items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent p-6;
   }
 
   .case-visual.alt {
     background: linear-gradient(135deg, hsla(var(--accent-2), 0.12), hsla(var(--accent-3), 0.16));
+  }
+
+  .case-logo {
+    @apply max-h-16 w-auto object-contain;
+  }
+
+  .case-logo-large {
+    @apply max-h-24 w-auto object-contain md:max-h-28;
   }
 
   .case-content {
