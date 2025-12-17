@@ -356,6 +356,10 @@
     @apply md:order-1;
   }
 
+  .growth-copy {
+    @apply text-left;
+  }
+
   .growth-copy h3 {
     @apply text-xl font-semibold;
   }
