@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 223 45% 6%;
-    --foreground: 224 100% 95%;
-    --card: 223 45% 15%;
-    --panel: 223 45% 18%;
-    --muted: 225 31% 78%;
-    --muted-foreground: 225 26% 80%;
-    --accent: 25 95% 52%;
-    --accent-2: 188 85% 54%;
-    --accent-3: 262 84% 64%;
-    --primary: 262 84% 64%;
-    --primary-foreground: 226 35% 8%;
-    --secondary: 188 85% 54%;
-    --secondary-foreground: 226 35% 8%;
-    --muted-foreground-strong: 224 30% 90%;
-    --border: 223 28% 26%;
-    --input: 223 28% 26%;
-    --ring: 262 84% 64%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 214 32% 97%;
+    --panel: 214 32% 96%;
+    --muted: 214 25% 92%;
+    --muted-foreground: 215 19% 35%;
+    --accent: 221 83% 53%;
+    --accent-2: 221 83% 53%;
+    --accent-3: 221 83% 53%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
+    --muted-foreground-strong: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
     --radius: 0.875rem;
   }
 
@@ -32,9 +32,6 @@
     @apply min-h-screen bg-background text-foreground antialiased text-center;
     margin: 0;
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background-image: radial-gradient(circle at 20% 10%, hsla(var(--accent-3), 0.22), transparent 22%),
-      radial-gradient(circle at 80% 20%, hsla(var(--secondary), 0.16), transparent 20%),
-      linear-gradient(180deg, hsl(var(--background)), hsl(223 40% 12%));
     line-height: 1.6;
   }
 
@@ -43,7 +40,7 @@
   }
 
   a:hover {
-    @apply text-white;
+    color: hsl(var(--accent));
   }
 
   h1 {
@@ -61,7 +58,7 @@
 
 @layer components {
   .page-shell {
-    @apply min-h-screen bg-gradient-to-br from-white/5 via-transparent to-transparent;
+    @apply min-h-screen bg-background;
   }
 
   .container {
@@ -73,7 +70,7 @@
   }
 
   .section.surface {
-    @apply border-y border-border bg-gradient-to-b from-white/5 via-transparent to-transparent;
+    @apply border-y border-border bg-card;
   }
 
   .section-header {
@@ -111,17 +108,17 @@
   }
 
   .btn.primary {
-    @apply bg-gradient-to-r from-[hsl(var(--accent-3))] to-[hsl(var(--accent-2))] text-primary-foreground shadow-[0_20px_60px_hsla(var(--accent-3),0.3)];
+    @apply bg-[hsl(var(--accent))] text-primary-foreground shadow-[0_12px_30px_hsla(var(--accent),0.25)];
   }
 
   .btn.ghost {
-    @apply border-border bg-white/5 text-white;
+    @apply border-border bg-transparent text-foreground;
   }
 
   .btn.soft {
-    @apply border text-white;
-    border-color: hsla(var(--accent-3), 0.4);
-    background: hsla(var(--accent-3), 0.15);
+    @apply border text-foreground;
+    border-color: hsl(var(--border));
+    background: hsl(var(--card));
   }
 
   .btn.pill {
@@ -145,8 +142,8 @@
   }
 
   .brand-mark {
-    @apply grid h-10 w-10 place-items-center rounded-xl font-extrabold text-[hsl(var(--primary-foreground))] shadow-[0_20px_50px_hsla(var(--accent-3),0.4)];
-    background: linear-gradient(140deg, hsl(var(--accent-3)), hsl(var(--accent)));
+    @apply grid h-10 w-10 place-items-center rounded-xl font-extrabold text-[hsl(var(--primary-foreground))] shadow-[0_10px_30px_hsla(var(--accent),0.2)];
+    background: hsl(var(--accent));
   }
 
   .brand-text {
@@ -166,7 +163,7 @@
   }
 
   .site-nav a {
-    @apply rounded-full px-3 py-2 text-muted-foreground transition-colors hover:bg-white/5 hover:text-white;
+    @apply rounded-full px-3 py-2 text-muted-foreground transition-colors hover:bg-card hover:text-foreground;
   }
 
   .hero {
@@ -198,7 +195,7 @@
   }
 
   .hero-stats .stat {
-    @apply w-full border-white/10 bg-white/5 shadow-[0_18px_50px_rgba(0,0,0,0.3)];
+    @apply w-full bg-card shadow-[0_12px_30px_rgba(15,23,42,0.05)];
   }
 
   .cta-group {
@@ -206,7 +203,7 @@
   }
 
   .logo-banner {
-    @apply w-full bg-white py-6 shadow-[0_12px_40px_rgba(0,0,0,0.12)];
+    @apply w-full bg-white py-6 shadow-[0_12px_40px_rgba(15,23,42,0.08)];
     margin: clamp(2rem, 6vw, 3.5rem) auto;
   }
 
@@ -238,7 +235,7 @@
   }
 
   .stat {
-    @apply flex min-h-[120px] flex-col items-center justify-center rounded-2xl border border-border bg-card/70 px-4 py-4 text-center shadow-lg;
+    @apply flex min-h-[120px] flex-col items-center justify-center rounded-2xl border border-border bg-card px-4 py-4 text-center shadow-lg;
   }
 
   .stat-value {
@@ -266,11 +263,11 @@
   }
 
   .feature-card {
-    @apply rounded-2xl border border-border bg-card/60 p-5 text-left shadow-lg backdrop-blur;
+    @apply rounded-2xl border border-border bg-card p-5 text-left shadow-lg;
   }
 
   .icon-circle {
-    @apply mb-3 grid h-12 w-12 place-items-center rounded-full bg-white/10 text-lg shadow-inner;
+    @apply mb-3 grid h-12 w-12 place-items-center rounded-full bg-card text-lg shadow-inner;
   }
 
   .testimonials {
@@ -283,7 +280,7 @@
   }
 
   .testimonial-card {
-    @apply flex h-96 flex-col rounded-2xl border border-border bg-panel/60 p-6 text-left shadow-xl;
+    @apply flex h-96 flex-col rounded-2xl border border-border bg-panel p-6 text-left shadow-xl;
   }
 
   .testimonial-header {
@@ -291,9 +288,7 @@
   }
 
   .testimonial-avatar {
-    @apply grid h-12 w-12 place-items-center rounded-full text-lg text-foreground;
-    background: linear-gradient(135deg, hsla(var(--accent-2), 0.3), hsla(var(--accent-3), 0.3));
-    background-size: cover;
+    @apply grid h-12 w-12 place-items-center rounded-full bg-[hsl(var(--accent))] text-lg text-primary-foreground;
   }
 
   .testimonial-avatar::before {
@@ -321,7 +316,7 @@
   }
 
   .tech-item {
-    @apply flex flex-col items-center gap-3 rounded-xl border border-border bg-card/60 px-4 py-5 text-center shadow-inner;
+    @apply flex flex-col items-center gap-3 rounded-xl border border-border bg-card px-4 py-5 text-center shadow-inner;
   }
 
   .tech-item img {
@@ -341,7 +336,7 @@
   }
 
   .growth-item {
-    @apply grid items-center gap-4 rounded-2xl border border-border bg-card/60 p-6 shadow-lg md:grid-cols-[1.2fr_0.8fr];
+    @apply grid items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-lg md:grid-cols-[1.2fr_0.8fr];
   }
 
   .growth-item.is-reversed {
@@ -369,7 +364,7 @@
   }
 
   .visual-placeholder {
-    @apply h-32 rounded-xl border border-dashed border-border bg-gradient-to-br from-white/5 to-transparent;
+    @apply h-32 rounded-xl border border-dashed border-border bg-card;
   }
 
   .faq-list {
@@ -377,7 +372,7 @@
   }
 
   .faq-item {
-    @apply rounded-xl border border-border bg-card/60 p-5 shadow-inner;
+    @apply rounded-xl border border-border bg-card p-5 shadow-inner;
   }
 
   .faq-item summary {
@@ -389,7 +384,7 @@
   }
 
   .site-footer {
-    @apply border-t border-border bg-card/60 py-10 text-left;
+    @apply border-t border-border bg-card py-10 text-left;
   }
 
   .footer-grid {
@@ -417,7 +412,7 @@
   }
 
   .footer-nav a {
-    @apply rounded-lg px-2 py-1 hover:bg-white/5 hover:text-white;
+    @apply rounded-lg px-2 py-1 text-muted-foreground transition-colors hover:bg-card hover:text-foreground;
   }
 
   .copyright {
@@ -425,18 +420,18 @@
   }
 
   .subtle-card {
-    @apply rounded-2xl border border-border bg-panel/70 p-6 text-left shadow-lg;
+    @apply rounded-2xl border border-border bg-panel p-6 text-left shadow-lg;
   }
 
   .accent-card {
     @apply rounded-2xl border p-6 text-left shadow-lg;
-    border-color: hsla(var(--accent-2), 0.4);
-    background: hsla(var(--accent-2), 0.1);
+    border-color: hsla(var(--accent), 0.35);
+    background: hsla(var(--accent), 0.08);
   }
 
   .hero-visual,
   .banner-img {
-    @apply overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-white/5 to-transparent shadow-2xl;
+    @apply overflow-hidden rounded-2xl border border-border bg-card shadow-2xl;
   }
 
   .hero-visual img,
@@ -453,7 +448,7 @@
   }
 
   .inline-pill {
-    @apply rounded-full border border-border bg-white/5 px-3 py-1;
+    @apply rounded-full border border-border bg-card px-3 py-1;
   }
 
   .about-stack {
@@ -461,7 +456,7 @@
   }
 
   .about-block {
-    @apply grid items-center gap-6 rounded-2xl border border-border bg-card/60 p-6 shadow-lg md:grid-cols-[1.1fr_0.9fr];
+    @apply grid items-center gap-6 rounded-2xl border border-border bg-card p-6 shadow-lg md:grid-cols-[1.1fr_0.9fr];
   }
 
   .about-block.align-right {
@@ -485,94 +480,15 @@
   }
 
   .about-visual {
-    @apply relative flex h-56 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-white/5 to-transparent;
-  }
-
-  .orbiter {
-    @apply relative h-36 w-36;
-  }
-
-  .glow {
-    @apply absolute inset-4 rounded-full blur-3xl opacity-60;
-  }
-
-  .glow-primary {
-    background: radial-gradient(circle at 40% 40%, hsla(var(--accent-3), 0.4), transparent 55%);
-  }
-
-  .glow-secondary {
-    background: radial-gradient(circle at 60% 60%, hsla(var(--secondary), 0.35), transparent 55%);
-  }
-
-  .orbit-track {
-    @apply absolute inset-0 rounded-full border border-dashed border-border;
-    animation: spin 18s linear infinite;
-  }
-
-  .orbit-dot {
-    @apply absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-[hsl(var(--accent-2))] to-[hsl(var(--accent-3))] shadow-lg;
-    transform-origin: -90px;
-    animation: spin 12s linear infinite;
-  }
-
-  .orbit-dot.delayed {
-    animation-duration: 16s;
-  }
-
-  .beam-visual {
-    @apply relative h-56 w-full overflow-hidden rounded-xl border border-border;
-    background: linear-gradient(135deg, hsla(var(--accent-2), 0.15), transparent, hsla(var(--accent-3), 0.2));
-  }
-
-  .beam-visual .beam,
-  .beam-visual .trail,
-  .beam-visual .flare {
-    @apply absolute h-1 w-3/4 rounded-full;
-    background: linear-gradient(90deg, hsla(var(--secondary), 0), hsla(var(--secondary), 0.8), hsla(var(--accent-3), 0));
-    animation: sweep 5s ease-in-out infinite;
-  }
-
-  .beam-visual .trail {
-    @apply h-2 opacity-40 blur-sm;
-    animation-duration: 6s;
-  }
-
-  .beam-visual .flare {
-    @apply h-3 opacity-30 blur-lg;
-    animation-duration: 7s;
-  }
-
-  .pulse-visual {
-    @apply relative h-56 w-full overflow-hidden rounded-xl border border-border;
-    background: linear-gradient(140deg, hsla(var(--accent-3), 0.12), hsla(var(--accent-2), 0.12));
-  }
-
-  .pulse-ring {
-    @apply absolute rounded-full border border-white/40;
-    animation: pulse 4s ease-in-out infinite;
-  }
-
-  .pulse-ring:nth-child(1) {
-    @apply h-24 w-24;
-  }
-
-  .pulse-ring:nth-child(2) {
-    @apply h-36 w-36;
-    animation-delay: 0.8s;
-  }
-
-  .pulse-ring:nth-child(3) {
-    @apply h-48 w-48;
-    animation-delay: 1.6s;
+    @apply relative flex h-56 w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-card;
   }
 
   .map-visual {
-    @apply grid gap-3 rounded-xl border border-border p-4;
-    background: linear-gradient(135deg, hsla(var(--accent-2), 0.1), hsla(var(--accent-3), 0.1));
+    @apply grid gap-3 rounded-xl border border-border bg-card p-4;
   }
 
   .map-frame {
-    @apply relative overflow-hidden rounded-lg border border-border bg-white/5 shadow-inner;
+    @apply relative overflow-hidden rounded-lg border border-border bg-card shadow-inner;
   }
 
   .map-frame img {
@@ -580,8 +496,8 @@
   }
 
   .map-marker {
-    @apply absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_16px_hsla(var(--accent-3),0.6)];
-    background: linear-gradient(120deg, hsl(var(--accent)), hsl(var(--accent-2)));
+    @apply absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-[0_0_16px_hsla(var(--accent),0.35)];
+    background: hsl(var(--accent));
     animation: pulse 3s ease-in-out infinite;
   }
 
@@ -598,8 +514,7 @@
   }
 
   .callout {
-    @apply border-y border-border text-center;
-    background: linear-gradient(120deg, hsla(var(--accent-3), 0.15), transparent, hsla(var(--accent-2), 0.12));
+    @apply border-y border-border bg-card text-center;
   }
 
   .service-bands {
@@ -607,11 +522,11 @@
   }
 
   .service-block {
-    @apply grid items-center gap-5 rounded-2xl border border-border bg-panel/70 p-6 shadow-lg md:grid-cols-2;
+    @apply grid items-center gap-5 rounded-2xl border border-border bg-panel p-6 shadow-lg md:grid-cols-2;
   }
 
   .service-visual {
-    @apply h-52 rounded-xl border border-dashed border-border bg-gradient-to-br from-white/5 to-transparent;
+    @apply h-52 rounded-xl border border-dashed border-border bg-card;
   }
 
   .service-copy {
@@ -631,7 +546,7 @@
   }
 
   .case-card {
-    @apply flex h-full flex-col gap-4 rounded-2xl border border-border bg-card/60 p-5 text-left shadow-lg;
+    @apply flex h-full flex-col gap-4 rounded-2xl border border-border bg-card p-5 text-left shadow-lg;
   }
 
   .case-thumb {
@@ -667,11 +582,11 @@
   }
 
   .tags span {
-    @apply rounded-full border border-border bg-white/5 px-3 py-1 text-sm text-muted-foreground;
+    @apply rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground;
   }
 
   .case-page {
-    @apply grid gap-4 overflow-hidden rounded-2xl border border-border bg-panel/70 shadow-xl md:grid-cols-1;
+    @apply grid gap-4 overflow-hidden rounded-2xl border border-border bg-panel shadow-xl md:grid-cols-1;
   }
 
   .case-visual {
@@ -724,7 +639,7 @@
   }
 
   .case-image {
-    @apply w-full rounded-xl border border-border bg-white/5;
+    @apply w-full rounded-xl border border-border bg-card;
   }
 
   .case-gallery-inline {
@@ -740,8 +655,8 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: linear-gradient(120deg, hsl(var(--accent-3)), hsl(var(--accent-2)));
-    box-shadow: 0 0 18px hsla(var(--accent-3), 0.45);
+    background: hsl(var(--accent));
+    box-shadow: 0 0 12px hsla(var(--accent), 0.35);
   }
 
   .resources-grid {
@@ -749,16 +664,20 @@
   }
 
   .resource-card {
-    @apply rounded-2xl border border-border bg-card/60 p-5 text-left shadow-lg;
+    @apply rounded-2xl border border-border bg-card p-5 text-left shadow-lg;
   }
 
   .resource-chip {
-    @apply inline-flex items-center rounded-full border border-border bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground;
+    @apply inline-flex items-center rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground;
   }
 
   .resource-link {
-    @apply text-foreground underline decoration-2 underline-offset-4 transition-colors hover:text-white;
-    text-decoration-color: hsla(var(--accent-2), 0.7);
+    @apply text-foreground underline decoration-2 underline-offset-4 transition-colors;
+    text-decoration-color: hsla(var(--accent), 0.7);
+  }
+
+  .resource-link:hover {
+    color: hsl(var(--accent));
   }
 
   .resources-grid p {
@@ -767,7 +686,7 @@
 
   .contact-card,
   .callout-card {
-    @apply rounded-2xl border border-border bg-panel/70 p-6 text-left shadow-lg;
+    @apply rounded-2xl border border-border bg-panel p-6 text-left shadow-lg;
   }
 
   .map-shell {
