@@ -42,6 +42,9 @@
         <section class="section">
           <div class="container auth-shell">
             <div class="auth-card">
+              <div class="auth-logo" aria-hidden="true">
+                <span></span>
+              </div>
               <p class="eyebrow">Account access</p>
               <h1>Sign in to your account</h1>
               <p class="section-lead">
@@ -54,7 +57,7 @@
 
               <form class="auth-form" id="login-form">
                 <label class="form-field">
-                  <span>Email</span>
+                  <span>Email address</span>
                   <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
                 </label>
                 <label class="form-field">
@@ -62,6 +65,9 @@
                   <input type="password" name="password" autocomplete="current-password" required />
                 </label>
                 <button class="btn primary" type="submit">Sign in</button>
+                <p class="auth-policy">
+                  Read our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service">Terms of Service</a>.
+                </p>
                 <p class="auth-switch">
                   New to Datalyze? <a href="/signup" id="signup-link">Create an account</a>
                 </p>
