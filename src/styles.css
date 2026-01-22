@@ -58,7 +58,11 @@
 
 @layer components {
   .page-shell {
-    @apply min-h-screen bg-background;
+    @apply flex min-h-screen flex-col bg-background;
+  }
+
+  .page-shell main {
+    @apply flex-1;
   }
 
   .container {
@@ -109,6 +113,10 @@
 
   .btn.primary {
     @apply bg-[hsl(var(--accent))] text-primary-foreground shadow-[0_12px_30px_hsla(var(--accent),0.25)];
+  }
+
+  .btn.auth-cta {
+    @apply bg-blue-600 text-primary-foreground shadow-[0_12px_30px_rgba(37,99,235,0.3)];
   }
 
   .btn.ghost {
@@ -721,7 +729,8 @@
   }
 
   .auth-card {
-    @apply w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-lg;
+    @apply flex w-full max-w-md flex-col items-stretch rounded-2xl bg-card p-8 text-center shadow-lg;
+    border: 2px solid hsla(var(--accent), 0.35);
   }
 
   .auth-logo {
@@ -745,7 +754,7 @@
   }
 
   .tool-access-name {
-    @apply text-lg font-semibold text-foreground;
+    @apply text-xl font-semibold text-foreground md:text-2xl;
   }
 
   .auth-grid {
@@ -753,7 +762,7 @@
   }
 
   .auth-form {
-    @apply mt-6 flex flex-col gap-4;
+    @apply mt-6 flex w-full flex-col gap-4;
   }
 
   .auth-form h2 {
@@ -761,11 +770,11 @@
   }
 
   .form-field {
-    @apply flex flex-col gap-2 text-left text-sm font-semibold text-foreground;
+    @apply flex w-full flex-col gap-2 text-left text-sm font-semibold text-foreground;
   }
 
   .form-field input {
-    @apply rounded-full border border-border bg-panel px-4 py-3 text-sm text-foreground shadow-inner;
+    @apply w-full rounded-xl border border-border bg-panel px-4 py-3 text-sm text-foreground shadow-inner;
   }
 
   .auth-form .btn {
