@@ -728,6 +728,10 @@
     @apply mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-panel px-4 py-4;
   }
 
+  .tool-access-note {
+    @apply mt-6 text-sm text-muted-foreground;
+  }
+
   .tool-access-label {
     @apply text-xs font-semibold uppercase tracking-wide text-muted-foreground;
   }
@@ -760,6 +764,10 @@
     @apply mt-6 rounded-lg border border-border bg-panel px-4 py-3 text-sm text-muted-foreground;
   }
 
+  .auth-status:empty {
+    @apply hidden;
+  }
+
   .auth-status[data-state='success'] {
     @apply border-emerald-500/40 text-emerald-400;
   }
@@ -777,7 +785,7 @@
   }
 
   .auth-switch a {
-    @apply font-semibold text-foreground;
+    @apply font-semibold text-[hsl(var(--accent))];
   }
 
   .auth-info-card {

@@ -48,13 +48,9 @@
                 Access Datalyze tools with your email and password.
               </p>
 
-              <div class="tool-access-card">
-                <div>
-                  <p class="tool-access-label">Accessing</p>
-                  <p class="tool-access-name" id="tool-name">Datalyze tools</p>
-                </div>
-                <a class="btn ghost" href="/tools">Browse tools</a>
-              </div>
+              <p class="tool-access-note">
+                Accessing <span class="tool-access-name" id="tool-name">Datalyze tools</span>
+              </p>
 
               <form class="auth-form" id="login-form">
                 <label class="form-field">
@@ -66,16 +62,13 @@
                   <input type="password" name="password" autocomplete="current-password" required />
                 </label>
                 <button class="btn primary" type="submit">Sign in</button>
-                <button class="btn ghost" type="button" id="google-login">Continue with Google</button>
+                <p class="auth-switch">
+                  New to Datalyze? <a href="/signup" id="signup-link">Create an account</a>
+                </p>
               </form>
-
-              <div class="auth-status" id="auth-status" role="status" aria-live="polite"></div>
               <p class="auth-footnote">
                 By continuing, you agree to store your account data in Firebase and tool usage events in
                 Google BigQuery.
-              </p>
-              <p class="auth-switch">
-                New to Datalyze? <a href="/signup" id="signup-link">Create an account</a>
               </p>
             </div>
           </div>
