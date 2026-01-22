@@ -51,9 +51,21 @@ if (toolNameEl) {
   toolNameEl.textContent = toolMeta ? toolMeta.name : 'Datalyze tools';
 }
 
+const signupLink = document.querySelector('#signup-link');
+const signinLink = document.querySelector('#signin-link');
+const toolQuery = toolId ? `?tool=${toolId}` : '';
+
+if (signupLink && toolQuery) {
+  signupLink.href = `/signup${toolQuery}`;
+}
+
+if (signinLink && toolQuery) {
+  signinLink.href = `/signin${toolQuery}`;
+}
+
 const config = window.__FIREBASE_CONFIG__;
 if (!config || config.apiKey === 'YOUR_FIREBASE_API_KEY') {
-  console.warn('Firebase config missing. Update __FIREBASE_CONFIG__ in auth.html.');
+  console.warn('Firebase config missing. Update __FIREBASE_CONFIG__ in signin.html or signup.html.');
 }
 
 const app = initializeApp(config);
