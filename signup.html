@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In | Datalyze</title>
+    <title>Create Account | Datalyze</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,9 +43,9 @@
           <div class="container auth-shell">
             <div class="auth-card">
               <p class="eyebrow">Account access</p>
-              <h1>Sign in to your account</h1>
+              <h1>Create your account</h1>
               <p class="section-lead">
-                Access Datalyze tools with your email and password.
+                Sign up with your work email to start using Datalyze tools.
               </p>
 
               <div class="tool-access-card">
@@ -56,17 +56,20 @@
                 <a class="btn ghost" href="/tools">Browse tools</a>
               </div>
 
-              <form class="auth-form" id="login-form">
+              <form class="auth-form" id="signup-form">
                 <label class="form-field">
-                  <span>Email</span>
+                  <span>Full name</span>
+                  <input type="text" name="name" autocomplete="name" placeholder="Jane Doe" required />
+                </label>
+                <label class="form-field">
+                  <span>Work email</span>
                   <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
                 </label>
                 <label class="form-field">
                   <span>Password</span>
-                  <input type="password" name="password" autocomplete="current-password" required />
+                  <input type="password" name="password" autocomplete="new-password" required />
                 </label>
-                <button class="btn primary" type="submit">Sign in</button>
-                <button class="btn ghost" type="button" id="google-login">Continue with Google</button>
+                <button class="btn primary" type="submit">Create account</button>
               </form>
 
               <div class="auth-status" id="auth-status" role="status" aria-live="polite"></div>
@@ -75,7 +78,7 @@
                 Google BigQuery.
               </p>
               <p class="auth-switch">
-                New to Datalyze? <a href="/signup" id="signup-link">Create an account</a>
+                Already have an account? <a href="/auth" id="signin-link">Sign in</a>
               </p>
             </div>
           </div>
@@ -120,10 +123,10 @@
 
     <script>
       window.__FIREBASE_CONFIG__ = {
-        apiKey: "AIzaSyBUu5V6NxY2LogRQ5d9vZTAxAKkqUwtvqo",
-        authDomain: "datalyze-agency.firebaseapp.com",
-        projectId: "datalyze-agency",
-        appId: "1:714301365208:web:3fd05a8ef1f5ab028370ad"
+        apiKey: "YOUR_FIREBASE_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        appId: "YOUR_APP_ID"
       };
       window.__CLOUD_FUNCTIONS_BASE_URL__ = "https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net";
     </script>
