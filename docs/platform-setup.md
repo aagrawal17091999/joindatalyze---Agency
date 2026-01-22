@@ -6,7 +6,7 @@ BigQuery, and deploy Streamlit tools.
 ## 1) Firebase project + Auth
 
 1. Create a Firebase project in the Firebase Console.
-2. Add a Web app and copy the config into `auth.html` (`window.__FIREBASE_CONFIG__`).
+2. Add a Web app and copy the config into `src/config.js` (`firebaseConfig`).
 3. In **Authentication → Sign-in method**, enable Email/Password and Google (optional).
 
 ## 2) BigQuery dataset
@@ -38,7 +38,7 @@ npm install
 npm run deploy
 ```
 
-4. Copy the function base URL into `auth.html` (`window.__CLOUD_FUNCTIONS_BASE_URL__`).
+4. Copy the function base URL into `src/config.js` (`cloudFunctionsBaseUrl`).
 
 ### IAM permissions
 
