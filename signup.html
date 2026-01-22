@@ -42,6 +42,9 @@
         <section class="section">
           <div class="container auth-shell">
             <div class="auth-card">
+              <div class="auth-logo" aria-hidden="true">
+                <span></span>
+              </div>
               <p class="eyebrow">Account access</p>
               <h1>Create your account</h1>
               <p class="section-lead">
@@ -54,7 +57,11 @@
 
               <form class="auth-form" id="signup-form">
                 <label class="form-field">
-                  <span>Work email</span>
+                  <span>Full Name</span>
+                  <input type="text" name="fullName" autocomplete="name" placeholder="John Doe" required />
+                </label>
+                <label class="form-field">
+                  <span>Email address</span>
                   <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
                 </label>
                 <label class="form-field">
@@ -62,6 +69,9 @@
                   <input type="password" name="password" autocomplete="new-password" required />
                 </label>
                 <button class="btn primary" type="submit">Create account</button>
+                <p class="auth-policy">
+                  Read our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service">Terms of Service</a>.
+                </p>
                 <p class="auth-switch">
                   Already have an account? <a href="/signin" id="signin-link">Sign in</a>
                 </p>
@@ -75,7 +85,7 @@
         </section>
       </main>
 
-      <footer class="site-footer" data-site-footer data-footer-variant="auth"></footer>
+      <footer class="site-footer" data-site-footer data-footer-variant="primary"></footer>
     </div>
     <script type="module" src="/src/auth.js"></script>
     <script type="module" src="/src/main.js"></script>
