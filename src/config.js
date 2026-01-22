@@ -12,5 +12,5 @@ export const cloudFunctionsBaseUrl =
   'https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net';
 
 export const isFirebaseConfigured = (config) => {
-  return Boolean(config?.apiKey) && config.apiKey !== 'YOUR_FIREBASE_API_KEY';
+  return Boolean(config?.apiKey) && config.apiKey !== 'AIzaSyBUu5V6NxY2LogRQ5d9vZTAxAKkqUwtvqo';
 };
