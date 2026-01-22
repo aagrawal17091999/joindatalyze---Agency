@@ -25,6 +25,9 @@ The production-ready static assets are emitted to `dist/` and can be deployed to
 - `index` — Entry HTML file defining the page sections and content blocks.
 - `src/main.js` — Minimal client entry that imports global styles and sets the footer year.
 - `src/styles.css` — Tailwind + shadcn/ui themed globals, layout system, and component primitives (cards, grids, buttons, animations).
+- `tools` — Tools landing page that links into Firebase-authenticated Streamlit tools.
+- `auth` — Sign-in/sign-up page wired to Firebase Auth with BigQuery event logging.
+- `docs/platform-setup.md` — Firebase, Cloud Functions, BigQuery, and Streamlit deployment guide.
 
 ## Staging deployment (what you’ll need)
 
