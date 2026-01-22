@@ -5,10 +5,7 @@ import {
   getAuth,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-  updateProfile
+  signInWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 
 import {
@@ -121,23 +118,18 @@ onAuthStateChanged(auth, async (user) => {
 
 const signupForm = document.querySelector('#signup-form');
 const loginForm = document.querySelector('#login-form');
-const googleButton = document.querySelector('#google-login');
 
 if (signupForm) {
   signupForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const formData = new FormData(signupForm);
-    const name = formData.get('name');
     const email = formData.get('email');
     const password = formData.get('password');
 
     try {
       setStatus('Creating your account…');
       const result = await createUserWithEmailAndPassword(auth, email, password);
-      if (name) {
-        await updateProfile(result.user, { displayName: name });
-      }
-      await postEvent('signup', result.user, { name });
+      await postEvent('signup', result.user);
       setStatus('Account created. Redirecting…', 'success');
       redirectToTool();
     } catch (error) {
@@ -163,22 +155,6 @@ if (loginForm) {
     } catch (error) {
       console.error(error);
       setStatus(error.message || 'Unable to sign in. Try again.', 'error');
-    }
-  });
-}
-
-if (googleButton) {
-  googleButton.addEventListener('click', async () => {
-    try {
-      setStatus('Opening Google sign-in…');
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      await postEvent('login', result.user, { provider: 'google' });
-      setStatus('Signed in. Redirecting…', 'success');
-      redirectToTool();
-    } catch (error) {
-      console.error(error);
-      setStatus(error.message || 'Google sign-in failed. Try again.', 'error');
     }
   });
 }

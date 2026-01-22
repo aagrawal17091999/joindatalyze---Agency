@@ -48,19 +48,11 @@
                 Sign up with your work email to start using Datalyze tools.
               </p>
 
-              <div class="tool-access-card">
-                <div>
-                  <p class="tool-access-label">Accessing</p>
-                  <p class="tool-access-name" id="tool-name">Datalyze tools</p>
-                </div>
-                <a class="btn ghost" href="/tools">Browse tools</a>
-              </div>
+              <p class="tool-access-note">
+                Accessing <span class="tool-access-name" id="tool-name">Datalyze tools</span>
+              </p>
 
               <form class="auth-form" id="signup-form">
-                <label class="form-field">
-                  <span>Full name</span>
-                  <input type="text" name="name" autocomplete="name" placeholder="Jane Doe" required />
-                </label>
                 <label class="form-field">
                   <span>Work email</span>
                   <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
@@ -70,15 +62,13 @@
                   <input type="password" name="password" autocomplete="new-password" required />
                 </label>
                 <button class="btn primary" type="submit">Create account</button>
+                <p class="auth-switch">
+                  Already have an account? <a href="/signin" id="signin-link">Sign in</a>
+                </p>
               </form>
-
-              <div class="auth-status" id="auth-status" role="status" aria-live="polite"></div>
               <p class="auth-footnote">
                 By continuing, you agree to store your account data in Firebase and tool usage events in
                 Google BigQuery.
-              </p>
-              <p class="auth-switch">
-                Already have an account? <a href="/signin" id="signin-link">Sign in</a>
               </p>
             </div>
           </div>
