@@ -56,14 +56,29 @@
               </p>
 
               <form class="auth-form" id="login-form">
-                <label class="form-field">
-                  <span>Email address</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
-                </label>
-                <label class="form-field">
-                  <span>Password</span>
-                  <input type="password" name="password" autocomplete="current-password" required />
-                </label>
+                <div class="auth-field">
+                  <label class="auth-label" for="signin-email">Email address</label>
+                  <input
+                    class="auth-input"
+                    id="signin-email"
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@company.com"
+                    required
+                  />
+                </div>
+                <div class="auth-field">
+                  <label class="auth-label" for="signin-password">Password</label>
+                  <input
+                    class="auth-input"
+                    id="signin-password"
+                    type="password"
+                    name="password"
+                    autocomplete="current-password"
+                    required
+                  />
+                </div>
                 <button class="btn auth-cta" type="submit">Sign in</button>
                 <p class="auth-switch">
                   New to Datalyze? <a href="/signup" id="signup-link">Create an account</a>
