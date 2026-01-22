@@ -11,6 +11,12 @@ import {
   updateProfile
 } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 
+import {
+  cloudFunctionsBaseUrl,
+  firebaseConfig,
+  isFirebaseConfigured
+} from './config.js';
+
 const toolConfig = {
   'event-cleanup': {
     name: 'Event Cleanup Assistant',
@@ -63,12 +69,11 @@ if (signinLink && toolQuery) {
   signinLink.href = `/signin${toolQuery}`;
 }
 
-const config = window.__FIREBASE_CONFIG__;
-if (!config || config.apiKey === 'YOUR_FIREBASE_API_KEY') {
-  console.warn('Firebase config missing. Update __FIREBASE_CONFIG__ in signin.html or signup.html.');
+if (!isFirebaseConfigured(firebaseConfig)) {
+  console.warn('Firebase config missing. Update src/config.js with your Firebase project values.');
 }
 
-const app = initializeApp(config);
+const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const statusEl = document.querySelector('#auth-status');
 
@@ -79,13 +84,12 @@ const setStatus = (message, type = 'info') => {
 };
 
 const postEvent = async (eventName, user, payload = {}) => {
-  const baseUrl = window.__CLOUD_FUNCTIONS_BASE_URL__;
-  if (!baseUrl || baseUrl.includes('YOUR_REGION')) {
+  if (!cloudFunctionsBaseUrl || cloudFunctionsBaseUrl.includes('YOUR_REGION')) {
     return;
   }
 
   const token = await user.getIdToken();
-  await fetch(`${baseUrl}/recordToolEvent`, {
+  await fetch(`${cloudFunctionsBaseUrl}/recordToolEvent`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

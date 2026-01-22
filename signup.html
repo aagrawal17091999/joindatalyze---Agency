@@ -85,51 +85,8 @@
         </section>
       </main>
 
-      <footer class="site-footer">
-        <div class="container footer-grid">
-          <div class="footer-brand">
-            <div class="brand">
-              <span class="brand-mark">D</span>
-              <div class="brand-text">
-                <span class="brand-name">Datalyze</span>
-                <span class="brand-tag">Analytics & Growth</span>
-              </div>
-            </div>
-            <p>
-              Datalyze is your analytics and growth partner. We help teams collect clean data, unlock
-              insights, and run experiments that compound.
-            </p>
-          </div>
-          <div class="footer-links">
-            <div>
-              <span>Company</span>
-              <a href="/about">About</a>
-              <a href="/services">Services</a>
-              <a href="/case-studies/">Case Studies</a>
-            </div>
-            <div>
-              <span>Resources</span>
-              <a href="/resources">Resources</a>
-              <a href="/faqs">FAQs</a>
-              <a href="/contact">Contact</a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© <span id="year"></span> Datalyze. All rights reserved.</p>
-        </div>
-      </footer>
+      <footer class="site-footer" data-site-footer data-footer-variant="auth"></footer>
     </div>
-
-    <script>
-      window.__FIREBASE_CONFIG__ = {
-        apiKey: "AIzaSyBUu5V6NxY2LogRQ5d9vZTAxAKkqUwtvqo",
-        authDomain: "datalyze-agency.firebaseapp.com",
-        projectId: "datalyze-agency",
-        appId: "1:714301365208:web:3fd05a8ef1f5ab028370ad"
-      };
-      window.__CLOUD_FUNCTIONS_BASE_URL__ = "https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net";
-    </script>
     <script type="module" src="/src/auth.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>

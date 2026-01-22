@@ -1,9 +1,22 @@
 import './styles.css';
+import { renderFooter } from './components/footer.js';
 
-const yearEl = document.querySelector('#year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+const setCurrentYear = () => {
+  const yearEl = document.querySelector('#year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+};
+
+const hydrateFooter = () => {
+  const footer = document.querySelector('[data-site-footer]');
+  if (!footer) return;
+
+  footer.innerHTML = renderFooter(footer.dataset.footerVariant || 'primary');
+  setCurrentYear();
+};
+
+hydrateFooter();
 
 const trackBaseCache = new WeakMap();
 
