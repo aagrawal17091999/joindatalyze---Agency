@@ -53,18 +53,41 @@
               </p>
 
               <form class="auth-form" id="signup-form">
-                <label class="form-field">
-                  <span>Full Name</span>
-                  <input type="text" name="fullName" autocomplete="name" placeholder="John Doe" required />
-                </label>
-                <label class="form-field">
-                  <span>Email address</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
-                </label>
-                <label class="form-field">
-                  <span>Password</span>
-                  <input type="password" name="password" autocomplete="new-password" required />
-                </label>
+                <div class="auth-field">
+                  <label class="auth-label" for="signup-full-name">Full Name</label>
+                  <input
+                    class="auth-input"
+                    id="signup-full-name"
+                    type="text"
+                    name="fullName"
+                    autocomplete="name"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+                <div class="auth-field">
+                  <label class="auth-label" for="signup-email">Email address</label>
+                  <input
+                    class="auth-input"
+                    id="signup-email"
+                    type="email"
+                    name="email"
+                    autocomplete="email"
+                    placeholder="you@company.com"
+                    required
+                  />
+                </div>
+                <div class="auth-field">
+                  <label class="auth-label" for="signup-password">Password</label>
+                  <input
+                    class="auth-input"
+                    id="signup-password"
+                    type="password"
+                    name="password"
+                    autocomplete="new-password"
+                    required
+                  />
+                </div>
                 <button class="btn auth-cta" type="submit">Create account</button>
                 <p class="auth-switch">
                   Already have an account? <a href="/signin" id="signin-link">Sign in</a>
