@@ -1,8 +1,11 @@
 export const firebaseConfig = {
-  apiKey: 'AIzaSyBUu5V6NxY2LogRQ5d9vZTAxAKkqUwtvqo',
-  authDomain: 'datalyze-agency.firebaseapp.com',
-  projectId: 'datalyze-agency',
-  appId: '1:714301365208:web:3fd05a8ef1f5ab028370ad'
+  apiKey: "AIzaSyBUu5V6NxY2LogRQ5d9vZTAxAKkqUwtvqo",
+  authDomain: "datalyze-agency.firebaseapp.com",
+  projectId: "datalyze-agency",
+  storageBucket: "datalyze-agency.firebasestorage.app",
+  messagingSenderId: "714301365208",
+  appId: "1:714301365208:web:3fd05a8ef1f5ab028370ad",
+  measurementId: "G-HLPH3ZNZ9M"
 };
 
 export const cloudFunctionsBaseUrl =
