@@ -730,7 +730,8 @@
 
   .auth-card {
     @apply flex w-full max-w-md flex-col items-center rounded-2xl bg-card p-8 text-center shadow-lg;
-    border: 2px solid hsla(221, 83%, 53%, 0.5);
+    border: 2px solid hsla(221, 83%, 53%, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px hsla(221, 83%, 53%, 0.2);
   }
 
   .auth-logo {
