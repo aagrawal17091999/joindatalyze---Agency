@@ -12,95 +12,62 @@
     />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="header-inner">
-          <div class="brand">
-            <span class="brand-mark">D</span>
-            <div class="brand-text">
-              <span class="brand-name">Datalyze</span>
-              <span class="brand-tag">Analytics & Growth</span>
-            </div>
-          </div>
-          <nav class="site-nav">
-            <a href="/index">Home</a>
-            <a href="/about">About</a>
-            <a href="/services">Services</a>
-            <a href="/tools">Tools</a>
-            <a href="/case-studies/">Case Studies</a>
-            <a href="/resources">Resources</a>
-            <a href="/faqs">FAQs</a>
-            <a href="/contact">Contact</a>
-            <a href="/signin">Sign In</a>
-            <a class="btn pill" href="/contact">Book Audit</a>
-          </nav>
+  <body class="auth-page">
+    <div class="auth-container">
+      <div class="auth-card-minimal">
+        <div class="auth-logo-minimal" aria-hidden="true">
+          <span></span>
         </div>
-      </header>
+        <h1 class="auth-title">Create your account</h1>
 
-      <main>
-        <section class="section">
-          <div class="container auth-shell">
-            <div class="auth-card">
-              <div class="auth-logo" aria-hidden="true">
-                <span></span>
-              </div>
-              <p class="eyebrow">Account access</p>
-              <h1>Create your account</h1>
-
-              <p class="tool-access-note">
-                Accessing <span class="tool-access-name" id="tool-name">Datalyze tools</span>
-              </p>
-
-              <form class="auth-form" id="signup-form">
-                <div class="auth-field">
-                  <label class="auth-label" for="signup-full-name">Full Name</label>
-                  <input
-                    class="auth-input"
-                    id="signup-full-name"
-                    type="text"
-                    name="fullName"
-                    autocomplete="name"
-                    placeholder="John Doe"
-                    required
-                  />
-                </div>
-                <div class="auth-field">
-                  <label class="auth-label" for="signup-email">Email address</label>
-                  <input
-                    class="auth-input"
-                    id="signup-email"
-                    type="email"
-                    name="email"
-                    autocomplete="email"
-                    placeholder="you@company.com"
-                    required
-                  />
-                </div>
-                <div class="auth-field">
-                  <label class="auth-label" for="signup-password">Password</label>
-                  <input
-                    class="auth-input"
-                    id="signup-password"
-                    type="password"
-                    name="password"
-                    autocomplete="new-password"
-                    required
-                  />
-                </div>
-                <button class="btn auth-cta" type="submit">Create account</button>
-                <p class="auth-switch">
-                  Already have an account? <a href="/signin" id="signin-link">Sign in</a>
-                </p>
-              </form>
-            </div>
+        <form class="auth-form-minimal" id="signup-form">
+          <div class="auth-field-minimal">
+            <label class="auth-label-minimal" for="signup-full-name">Full Name</label>
+            <input
+              class="auth-input-minimal"
+              id="signup-full-name"
+              type="text"
+              name="fullName"
+              autocomplete="name"
+              placeholder="John Doe"
+              required
+            />
           </div>
-        </section>
-      </main>
-
-      <footer class="site-footer" data-site-footer data-footer-variant="primary"></footer>
+          <div class="auth-field-minimal">
+            <label class="auth-label-minimal" for="signup-email">Email address</label>
+            <input
+              class="auth-input-minimal"
+              id="signup-email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+              required
+            />
+          </div>
+          <div class="auth-field-minimal">
+            <label class="auth-label-minimal" for="signup-password">Password</label>
+            <input
+              class="auth-input-minimal"
+              id="signup-password"
+              type="password"
+              name="password"
+              autocomplete="new-password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button class="auth-btn-minimal" type="submit">Create account</button>
+          <p id="auth-status" class="auth-status-minimal"></p>
+          <p class="auth-policy-minimal">
+            Read our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.
+          </p>
+          <p class="auth-switch-minimal">
+            Already have an account? <a href="/signin" id="signin-link">Sign in</a>
+          </p>
+        </form>
+      </div>
     </div>
     <script type="module" src="/src/auth.js"></script>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
