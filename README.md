@@ -1,39 +1,43 @@
-# Datalyze Landing Page
+# Datalyze
 
-A Vite + TailwindCSS-powered marketing site scaffold for the Datalyze analytics & growth team. The layout is organized into clear sections (hero, growth model, tech stack, testimonials, FAQs, about, services, case studies, resources, and CTAs) so it’s easy to extend with blogs or additional pages later. The design tokens follow the shadcn/ui system with custom gradients and motion flourishes defined in `src/styles.css`.
+Marketing site and app for Datalyze (analytics & growth). Vite + Tailwind frontend; Node/Express API in `server/` with MySQL and Firebase Auth.
 
-## Getting started
+## Quick start
 
+**Frontend**
 ```bash
 npm install
 npm run dev
 ```
+Open **http://localhost:5173**. Copy `.env.example` to `.env` and set Firebase (and optional `VITE_API_BASE_URL`) if using auth or the contact API.
 
-- Visit the dev server output by Vite (defaults to `http://localhost:5173`).
-- Edit `src/styles.css` or `index`; Vite will hot-reload changes. Tailwind picks up classes across all HTML + `src/` files via `tailwind.config.js`.
-
-## Build for static hosting
-
+**Backend**
 ```bash
-npm run build
+cd server
+cp .env.example .env
+# Edit .env: DATABASE_URL (or MYSQL_*), Firebase, CORS_ORIGINS
+npm install
+npm run db:create   # if needed
+npm run migrate
+npm run dev
 ```
+API: **http://localhost:4040**. See [server/README.md](server/README.md) and [docs/backend-setup.md](docs/backend-setup.md).
 
-The production-ready static assets are emitted to `dist/` and can be deployed to any static host (Netlify, Vercel, Cloudflare Pages, S3+CloudFront, etc.).
+## Scripts
 
-## Project structure
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server (frontend) |
+| `npm run build` | Build static assets to `dist/` |
+| `npm run preview` | Preview production build |
 
-- `index` — Entry HTML file defining the page sections and content blocks.
-- `src/main.js` — Minimal client entry that imports global styles and sets the footer year.
-- `src/styles.css` — Tailwind + shadcn/ui themed globals, layout system, and component primitives (cards, grids, buttons, animations).
-- `tools` — Tools landing page that links into Firebase-authenticated Streamlit tools.
-- `auth` — Sign-in/sign-up page wired to Firebase Auth with BigQuery event logging.
-- `docs/platform-setup.md` — Firebase, Cloud Functions, BigQuery, and Streamlit deployment guide.
+## Structure
 
-## Staging deployment (what you’ll need)
+- **Root** — Single `index.html` (SPA shell), Vite + Tailwind config.
+- **src/** — React SPA: `main.jsx` entry, `App.jsx` routes, `components/` (Layout, Header, Footer), `pages/` (one component per route), `context/AuthContext.jsx`, `data/caseStudies.js`. No legacy `.html` pages; all routes are React components.
+- **server/** — Express API, Sequelize, MySQL, Firebase Admin; migrations in `server/migrations/`.
+- **docs/** — [backend-setup.md](docs/backend-setup.md), [platform-setup.md](docs/platform-setup.md), [frontend-architecture.md](docs/frontend-architecture.md).
 
-1. **Node 18+** on CI to run `npm install` and `npm run build`.
-2. **A static host** (e.g., Netlify/Vercel/Cloudflare Pages). Configure the publish directory as `dist/` and use `npm run build` as the build command.
-3. **Environment ownership**: DNS (or a temporary subdomain) pointing to the staging host plus deploy keys/API tokens for CI to publish.
-4. **Optional analytics pixels**: If you want staging instrumentation, add provider snippets into `index` or wire a tag manager later.
+## Deploy (static)
 
-Once those are in place, we can connect the repo to the host, add a simple CI workflow, and ship a staging URL automatically on push.
+Build with `npm run build` and deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages, etc.). Node 18+ required for build.

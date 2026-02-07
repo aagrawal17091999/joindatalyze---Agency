@@ -1,3 +1,29 @@
+# Dependencies & build
 node_modules
-.DS_Store
 dist
+
+# Environment (never commit secrets)
+.env
+.env.local
+.env.*.local
+
+# Backend secrets
+server/.env
+server/serviceAccountKey.json
+**/serviceAccountKey.json
+**/service-account*.json
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+*.log
+.cache
+
+# Optional
+coverage
+.vscode/settings.json
+
+package-lock.json
+
+server/package-lock.json
+.env.example
