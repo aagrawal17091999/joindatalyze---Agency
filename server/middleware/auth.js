@@ -24,14 +24,37 @@ export async function requireAuth(req, res, next) {
     };
     next();
   } catch (err) {
-    const code = err.code || err.message || '';
+    const isDev = process.env.NODE_ENV !== 'production';
+    const code = err.code || err.errorInfo?.code || err.message || '';
+    const msg = err.message || '';
+
+    if (isDev) {
+      console.error('[auth] Token verification failed:', code, msg);
+    }
+
     if (code.includes('auth/id-token-expired')) {
       return res.status(401).json({ error: 'Token expired' });
     }
     if (code.includes('auth/argument-error') || code.includes('auth/id-token-revoked')) {
       return res.status(401).json({ error: 'Invalid token' });
     }
-    return res.status(401).json({ error: 'Authentication failed' });
+    if (code.includes('auth/invalid-credential') || code.includes('auth/insufficient-permission')) {
+      return res.status(401).json({
+        error: isDev
+          ? 'Firebase Admin credential error. Ensure GOOGLE_APPLICATION_CREDENTIALS points to a service account key from the same Firebase project as the frontend (e.g. datalyze-agency).'
+          : 'Authentication failed',
+      });
+    }
+    if (code.includes('auth/project-mismatch') || msg.includes('project')) {
+      return res.status(401).json({
+        error: isDev
+          ? 'Firebase project mismatch. The server\'s service account must be from the same project as the frontend (check project_id in service account JSON).'
+          : 'Authentication failed',
+      });
+    }
+    return res.status(401).json({
+      error: isDev && (code || msg) ? `Authentication failed: ${code || msg}` : 'Authentication failed',
+    });
   }
 }
 

@@ -40,6 +40,19 @@ export function AuthProvider({ children }) {
   const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
   const signOut = () => firebaseSignOut(auth);
 
+  /** Sync current Firebase user to local backend (create or update user row). Call after signup/signin. */
+  const syncUserToBackend = async (firebaseUser) => {
+    if (!apiBaseUrl || !firebaseUser) return;
+    const token = await firebaseUser.getIdToken();
+    const res = await fetch(`${apiBaseUrl}/api/users/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || `Backend sync failed (${res.status})`);
+    }
+  };
+
   const postEvent = async (eventName, userObj, payload = {}) => {
     if (!cloudFunctionsBaseUrl || cloudFunctionsBaseUrl.includes('YOUR_REGION')) return;
     try {
@@ -63,6 +76,7 @@ export function AuthProvider({ children }) {
     signUp,
     signIn,
     signOut,
+    syncUserToBackend,
     postEvent,
     isFirebaseConfigured: isFirebaseConfigured(firebaseConfig),
   };

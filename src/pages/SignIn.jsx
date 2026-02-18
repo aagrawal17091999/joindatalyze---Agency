@@ -18,7 +18,7 @@ export default function SignIn() {
   const toolName = toolMeta ? toolMeta.name : 'Datalyze tools';
   const toolQuery = toolId ? `?tool=${toolId}` : '';
 
-  const { signIn, postEvent } = useAuth();
+  const { signIn, syncUserToBackend, postEvent } = useAuth();
   const navigate = useNavigate();
   const [status, setStatus] = useState({ message: '', type: 'info' });
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,7 @@ export default function SignIn() {
     setStatus({ message: 'Signing you in…', type: 'info' });
     try {
       const result = await signIn(email, password);
+      await syncUserToBackend(result.user);
       await postEvent('login', result.user, { toolId, toolName: toolMeta?.name });
       setStatus({ message: 'Signed in. Taking you home…', type: 'success' });
       setTimeout(redirectAfterAuth, 1200);

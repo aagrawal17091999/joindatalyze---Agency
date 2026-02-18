@@ -39,20 +39,96 @@ const TESTIMONIALS = [
     role: 'CEO, Company Name',
     text: 'Datalyze helped us turn scattered data into a single source of truth. Our team now makes decisions in hours, not days. Highly recommend.',
     avatar: null,
+    rating: 5,
   },
   {
     name: 'Jane Smith',
     role: 'Head of Growth, Startup Co',
     text: 'The analytics foundation they built has been a game-changer. We finally have clean funnels and reliable metrics we can trust.',
     avatar: null,
+    rating: 5,
   },
   {
     name: 'Alex Chen',
     role: 'Product Lead, Tech Inc',
     text: 'Professional, responsive, and deeply knowledgeable. They integrated with our stack seamlessly and delivered exactly what we needed.',
     avatar: null,
+    rating: 3,
   },
 ];
+
+function StarRating({ rating, active = false, max = 5 }) {
+  return (
+    <span className="testimonial-stars" aria-label={`${rating} out of ${max} stars`}>
+      {Array.from({ length: max }).map((_, i) => (
+        <span
+          key={i}
+          className={`testimonial-star ${i < rating ? 'filled' : 'empty'} ${active ? 'active' : ''}`}
+          aria-hidden="true"
+        >
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
+  const n = testimonials.length;
+  const prevIndex = (activeIndex - 1 + n) % n;
+  const nextIndex = (activeIndex + 1) % n;
+  const prev = testimonials[prevIndex];
+  const curr = testimonials[activeIndex];
+  const next = testimonials[nextIndex];
+
+  const row = (t, isActive, goToIndex) => (
+    <button
+      type="button"
+      className={`testimonial-slider-row ${isActive ? 'active' : 'inactive'}`}
+      onClick={() => !isActive && onSelect(goToIndex)}
+      aria-pressed={isActive}
+      aria-label={isActive ? `Current: ${t.name}` : `Show testimonial by ${t.name}`}
+    >
+      <span className="testimonial-slider-avatar">
+        {isActive ? (
+          t.avatar ? <img src={t.avatar} alt="" /> : (t.name || '?').charAt(0)
+        ) : null}
+      </span>
+      <span className="testimonial-slider-info">
+        <span className="testimonial-slider-name">{t.name}</span>
+        <StarRating rating={isActive ? (t.rating ?? 5) : 5} active={isActive} />
+      </span>
+    </button>
+  );
+
+  return (
+    <div className="testimonial-slider-wrap">
+      <div className="testimonial-slider-connectors" aria-hidden="true">
+        <svg viewBox="0 0 100 200" className="testimonial-slider-arcs">
+          {/* Half circle arc: top → middle (left) → bottom */}
+          <path
+            d="M 50 31 A 80 80 0 0 1 10 100 A 80 80 0 0 1 50 169"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="testimonial-slider-halfcircle"
+          />
+        </svg>
+      </div>
+      <div className="testimonial-slider-rows testimonial-slider-halfcircle-rows">
+        <div className="testimonial-slider-pos testimonial-slider-pos-top">
+          {row(prev, false, prevIndex)}
+        </div>
+        <div className="testimonial-slider-pos testimonial-slider-pos-middle">
+          {row(curr, true, activeIndex)}
+        </div>
+        <div className="testimonial-slider-pos testimonial-slider-pos-bottom">
+          {row(next, false, nextIndex)}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const GROWTH_STEPS = [
   { num: 1, title: 'Set up your data for accuracy', description: 'We audit your tracking and data pipelines so your numbers are reliable and consistent.' },
@@ -93,6 +169,7 @@ function HeroGridIcon() {
 
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   return (
     <>
@@ -155,17 +232,19 @@ export default function Home() {
             <p className="section-lead">What our partners say about working with us.</p>
           </div>
           <div className="home-testimonials-inner">
-            <div className="home-testimonials-avatars">
-              {TESTIMONIALS.map((t, i) => (
-                <div key={i} className="home-testimonial-avatar" aria-hidden="true">
-                  {(t.name || '?').charAt(0)}
-                </div>
-              ))}
+            <div className="home-testimonials-slider-col">
+              <TestimonialSlider
+                testimonials={TESTIMONIALS}
+                activeIndex={testimonialIndex}
+                onSelect={setTestimonialIndex}
+              />
             </div>
             <div className="home-testimonial-content">
               <span className="home-testimonial-quote" aria-hidden="true">"</span>
-              <p className="home-testimonial-text">{TESTIMONIALS[0].text}</p>
-              <p className="home-testimonial-meta">{TESTIMONIALS[0].name}, {TESTIMONIALS[0].role}</p>
+              <p className="home-testimonial-text">{TESTIMONIALS[testimonialIndex].text}</p>
+              <p className="home-testimonial-meta">
+                {TESTIMONIALS[testimonialIndex].name}, {TESTIMONIALS[testimonialIndex].role}
+              </p>
             </div>
           </div>
         </div>

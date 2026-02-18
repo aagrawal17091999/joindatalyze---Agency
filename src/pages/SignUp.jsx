@@ -18,7 +18,7 @@ export default function SignUp() {
   const toolName = toolMeta ? toolMeta.name : 'Datalyze tools';
   const toolQuery = toolId ? `?tool=${toolId}` : '';
 
-  const { signUp, postEvent } = useAuth();
+  const { signUp, syncUserToBackend, postEvent } = useAuth();
   const navigate = useNavigate();
   const [status, setStatus] = useState({ message: '', type: 'info' });
   const [loading, setLoading] = useState(false);
@@ -40,6 +40,7 @@ export default function SignUp() {
     setStatus({ message: 'Creating your account…', type: 'info' });
     try {
       const result = await signUp(email, password);
+      await syncUserToBackend(result.user);
       await postEvent('signup', result.user, { toolId, toolName: toolMeta?.name });
       setStatus({ message: 'Account created. Taking you home…', type: 'success' });
       setTimeout(redirectAfterAuth, 1200);

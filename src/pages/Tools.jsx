@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const tools = [
@@ -7,9 +8,12 @@ const tools = [
   { id: 'growth-forecast', chip: 'Forecasting', status: 'Coming soon', title: 'Growth Forecast Builder', description: 'Build a 90-day growth forecast with traffic, conversion, and revenue scenarios you can share with stakeholders.', cta: 'Join the waitlist', meta: 'Launch Q4', ghost: true },
   { id: 'ads-roi', chip: 'Marketing', status: 'Coming soon', title: 'Paid Ads ROI Snapshot', description: 'Combine ad spend and revenue data to get a daily ROI snapshot and budget recommendations.', cta: 'Join the waitlist', meta: 'Launch Q4', ghost: true },
   { id: 'pricing-lab', chip: 'Pricing', status: 'Coming soon', title: 'Pricing Experiment Lab', description: 'Model pricing experiments and understand revenue sensitivity across your plan tiers.', cta: 'Join the waitlist', meta: 'Launch Q1', ghost: true },
+  { id: 'gdp-dashboard', chip: 'Dashboard', status: 'Live', title: 'GDP Dashboard', description: 'Explore GDP metrics and insights in an interactive Streamlit dashboard.', cta: 'Open dashboard', meta: 'Embedded view', ghost: false, iframeUrl: 'https://gdp-dashboard-kg4b37ktk0d.streamlit.app/?embed=true' },
 ];
 
 export default function Tools() {
+  const [iframeTool, setIframeTool] = useState(null);
+
   return (
     <>
       <section className="section surface">
@@ -32,7 +36,13 @@ export default function Tools() {
                 <h3>{t.title}</h3>
                 <p>{t.description}</p>
                 <div className="tool-footer">
-                  <Link className={t.ghost ? 'btn ghost' : 'btn primary'} to={`/signup?tool=${t.id}`}>{t.cta}</Link>
+                  {t.iframeUrl ? (
+                    <button type="button" className={t.ghost ? 'btn ghost' : 'btn primary'} onClick={() => setIframeTool(t)}>
+                      {t.cta}
+                    </button>
+                  ) : (
+                    <Link className={t.ghost ? 'btn ghost' : 'btn primary'} to={`/signup?tool=${t.id}`}>{t.cta}</Link>
+                  )}
                   <span className="tool-meta">{t.meta}</span>
                 </div>
               </article>
@@ -40,6 +50,22 @@ export default function Tools() {
           </div>
         </div>
       </section>
+
+      {iframeTool && (
+        <div className="tools-iframe-overlay" role="dialog" aria-modal="true" aria-label={`${iframeTool.title} – embedded`}>
+          <div className="tools-iframe-header">
+            <span className="tools-iframe-title">{iframeTool.title}</span>
+            <button type="button" className="tools-iframe-close" onClick={() => setIframeTool(null)} aria-label="Close">
+              ×
+            </button>
+          </div>
+          <iframe
+            src={iframeTool.iframeUrl}
+            title={iframeTool.title}
+            className="tools-iframe"
+          />
+        </div>
+      )}
       <section className="section">
         <div className="container">
           <div className="callout-card tools-callout">

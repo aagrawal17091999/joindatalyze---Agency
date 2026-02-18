@@ -1,25 +1,46 @@
 import admin from 'firebase-admin';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
 
 let initialized = false;
 
-function initFirebaseAdmin() {
-  if (initialized) return admin;
-
+function getCredential() {
   const cred = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
   if (cred) {
     try {
       const json = JSON.parse(
         typeof cred === 'string' && cred.startsWith('{') ? cred : Buffer.from(cred, 'base64').toString('utf8')
       );
-      admin.initializeApp({ credential: admin.credential.cert(json) });
+      return admin.credential.cert(json);
     } catch (e) {
       throw new Error('Invalid FIREBASE_SERVICE_ACCOUNT_JSON: ' + e.message);
     }
-  } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    admin.initializeApp({ credential: admin.credential.applicationDefault() });
-  } else {
-    throw new Error('Set GOOGLE_APPLICATION_CREDENTIALS or FIREBASE_SERVICE_ACCOUNT_JSON for Firebase Admin');
   }
+  const path = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
+  if (path) {
+    try {
+      const absPath = resolve(path);
+      const json = JSON.parse(readFileSync(absPath, 'utf8'));
+      return admin.credential.cert(json);
+    } catch (e) {
+      throw new Error('Invalid FIREBASE_SERVICE_ACCOUNT_PATH or file: ' + e.message);
+    }
+  }
+  throw new Error(
+    'Set FIREBASE_SERVICE_ACCOUNT_JSON or FIREBASE_SERVICE_ACCOUNT_PATH in .env (with FIREBASE_PROJECT_ID etc.) for Firebase Admin'
+  );
+}
+
+function initFirebaseAdmin() {
+  if (initialized) return admin;
+
+  const credential = getCredential();
+  const projectId = process.env.FIREBASE_PROJECT_ID || undefined;
+
+  admin.initializeApp({
+    credential,
+    ...(projectId && { projectId }),
+  });
 
   initialized = true;
   return admin;
