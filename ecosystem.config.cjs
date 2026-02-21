@@ -1,5 +1,6 @@
 /**
  * PM2 ecosystem file – run backend and frontend together.
+ * Suited for AWS Ubuntu (frontend bound to 0.0.0.0 so it’s reachable via server IP/domain).
  *
  * Usage:
  *   npm run build          # build frontend once (from repo root)
@@ -25,7 +26,7 @@ module.exports = {
       name: 'datalyze-frontend',
       cwd: './',
       script: 'npx',
-      args: 'vite preview --open false',
+      args: 'vite preview --open false --host 0.0.0.0',
       env: { NODE_ENV: 'production', BROWSER: 'none' },
       instances: 1,
       autorestart: true,
