@@ -1,3 +1,5 @@
+import { caseStudyContent } from './caseStudyContent.js';
+
 export const caseStudyList = [
   { slug: 'copyfy', logo: '/logos/Copyfy.png', alt: 'Copyfy logo', meta: 'AI Website Builder · Analytics', title: 'Copyfy', description: 'Built end-to-end Mixpanel, unified identities, and doubled onboarding conversion.', tags: ['Mixpanel', 'Conversion', 'Data quality'], thumbClass: '' },
   { slug: 'foriio', logo: '/logos/Foriio.png', alt: 'Foriio logo', meta: 'Portfolio Platform · Activation', title: 'Foriio', description: 'Drove uploads with behaviour-based nudges and a streamlined add-work flow.', tags: ['Activation', 'Lifecycle', 'UX'], thumbClass: 'alt' },
@@ -18,7 +20,31 @@ export const caseStudyList = [
 ];
 
 export const caseStudyBySlug = {
-  copyfy: { title: 'Full-funnel analytics and conversion lifts for an AI site builder', lead: 'Copyfy', subtitle: 'AI Website Builder', website: 'https://copyfy.io/', logo: '/logos/Copyfy.png' },
+  copyfy: {
+    title: 'Full-funnel analytics and conversion lifts for an AI site builder',
+    lead: 'Copyfy',
+    subtitle: 'AI Website Builder',
+    website: 'https://copyfy.io/',
+    logo: '/logos/Copyfy.png',
+    sections: [
+      {
+        heading: 'The challenge',
+        body: 'Copyfy is an AI-powered website builder helping users create and launch sites quickly. The product team needed a single source of truth for user behaviour from signup through activation and ongoing usage. Events were scattered, identities were inconsistent across touchpoints, and the team couldn’t reliably measure onboarding conversion or attribute improvements to specific changes.',
+      },
+      {
+        heading: 'What we did',
+        body: 'We designed and implemented an end-to-end Mixpanel setup tailored to Copyfy’s funnel. We defined a clear event taxonomy and unified user identity across web and product so that every touchpoint could be tied to one user journey. We built funnels for signup, first-site creation, and key activation milestones, and added property-level governance so new events would stay consistent. We also ran a focused analysis on drop-off in the onboarding flow and recommended UX and instrumentation fixes.',
+      },
+      {
+        heading: 'Results',
+        body: 'Copyfy gained full visibility into the funnel and reliable conversion metrics. After implementing the recommended changes and cleaning up identity resolution, onboarding conversion doubled. The team now uses the same Mixpanel foundation for ongoing experiments and prioritization, with high confidence in data quality.',
+      },
+      {
+        heading: 'Tags',
+        body: 'Mixpanel · Conversion · Data quality',
+      },
+    ],
+  },
   foriio: { title: 'Foriio', lead: 'Foriio', subtitle: '', website: 'https://www.foriio.com/', logo: '/logos/Foriio.png' },
   cred: { title: 'Payment routing optimization and rent success lift', lead: 'CRED', subtitle: 'Fintech', website: 'https://cred.club/', logo: '/logos/CRED.png' },
   sama: { title: 'Sama.io', lead: 'Sama.io', subtitle: '', website: 'https://sama.io/', logo: '/logos/Sama.png' },
@@ -35,3 +61,10 @@ export const caseStudyBySlug = {
   frai: { title: 'Insight-led experiments that doubled paid conversion', lead: 'FRAI', subtitle: '', website: '', logo: '/logos/final%20round%20ai.png' },
   anyip: { title: 'Analytics ownership and ROI visibility for AnyIP', lead: 'AnyIP', subtitle: 'Infrastructure', website: 'https://anyip.io/', logo: '/logos/AnyIP.png' },
 };
+
+// Merge full content from docs (intro + sections with blocks)
+Object.keys(caseStudyContent).forEach((slug) => {
+  if (caseStudyBySlug[slug]) {
+    Object.assign(caseStudyBySlug[slug], caseStudyContent[slug]);
+  }
+});
