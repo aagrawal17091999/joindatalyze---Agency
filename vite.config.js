@@ -17,6 +17,9 @@ export default defineConfig({
     port: 5173,
     open: !process.env.VITE_NO_OPEN,
   },
+  preview: {
+    allowedHosts: ['site.joindatalyze.com'],
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
