@@ -75,4 +75,4 @@ quick internal demos or prototyping.
 - Create a `tools/` GitHub org with one repo per tool.
 - Standardize on a shared `requirements.txt` + `app.py` template.
 - Add a CI step to deploy (Streamlit Cloud or Cloud Run).
-- Update `src/auth.js` with the new tool URL and metadata.
+- Update the tool config in `src/pages/SignIn.jsx` and `src/pages/SignUp.jsx` (e.g. `toolConfig`) with the new tool URL and metadata.

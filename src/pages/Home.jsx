@@ -1,0 +1,344 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+const TECH_STACK_IMAGES = [
+  'amplitude.png',
+  'bigquery.png',
+  'databricks.png',
+  'fivetran.png',
+  'google analytics.png',
+  'google tag manager.png',
+  'growthbook.png',
+  'hubspot.png',
+  'looker studio.png',
+  'metabase.png',
+  'mixpanel.png',
+  'optimizely.png',
+  'posthog.png',
+  'power BI.png',
+  'redash.png',
+  'rudderstack.png',
+  'segment.png',
+  'slack.png',
+  'snowflake.png',
+  'statsig.png',
+  'tableau.png',
+  'vwo.png',
+].map((file) => ({
+  src: `/teck_stack/${encodeURIComponent(file)}`,
+  name: file.replace(/\.png$/i, '').replace(/\b\w/g, (c) => c.toUpperCase()),
+}));
+
+const WHY_ITEMS = [
+  {
+    title: 'Data consolidation',
+    description: 'We bring your data from multiple sources into one reliable view so you can see the full picture and make decisions with confidence.',
+    icon: (
+      <svg className="home-why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM16 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM16 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'The team',
+    description: 'A small team of experts focused on analytics, data engineering, and growth. We work alongside your product and growth teams with no unnecessary layers.',
+    icon: (
+      <svg className="home-why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Responsiveness',
+    description: 'We move fast and stay aligned. Clear communication, quick turnaround on insights, and a partnership that adapts to your priorities.',
+    icon: (
+      <svg className="home-why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M8 12h8M8 16h8M8 8h4M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5" />
+      </svg>
+    ),
+  },
+];
+
+const TESTIMONIALS = [
+  {
+    name: 'John Doe',
+    role: 'CEO, Company Name',
+    text: 'Datalyze helped us turn scattered data into a single source of truth. Our team now makes decisions in hours, not days. Highly recommend.',
+    avatar: null,
+    rating: 5,
+  },
+  {
+    name: 'Jane Smith',
+    role: 'Head of Growth, Startup Co',
+    text: 'The analytics foundation they built has been a game-changer. We finally have clean funnels and reliable metrics we can trust.',
+    avatar: null,
+    rating: 5,
+  },
+  {
+    name: 'Alex Chen',
+    role: 'Product Lead, Tech Inc',
+    text: 'Professional, responsive, and deeply knowledgeable. They integrated with our stack seamlessly and delivered exactly what we needed.',
+    avatar: null,
+    rating: 3,
+  },
+];
+
+function StarRating({ rating, active = false, max = 5 }) {
+  return (
+    <span className="testimonial-stars" aria-label={`${rating} out of ${max} stars`}>
+      {Array.from({ length: max }).map((_, i) => (
+        <span
+          key={i}
+          className={`testimonial-star ${i < rating ? 'filled' : 'empty'} ${active ? 'active' : ''}`}
+          aria-hidden="true"
+        >
+          ★
+        </span>
+      ))}
+    </span>
+  );
+}
+
+function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
+  const n = testimonials.length;
+  const prevIndex = (activeIndex - 1 + n) % n;
+  const nextIndex = (activeIndex + 1) % n;
+  const prev = testimonials[prevIndex];
+  const curr = testimonials[activeIndex];
+  const next = testimonials[nextIndex];
+
+  const row = (t, isActive, goToIndex) => (
+    <button
+      type="button"
+      className={`testimonial-slider-row ${isActive ? 'active' : 'inactive'}`}
+      onClick={() => !isActive && onSelect(goToIndex)}
+      aria-pressed={isActive}
+      aria-label={isActive ? `Current: ${t.name}` : `Show testimonial by ${t.name}`}
+    >
+      <span className="testimonial-slider-avatar">
+        {isActive ? (
+          t.avatar ? <img src={t.avatar} alt="" /> : (t.name || '?').charAt(0)
+        ) : null}
+      </span>
+      <span className="testimonial-slider-info">
+        <span className="testimonial-slider-name">{t.name}</span>
+        <StarRating rating={isActive ? (t.rating ?? 5) : 5} active={isActive} />
+      </span>
+    </button>
+  );
+
+  return (
+    <div className="testimonial-slider-wrap">
+      <div className="testimonial-slider-connectors" aria-hidden="true">
+        <svg viewBox="0 0 100 200" className="testimonial-slider-arcs">
+          {/* Half circle arc: top → middle (left) → bottom */}
+          <path
+            d="M 50 31 A 80 80 0 0 1 10 100 A 80 80 0 0 1 50 169"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            className="testimonial-slider-halfcircle"
+          />
+        </svg>
+      </div>
+      <div className="testimonial-slider-rows testimonial-slider-halfcircle-rows">
+        <div className="testimonial-slider-pos testimonial-slider-pos-top">
+          {row(prev, false, prevIndex)}
+        </div>
+        <div className="testimonial-slider-pos testimonial-slider-pos-middle">
+          {row(curr, true, activeIndex)}
+        </div>
+        <div className="testimonial-slider-pos testimonial-slider-pos-bottom">
+          {row(next, false, nextIndex)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const GROWTH_STEPS = [
+  { num: 1, title: 'Set up your data for accuracy', description: 'We audit your tracking and data pipelines so your numbers are reliable and consistent.' },
+  { num: 2, title: 'Consolidate and unify sources', description: 'Bring product, marketing, and revenue data into one view with clear user mapping.' },
+  { num: 3, title: 'Build dashboards and reports', description: 'Create simple, actionable reports your team can use every day.' },
+  { num: 4, title: 'Uncover insights and opportunities', description: 'Deep analysis to understand behavior, find drop-offs, and spot high-impact levers.' },
+  { num: 5, title: 'Design and run experiments', description: 'Turn insights into tests—we help you design, measure, and scale what works.' },
+  { num: 6, title: 'Scale what works', description: 'Double down on winning experiments and build systems that compound growth over time.' },
+];
+
+const HOME_FAQS = [
+  { q: 'How do you get started?', a: 'We typically begin with a short discovery call to understand your goals and data landscape. From there we propose a scope and timeline.' },
+  { q: 'What is Datalyze?', a: 'Datalyze is an analytics and growth partner. We help you set up your data correctly, understand how users behave, and use those insights to run experiments and improve revenue.' },
+  { q: 'How fast can you get started?', a: 'We can usually start within a day once you decide to work with us.' },
+  { q: 'Who will I work with?', a: "You'll work with a small, focused team based on your needs—product analyst, analytics engineer, growth strategist—with no unnecessary layers." },
+];
+
+function HeroDataIcon() {
+  return (
+    <svg className="home-hero-center-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <circle cx="32" cy="32" r="28" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+      <circle cx="32" cy="20" r="4" fill="currentColor" opacity="0.9" />
+      <circle cx="20" cy="40" r="4" fill="currentColor" opacity="0.7" />
+      <circle cx="44" cy="40" r="4" fill="currentColor" opacity="0.7" />
+      <path d="M32 24v8M32 32l-8 8M32 32l8 8" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+    </svg>
+  );
+}
+
+function HeroGridIcon() {
+  return (
+    <svg className="home-hero-grid-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+      <rect x="4" y="4" width="16" height="16" rx="2" opacity="0.5" />
+      <path d="M9 12h6M12 9v6" opacity="0.8" />
+    </svg>
+  );
+}
+
+export default function Home() {
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="home-hero section" id="hero">
+        <div className="container">
+          <div className="home-hero-inner">
+            <div className="home-hero-left">
+              <div className="home-hero-icon-wrap">
+                <HeroDataIcon />
+              </div>
+              <h1 className="home-hero-title">
+                Turn user behavior into measurable growth and revenue with Datalyze
+              </h1>
+              <p className="home-hero-lead">
+                We help teams collect clean data, unlock insights, and run experiments that compound.
+                From tracking and dashboards to deep analysis and experimentation—we're your fractional analytics and growth partner.
+              </p>
+              <div className="home-hero-ctas">
+                <Link className="btn primary" to="/contact">Get Started</Link>
+                <Link className="btn ghost home-btn-outline" to="/about">Learn More</Link>
+              </div>
+            </div>
+            <div className="home-hero-right">
+              <div className="home-hero-grid">
+                {TECH_STACK_IMAGES.slice(0, 9).map((item, i) => (
+                  <div key={i} className="home-hero-grid-cell" title={item.name}>
+                    <img src={item.src} alt={item.name} loading="eager" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why work with us */}
+      <section className="section home-why" id="why-work-with-us">
+        <div className="container">
+          <div className="section-header">
+            <h2>Why work with us</h2>
+          </div>
+          <div className="home-why-grid">
+            {WHY_ITEMS.map((item) => (
+              <div key={item.title} className="feature-card home-why-card">
+                <div className="home-why-icon-wrap">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section home-testimonials" id="testimonials">
+        <div className="container">
+          <div className="section-header">
+            <h2>Testimonials</h2>
+            <p className="section-lead">What our partners say about working with us.</p>
+          </div>
+          <div className="home-testimonials-inner">
+            <div className="home-testimonials-slider-col">
+              <TestimonialSlider
+                testimonials={TESTIMONIALS}
+                activeIndex={testimonialIndex}
+                onSelect={setTestimonialIndex}
+              />
+            </div>
+            <div className="home-testimonial-content">
+              <span className="home-testimonial-quote" aria-hidden="true">"</span>
+              <p className="home-testimonial-text">{TESTIMONIALS[testimonialIndex].text}</p>
+              <p className="home-testimonial-meta">
+                {TESTIMONIALS[testimonialIndex].name}, {TESTIMONIALS[testimonialIndex].role}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack - 6 columns, images only */}
+      <section className="section home-tech" id="tech-stack">
+        <div className="container">
+          <div className="section-header">
+            <h2>Tech Stack</h2>
+            <p className="section-lead">Tools and platforms we work with every day.</p>
+          </div>
+          <div className="home-tech-grid">
+            {TECH_STACK_IMAGES.map((item, i) => (
+              <div key={i} className="home-tech-cell" title={item.name}>
+                <img src={item.src} alt={item.name} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Growth model */}
+      <section className="section home-growth" id="growth-model">
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Growth model</h2>
+            <p className="section-lead">A clear path from messy data to measurable growth.</p>
+          </div>
+          <div className="home-growth-list">
+            {GROWTH_STEPS.map((step) => (
+              <div key={step.num} className="home-growth-item">
+                <div className="home-growth-num">{step.num}</div>
+                <div className="home-growth-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M3 3v18h18M18 9l-5 5-4-4-3 3" />
+                  </svg>
+                </div>
+                <div className="home-growth-copy">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section home-faq" id="faq">
+        <div className="container">
+          <div className="section-header">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div className="faq-list home-faq-list">
+            {HOME_FAQS.map((faq, i) => (
+              <details
+                key={faq.q}
+                className="faq-item"
+                open={openFaqIndex === i}
+              >
+                <summary onClick={(e) => { e.preventDefault(); setOpenFaqIndex((prev) => (prev === i ? null : i)); }}>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
