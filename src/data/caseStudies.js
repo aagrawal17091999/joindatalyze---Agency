@@ -68,3 +68,10 @@ Object.keys(caseStudyContent).forEach((slug) => {
     Object.assign(caseStudyBySlug[slug], caseStudyContent[slug]);
   }
 });
+
+// Add thumbClass from list so detail page can show contrasting logo background (light bg for dark logos)
+caseStudyList.forEach((item) => {
+  if (caseStudyBySlug[item.slug]) {
+    caseStudyBySlug[item.slug].thumbClass = item.thumbClass || '';
+  }
+});

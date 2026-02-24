@@ -37,7 +37,7 @@ export default function CaseStudy() {
           </p>
         </div>
         <article className="case-page">
-          <div className="case-visual">
+          <div className={`case-visual ${data.thumbClass || ''}`.trim()}>
             <img src={data.logo} alt="" className="case-logo case-logo-large" />
           </div>
           <div className="case-content">

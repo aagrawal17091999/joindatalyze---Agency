@@ -452,15 +452,19 @@
   .home-hero-grid {
     @apply grid gap-2;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 200px;
+    max-width: 220px;
   }
   @media (min-width: 640px) {
-    .home-hero-grid { max-width: 240px; }
+    .home-hero-grid { max-width: 280px; }
   }
   .home-hero-grid-cell {
-    @apply aspect-square rounded-lg border flex items-center justify-center;
+    @apply aspect-square rounded-lg border flex items-center justify-center p-2;
     background: hsl(var(--card) / 0.6);
     border-color: hsl(var(--border));
+  }
+  .home-hero-grid-cell img {
+    @apply w-full h-full object-contain;
+    filter: brightness(0) invert(1) opacity(0.85);
   }
   .home-hero-grid-cell-icon {
     width: 1.5rem;
@@ -703,14 +707,12 @@
   }
   .home-tech { background: transparent; }
   .home-tech-grid {
-    @apply grid gap-3;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  @media (min-width: 640px) {
-    .home-tech-grid { grid-template-columns: repeat(4, 1fr); }
+    @apply grid gap-3 max-w-5xl mx-auto;
+    grid-template-columns: repeat(6, 1fr);
   }
   .home-tech-cell {
-    @apply flex items-center justify-center rounded-xl border aspect-square p-3;
+    @apply flex items-center justify-center rounded-xl border p-3 min-h-[80px];
+    aspect-ratio: 1.1;
     background: hsl(var(--card) / 0.5);
     border-color: hsl(var(--border));
   }
@@ -1319,6 +1321,14 @@
     border-color: hsl(var(--accent) / 0.2);
   }
 
+  .about-visual-img-wrap {
+    @apply flex h-full w-full overflow-hidden rounded-xl;
+  }
+
+  .about-visual-img {
+    @apply h-full w-full object-cover;
+  }
+
   .map-visual {
     @apply grid gap-3 rounded-xl border border-border bg-card p-4;
   }
@@ -1380,9 +1390,13 @@
   }
 
   .service-visual {
-    @apply h-52 rounded-xl border border-dashed;
+    @apply relative h-52 overflow-hidden rounded-xl border border-border;
     background: hsl(var(--panel));
     border-color: hsl(var(--accent) / 0.3);
+  }
+
+  .service-visual-img {
+    @apply h-full w-full object-cover;
   }
 
   .service-copy {
@@ -1469,8 +1483,11 @@
     border-color: hsl(var(--accent) / 0.2);
   }
 
-  .case-visual.alt {
-    background: white;
+  .case-visual.alt,
+  .case-visual.gradient,
+  .case-visual.bold {
+    background: hsl(0, 0%, 98%);
+    border-color: hsl(0, 0%, 90%);
   }
 
   .case-logo {

@@ -1,3 +1,18 @@
+const SERVICE_IMAGES = [
+  {
+    src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop',
+    alt: 'Analytics dashboard with charts and metrics',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=340&fit=crop',
+    alt: 'Data consolidation and modelling',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop',
+    alt: 'Growth and experimentation',
+  },
+];
+
 export default function Services() {
   return (
     <section className="section surface" id="services">
@@ -9,7 +24,9 @@ export default function Services() {
 
         <div className="service-bands">
           <div className="service-block">
-            <div className="service-visual" aria-hidden="true"></div>
+            <div className="service-visual" aria-hidden="true">
+              <img src={SERVICE_IMAGES[0].src} alt="" className="service-visual-img" />
+            </div>
             <div className="service-copy">
               <h3>Product Analytics</h3>
               <p>
@@ -32,11 +49,15 @@ export default function Services() {
               <p>If your data is fragmented, we consolidate it into a single view with proper user mapping so you can see the full user journey end to end.</p>
               <p>If you want to build data or AI models for personalization, advanced analysis, or automation, we design and implement those foundations for you.</p>
             </div>
-            <div className="service-visual" aria-hidden="true"></div>
+            <div className="service-visual" aria-hidden="true">
+              <img src={SERVICE_IMAGES[1].src} alt="" className="service-visual-img" />
+            </div>
           </div>
 
           <div className="service-block">
-            <div className="service-visual" aria-hidden="true"></div>
+            <div className="service-visual" aria-hidden="true">
+              <img src={SERVICE_IMAGES[2].src} alt="" className="service-visual-img" />
+            </div>
             <div className="service-copy">
               <h3>Growth &amp; Experimentation</h3>
               <p>We work closely with product teams to identify clear opportunities to improve conversion. This includes UI and UX reviews to surface friction points that slow users down or cause drop-offs.</p>

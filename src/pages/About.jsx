@@ -1,5 +1,20 @@
 import { Link } from 'react-router-dom';
 
+const ABOUT_IMAGES = [
+  {
+    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+    alt: 'Team collaboration and analytics',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop',
+    alt: 'Team and growth story',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop',
+    alt: 'Datalyze team',
+  },
+];
+
 export default function About() {
   return (
     <section className="section surface" id="about">
@@ -21,15 +36,8 @@ export default function About() {
               <p>We also help unify data from different sources and build data and AI models on top of it, so your team can move faster without second-guessing the numbers.</p>
               <p>Think of Datalyze as a fractional team covering analytics, data engineering, and growth.</p>
             </div>
-            <div className="about-visual orbit-visual" aria-hidden="true">
-              <div className="orbiter">
-                <span className="glow glow-primary"></span>
-                <span className="glow glow-secondary"></span>
-                <div className="orbit-track">
-                  <span className="orbit-dot"></span>
-                  <span className="orbit-dot delayed"></span>
-                </div>
-              </div>
+            <div className="about-visual about-visual-img-wrap" aria-hidden="true">
+              <img src={ABOUT_IMAGES[0].src} alt="" className="about-visual-img" loading="lazy" />
             </div>
           </article>
 
@@ -40,10 +48,8 @@ export default function About() {
               <p>What started as a solo effort has grown into a small team of experienced operators who work closely with product and growth teams.</p>
               <p>At its core, Datalyze exists to help tech companies reach their next stage of growth with data they can trust. Over the next five years, our goal is to support 500 businesses in building analytics systems they're confident using every day.</p>
             </div>
-            <div className="about-visual beam-visual" aria-hidden="true">
-              <div className="beam"></div>
-              <div className="beam trail"></div>
-              <div className="beam flare"></div>
+            <div className="about-visual about-visual-img-wrap" aria-hidden="true">
+              <img src={ABOUT_IMAGES[1].src} alt="" className="about-visual-img" loading="lazy" />
             </div>
           </article>
 
@@ -57,10 +63,8 @@ export default function About() {
                 <li>Sara Maroouf</li>
               </ul>
             </div>
-            <div className="about-visual pulse-visual" aria-hidden="true">
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
+            <div className="about-visual about-visual-img-wrap" aria-hidden="true">
+              <img src={ABOUT_IMAGES[2].src} alt="" className="about-visual-img" loading="lazy" />
             </div>
           </article>
 

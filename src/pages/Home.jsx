@@ -1,7 +1,33 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const TECH_STACK_CELLS = 16;
+const TECH_STACK_IMAGES = [
+  'amplitude.png',
+  'bigquery.png',
+  'databricks.png',
+  'fivetran.png',
+  'google analytics.png',
+  'google tag manager.png',
+  'growthbook.png',
+  'hubspot.png',
+  'looker studio.png',
+  'metabase.png',
+  'mixpanel.png',
+  'optimizely.png',
+  'posthog.png',
+  'power BI.png',
+  'redash.png',
+  'rudderstack.png',
+  'segment.png',
+  'slack.png',
+  'snowflake.png',
+  'statsig.png',
+  'tableau.png',
+  'vwo.png',
+].map((file) => ({
+  src: `/teck_stack/${encodeURIComponent(file)}`,
+  name: file.replace(/\.png$/i, '').replace(/\b\w/g, (c) => c.toUpperCase()),
+}));
 
 const WHY_ITEMS = [
   {
@@ -195,9 +221,9 @@ export default function Home() {
             </div>
             <div className="home-hero-right">
               <div className="home-hero-grid">
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className="home-hero-grid-cell">
-                    <HeroGridIcon />
+                {TECH_STACK_IMAGES.slice(0, 9).map((item, i) => (
+                  <div key={i} className="home-hero-grid-cell" title={item.name}>
+                    <img src={item.src} alt={item.name} loading="eager" />
                   </div>
                 ))}
               </div>
@@ -250,7 +276,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tech Stack */}
+      {/* Tech Stack - 6 columns, images only */}
       <section className="section home-tech" id="tech-stack">
         <div className="container">
           <div className="section-header">
@@ -258,8 +284,10 @@ export default function Home() {
             <p className="section-lead">Tools and platforms we work with every day.</p>
           </div>
           <div className="home-tech-grid">
-            {Array.from({ length: TECH_STACK_CELLS }).map((_, i) => (
-              <div key={i} className="home-tech-cell" />
+            {TECH_STACK_IMAGES.map((item, i) => (
+              <div key={i} className="home-tech-cell" title={item.name}>
+                <img src={item.src} alt={item.name} loading="lazy" />
+              </div>
             ))}
           </div>
         </div>
