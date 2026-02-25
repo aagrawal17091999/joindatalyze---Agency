@@ -6,8 +6,7 @@ import {
   rateLimitGeneral,
 } from './middleware/security.js';
 import healthRouter from './routes/health.js';
-import contactsRouter from './routes/contacts.js';
-import usersRouter from './routes/users.js';
+import toolDownloadsRouter from './routes/toolDownloads.js';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -22,8 +21,7 @@ app.use(rateLimitGeneral);
 
 // API routes
 app.use(`${API_PREFIX}/health`, healthRouter);
-app.use(`${API_PREFIX}/contacts`, contactsRouter);
-app.use(`${API_PREFIX}/users`, usersRouter);
+app.use(`${API_PREFIX}/tool-downloads`, toolDownloadsRouter);
 
 // 404
 app.use((_req, res) => {

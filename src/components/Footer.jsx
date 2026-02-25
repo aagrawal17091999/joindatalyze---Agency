@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/company/datalyze', label: 'LinkedIn', icon: 'linkedin' },
-  { href: 'mailto:hello@datalyze.io', label: 'Email', icon: 'email' },
+  { href: 'mailto:ansh@joindatalyze.com', label: 'Email', icon: 'email' },
 ];
 
 const navGroups = [
@@ -19,8 +19,8 @@ const navGroups = [
     title: 'Resources',
     links: [
       { to: '/resources', label: 'Resources' },
-      { to: '/faqs', label: 'FAQs' },
       { to: '/tools', label: 'Tools' },
+      { to: 'https://blog.joindatalyze.com', label: 'Blog', external: true },
     ],
   },
 ];
@@ -50,11 +50,8 @@ export default function Footer({ variant = 'primary' }) {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="brand">
-                <span className="brand-mark">D</span>
-                <div className="brand-text">
-                  <span className="brand-name">Datalyze</span>
-                  <span className="brand-tag">Analytics & Growth</span>
-                </div>
+                <img src="/datalyze logo small arrow.svg" alt="" className="brand-logo" aria-hidden="true" />
+                <span className="brand-name">Datalyze</span>
               </div>
             </div>
             {variant !== 'auth' && (
@@ -81,9 +78,13 @@ export default function Footer({ variant = 'primary' }) {
               <div key={group.title} className="footer-nav-group">
                 <h4 className="footer-nav-title">{group.title}</h4>
                 <ul className="footer-nav-list">
-                  {group.links.map(({ to, label }) => (
+                  {group.links.map(({ to, label, external }) => (
                     <li key={to}>
-                      <Link to={to}>{label}</Link>
+                      {external ? (
+                        <a href={to} target="_blank" rel="noopener noreferrer">{label}</a>
+                      ) : (
+                        <Link to={to}>{label}</Link>
+                      )}
                     </li>
                   ))}
                 </ul>

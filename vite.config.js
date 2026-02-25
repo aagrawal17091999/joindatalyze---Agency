@@ -16,6 +16,9 @@ export default defineConfig({
   server: {
     port: 5173,
     open: !process.env.VITE_NO_OPEN,
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   preview: {
     allowedHosts: ['site.joindatalyze.com'],
