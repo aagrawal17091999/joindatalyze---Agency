@@ -21,4 +21,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: CORS_ORIGINS
-        value: https://joindatalyze.com
+        value: https://joindatalyze.com,https://www.joindatalyze.com
