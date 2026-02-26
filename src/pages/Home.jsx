@@ -1,120 +1,66 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-// Cache fetched + processed SVG markup so each file is only fetched once
-const svgCache = {};
-
-function processWhiteFills(svgText) {
-  return svgText
-    // fill attributes: #fff, #FFF, #ffffff, #FFFFFF, white
-    .replace(/\bfill="(#[Ff]{6}|#[Ff]{3}|white)"/g, 'fill="#1f2937"')
-    .replace(/\bfill='(#[Ff]{6}|#[Ff]{3}|white)'/g, "fill='#1f2937'")
-    // stroke attributes
-    .replace(/\bstroke="(#[Ff]{6}|#[Ff]{3}|white)"/g, 'stroke="#1f2937"')
-    .replace(/\bstroke='(#[Ff]{6}|#[Ff]{3}|white)'/g, "stroke='#1f2937'")
-    // inline style: fill: #fff; or fill:#ffffff}
-    .replace(/(fill\s*:\s*)(#[Ff]{6}|#[Ff]{3}|white)(\s*[;}])/g, '$1#1f2937$3')
-    .replace(/(stroke\s*:\s*)(#[Ff]{6}|#[Ff]{3}|white)(\s*[;}])/g, '$1#1f2937$3')
-    // gradient stop-color
-    .replace(/\bstop-color="(#[Ff]{6}|#[Ff]{3}|white)"/g, 'stop-color="#1f2937"')
-    .replace(/(stop-color\s*:\s*)(#[Ff]{6}|#[Ff]{3}|white)(\s*[;}])/g, '$1#1f2937$3');
-}
-
 function LogoImg({ src, name }) {
-  const [svgHtml, setSvgHtml] = useState(() => svgCache[src] ?? null);
-
-  useEffect(() => {
-    if (src in svgCache) {
-      setSvgHtml(svgCache[src]);
-      return;
-    }
-    let cancelled = false;
-    fetch(src)
-      .then((r) => r.text())
-      .then((text) => {
-        const processed = processWhiteFills(text);
-        svgCache[src] = processed;
-        if (!cancelled) setSvgHtml(processed);
-      })
-      .catch(() => {
-        svgCache[src] = null;
-      });
-    return () => { cancelled = true; };
-  }, [src]);
-
-  if (!svgHtml) {
-    // Fallback while loading or on error
-    return <img src={src} alt={name} loading="lazy" />;
-  }
-
-  return (
-    <span
-      className="logo-svg-inline"
-      dangerouslySetInnerHTML={{ __html: svgHtml }}
-      aria-label={name}
-      role="img"
-    />
-  );
+  return <img src={src} alt={name} loading="lazy" />;
 }
 
 const CLIENT_LOGOS = [
-  { file: 'AWeber.svg', name: 'AWeber' },
-  { file: 'AlgoTest.svg', name: 'AlgoTest' },
-  { file: 'CRED.svg', name: 'CRED' },
-  { file: 'CarAdvise.svg', name: 'CarAdvise' },
-  { file: 'College tools.svg', name: 'College Tools' },
-  { file: 'Copyfy.svg', name: 'Copyfy' },
-  { file: 'Creattie.svg', name: 'Creattie' },
-  { file: 'Delightree.svg', name: 'Delightree' },
-  { file: 'Drops.svg', name: 'Drops' },
-  { file: 'Endorhealth.svg', name: 'EndorHealth' },
-  { file: 'FireRecruitmentAustralia.svg', name: 'Fire Recruitment Australia' },
-  { file: 'FlexLoans.svg', name: 'FlexLoans' },
-  { file: 'Foriio.svg', name: 'Foriio' },
-  { file: 'Fraim.svg', name: 'Fraim' },
-  { file: 'GameTree.svg', name: 'GameTree' },
-  { file: 'GelatoPique.svg', name: 'Gelato Pique' },
-  { file: 'GrantMe.svg', name: 'GrantMe' },
-  { file: 'Inferless.svg', name: 'Inferless' },
-  { file: 'InfluencerMarketing.svg', name: 'Influencer Marketing AI' },
-  { file: 'Jabu.svg', name: 'Jabu' },
-  { file: 'KeywordInsights.svg', name: 'Keyword Insights' },
-  { file: 'Kliq.svg', name: 'Kliq' },
-  { file: 'Kryptos.svg', name: 'Kryptos' },
-  { file: 'Louper.svg', name: 'Louper' },
-  { file: 'Magma.svg', name: 'Magma' },
-  { file: 'Mask group.svg', name: 'Mask Group' },
-  { file: 'Mottiv.svg', name: 'Mottiv' },
-  { file: 'Mylance.svg', name: 'Mylance' },
-  { file: 'Nokio.svg', name: 'Nokio' },
-  { file: 'Oswal.svg', name: 'Oswal' },
-  { file: 'Patrimore.svg', name: 'Patrimore' },
-  { file: 'PetAcademy.svg', name: 'PetAcademy' },
-  { file: 'Phygital.svg', name: 'Phygital' },
-  { file: 'Pixis.svg', name: 'Pixis' },
-  { file: 'Ramped.svg', name: 'Ramped' },
-  { file: 'Sama.svg', name: 'Sama' },
-  { file: 'Sanaam.svg', name: 'Sanaam' },
-  { file: 'Sequens.svg', name: 'Sequens' },
-  { file: 'Serendipity.svg', name: 'Serendipity' },
-  { file: 'Silverfort.svg', name: 'Silverfort' },
-  { file: 'Sol.svg', name: 'Sol' },
-  { file: 'Sortme.svg', name: 'Sortme' },
-  { file: 'Sucasa.svg', name: 'Sucasa' },
-  { file: 'Tiun.svg', name: 'Tiun' },
-  { file: 'Trainmate.svg', name: 'Trainmate' },
-  { file: 'Uplers.svg', name: 'Uplers' },
-  { file: 'Wearelilu.svg', name: 'Wearelilu' },
-  { file: 'coursebox.svg', name: 'Coursebox' },
-  { file: 'digitap.svg', name: 'Digitap' },
-  { file: 'final round ai.svg', name: 'Final Round AI' },
-  { file: 'magnar.svg', name: 'Magnar' },
-  { file: 'superhote.svg', name: 'Superhote' },
-  { file: 'termplus.svg', name: 'Termplus' },
-  { file: 'wellness coach.svg', name: 'Wellness Coach' },
+  { file: 'AWeber.png', name: 'AWeber' },
+  { file: 'AlgoTest.png', name: 'AlgoTest' },
+  { file: 'CRED.png', name: 'CRED' },
+  { file: 'CarAdvise.png', name: 'CarAdvise' },
+  { file: 'College tools.png', name: 'College Tools' },
+  { file: 'Copyfy.png', name: 'Copyfy' },
+  { file: 'Creattie.png', name: 'Creattie' },
+  { file: 'Delightree.png', name: 'Delightree' },
+  { file: 'Drops.png', name: 'Drops', dark: true},
+  { file: 'Endorhealth.png', name: 'EndorHealth' },
+  { file: 'FireRecruitmentAustralia.png', name: 'Fire Recruitment Australia'},
+  { file: 'Foriio.png', name: 'Foriio' },
+  { file: 'Fraim.png', name: 'Fraim' },
+  { file: 'GameTree.png', name: 'GameTree' },
+  { file: 'GelatoPique.png', name: 'Gelato Pique' },
+  { file: 'GrantMe.png', name: 'GrantMe' },
+  { file: 'Inferless.png', name: 'Inferless' },
+  { file: 'InfluencerMarketing.png', name: 'Influencer Marketing AI' },
+  { file: 'Jabu.png', name: 'Jabu' },
+  { file: 'KeywordInsights.png', name: 'Keyword Insights' },
+  { file: 'Kliq.png', name: 'Kliq' },
+  { file: 'Kryptos.png', name: 'Kryptos' },
+  { file: 'Louper.png', name: 'Louper' },
+  { file: 'Magma.png', name: 'Magma' },
+  { file: 'Mask group.png', name: 'Mask Group', dark: true },
+  { file: 'Mottiv.png', name: 'Mottiv' },
+  { file: 'Mylance.png', name: 'Mylance' },
+  { file: 'Nokio.png', name: 'Nokio' },
+  { file: 'Oswal.png', name: 'Oswal' },
+  { file: 'Patrimore.png', name: 'Patrimore' },
+  { file: 'PetAcademy.png', name: 'PetAcademy' },
+  { file: 'Phygital.png', name: 'Phygital' },
+  { file: 'Pixis.png', name: 'Pixis' },
+  { file: 'Ramped.png', name: 'Ramped' },
+  { file: 'Sama.png', name: 'Sama' },
+  { file: 'Sanaam.png', name: 'Sanaam' },
+  { file: 'Sequens.png', name: 'Sequens' },
+  { file: 'Serendipity.png', name: 'Serendipity' },
+  { file: 'Silverfort.png', name: 'Silverfort' },
+  { file: 'Sol.png', name: 'Sol' },
+  { file: 'Sortme.png', name: 'Sortme'},
+  { file: 'Sucasa.png', name: 'Sucasa' },
+  { file: 'Tiun.png', name: 'Tiun' },
+  { file: 'Uplers.png', name: 'Uplers' },
+  { file: 'coursebox.png', name: 'Coursebox' },
+  { file: 'digitap.png', name: 'Digitap' },
+  { file: 'final round ai.png', name: 'Final Round AI' },
+  { file: 'magnar.png', name: 'Magnar' },
+  { file: 'superhote.png', name: 'Superhote' },
+  { file: 'termplus.png', name: 'Termplus' },
+  { file: 'wellness coach.png', name: 'Wellness Coach' },
 ].map((item) => ({
-  src: `/logos-svg/${encodeURIComponent(item.file)}`,
+  src: `/logos/${encodeURIComponent(item.file)}`,
   name: item.name,
+  ...(item.dark && { dark: true }),
 }));
 
 // Split logos into 4 columns for vertical marquee
@@ -137,7 +83,7 @@ function LogoMarquee() {
         >
           <div className="logo-marquee-track">
             {[...col, ...col].map((logo, i) => (
-              <div key={i} className="logo-marquee-cell">
+              <div key={i} className={`logo-marquee-cell${logo.dark ? ' logo-marquee-cell--dark' : ''}`}>
                 <LogoImg src={logo.src} name={logo.name} />
               </div>
             ))}
@@ -206,45 +152,80 @@ const WHY_ITEMS = [
 
 const TESTIMONIALS = [
   {
-    name: 'John Doe',
-    role: 'CEO, Company Name',
-    text: 'Datalyze helped us turn scattered data into a single source of truth. Our team now makes decisions in hours, not days. Highly recommend.',
+    name: 'Sandeep',
+    role: 'Founder, Marketing Strategy Labs',
+    text: 'Ansh is an absolute pleasure to work with. Throughout the project, he was extremely professional, came up with suggestions, took initiative to recommend best practices, and made a tough project look easy. In the end, we were absolutely thrilled at having found him and are excited that our project ended so well, all because Ansh took ownership and delivered with absolute perfection. Highly recommended, will definitely work with him again!',
+    avatar: '/testimonials/Sandeep.jpeg',
+    rating: 5,
+  },
+  {
+    name: 'Nick',
+    role: 'Product Owner, Sama',
+    text: 'Ansh was incredibly helpful in three main ways: first his detailed technical knowledge of MixPanel helped me solve specific implementation problems and needs quickly, usually within a few minutes. Second, he pushed me to frame my thinking about why I wanted a certain piece of analysis. This helped me get far clearer on my goals - sometimes leading to me running different analysis, dropping a piece altogether and always helping me think more strategically. Finally, Ansh has a lot more to offer than just MixPanel advice - he\'s able to think strategically about north star and second level metrics, helping me figure out the why behind the work I was doing.',
     avatar: null,
     rating: 5,
   },
   {
-    name: 'Jane Smith',
-    role: 'Head of Growth, Startup Co',
-    text: 'The analytics foundation they built has been a game-changer. We finally have clean funnels and reliable metrics we can trust.',
+    name: 'Christian',
+    role: 'Founder, Tiun',
+    text: 'Ansh was extremely helpful in developing our V2 analytics strategy and in setting up our Mixpanel dashboards accordingly. He was not only proactive in bringing his expertise but also highly adaptable to our specific needs. Ansh played a key role in identifying effective solutions where standard approaches were insufficient, delivering all his tasks with great professionalism and impressive speed. Looking forward to future projects with you, Ansh!',
+    avatar: '/testimonials/Christian.jpeg',
+    rating: 5,
+  },
+  {
+    name: 'Moshe',
+    role: 'SEO Consultant',
+    text: 'Had the pleasure of working with Ansh on a Mixpanel project for our client, where we aimed to implement Mixpanel to deepen our understanding of customer interactions and drive data-driven decision-making. From the outset, Ansh demonstrated an exceptional grasp of Mixpanel\'s capabilities and an insightful approach to leveraging this tool to meet our unique business needs. I am impressed with the level of professionalism, dedication, and insight Ansh brought to this project. I highly recommend Ansh to any organization looking to leverage Mixpanel or any other analytics platform to its fullest extent.',
+    avatar: '/testimonials/Moshe.jpeg',
+    rating: 5,
+  },
+  {
+    name: 'Srinivas',
+    role: 'Founder, Phygital',
+    text: 'Ansh helped us in implementing mixpanel analytics to our system. He has been very knowledgeable w.r.t to mixpanel as a tool and prompt with his deliverables. We faced some data loss issues while integrating wordpress with webapp but it appears to be a limitation of the tool. We appreciate his support.',
     avatar: null,
     rating: 5,
   },
   {
-    name: 'Alex Chen',
-    role: 'Product Lead, Tech Inc',
-    text: 'Professional, responsive, and deeply knowledgeable. They integrated with our stack seamlessly and delivered exactly what we needed.',
+    name: 'Raghav',
+    role: 'Founder, AlgoTest',
+    text: 'Ansh has been excellent with setting up our mixpanel pipeline and providing insightful analytics. He\'s always available, humble, and always ready to learn more about the product!',
+    avatar: '/testimonials/Raghav.jpeg',
+    rating: 5,
+  },
+  {
+    name: 'Robby',
+    role: 'Founder, Influencer Marketing',
+    text: 'Ansh is smart, talented, organized, and great to work with. He\'s a very technical expert and we would highly recommend his mind to help solve complex business problems.',
     avatar: null,
     rating: 5,
   },
   {
-    name: 'Sarah Williams',
-    role: 'VP Marketing, Growth Co',
-    text: 'Our conversion tracking was a mess before Datalyze. They untangled everything and built a reporting system we actually rely on daily.',
-    avatar: null,
+    name: 'Ben',
+    role: 'Founder, Kliq',
+    text: 'Working with Ansh made our data flow seamless. He helped us set up a pipeline from Google Analytics and BigQuery to Mixpanel, ensuring we could easily track and analyze user behavior. The dashboards he created have become an essential tool for our team\'s decision-making. Would definitely work with him again and highly recommend him to anyone looking to overcome analytics challenges.',
+    avatar: '/testimonials/Ben.jpeg',
     rating: 5,
   },
   {
-    name: 'Michael Torres',
-    role: 'Founder, SaaS Platform',
-    text: 'Best analytics partner I have ever worked with. They understand both the technical side and the business context — rare combination.',
-    avatar: null,
+    name: 'Chris',
+    role: 'Founder, VideoTap',
+    text: 'Ansh gets straight to work and gives value to you very quickly. His process is very thorough and his knowledge of how people flow through an app is impressive. He immediately found places that our site needed improvements and gave us actionable dashboards that we could watch weekly.',
+    avatar: '/testimonials/Chris.jpeg',
     rating: 5,
   },
   {
-    name: 'Emily Patel',
-    role: 'Director of Product, E-com',
-    text: 'We went from gut-feel decisions to data-backed experiments in two months. The ROI has been undeniable.',
-    avatar: null,
+    name: 'Kaivan',
+    role: 'Founder, FRAI',
+    text: 'Ansh has been a fantastic partner on our BI work. He built much of our Amplitude setup and consistently delivers accurate, trustworthy data. More importantly, he turns that data into clear, actionable insights that drive real decisions. Highly reliable and easy to work with.',
+    avatar: '/testimonials/Kaivan.jpeg',
+    rating: 5,
+  },
+  {
+    name: 'Ryan',
+    role: 'Product Growth, Termplus',
+    text: 'Ansh partnered with our fintech in a very short time-frame to set up advanced tracking and integrated data and analytics that align with every stage of our customer journey. His work has already helped us drive product growth and understand the impact of our marketing and user behaviour. Ansh is incredibly understanding, flexible, and easy to work with. He delivers smart, practical solutions and is a true professional, always taking the time to understand our unique business and provide meaningful tools, insights, and results. We\'re excited to continue partnering with him.',
+    avatar: '/testimonials/Ryan.jpeg',
     rating: 5,
   },
 ];
@@ -331,9 +312,7 @@ function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
               aria-label={isActive ? `Current: ${t.name}` : `Show testimonial by ${t.name}`}
             >
               <span className="testimonial-slider-avatar">
-                {isActive
-                  ? (t.avatar ? <img src={t.avatar} alt="" /> : (t.name || '?').charAt(0))
-                  : null}
+                {t.avatar ? <img src={t.avatar} alt="" /> : (t.name || '?').charAt(0)}
               </span>
               <span className="testimonial-slider-info">
                 <span className="testimonial-slider-name">{t.name}</span>
@@ -538,6 +517,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA after Testimonials */}
+      <div className="home-section-cta">
+        <Link className="btn primary" to="/contact">Get a Free 30 min Audit</Link>
+      </div>
+
       {/* Tech Stack - 6 columns, images only */}
       <section className="section home-tech" id="tech-stack">
         <div className="container">
@@ -597,6 +581,11 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* CTA after Growth Model */}
+      <div className="home-section-cta">
+        <Link className="btn primary" to="/contact">Get a Free 30 min Audit</Link>
       </div>
 
       {/* FAQ */}

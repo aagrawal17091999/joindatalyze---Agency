@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const TEAM = [
   { name: 'Ansh Agarwal', role: 'Founder', photo: '/Ansh.png' },
-  { name: 'Coming Soon', role: '', photo: null },
+  { name: 'Sara Maarouf', role: 'Product Growth', photo: '/sara-maarouf.jpg' },
   { name: 'Coming Soon', role: '', photo: null },
 ];
 
@@ -30,7 +30,7 @@ export default function About() {
               <p>Think of Datalyze as a fractional team covering analytics, data engineering, and growth.</p>
             </div>
             <div aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
-              <img src="/datalyze logo small arrow.svg" alt="" className="about-logo-img" />
+              <img src="/datalyze logo small arrow transparent.svg" alt="" className="about-logo-img" />
               <span className="about-logo-label">Datalyze</span>
             </div>
           </article>

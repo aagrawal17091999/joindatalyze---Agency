@@ -50,7 +50,7 @@ export default function Footer({ variant = 'primary' }) {
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="brand">
-                <img src="/datalyze logo small arrow.svg" alt="" className="brand-logo" aria-hidden="true" />
+                <img src="/datalyze logo small arrow transparent.svg" alt="" className="brand-logo" aria-hidden="true" />
                 <span className="brand-name">Datalyze</span>
               </div>
             </div>

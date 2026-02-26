@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -16,7 +16,7 @@ export default function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link to="/" className="brand">
-          <img src="/datalyze logo small arrow.svg" alt="" className="brand-logo" aria-hidden="true" />
+          <img src="/datalyze logo small arrow transparent.svg" alt="" className="brand-logo" aria-hidden="true" />
           <span className="brand-name">Datalyze</span>
         </Link>
         <nav className="site-nav">
@@ -26,9 +26,9 @@ export default function Header() {
                 {label}
               </a>
             ) : (
-              <Link key={to} to={to}>
+              <NavLink key={to} to={to} end={to === '/'}>
                 {label}
-              </Link>
+              </NavLink>
             )
           )}
           <Link className="btn pill" to="/contact">
