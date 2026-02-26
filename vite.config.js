@@ -21,7 +21,7 @@ export default defineConfig({
     },
   },
   preview: {
-    allowedHosts: ['site.joindatalyze.com'],
+    allowedHosts: ['joindatalyze.com'],
   },
   resolve: {
     alias: {
