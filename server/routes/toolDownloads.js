@@ -35,7 +35,7 @@ const TOOL_CONFIG = {
   },
 };
 
-const TOKEN_TTL_MS = 15 * 60 * 1000; // 15 minutes
+const TOKEN_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 function generateDownloadToken(email, toolId) {
   const secret = process.env.TOOL_DOWNLOAD_TOKEN_SECRET || 'dev-secret-change-in-production';
@@ -177,7 +177,7 @@ router.get('/file/:token', (req, res) => {
 });
 
 function buildEmailHtml(tool, token) {
-  const downloadUrl = `https://joindatalyze.com/api/tool-downloads/file/${token}`;
+  const downloadUrl = `https://api.joindatalyze.com/api/tool-downloads/file/${token}`;
   return `<!DOCTYPE html>
 <html>
   <body style="font-family: system-ui, -apple-system, sans-serif; background: #0d0d0d; color: #ffffff; padding: 40px 24px; margin: 0;">
@@ -212,7 +212,7 @@ function buildEmailHtml(tool, token) {
 }
 
 function buildEmailText(tool, token) {
-  const downloadUrl = `https://joindatalyze.com/api/tool-downloads/file/${token}`;
+  const downloadUrl = `https://api.joindatalyze.com/api/tool-downloads/file/${token}`;
   return `Your ${tool.label} is ready\n\n${tool.description}\n\nYour download should have started automatically — here's the link to download it again:\n${downloadUrl}\n\nNeed a custom tool, or help with analytics for your product? Feel free to book a call with Ansh to see how we can help you: https://calendly.com/anshagrawal17091999/chat\n\nQuestions? Reply to this email or reach us at ansh@joindatalyze.com\n\n-- Datalyze`;
 }
 
