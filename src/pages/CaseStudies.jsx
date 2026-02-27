@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { caseStudyList } from '../data/caseStudies';
+import { preloadImages } from '../utils/preloadImages';
 
 export default function CaseStudies() {
+  useEffect(() => {
+    preloadImages(caseStudyList.filter((c) => c.logo).map((c) => c.logo));
+  }, []);
+
   return (
     <section id="case-studies" className="section">
       <div className="container">
@@ -13,7 +19,7 @@ export default function CaseStudies() {
             <article key={c.slug} className="case-card">
               <div className={`case-thumb${c.darkThumb ? ' case-thumb--dark' : ''}`}>
                 {c.logo
-                  ? <img src={c.logo} alt={c.alt} loading="lazy" />
+                  ? <img src={c.logo} alt={c.alt} />
                   : <span className="case-thumb-name">{c.title}</span>}
               </div>
               <div className="case-meta">

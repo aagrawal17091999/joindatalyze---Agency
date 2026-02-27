@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { preloadImages } from '../utils/preloadImages';
 
 const TEAM = [
   { name: 'Ansh Agarwal', role: 'Founder', photo: '/Ansh.png' },
@@ -7,6 +9,14 @@ const TEAM = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    preloadImages([
+      ...TEAM.filter((m) => m.photo).map((m) => m.photo),
+      '/datalyze logo small arrow transparent.svg',
+      '/world map.svg',
+    ]);
+  }, []);
+
   return (
     <section className="section surface" id="about">
       <div className="container">
@@ -44,7 +54,7 @@ export default function About() {
               <p>At its core, Datalyze exists to help tech companies reach their next stage of growth with data they can trust. Over the next five years, our goal is to support 500 businesses in building analytics systems they're confident using every day.</p>
             </div>
             <div className="about-visual about-visual-img-wrap">
-              <img src="/Ansh.png" alt="Ansh Agrawal, Founder of Datalyze" className="about-visual-img" loading="lazy" />
+              <img src="/Ansh.png" alt="Ansh Agrawal, Founder of Datalyze" className="about-visual-img" />
             </div>
           </article>
         </div>
@@ -59,7 +69,7 @@ export default function About() {
             {TEAM.map((member, i) => (
               <div className="team-card" key={i}>
                 {member.photo ? (
-                  <img src={member.photo} alt={member.name} className="team-photo" loading="lazy" />
+                  <img src={member.photo} alt={member.name} className="team-photo" />
                 ) : (
                   <div className="team-photo-placeholder" />
                 )}
@@ -86,7 +96,6 @@ export default function About() {
               src="/world map.svg"
               alt="World map showing Datalyze reach"
               className="world-map-img"
-              loading="lazy"
             />
           </div>
         </div>

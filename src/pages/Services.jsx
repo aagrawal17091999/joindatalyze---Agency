@@ -1,6 +1,16 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { preloadImages } from '../utils/preloadImages';
 
 export default function Services() {
+  useEffect(() => {
+    preloadImages([
+      '/service-icons/product-analytics.svg',
+      '/service-icons/data-modelling.svg',
+      '/service-icons/growth-experimentation.svg',
+    ]);
+  }, []);
+
   return (
     <section className="section surface" id="services">
       <div className="container">

@@ -1,10 +1,28 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { caseStudyBySlug } from '../data/caseStudies';
 import LogoImg from '../components/LogoImg';
+import { preloadImages } from '../utils/preloadImages';
 
 export default function CaseStudy() {
   const { slug } = useParams();
   const data = slug ? caseStudyBySlug[slug] : null;
+
+  useEffect(() => {
+    if (!data) return;
+    const urls = [];
+    if (data.logo) urls.push(data.logo);
+    if (data.sections) {
+      data.sections.forEach((s) => {
+        if (s.blocks) {
+          s.blocks.forEach((b) => {
+            if (b.type === 'image' && b.src) urls.push(b.src);
+          });
+        }
+      });
+    }
+    if (urls.length) preloadImages(urls);
+  }, [data]);
 
   if (!data) {
     return (

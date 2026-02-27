@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { preloadImages } from '../utils/preloadImages';
 
 function LogoImg({ src, name }) {
-  return <img src={src} alt={name} loading="lazy" />;
+  return <img src={src} alt={name} />;
 }
 
 const CLIENT_LOGOS = [
@@ -411,6 +412,19 @@ export default function Home() {
     return () => clearInterval(id);
   }, []);
 
+  // Preload all page images in the background after mount
+  useEffect(() => {
+    const allUrls = [
+      ...CLIENT_LOGOS.map((l) => l.src),
+      ...TECH_STACK_IMAGES.map((t) => t.src),
+      ...WHY_ITEMS.map((w) => w.image),
+      ...GROWTH_STEPS.map((s) => s.icon),
+      ...TESTIMONIALS.filter((t) => t.avatar).map((t) => t.avatar),
+      '/datalyze logo updated.svg',
+    ];
+    preloadImages(allUrls);
+  }, []);
+
   useEffect(() => {
     function handleScroll() {
       const section = growthSectionRef.current;
@@ -532,7 +546,7 @@ export default function Home() {
           <div className="home-tech-grid">
             {TECH_STACK_IMAGES.map((item, i) => (
               <div key={i} className="home-tech-cell" title={item.name}>
-                <img src={item.src} alt={item.name} loading="lazy" />
+                <img src={item.src} alt={item.name} />
               </div>
             ))}
           </div>

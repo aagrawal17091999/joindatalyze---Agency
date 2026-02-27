@@ -16,7 +16,7 @@ export default function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link to="/" className="brand">
-          <img src="/datalyze logo small arrow transparent.svg" alt="" className="brand-logo" aria-hidden="true" />
+          <img src="/datalyze logo small arrow transparent.svg" alt="" className="brand-logo" aria-hidden="true" fetchpriority="high" />
           <span className="brand-name">Datalyze</span>
         </Link>
         <nav className="site-nav">
