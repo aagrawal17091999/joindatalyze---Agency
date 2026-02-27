@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import ToolDownloadModal from '../components/ToolDownloadModal';
 
 const tools = [
-  { id: 'event-cleanup', title: 'Event Cleanup Assistant', description: 'Upload raw events and get a normalized tracking plan with naming conventions, payload fixes, and missing properties.', cta: 'Try the tool' },
-  { id: 'activation-doctor', title: 'Activation Funnel Doctor', description: 'Diagnose drop-offs across onboarding steps and receive prioritized recommendations to improve activation rate.', cta: 'Try the tool' },
-  { id: 'cohort-health', title: 'Cohort Health Monitor', description: 'Visualize weekly retention, churn risk, and feature adoption so you can pinpoint the cohorts that need immediate attention.', cta: 'Try the tool' },
+  { id: 'mixpanel-exporter', title: 'Mixpanel Event Exporter', description: 'Download raw Mixpanel data from your project in a CSV.', cta: 'Try the tool' },
+  { id: 'mixpanel-users-exporter', title: 'Mixpanel Users Exporter', description: 'Download raw Mixpanel user profile data from your project in a CSV.', cta: 'Try the tool' },
 ];
 
 export default function Tools() {

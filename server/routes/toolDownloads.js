@@ -18,20 +18,15 @@ const __dirname = dirname(__filename);
 // Single source of truth for all tools.
 // To add a new tool: add an entry here and drop the file in public/tools/
 const TOOL_CONFIG = {
-  'event-cleanup': {
-    filename: 'event-cleanup.xlsx',
-    label: 'Event Cleanup Assistant',
-    description: 'A spreadsheet tool to normalize your tracking plan with naming conventions, payload fixes, and missing properties.',
+  'mixpanel-exporter': {
+    filename: 'mixpanel-event-exporter.ipynb',
+    label: 'Mixpanel Event Exporter',
+    description: 'Download raw Mixpanel data from your project in a CSV.',
   },
-  'activation-doctor': {
-    filename: 'activation-doctor.xlsx',
-    label: 'Activation Funnel Doctor',
-    description: 'Diagnose drop-offs across onboarding steps and get prioritized recommendations to improve activation rate.',
-  },
-  'cohort-health': {
-    filename: 'cohort-health.xlsx',
-    label: 'Cohort Health Monitor',
-    description: 'Visualize weekly retention, churn risk, and feature adoption to pinpoint cohorts that need immediate attention.',
+  'mixpanel-users-exporter': {
+    filename: 'mixpanel-users-exporter.ipynb',
+    label: 'Mixpanel Users Exporter',
+    description: 'Download raw Mixpanel user profile data from your project in a CSV.',
   },
 };
 
@@ -168,10 +163,10 @@ router.get('/file/:token', (req, res) => {
   }
 
   res.setHeader('Content-Disposition', `attachment; filename="${tool.filename}"`);
-  res.setHeader(
-    'Content-Type',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  );
+  const contentType = tool.filename.endsWith('.xlsx')
+    ? 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    : 'application/octet-stream';
+  res.setHeader('Content-Type', contentType);
 
   createReadStream(filePath).pipe(res);
 });
