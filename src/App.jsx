@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Tools from './pages/Tools';
+import ToolLanding from './pages/ToolLanding';
 import CaseStudies from './pages/CaseStudies';
 import CaseStudy from './pages/CaseStudy';
 import Resources from './pages/Resources';
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/tools" element={<Tools />} />
+        <Route path="/tools/:toolId" element={<ToolLanding />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/:slug" element={<CaseStudy />} />
         <Route path="/resources" element={<Resources />} />

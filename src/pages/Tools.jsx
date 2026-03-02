@@ -1,15 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ToolDownloadModal from '../components/ToolDownloadModal';
-
-const tools = [
-  { id: 'mixpanel-exporter', title: 'Mixpanel Event Exporter', description: 'Download raw Mixpanel data from your project in a CSV.', cta: 'Try the tool' },
-  { id: 'mixpanel-users-exporter', title: 'Mixpanel Users Exporter', description: 'Download raw Mixpanel user profile data from your project in a CSV.', cta: 'Try the tool' },
-];
+import { toolList } from '../data/tools';
 
 export default function Tools() {
-  const [activeTool, setActiveTool] = useState(null);
-
   return (
     <>
       <section className="section surface">
@@ -18,17 +10,14 @@ export default function Tools() {
             <h2>Tools built by Datalyze</h2>
           </div>
           <div className="tools-grid">
-            {tools.map((t) => (
+            {toolList.map((t) => (
               <article key={t.id} className="tool-card">
                 <h3>{t.title}</h3>
                 <p>{t.description}</p>
                 <div className="tool-footer">
-                  <button
-                    className="btn primary"
-                    onClick={() => setActiveTool(t)}
-                  >
+                  <Link className="btn primary" to={`/tools/${t.id}`}>
                     {t.cta}
-                  </button>
+                  </Link>
                 </div>
               </article>
             ))}
@@ -50,13 +39,6 @@ export default function Tools() {
           </div>
         </div>
       </section>
-
-      {activeTool && (
-        <ToolDownloadModal
-          tool={activeTool}
-          onClose={() => setActiveTool(null)}
-        />
-      )}
     </>
   );
 }
