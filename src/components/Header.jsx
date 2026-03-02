@@ -1,4 +1,5 @@
-import { Link, NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -12,6 +13,20 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Close menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -19,7 +34,19 @@ export default function Header() {
           <img src="/datalyze logo small arrow transparent.svg" alt="" className="brand-logo" aria-hidden="true" fetchpriority="high" />
           <span className="brand-name">Datalyze</span>
         </Link>
-        <nav className="site-nav">
+
+        <button
+          className={`menu-toggle ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span className="menu-toggle-bar" />
+          <span className="menu-toggle-bar" />
+          <span className="menu-toggle-bar" />
+        </button>
+
+        <nav className={`site-nav ${menuOpen ? 'site-nav--open' : ''}`}>
           {navLinks.map(({ to, label, external }) =>
             external ? (
               <a key={to} href={to} target="_blank" rel="noopener noreferrer">

@@ -453,7 +453,7 @@ export default function Home() {
               <h1 className="home-hero-title">
                 Turn user behavior<br />
                 into measurable<br />
-                <span style={{whiteSpace: 'nowrap'}}>growth and revenue</span><br />
+                growth and revenue<br />
                 with Datalyze
               </h1>
               <p className="home-hero-lead">
