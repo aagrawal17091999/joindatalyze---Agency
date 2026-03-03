@@ -5,7 +5,6 @@ import { preloadImages } from '../utils/preloadImages';
 const TEAM = [
   { name: 'Ansh Agrawal', role: 'Founder', photo: '/Ansh.png' },
   { name: 'Sara Maarouf', role: 'Product Growth', photo: '/sara-maarouf.jpg' },
-  { name: 'Coming Soon', role: '', photo: null },
 ];
 
 export default function About() {
