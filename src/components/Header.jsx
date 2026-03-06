@@ -8,6 +8,7 @@ const navLinks = [
   { to: '/tools', label: 'Tools' },
   { to: '/case-studies', label: 'Case Studies' },
   { to: '/resources', label: 'Resources' },
+  { to: '/ai-analytics-agent', label: 'AI Analytics Agent' },
   { to: '/contact', label: 'Contact' },
   { to: 'https://blog.joindatalyze.com', label: 'Blog', external: true },
 ];

@@ -370,7 +370,7 @@
   }
 
   .site-nav a.active {
-    color: hsl(0, 0%, 55%);
+    color: hsl(0, 0%, 70%);
   }
 
   .site-nav a:hover {
@@ -1012,7 +1012,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 5rem;
     transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -1038,7 +1038,7 @@
   }
 
   .home-growth-item:not(.is-active) {
-    opacity: 0.35;
+    opacity: 0.65;
   }
 
   .home-growth-num {
@@ -1090,7 +1090,7 @@
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.3;
-    color: hsl(0, 0%, 55%);
+    color: hsl(0, 0%, 75%);
     transition: color 0.35s ease;
     margin: 0;
   }
@@ -1102,7 +1102,7 @@
   .home-growth-desc {
     font-size: 0.875rem;
     line-height: 1.6;
-    color: hsl(0, 0%, 45%);
+    color: hsl(0, 0%, 65%);
     transition: color 0.35s ease;
     margin: 0;
   }
@@ -1850,8 +1850,8 @@
   }
 
   .callout {
-    @apply border-y border-border bg-card text-center;
-    background: hsl(var(--card));
+    @apply border-y border-border text-center;
+    background: transparent;
     border-color: hsl(var(--accent) / 0.2);
   }
 
@@ -2864,4 +2864,67 @@ body.auth-page .auth-card--signup .auth-switch {
 body.auth-page .auth-card--signup .auth-switch a {
   font-weight: 600;
   color: #0080ff;
+}
+
+/* ── AI Analytics Agent Page ── */
+
+.ai-agent-hero {
+  @apply text-center pt-24 pb-8;
+}
+
+.ai-agent-video-wrap {
+  @apply pb-12;
+}
+
+.ai-agent-video {
+  @apply mx-auto w-full max-w-4xl rounded-xl overflow-hidden;
+  background: hsl(var(--panel));
+  border: 3px solid hsl(0, 0%, 100%);
+}
+
+.ai-agent-video iframe,
+.ai-agent-video video {
+  @apply w-full block;
+  border: none;
+  object-fit: contain;
+}
+
+.ai-agent-cta {
+  @apply flex justify-center;
+  padding: 2rem 0 3rem;
+}
+
+.ai-agent-steps {
+  @apply mx-auto max-w-3xl flex flex-col gap-5;
+}
+
+.ai-agent-step {
+  @apply flex gap-5 items-start rounded-xl px-6 py-5;
+  border: 1px solid hsl(0, 0%, 100%);
+  background: transparent;
+}
+
+.ai-agent-step-num {
+  @apply flex-shrink-0 flex items-center justify-center rounded-full font-bold text-lg;
+  width: 40px;
+  height: 40px;
+  background: #0D1799;
+  color: white;
+}
+
+.ai-agent-step-content h3 {
+  @apply mb-1;
+}
+
+.ai-agent-step-content p {
+  color: hsl(0, 0%, 100%);
+}
+
+.ai-agent-cta-block {
+  @apply text-center;
+  padding: 3rem 0 2rem;
+}
+
+.ai-agent-cta-block h3 {
+  @apply mb-4;
 }

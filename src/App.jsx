@@ -10,6 +10,7 @@ import CaseStudy from './pages/CaseStudy';
 import Resources from './pages/Resources';
 import FAQs from './pages/FAQs';
 import Contact from './pages/Contact';
+import AIAnalyticsAgent from './pages/AIAnalyticsAgent';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/ai-analytics-agent" element={<AIAnalyticsAgent />} />
       </Routes>
     </Layout>
   );
