@@ -35,20 +35,20 @@ const PROCESS_STEPS = [
 
 const AGENT_FAQS = [
   {
-    q: 'How is this different from other AI analytics agents/tools out there?',
-    a: 'We\'re not selling you an AI agent—we\'re helping you get the right data and knowledge base to the agent, which is what makes the difference. Additionally, we do a separate agent implementation for every client, which means we can customize it any way you\'d like for your business.',
+    q: 'How is this different from other AI analytics tools?',
+    a: 'Most tools hand you an agent and leave you to figure out the rest. We don\'t. We do the hard work that actually makes agents accurate - cleaning your data, modeling it properly, and building a knowledge base tailored to your business. Every client also gets a fully custom implementation, not a generic setup with your logo on it.',
   },
   {
     q: 'How much does this cost?',
-    a: 'The setup cost varies anywhere between $3,000 to $20,000 depending on how extensive your data is and how clunky or messy it is.',
+    a: 'Setup is typically between $3,000 and $20,000, depending on how much data you have and how much work it needs before the agent can use it reliably. We scope this on the call, so there are no surprises.',
   },
   {
-    q: 'Why should we hire you to do this?',
-    a: 'We\'re a team of folks that have worked with 150+ startups and have deep expertise in how AI agents work, along with how best to model data and create documentation for it.',
+    q: 'Why should we work with you?',
+    a: 'We\'ve worked with 150+ startups and sit at the intersection of two things most teams don\'t have in one place - deep expertise in AI agents, and serious experience in data modeling and documentation. Getting an agent to work well needs both. Most vendors only bring one.',
   },
   {
-    q: 'Why do most AI agents do a horrible job?',
-    a: 'AI agents just added on top of any data will always do a horrible job. It\'s not the AI, it\'s the data. For agents to do a good job, you need to have good, clean data and extensive documentation on how to use it.',
+    q: 'Why do most AI analytics agents give bad answers?',
+    a: 'Because the problem isn\'t the AI - it\'s the data underneath it. Any agent pointed at raw, unmodeled data will struggle. What makes the difference is clean data, proper structure, and thorough documentation on how to use it. That\'s the work most tools skip. It\'s the work we do first.',
   },
 ];
 
