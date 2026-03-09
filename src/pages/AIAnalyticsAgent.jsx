@@ -96,8 +96,7 @@ export default function AIAnalyticsAgent() {
               style={{ playbackRate: 1.5 }}
               ref={(el) => { if (el) el.playbackRate = 1.5; }}
             >
-              <source src="/ai-agent-video.mp4" type="video/mp4" />
-              <source src="/AI%20agent%20video.mov" type="video/quicktime" />
+              <source src="/ai-agent-video-new.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
