@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { useMaturityGrader } from '../context/MaturityGraderContext';
 import html2canvas from 'html2canvas';
+import mixpanel from '../utils/mixpanel';
 
 export default function MaturityGraderResults() {
   const { results } = useMaturityGrader();
@@ -29,6 +30,7 @@ export default function MaturityGraderResults() {
       link.download = 'analytics-maturity-scorecard.png';
       link.href = canvas.toDataURL('image/png');
       link.click();
+      mixpanel.track('Maturity Scorecard Downloaded', { overall_grade: overall.grade, overall_score: overall.score });
     } catch {
       // Silently fail — user can screenshot instead
     }
@@ -157,7 +159,7 @@ export default function MaturityGraderResults() {
                 close the gaps and build a data practice you can trust.
               </p>
             </div>
-            <Link className="btn primary" to="/contact">
+            <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Book a free audit', location: 'maturity_grader_results' })}>
               Book a free audit
             </Link>
           </div>

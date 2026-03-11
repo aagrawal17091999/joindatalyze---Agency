@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { toolById } from '../data/tools';
 import { apiBaseUrl } from '../config';
+import mixpanel from '../utils/mixpanel';
 
 export default function WebToolLanding() {
   const { toolId } = useParams();
@@ -59,6 +60,9 @@ export default function WebToolLanding() {
         return;
       }
 
+      mixpanel.identify(email.trim());
+      mixpanel.people.set({ $email: email.trim() });
+      mixpanel.track('Email Submitted', { tool_id: tool.id, email: email.trim() });
       setStatus('success');
       setUnlocked(true);
     } catch {
@@ -97,7 +101,7 @@ export default function WebToolLanding() {
                   tool tailored to your team.
                 </p>
               </div>
-              <Link className="btn primary" to="/contact">
+              <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Request a custom tool', location: 'web_tool_landing_page' })}>
                 Request a custom tool
               </Link>
             </div>

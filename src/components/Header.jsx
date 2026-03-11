@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import mixpanel from '../utils/mixpanel';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -50,16 +51,16 @@ export default function Header() {
         <nav className={`site-nav ${menuOpen ? 'site-nav--open' : ''}`}>
           {navLinks.map(({ to, label, external }) =>
             external ? (
-              <a key={to} href={to} target="_blank" rel="noopener noreferrer">
+              <a key={to} href={to} target="_blank" rel="noopener noreferrer" onClick={() => mixpanel.track('Nav Link Clicked', { link_label: label, link_url: to })}>
                 {label}
               </a>
             ) : (
-              <NavLink key={to} to={to} end={to === '/'}>
+              <NavLink key={to} to={to} end={to === '/'} onClick={() => mixpanel.track('Nav Link Clicked', { link_label: label, link_url: to })}>
                 {label}
               </NavLink>
             )
           )}
-          <Link className="btn pill" to="/contact">
+          <Link className="btn pill" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Book Audit', location: 'header' })}>
             Book Audit
           </Link>
         </nav>

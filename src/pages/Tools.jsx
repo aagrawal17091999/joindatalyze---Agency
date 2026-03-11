@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { toolList } from '../data/tools';
+import mixpanel from '../utils/mixpanel';
 
 export default function Tools() {
   return (
@@ -15,7 +16,7 @@ export default function Tools() {
                 <h3>{t.title}</h3>
                 <p>{t.description}</p>
                 <div className="tool-footer">
-                  <Link className="btn primary" to={`/tools/${t.id}`}>
+                  <Link className="btn primary" to={`/tools/${t.id}`} onClick={() => mixpanel.track('Tool Clicked', { tool_name: t.title, tool_id: t.id })}>
                     {t.cta}
                   </Link>
                 </div>
@@ -35,7 +36,7 @@ export default function Tools() {
                 team.
               </p>
             </div>
-            <Link className="btn primary" to="/contact">Request a custom tool</Link>
+            <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Request a custom tool', location: 'tools_page' })}>Request a custom tool</Link>
           </div>
         </div>
       </section>

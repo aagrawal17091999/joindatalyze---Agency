@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
+import mixpanel from '../utils/mixpanel';
 
 export default function Services() {
   useEffect(() => {
@@ -79,7 +80,7 @@ export default function Services() {
         </div>
 
         <div className="services-cta">
-          <Link className="btn primary px-6 py-3.5 text-base" to="/contact">Book your free 30 min Audit</Link>
+          <Link className="btn primary px-6 py-3.5 text-base" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Book your free 30 min Audit', location: 'services_page' })}>Book your free 30 min Audit</Link>
         </div>
       </div>
     </section>

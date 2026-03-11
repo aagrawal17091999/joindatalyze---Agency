@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
+import mixpanel from '../utils/mixpanel';
 
 const TEAM = [
   { name: 'Ansh Agrawal', role: 'Founder', photo: '/Ansh.png' },
@@ -101,7 +102,7 @@ export default function About() {
 
         {/* CTA */}
         <div className="cta-row">
-          <Link className="btn primary" to="/contact">Book your free 30 min Audit</Link>
+          <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Book your free 30 min Audit', location: 'about_page' })}>Book your free 30 min Audit</Link>
         </div>
       </div>
     </section>

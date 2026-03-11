@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { toolById } from '../data/tools';
+import mixpanel from '../utils/mixpanel';
 import ToolDownloadForm from '../components/ToolDownloadForm';
 import WebToolLanding from './WebToolLanding';
 
@@ -68,7 +69,7 @@ export default function ToolLanding() {
                 team.
               </p>
             </div>
-            <Link className="btn primary" to="/contact">Request a custom tool</Link>
+            <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Request a custom tool', location: 'tool_landing_page' })}>Request a custom tool</Link>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { toolById } from '../data/tools';
 import { allQuestions, computeResults } from '../data/maturityGraderData';
 import { useMaturityGrader } from '../context/MaturityGraderContext';
 import { apiBaseUrl } from '../config';
+import mixpanel from '../utils/mixpanel';
 
 const tool = toolById['analytics-maturity-grader'];
 
@@ -58,6 +59,9 @@ export default function MaturityGraderQuiz() {
         return;
       }
 
+      mixpanel.identify(email.trim());
+      mixpanel.people.set({ $email: email.trim() });
+      mixpanel.track('Email Submitted', { tool_id: tool.id, email: email.trim() });
       setStatus('success');
       setUnlocked(true);
     } catch {
@@ -70,6 +74,7 @@ export default function MaturityGraderQuiz() {
   const handleQuizSubmit = () => {
     if (!allAnswered) return;
     const results = computeResults(answers);
+    mixpanel.track('Maturity Grader Submitted', { overall_score: results.overall.score, overall_grade: results.overall.grade });
     setResults(results);
     navigate('/tools/analytics-maturity-grader/results');
   };
@@ -163,7 +168,7 @@ export default function MaturityGraderQuiz() {
                   tool tailored to your team.
                 </p>
               </div>
-              <Link className="btn primary" to="/contact">
+              <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Request a custom tool', location: 'maturity_grader_quiz' })}>
                 Request a custom tool
               </Link>
             </div>

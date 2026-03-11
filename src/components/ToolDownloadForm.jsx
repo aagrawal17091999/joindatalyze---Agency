@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { apiBaseUrl } from '../config';
+import mixpanel from '../utils/mixpanel';
 
 export default function ToolDownloadForm({ tool, autoFocus = false }) {
   const [email, setEmail] = useState('');
@@ -38,6 +39,9 @@ export default function ToolDownloadForm({ tool, autoFocus = false }) {
         return;
       }
 
+      mixpanel.identify(email.trim());
+      mixpanel.people.set({ $email: email.trim() });
+      mixpanel.track('Email Submitted', { tool_id: tool.id, email: email.trim() });
       triggerDownload(`${base}${data.downloadUrl}`, tool.title);
       setStatus('success');
     } catch {

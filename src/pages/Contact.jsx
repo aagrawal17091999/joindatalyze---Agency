@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import mixpanel from '../utils/mixpanel';
 
 export default function Contact() {
   useEffect(() => {
@@ -9,6 +10,19 @@ export default function Contact() {
     return () => {
       document.body.removeChild(script);
     };
+  }, []);
+
+  useEffect(() => {
+    const handleMessage = (e) => {
+      if (e.data.event === 'calendly.date_and_time_selected') {
+        mixpanel.track('Calendly Date and Time Selected', { location: 'contact_page' });
+      }
+      if (e.data.event === 'calendly.event_scheduled') {
+        mixpanel.track('Calendly Event Scheduled', { location: 'contact_page' });
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   return (

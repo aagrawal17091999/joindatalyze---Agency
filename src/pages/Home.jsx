@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
+import mixpanel from '../utils/mixpanel';
 
 function LogoImg({ src, name }) {
   return <img src={src} alt={name} />;
@@ -461,8 +462,8 @@ export default function Home() {
                 From tracking and dashboards to deep analysis and experimentation—we're your fractional analytics and growth partner.
               </p>
               <div className="home-hero-ctas">
-                <Link className="btn primary" to="/contact">Get a Free 30 min Audit</Link>
-                <Link className="btn ghost home-btn-outline" to="/case-studies">See Case Studies</Link>
+                <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Get a Free 30 min Audit', location: 'home_hero' })}>Get a Free 30 min Audit</Link>
+                <Link className="btn ghost home-btn-outline" to="/case-studies" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'See Case Studies', location: 'home_hero' })}>See Case Studies</Link>
               </div>
             </div>
             <div className="home-hero-right">
@@ -533,7 +534,7 @@ export default function Home() {
 
       {/* CTA after Testimonials */}
       <div className="home-section-cta">
-        <Link className="btn primary" to="/contact">Get a Free 30 min Audit</Link>
+        <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Get a Free 30 min Audit', location: 'home_after_testimonials' })}>Get a Free 30 min Audit</Link>
       </div>
 
       {/* Tech Stack - 6 columns, images only */}
@@ -599,7 +600,7 @@ export default function Home() {
 
       {/* CTA after Growth Model */}
       <div className="home-section-cta">
-        <Link className="btn primary" to="/contact">Get a Free 30 min Audit</Link>
+        <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Get a Free 30 min Audit', location: 'home_after_growth_model' })}>Get a Free 30 min Audit</Link>
       </div>
 
       {/* FAQ */}

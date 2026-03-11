@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { caseStudyList } from '../data/caseStudies';
 import { preloadImages } from '../utils/preloadImages';
+import mixpanel from '../utils/mixpanel';
 
 export default function CaseStudies() {
   useEffect(() => {
@@ -25,13 +26,13 @@ export default function CaseStudies() {
               <div className="case-meta">
                 <h3>{c.title}</h3>
                 <p>{c.description}</p>
-                <a className="btn primary" href={c.externalUrl} target="_blank" rel="noreferrer">View case study</a>
+                <a className="btn primary" href={c.externalUrl} target="_blank" rel="noreferrer" onClick={() => mixpanel.track('Case Study Clicked', { case_study_title: c.title, case_study_slug: c.slug })}>View case study</a>
               </div>
             </article>
           ))}
         </div>
         <div className="cta-row">
-          <Link className="btn primary" to="/contact">Book a free 30 min audit</Link>
+          <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Book a free 30 min audit', location: 'case_studies_page' })}>Book a free 30 min audit</Link>
         </div>
       </div>
     </section>

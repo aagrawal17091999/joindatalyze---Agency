@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import mixpanel from '../utils/mixpanel';
 
 const PROCESS_STEPS = [
   {
@@ -65,8 +66,22 @@ export default function AIAnalyticsAgent() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleMessage = (e) => {
+      if (e.data.event === 'calendly.date_and_time_selected') {
+        mixpanel.track('Calendly Date and Time Selected', { location: 'ai_agent_page' });
+      }
+      if (e.data.event === 'calendly.event_scheduled') {
+        mixpanel.track('Calendly Event Scheduled', { location: 'ai_agent_page' });
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
   const scrollToCalendly = (e) => {
     e.preventDefault();
+    mixpanel.track('CTA Clicked', { cta_text: "Want to set this up? Let's talk", location: 'ai_agent_page' });
     document.getElementById('calendly')?.scrollIntoView({ behavior: 'smooth' });
   };
 

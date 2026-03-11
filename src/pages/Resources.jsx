@@ -1,3 +1,5 @@
+import mixpanel from '../utils/mixpanel';
+
 const resources = [
   { title: 'Mixpanel Simplified', href: 'https://mixpanelsimplified.substack.com/', description: 'Practical writing on product analytics, Mixpanel usage, and common mistakes teams make when working with data.' },
   { title: 'Mixpanel setup — the right way', href: 'https://www.notion.so/Mixpanel-setup-The-right-way-6b6ec85312f7433494e8649dfeb8f646?pvs=21', description: 'A straightforward guide to implementing Mixpanel with clean events, clear definitions, and reliable data.' },
@@ -22,7 +24,7 @@ export default function Resources() {
               <h3>{r.title}</h3>
               <p>{r.description}</p>
               <div className="tool-footer">
-                <a className="btn primary" href={r.href} target="_blank" rel="noreferrer">View resource</a>
+                <a className="btn primary" href={r.href} target="_blank" rel="noreferrer" onClick={() => mixpanel.track('Resource Clicked', { resource_title: r.title })}>View resource</a>
               </div>
             </article>
           ))}
