@@ -2324,8 +2324,8 @@
 
   .tool-download-input {
     @apply block w-full rounded-xl border px-4 py-3 text-base;
-    background: hsl(var(--input, 220 13% 12%));
-    border-color: hsl(var(--border));
+    background: transparent;
+    border-color: #ffffff;
     color: hsl(0, 0%, 100%);
     margin-bottom: 1rem;
     outline: none;
@@ -2364,6 +2364,333 @@
     font-size: 0.9375rem;
     line-height: 1.5;
     margin-top: 0;
+  }
+
+  /* Web tool (email-gated, runs in browser) */
+  .web-tool-content {
+    margin-top: 3rem;
+  }
+
+  .web-tool-placeholder {
+    border: 2px dashed hsl(0, 0%, 30%);
+    border-radius: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: hsl(0, 0%, 60%);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .web-tool-placeholder p {
+    margin: 0.25rem 0;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Analytics Maturity Grader — Quiz                                    */
+  /* ------------------------------------------------------------------ */
+
+  .quiz-social-proof {
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-top: 1.5rem;
+  }
+
+  .quiz-progress-text {
+    color: hsl(0, 0%, 55%);
+    font-size: 0.9375rem;
+    margin-top: 0.25rem;
+  }
+
+  .quiz-questions {
+    @apply mx-auto flex flex-col gap-8;
+    max-width: 52rem;
+  }
+
+  .quiz-question-card {
+    border: 1px solid hsl(0, 0%, 16%);
+    border-radius: 1rem;
+    padding: 2rem;
+    background: hsl(0, 0%, 6%);
+  }
+
+  .quiz-question-number {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(210, 100%, 56%);
+    margin: 0 0 0.5rem;
+  }
+
+  .quiz-question-text {
+    color: hsl(0, 0%, 100%);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+    line-height: 1.4;
+  }
+
+  .quiz-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .quiz-options-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .quiz-option {
+    @apply flex items-start gap-3 text-left;
+    border: 1px solid hsl(0, 0%, 20%);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background: transparent;
+    color: hsl(0, 0%, 80%);
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .quiz-option:hover {
+    border-color: hsl(210, 100%, 56%, 0.4);
+  }
+
+  .quiz-option.selected {
+    border-color: hsl(210, 100%, 56%);
+    background: hsl(210, 100%, 56%, 0.08);
+    box-shadow: 0 0 0 1px hsl(210, 100%, 56%, 0.3);
+    color: hsl(0, 0%, 100%);
+  }
+
+  .quiz-option-label {
+    @apply flex-shrink-0 flex items-center justify-center rounded-full font-bold;
+    width: 28px;
+    height: 28px;
+    font-size: 0.8125rem;
+    background: hsl(0, 0%, 16%);
+    color: hsl(0, 0%, 70%);
+    margin-top: 1px;
+  }
+
+  .quiz-option.selected .quiz-option-label {
+    background: hsl(210, 100%, 56%);
+    color: #fff;
+  }
+
+  .quiz-option-text {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .quiz-submit-bar {
+    @apply flex justify-center;
+    margin-top: 2.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .quiz-submit-bar .btn {
+    min-width: 220px;
+    font-size: 1.0625rem;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Analytics Maturity Grader — Results Scorecard                       */
+  /* ------------------------------------------------------------------ */
+
+  .results-hero {
+    @apply text-center;
+    padding: 2rem 0 3rem;
+  }
+
+  .results-hero-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: hsl(0, 0%, 55%);
+    margin: 0 0 1.5rem;
+  }
+
+  .grade-circle {
+    @apply mx-auto flex items-center justify-center font-bold;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid currentColor;
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .results-hero-tag {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 1rem 0 0.25rem;
+  }
+
+  .results-hero-score {
+    font-size: 1rem;
+    color: hsl(0, 0%, 55%);
+    margin: 0;
+  }
+
+  .dimension-cards {
+    @apply mx-auto flex flex-col gap-6;
+    max-width: 52rem;
+  }
+
+  .dimension-card {
+    border: 1px solid hsl(0, 0%, 16%);
+    border-radius: 1rem;
+    padding: 1.75rem 2rem;
+    background: hsl(0, 0%, 6%);
+  }
+
+  .dimension-card-header {
+    @apply flex items-center justify-between;
+    margin-bottom: 1rem;
+  }
+
+  .dimension-card-title {
+    color: hsl(0, 0%, 100%);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .dimension-grade-badge {
+    @apply inline-flex items-center justify-center rounded-full font-bold;
+    width: 32px;
+    height: 32px;
+    font-size: 0.875rem;
+    color: #fff;
+  }
+
+  .dimension-bar-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: hsl(0, 0%, 16%);
+    overflow: hidden;
+  }
+
+  .dimension-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dimension-score-label {
+    font-size: 0.8125rem;
+    color: hsl(0, 0%, 50%);
+    margin: 0.5rem 0 0;
+  }
+
+  .dimension-recommendation {
+    margin-top: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: hsl(0, 0%, 8%);
+  }
+
+  .dimension-recommendation-heading {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(0, 0%, 100%);
+    margin: 0 0 0.5rem;
+  }
+
+  .dimension-recommendation p:last-child {
+    color: hsl(0, 0%, 70%);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .results-share-bar {
+    @apply flex justify-center;
+    margin-top: 2.5rem;
+  }
+
+  /* ---- Scorecard capture (for html2canvas image export) ---- */
+
+  .scorecard-capture-wrapper {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .scorecard-capture {
+    width: 600px;
+    padding: 3rem 2.5rem;
+    background: #0a0a0a;
+    text-align: center;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .scorecard-capture-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .scorecard-capture-overall {
+    display: block;
+    margin: 0 0 2rem;
+  }
+
+  .scorecard-capture-overall-grade {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 0.25rem;
+  }
+
+  .scorecard-capture-overall-score {
+    display: block;
+    font-size: 1rem;
+    color: #999;
+  }
+
+  .scorecard-capture-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.5rem;
+  }
+
+  .scorecard-capture-table th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0 0 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+
+  .scorecard-capture-table td {
+    font-size: 0.9375rem;
+    color: #ccc;
+    padding: 0.75rem 0;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .scorecard-capture-watermark {
+    font-size: 0.75rem;
+    color: #ffffff;
+    margin: 2rem 0 0;
+    letter-spacing: 0.05em;
   }
 
   .auth-shell {

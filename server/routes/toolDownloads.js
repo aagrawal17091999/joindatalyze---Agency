@@ -28,6 +28,11 @@ const TOOL_CONFIG = {
     label: 'Mixpanel Users Exporter',
     description: 'Download raw Mixpanel user profile data from your project in a CSV.',
   },
+  'analytics-maturity-grader': {
+    label: 'Analytics Maturity Grader',
+    description: 'A 2-minute quiz to grade your analytics maturity across 5 dimensions.',
+    webOnly: true, // No file download — runs in the browser
+  },
 };
 
 const TOKEN_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
@@ -105,26 +110,29 @@ router.post(
     }
 
     // Send confirmation email — non-blocking, failure does not block the download
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
-    resend.emails.send({
-      from: `Datalyze <${fromEmail}>`,
-      to: email,
-      subject: `Your ${tool.label} is ready`,
-      html: buildEmailHtml(tool, token),
-      text: buildEmailText(tool, token),
-    }).then(({ data, error }) => {
-      if (error) {
-        console.warn('[tool-downloads] Email send failed:', error.message, error);
-        return;
-      }
-      console.log('[tool-downloads] Email sent:', data?.id);
-      // Mark email_sent in BigQuery — best-effort, non-blocking
-      markToolDownloadEmailSent(token).catch((err) => {
-        console.warn('[tool-downloads] BigQuery email_sent update failed:', err.message);
+    // Skip for web-only tools (no file to download)
+    if (!tool.webOnly) {
+      const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+      resend.emails.send({
+        from: `Datalyze <${fromEmail}>`,
+        to: email,
+        subject: `Your ${tool.label} is ready`,
+        html: buildEmailHtml(tool, token),
+        text: buildEmailText(tool, token),
+      }).then(({ data, error }) => {
+        if (error) {
+          console.warn('[tool-downloads] Email send failed:', error.message, error);
+          return;
+        }
+        console.log('[tool-downloads] Email sent:', data?.id);
+        // Mark email_sent in BigQuery — best-effort, non-blocking
+        markToolDownloadEmailSent(token).catch((err) => {
+          console.warn('[tool-downloads] BigQuery email_sent update failed:', err.message);
+        });
+      }).catch((emailErr) => {
+        console.warn('[tool-downloads] Email send failed (network):', emailErr.message);
       });
-    }).catch((emailErr) => {
-      console.warn('[tool-downloads] Email send failed (network):', emailErr.message);
-    });
+    }
 
     // Sync to Ghost — non-blocking, failure does not block the download
     addGhostMember(email).catch((ghostErr) => {

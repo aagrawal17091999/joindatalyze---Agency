@@ -1,10 +1,15 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { toolById } from '../data/tools';
 import ToolDownloadForm from '../components/ToolDownloadForm';
+import WebToolLanding from './WebToolLanding';
 
 export default function ToolLanding() {
   const { toolId } = useParams();
   const tool = toolId ? toolById[toolId] : null;
+
+  if (tool?.type === 'web') {
+    return <WebToolLanding />;
+  }
 
   if (!tool) {
     return (

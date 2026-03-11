@@ -29,6 +29,21 @@ export const toolList = [
     cta: 'Try the tool',
     fileType: 'Jupyter Notebook (.ipynb)',
   },
+  {
+    id: 'analytics-maturity-grader',
+    type: 'web',
+    title: 'Analytics Maturity Grader',
+    description: 'Discover where your analytics stack stands and what to fix first.',
+    longDescription:
+      'Take a 2-minute quiz to get a personalized analytics maturity scorecard with actionable recommendations for each dimension of your data practice.',
+    features: [
+      'Score across 5 key analytics dimensions',
+      'Get a letter grade with personalized recommendations',
+      'Download a shareable scorecard image',
+      'No setup required — runs in your browser',
+    ],
+    cta: 'Grade my analytics',
+  },
 ];
 
 export const toolById = Object.fromEntries(toolList.map((t) => [t.id, t]));

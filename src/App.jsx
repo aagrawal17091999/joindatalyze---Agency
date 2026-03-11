@@ -11,6 +11,9 @@ import Resources from './pages/Resources';
 import FAQs from './pages/FAQs';
 import Contact from './pages/Contact';
 import AIAnalyticsAgent from './pages/AIAnalyticsAgent';
+import MaturityGraderQuiz from './pages/MaturityGraderQuiz';
+import MaturityGraderResults from './pages/MaturityGraderResults';
+import { MaturityGraderProvider } from './context/MaturityGraderContext';
 
 export default function App() {
   return (
@@ -21,6 +24,10 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/tools" element={<Tools />} />
+        <Route element={<MaturityGraderProvider />}>
+          <Route path="/tools/analytics-maturity-grader" element={<MaturityGraderQuiz />} />
+          <Route path="/tools/analytics-maturity-grader/results" element={<MaturityGraderResults />} />
+        </Route>
         <Route path="/tools/:toolId" element={<ToolLanding />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/:slug" element={<CaseStudy />} />
