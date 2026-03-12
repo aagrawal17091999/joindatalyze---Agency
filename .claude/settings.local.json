@@ -4,7 +4,17 @@
       "Bash(npm run build)",
       "Bash(npm install:*)",
       "Bash(npx vite:*)",
-      "Bash(ffmpeg -i public/ai-agent-video-new.mp4 -ss 00:00:00.5 -frames:v 1 -q:v 2 public/ai-agent-poster.jpg)"
+      "Bash(ffmpeg -i public/ai-agent-video-new.mp4 -ss 00:00:00.5 -frames:v 1 -q:v 2 public/ai-agent-poster.jpg)",
+      "Bash(curl -s http://localhost:4174/ai-analytics-agent)",
+      "Bash(curl -s http://localhost:4174/)",
+      "Bash(curl -s http://localhost:4174/nonexistent-page)",
+      "Bash(curl -sI http://localhost:4174/ai-analytics-agent)",
+      "Bash(curl -sL http://localhost:4174/ai-analytics-agent)",
+      "Bash(curl -sL http://localhost:4174/services)",
+      "Bash(curl -s http://localhost:4174/ai-analytics-agent/)",
+      "Bash(curl -sL http://localhost:4174/services/)",
+      "Bash(curl -sL http://localhost:4174/)",
+      "Bash(curl -sL http://localhost:4174/case-studies/some-slug)"
     ]
   }
 }

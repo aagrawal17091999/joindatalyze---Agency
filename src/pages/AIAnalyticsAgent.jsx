@@ -20,8 +20,8 @@ const PROCESS_STEPS = [
   },
   {
     num: 4,
-    title: 'We build and configure your agent',
-    description: 'With clean data and a solid knowledge base in place, we build the agent tailored to your product \u2014 wired up and ready for your team to use.',
+    title: 'We build your agent or set up the right tool',
+    description: 'With clean data and a solid knowledge base in place, we either build a custom AI agent tailored to your product or configure tools like Julius AI, DataGPT, or Vanna.ai on top of your data. Wired up and ready for your team to use.',
   },
   {
     num: 5,
@@ -102,7 +102,7 @@ export default function AIAnalyticsAgent() {
           <div className="section-header center">
             <h1>Done-For-You AI Analytics</h1>
             <p className="section-lead">
-              We handle everything your data needs to work - cleaning, modeling, and a custom knowledge base - then build and maintain an AI analytics agent your team can query in plain English.
+              We clean your data, model it, and build a custom knowledge base. Then we either build you a custom AI analytics agent or set up tools like Julius AI, Vanna.ai, etc. on top of it. Your team asks questions in plain English.
             </p>
           </div>
         </div>

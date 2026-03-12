@@ -25,9 +25,9 @@ module.exports = {
     {
       name: 'datalyze-frontend',
       cwd: './',
-      script: 'npx',
-      args: 'vite preview --open false --host 0.0.0.0',
-      env: { NODE_ENV: 'production', BROWSER: 'none' },
+      script: 'node',
+      args: 'scripts/serve-static.mjs --port 4173 --host 0.0.0.0',
+      env: { NODE_ENV: 'production' },
       instances: 1,
       autorestart: true,
       watch: false,
