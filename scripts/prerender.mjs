@@ -95,10 +95,9 @@ for (const route of prerenderRoutes) {
 }
 
 await browser.close();
-server.kill();
+server.kill('SIGKILL');
 
 console.log(`\nPrerendering complete: ${success} succeeded, ${failed} failed out of ${prerenderRoutes.length} routes.`);
 
-if (failed > 0) {
-  process.exit(1);
-}
+// Force exit — the killed server child process can keep Node alive otherwise
+process.exit(failed > 0 ? 1 : 0);
