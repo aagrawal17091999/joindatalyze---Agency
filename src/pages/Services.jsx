@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 export default function Services() {
   useEffect(() => {
@@ -14,6 +15,11 @@ export default function Services() {
 
   return (
     <section className="section surface" id="services">
+      <SEO
+        title="Services"
+        description="Product analytics, data modeling, and growth experimentation services for tech companies. Set up reliable data and run experiments that move the needle."
+        path="/services"
+      />
       <div className="container">
         <div className="section-header">
           <h2>Ways we help</h2>

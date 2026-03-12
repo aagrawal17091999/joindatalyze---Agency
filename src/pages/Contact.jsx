@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   useEffect(() => {
@@ -27,6 +28,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section callout">
+      <SEO
+        title="Contact"
+        description="Book a free 30-minute analytics audit with Datalyze. Let's talk about how we can help grow your business with data."
+        path="/contact"
+      />
       <div className="container">
         <div className="section-header center">
           <h1>Book a call with us</h1>

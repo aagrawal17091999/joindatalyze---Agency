@@ -1,4 +1,5 @@
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 const resources = [
   { title: 'Mixpanel Simplified', href: 'https://mixpanelsimplified.substack.com/', description: 'Practical writing on product analytics, Mixpanel usage, and common mistakes teams make when working with data.' },
@@ -14,6 +15,11 @@ const resources = [
 export default function Resources() {
   return (
     <section id="resources" className="section surface">
+      <SEO
+        title="Resources"
+        description="Guides, tools, courses, and content on product analytics, Mixpanel, PostHog, Amplitude, and data quality."
+        path="/resources"
+      />
       <div className="container">
         <div className="section-header">
           <h2>Guides, tools, and content</h2>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -16,6 +17,10 @@ import MaturityGraderResults from './pages/MaturityGraderResults';
 import { MaturityGraderProvider } from './context/MaturityGraderContext';
 
 export default function App() {
+  useEffect(() => {
+    document.dispatchEvent(new Event('prerender-ready'));
+  }, []);
+
   return (
     <Layout>
       <Routes>

@@ -3,6 +3,7 @@ import { toolById } from '../data/tools';
 import mixpanel from '../utils/mixpanel';
 import ToolDownloadForm from '../components/ToolDownloadForm';
 import WebToolLanding from './WebToolLanding';
+import SEO from '../components/SEO';
 
 export default function ToolLanding() {
   const { toolId } = useParams();
@@ -30,6 +31,11 @@ export default function ToolLanding() {
 
   return (
     <>
+      <SEO
+        title={tool.title}
+        description={tool.longDescription}
+        path={`/tools/${toolId}`}
+      />
       <section className="section surface">
         <div className="container">
           <div className="tool-landing">

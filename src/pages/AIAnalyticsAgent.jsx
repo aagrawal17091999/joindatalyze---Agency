@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 const PROCESS_STEPS = [
   {
@@ -87,6 +88,11 @@ export default function AIAnalyticsAgent() {
 
   return (
     <>
+      <SEO
+        title="AI Analytics Agent"
+        description="Done-for-you AI analytics — we clean your data, build a custom knowledge base, and deliver an AI agent your team can query in plain English."
+        path="/ai-analytics-agent"
+      />
       {/* Hero */}
       <section className="section ai-agent-hero">
         <div className="container">

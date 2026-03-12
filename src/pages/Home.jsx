@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 function LogoImg({ src, name }) {
   return <img src={src} alt={name} />;
@@ -443,6 +444,11 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        title="Analytics & Growth Partner"
+        description="Datalyze helps product teams set up analytics, run experiments, and grow faster with data-driven decisions."
+        path="/"
+      />
       {/* Hero */}
       <section className="home-hero section" id="hero">
         <div className="container">

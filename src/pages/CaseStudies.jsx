@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { caseStudyList } from '../data/caseStudies';
 import { preloadImages } from '../utils/preloadImages';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 export default function CaseStudies() {
   useEffect(() => {
@@ -11,6 +12,11 @@ export default function CaseStudies() {
 
   return (
     <section id="case-studies" className="section">
+      <SEO
+        title="Case Studies"
+        description="See how Datalyze has helped startups improve activation, retention, and conversion with better analytics and experimentation."
+        path="/case-studies"
+      />
       <div className="container">
         <div className="section-header">
           <h2>Case Studies</h2>

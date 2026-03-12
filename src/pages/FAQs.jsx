@@ -1,3 +1,5 @@
+import SEO from '../components/SEO';
+
 const faqs = [
   { q: 'What is Datalyze?', a: 'Datalyze is an analytics and growth partner. We help you set up your data correctly, understand how users behave, and use those insights to run experiments and improve revenue.' },
   { q: 'How fast can you get started?', a: 'We can usually start within a day once you decide to work with us.' },
@@ -10,6 +12,11 @@ const faqs = [
 export default function FAQs() {
   return (
     <section className="section surface faqs">
+      <SEO
+        title="FAQs"
+        description="Frequently asked questions about working with Datalyze — pricing, team, engagement, and what to expect."
+        path="/faqs"
+      />
       <div className="container">
         <div className="section-header center">
           <div className="eyebrow">FAQs</div>

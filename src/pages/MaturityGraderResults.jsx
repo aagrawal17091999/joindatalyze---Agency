@@ -3,6 +3,7 @@ import { Navigate, Link } from 'react-router-dom';
 import { useMaturityGrader } from '../context/MaturityGraderContext';
 import html2canvas from 'html2canvas';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 export default function MaturityGraderResults() {
   const { results } = useMaturityGrader();
@@ -38,6 +39,11 @@ export default function MaturityGraderResults() {
 
   return (
     <>
+      <SEO
+        title="Your Analytics Maturity Results"
+        description="Your personalized analytics maturity scorecard from Datalyze."
+        path="/tools/analytics-maturity-grader/results"
+      />
       {/* ===== Hero: Overall Grade ===== */}
       <section className="section surface">
         <div className="container">

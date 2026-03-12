@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { preloadImages } from '../utils/preloadImages';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 const TEAM = [
   { name: 'Ansh Agrawal', role: 'Founder', photo: '/Ansh.png' },
@@ -19,6 +20,11 @@ export default function About() {
 
   return (
     <section className="section surface" id="about">
+      <SEO
+        title="About"
+        description="Datalyze is a fractional analytics, data engineering, and growth team that builds the foundations, insights, and experiments that move the needle."
+        path="/about"
+      />
       <div className="container">
         {/* Hero */}
         <div className="section-header">

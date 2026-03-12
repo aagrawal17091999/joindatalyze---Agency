@@ -5,6 +5,7 @@ import { allQuestions, computeResults } from '../data/maturityGraderData';
 import { useMaturityGrader } from '../context/MaturityGraderContext';
 import { apiBaseUrl } from '../config';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 const tool = toolById['analytics-maturity-grader'];
 
@@ -88,6 +89,11 @@ export default function MaturityGraderQuiz() {
   if (!unlocked) {
     return (
       <>
+        <SEO
+          title="Analytics Maturity Grader"
+          description="Take a 2-minute quiz to get a personalized analytics maturity scorecard with actionable recommendations."
+          path="/tools/analytics-maturity-grader"
+        />
         <section className="section surface">
           <div className="container">
             <div className="tool-landing">

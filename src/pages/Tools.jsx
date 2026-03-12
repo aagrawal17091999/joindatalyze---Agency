@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
 import { toolList } from '../data/tools';
 import mixpanel from '../utils/mixpanel';
+import SEO from '../components/SEO';
 
 export default function Tools() {
   return (
     <>
+      <SEO
+        title="Tools"
+        description="Free analytics tools built by Datalyze. Export Mixpanel data, grade your analytics maturity, and more."
+        path="/tools"
+      />
       <section className="section surface">
         <div className="container">
           <div className="section-header">
