@@ -24,9 +24,28 @@ const GLOBAL_PRELOAD_URLS = [
   ...caseStudyList.filter((c) => c.logo).map((c) => c.logo),
 ];
 
+// Prefetch non-image assets (video, etc.) via a low-priority <link rel="prefetch">.
+// The browser downloads these when idle without blocking anything.
+function prefetchAssets(urls) {
+  const run = () => {
+    urls.forEach((url) => {
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  };
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(run);
+  } else {
+    setTimeout(run, 500);
+  }
+}
+
 export default function Layout({ children }) {
   useEffect(() => {
     preloadImages(GLOBAL_PRELOAD_URLS);
+    prefetchAssets(['/ai-agent-video-new.mp4']);
   }, []);
 
   return (
