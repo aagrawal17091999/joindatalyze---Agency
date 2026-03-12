@@ -1,20 +1,23 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { preloadImages } from '../utils/preloadImages';
+import { Helmet } from 'react-helmet-async';
 import mixpanel from '../utils/mixpanel';
 import SEO from '../components/SEO';
 
+const SERVICE_ICONS = [
+  '/service-icons/product-analytics.svg',
+  '/service-icons/data-modelling.svg',
+  '/service-icons/growth-experimentation.svg',
+];
+
 export default function Services() {
-  useEffect(() => {
-    preloadImages([
-      '/service-icons/product-analytics.svg',
-      '/service-icons/data-modelling.svg',
-      '/service-icons/growth-experimentation.svg',
-    ]);
-  }, []);
 
   return (
     <section className="section surface" id="services">
+      <Helmet>
+        {SERVICE_ICONS.map((src) => (
+          <link key={src} rel="preload" as="image" type="image/svg+xml" href={src} />
+        ))}
+      </Helmet>
       <SEO
         title="Services"
         description="Product analytics, data modeling, and growth experimentation services for tech companies. Set up reliable data and run experiments that move the needle."

@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_URL = 'https://joindatalyze.com';
-const DEFAULT_OG_IMAGE = `${SITE_URL}/datalyze%20logo%20updated.svg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/datalyze%20logo%20updated.png`;
 
 export default function SEO({ title, description, path, ogImage }) {
   const fullTitle = title
