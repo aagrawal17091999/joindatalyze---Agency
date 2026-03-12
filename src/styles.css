@@ -3212,8 +3212,10 @@ body.auth-page .auth-card--signup .auth-switch a {
 .ai-agent-video iframe,
 .ai-agent-video video {
   @apply w-full block;
+  aspect-ratio: 1648 / 1020;
   border: none;
   object-fit: contain;
+  background: hsl(var(--panel));
 }
 
 .ai-agent-cta {

@@ -74,6 +74,9 @@ export default function AIAnalyticsAgent() {
       }
       if (e.data.event === 'calendly.event_scheduled') {
         mixpanel.track('Calendly Event Scheduled', { location: 'ai_agent_page' });
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-18010353889/q2vPCKXQkIccEOHhgIxD',
+        });
       }
     };
     window.addEventListener('message', handleMessage);
@@ -114,6 +117,8 @@ export default function AIAnalyticsAgent() {
               muted
               loop
               playsInline
+              preload="auto"
+              poster="/ai-agent-poster.jpg"
               style={{ playbackRate: 1.5 }}
               ref={(el) => { if (el) el.playbackRate = 1.5; }}
             >

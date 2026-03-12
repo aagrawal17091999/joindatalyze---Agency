@@ -20,6 +20,9 @@ export default function Contact() {
       }
       if (e.data.event === 'calendly.event_scheduled') {
         mixpanel.track('Calendly Event Scheduled', { location: 'contact_page' });
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-18010353889/q2vPCKXQkIccEOHhgIxD',
+        });
       }
     };
     window.addEventListener('message', handleMessage);

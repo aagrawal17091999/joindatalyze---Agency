@@ -315,7 +315,7 @@ function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
               aria-label={isActive ? `Current: ${t.name}` : `Show testimonial by ${t.name}`}
             >
               <span className="testimonial-slider-avatar">
-                {t.avatar ? <img src={t.avatar} alt="" /> : (t.name || '?').charAt(0)}
+                {t.avatar ? <img src={t.avatar} alt="" loading="lazy" /> : (t.name || '?').charAt(0)}
               </span>
               <span className="testimonial-slider-info">
                 <span className="testimonial-slider-name">{t.name}</span>
@@ -493,7 +493,7 @@ export default function Home() {
                   <h3 className="home-why-card-title">{item.title}</h3>
                 </div>
                 <div className="home-why-image-wrap">
-                  <img src={item.image} alt={item.title} className="home-why-image" />
+                  <img src={item.image} alt={item.title} className="home-why-image" loading="lazy" />
                 </div>
                 <div className="home-why-card-body">
                   {item.body.map((para, i) => (
@@ -553,7 +553,7 @@ export default function Home() {
           <div className="home-tech-grid">
             {TECH_STACK_IMAGES.map((item, i) => (
               <div key={i} className="home-tech-cell" title={item.name}>
-                <img src={item.src} alt={item.name} />
+                <img src={item.src} alt={item.name} loading="lazy" />
               </div>
             ))}
           </div>
@@ -588,7 +588,7 @@ export default function Home() {
                   >
                     <div className="home-growth-num">{step.num}</div>
                     <div className="home-growth-icon-box">
-                      <img src={step.icon} alt="" aria-hidden="true" className="home-growth-icon-img" />
+                      <img src={step.icon} alt="" aria-hidden="true" className="home-growth-icon-img" loading="lazy" />
                     </div>
                     <div className="home-growth-copy">
                       <h3 className="home-growth-title">{step.title}</h3>
