@@ -10,5 +10,4 @@ export const prerenderRoutes = [
   '/resources',
   '/faqs',
   '/contact',
-  '/ai-analytics-agent',
-];
+  '/ai-analytics-agent',];

@@ -39,8 +39,7 @@ export default function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/ai-analytics-agent" element={<AIAnalyticsAgent />} />
-      </Routes>
+        <Route path="/ai-analytics-agent" element={<AIAnalyticsAgent />} />      </Routes>
     </Layout>
   );
 }

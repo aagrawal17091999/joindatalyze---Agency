@@ -10,18 +10,18 @@ const PROCESS_STEPS = [
   },
   {
     num: 2,
-    title: 'We clean and model your data',
+    title: 'We clean and model your data for automated analysis',
     description: 'Raw data breaks AI. We fix inaccuracies, unify data from multiple sources, and structure it in a way the agent can reason over reliably \u2014 leaving you with clean, reusable tables as a bonus.',
   },
   {
     num: 3,
-    title: 'We build your agent\'s brain',
+    title: 'We build your AI analytics agent\'s brain',
     description: 'This is what most tools skip. We create a deep knowledge base covering your business context, metric definitions, table relationships, and common use cases \u2014 so the agent understands your product, not just your schema.',
   },
   {
     num: 4,
-    title: 'We build your agent or set up the right tool',
-    description: 'With clean data and a solid knowledge base in place, we either build a custom AI agent tailored to your product or configure tools like Julius AI, DataGPT, or Vanna.ai on top of your data. Wired up and ready for your team to use.',
+    title: 'We build your data analyst AI or set up the right tool',
+    description: 'With clean data and a solid knowledge base in place, we either build a custom AI agent tailored to your product or configure AI data analytics tools like Julius AI, DataGPT, or Vanna.ai on top of your data. Wired up and ready for your team to use.',
   },
   {
     num: 5,
@@ -37,7 +37,7 @@ const PROCESS_STEPS = [
 
 const AGENT_FAQS = [
   {
-    q: 'How is this different from other AI analytics tools?',
+    q: 'How is this different from other AI data analytics tools?',
     a: 'Most tools hand you an agent and leave you to figure out the rest. We don\'t. We do the hard work that actually makes agents accurate - cleaning your data, modeling it properly, and building a knowledge base tailored to your business. Every client also gets a fully custom implementation, not a generic setup with your logo on it.',
   },
   {
@@ -49,8 +49,12 @@ const AGENT_FAQS = [
     a: 'We\'ve worked with 150+ startups and sit at the intersection of two things most teams don\'t have in one place - deep expertise in AI agents, and serious experience in data modeling and documentation. Getting an agent to work well needs both. Most vendors only bring one.',
   },
   {
-    q: 'Why do most AI analytics agents give bad answers?',
+    q: 'Why do most AI data analytics agents give bad answers?',
     a: 'Because the problem isn\'t the AI - it\'s the data underneath it. Any agent pointed at raw, unmodeled data will struggle. What makes the difference is clean data, proper structure, and thorough documentation on how to use it. That\'s the work most tools skip. It\'s the work we do first.',
+  },
+  {
+    q: 'Do I need SQL or technical skills to use this?',
+    a: 'No. The whole point is that your team asks questions in plain English. No SQL, no code, no query builders. We handle all the technical setup so you don\'t have to.',
   },
 ];
 
@@ -92,17 +96,17 @@ export default function AIAnalyticsAgent() {
   return (
     <>
       <SEO
-        title="AI Analytics Agent"
-        description="Done-for-you AI analytics — we clean your data, build a custom knowledge base, and deliver an AI agent your team can query in plain English."
+        title="Done-For-You AI Data Analytics"
+        description="Done-for-you AI data analytics — we clean your data, build a custom knowledge base, and deliver an AI agent your team can query in plain English. No SQL needed."
         path="/ai-analytics-agent"
       />
       {/* Hero */}
       <section className="section ai-agent-hero">
         <div className="container">
           <div className="section-header center">
-            <h1>Done-For-You AI Analytics</h1>
+            <h1>Done-For-You AI Data Analytics</h1>
             <p className="section-lead">
-              We clean your data, model it, and build a custom knowledge base. Then we either build you a custom AI analytics agent or set up tools like Julius AI, Vanna.ai, etc. on top of it. Your team asks questions in plain English.
+              We clean your data, model it, and build a custom knowledge base. Then we either build you a custom AI data analytics agent or set up AI tools for data analytics like Julius AI, Vanna.ai, or DataGPT on top of it. No SQL needed. Your team asks questions in plain English.
             </p>
           </div>
         </div>

@@ -3196,15 +3196,41 @@ body.auth-page .auth-card--signup .auth-switch a {
 /* ── AI Analytics Agent Page ── */
 
 .ai-agent-hero {
-  @apply text-center pt-24 pb-8;
+  @apply pt-24 pb-6;
 }
 
-.ai-agent-video-wrap {
-  @apply pb-12;
+.ai-agent-hero .container {
+  max-width: 90rem;
+}
+
+.ai-agent-hero-inner {
+  @apply grid gap-8 items-center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .ai-agent-hero-inner {
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+  }
+}
+
+.ai-agent-hero-left h1 {
+  @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-center md:text-left;
+  color: hsl(0, 0%, 100%);
+}
+
+.ai-agent-hero-lead {
+  @apply text-lg lg:text-xl text-center md:text-left leading-relaxed;
+  color: hsl(0, 0%, 80%);
+}
+
+.ai-agent-hero-right {
+  @apply flex justify-center;
 }
 
 .ai-agent-video {
-  @apply mx-auto w-full max-w-4xl rounded-xl overflow-hidden;
+  @apply w-full rounded-xl overflow-hidden;
   background: hsl(var(--panel));
   border: 3px solid hsl(0, 0%, 100%);
 }
@@ -3218,9 +3244,67 @@ body.auth-page .auth-card--signup .auth-switch a {
   background: hsl(var(--panel));
 }
 
+/* ── Horizontal Logo Marquee ── */
+
+.ai-agent-logo-marquee {
+  @apply w-full overflow-hidden;
+  padding: 3.5rem 0 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.ai-agent-logo-track {
+  @apply flex w-max;
+  animation: ai-logo-scroll 40s linear infinite;
+}
+
+.ai-agent-logo-set {
+  @apply flex shrink-0 items-center;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.ai-agent-logo-cell {
+  @apply flex items-center justify-center shrink-0 rounded-lg;
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+.ai-agent-logo-cell--dark {
+  background: #1a1a2e;
+}
+
+.ai-agent-logo-cell img {
+  @apply block;
+  max-width: 48px;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+@keyframes ai-logo-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .ai-agent-logo-cell {
+    width: 56px;
+    height: 56px;
+  }
+  .ai-agent-logo-cell img {
+    max-width: 36px;
+    max-height: 36px;
+  }
+  .ai-agent-logo-track {
+    animation-duration: 30s;
+  }
+}
+
 .ai-agent-cta {
   @apply flex justify-center;
-  padding: 2rem 0 3rem;
+  padding: 3rem 0 4rem;
 }
 
 .ai-agent-steps {
