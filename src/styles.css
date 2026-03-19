@@ -3248,7 +3248,7 @@ body.auth-page .auth-card--signup .auth-switch a {
 
 .ai-agent-logo-marquee {
   @apply w-full overflow-hidden;
-  padding: 3.5rem 0 0;
+  padding: 1.5rem 0 3rem;
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -3307,6 +3307,10 @@ body.auth-page .auth-card--signup .auth-switch a {
   padding: 3rem 0 4rem;
 }
 
+.ai-agent-process--tight {
+  padding-top: 2rem;
+}
+
 .ai-agent-steps {
   @apply mx-auto max-w-3xl flex flex-col gap-5;
 }
@@ -3340,4 +3344,32 @@ body.auth-page .auth-card--signup .auth-switch a {
 
 .ai-agent-cta-block h3 {
   @apply mb-4;
+}
+
+.ai-agent-hero-ctas {
+  @apply flex flex-wrap justify-center gap-3;
+  margin-top: 2rem;
+}
+
+.btn.secondary {
+  @apply text-white;
+  background: transparent;
+  border: 1px solid hsl(0, 0%, 100%);
+  transition: all 0.3s ease;
+}
+
+.btn.secondary:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .ai-agent-hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+  .ai-agent-hero-ctas .btn {
+    width: 100%;
+    text-align: center;
+  }
 }

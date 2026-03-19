@@ -2,6 +2,64 @@ import { useState, useEffect } from 'react';
 import mixpanel from '../utils/mixpanel';
 import SEO from '../components/SEO';
 
+const CLIENT_LOGOS = [
+  { file: 'AWeber.png', name: 'AWeber' },
+  { file: 'AlgoTest.png', name: 'AlgoTest' },
+  { file: 'CRED.png', name: 'CRED' },
+  { file: 'CarAdvise.png', name: 'CarAdvise' },
+  { file: 'College tools.png', name: 'College Tools' },
+  { file: 'Copyfy.png', name: 'Copyfy' },
+  { file: 'Creattie.png', name: 'Creattie' },
+  { file: 'Delightree.png', name: 'Delightree' },
+  { file: 'Drops.png', name: 'Drops', dark: true },
+  { file: 'Endorhealth.png', name: 'EndorHealth' },
+  { file: 'FireRecruitmentAustralia.png', name: 'Fire Recruitment Australia' },
+  { file: 'Foriio.png', name: 'Foriio' },
+  { file: 'Fraim.png', name: 'Fraim' },
+  { file: 'GameTree.png', name: 'GameTree' },
+  { file: 'GelatoPique.png', name: 'Gelato Pique' },
+  { file: 'GrantMe.png', name: 'GrantMe' },
+  { file: 'Inferless.png', name: 'Inferless' },
+  { file: 'InfluencerMarketing.png', name: 'Influencer Marketing AI' },
+  { file: 'Jabu.png', name: 'Jabu' },
+  { file: 'KeywordInsights.png', name: 'Keyword Insights' },
+  { file: 'Kliq.png', name: 'Kliq' },
+  { file: 'Kryptos.png', name: 'Kryptos' },
+  { file: 'Louper.png', name: 'Louper' },
+  { file: 'Magma.png', name: 'Magma' },
+  { file: 'Mask group.png', name: 'Mask Group', dark: true },
+  { file: 'Mottiv.png', name: 'Mottiv' },
+  { file: 'Mylance.png', name: 'Mylance' },
+  { file: 'Nokio.png', name: 'Nokio' },
+  { file: 'Oswal.png', name: 'Oswal' },
+  { file: 'Patrimore.png', name: 'Patrimore' },
+  { file: 'PetAcademy.png', name: 'PetAcademy' },
+  { file: 'Phygital.png', name: 'Phygital' },
+  { file: 'Pixis.png', name: 'Pixis' },
+  { file: 'Ramped.png', name: 'Ramped' },
+  { file: 'Sama.png', name: 'Sama' },
+  { file: 'Sanaam.png', name: 'Sanaam' },
+  { file: 'Sequens.png', name: 'Sequens' },
+  { file: 'Serendipity.png', name: 'Serendipity' },
+  { file: 'Silverfort.png', name: 'Silverfort' },
+  { file: 'Sol.png', name: 'Sol' },
+  { file: 'Sortme.png', name: 'Sortme' },
+  { file: 'Sucasa.png', name: 'Sucasa' },
+  { file: 'Tiun.png', name: 'Tiun' },
+  { file: 'Uplers.png', name: 'Uplers' },
+  { file: 'coursebox.png', name: 'Coursebox' },
+  { file: 'digitap.png', name: 'Digitap' },
+  { file: 'final round ai.png', name: 'Final Round AI' },
+  { file: 'magnar.png', name: 'Magnar' },
+  { file: 'superhote.png', name: 'Superhote' },
+  { file: 'termplus.png', name: 'Termplus' },
+  { file: 'wellness coach.png', name: 'Wellness Coach' },
+].map((item) => ({
+  src: `/logos/${encodeURIComponent(item.file)}`,
+  name: item.name,
+  ...(item.dark && { dark: true }),
+}));
+
 const PROCESS_STEPS = [
   {
     num: 1,
@@ -93,6 +151,12 @@ export default function AIAnalyticsAgent() {
     document.getElementById('calendly')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToProcess = (e) => {
+    e.preventDefault();
+    mixpanel.track('CTA Clicked', { cta_text: 'See How It Works', location: 'ai_agent_page' });
+    document.getElementById('our-process')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <SEO
@@ -108,9 +172,37 @@ export default function AIAnalyticsAgent() {
             <p className="section-lead">
               We clean your data, model it, and build a custom knowledge base. Then we either build you a custom AI data analytics agent or set up AI tools for data analytics like Julius AI, Vanna.ai, or DataGPT on top of it. No SQL needed. Your team asks questions in plain English.
             </p>
+            <div className="ai-agent-hero-ctas">
+              <button className="btn primary px-6 py-3.5 text-base" onClick={scrollToCalendly}>
+                Want to set this up? Let's talk
+              </button>
+              <button className="btn secondary px-6 py-3.5 text-base" onClick={scrollToProcess}>
+                See How It Works
+              </button>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Logo Marquee */}
+      <div className="ai-agent-logo-marquee">
+        <div className="ai-agent-logo-track">
+          <div className="ai-agent-logo-set">
+            {CLIENT_LOGOS.map((logo) => (
+              <div key={logo.name} className={`ai-agent-logo-cell${logo.dark ? ' ai-agent-logo-cell--dark' : ''}`}>
+                <img src={logo.src} alt={logo.name} />
+              </div>
+            ))}
+          </div>
+          <div className="ai-agent-logo-set" aria-hidden="true">
+            {CLIENT_LOGOS.map((logo) => (
+              <div key={logo.name} className={`ai-agent-logo-cell${logo.dark ? ' ai-agent-logo-cell--dark' : ''}`}>
+                <img src={logo.src} alt={logo.name} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Video */}
       <div className="ai-agent-video-wrap">
@@ -132,18 +224,11 @@ export default function AIAnalyticsAgent() {
         </div>
       </div>
 
-      {/* CTA #1 */}
-      <div className="ai-agent-cta">
-        <button className="btn primary px-6 py-3.5 text-base" onClick={scrollToCalendly}>
-          Want to set this up? Let's talk
-        </button>
-      </div>
-
-      {/* Our Process */}
-      <section className="section ai-agent-process" id="our-process">
+      {/* How we do this */}
+      <section className="section ai-agent-process ai-agent-process--tight" id="our-process">
         <div className="container">
           <div className="section-header center">
-            <h2>Our Process</h2>
+            <h2>How we do this?</h2>
           </div>
           <div className="ai-agent-steps">
             {PROCESS_STEPS.map((step) => (
