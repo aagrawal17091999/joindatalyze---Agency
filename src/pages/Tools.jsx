@@ -11,10 +11,10 @@ export default function Tools() {
         description="Free analytics tools built by Datalyze. Export Mixpanel data, grade your analytics maturity, and more."
         path="/tools"
       />
-      <section className="section surface">
+      <section className="section surface tools-grid-section">
         <div className="container">
           <div className="section-header">
-            <h2>Tools built by Datalyze</h2>
+            <h1>Tools built by Datalyze</h1>
           </div>
           <div className="tools-grid">
             {toolList.map((t) => (

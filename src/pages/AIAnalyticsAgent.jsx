@@ -228,7 +228,7 @@ export default function AIAnalyticsAgent() {
       <section className="section ai-agent-process ai-agent-process--tight" id="our-process">
         <div className="container">
           <div className="section-header center">
-            <h2>How we do this?</h2>
+            <h1>How we do this?</h1>
           </div>
           <div className="ai-agent-steps">
             {PROCESS_STEPS.map((step) => (

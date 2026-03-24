@@ -130,26 +130,21 @@ const WHY_ITEMS = [
     title: 'Data consolidation',
     image: '/why-work-with-us-icons/data-consolidation.svg',
     body: [
-      'Fragmented data makes it hard to understand how users actually move through your product. When events, tools, and sources don\'t talk to each other, insights break down and decisions become guesswork.',
-    ],
-    emphasis: 'We bring everything together into one clean, reliable view so you can see the full user journey and build on it with confidence.',
-  },
+      'Fragmented data means broken insights and guesswork decisions. We bring everything together into one clean, reliable view - so you can see the full user journey and act on it with confidence.',
+    ],  },
   {
     title: 'The team',
     image: '/why-work-with-us-icons/the-team.svg',
     body: [
-      'We\'re a small, flexible team of senior consultants with deep experience in tech and product analytics. Collectively, we\'ve worked with over 150 companies, including brands like Wellness Coach, CRED, and Final Round AI.',
+      'We\'re a small team of senior consultants who\'ve collectively worked with 150+ companies, including brands like Wellness Coach, CRED, and Final Round AI. You work directly with experienced operators — no layers of account managers.',
     ],
-    emphasis: 'You work directly with experienced operators, not layers of account managers.',
   },
   {
     title: 'Response time',
     image: '/why-work-with-us-icons/fast-response-times.svg',
     body: [
-      'Most agencies move slowly and stick rigidly to what\'s written in the contract. That often means delays, handoffs, and limited support.',
-      'We work differently. We respond fast, take ownership, and do what\'s needed to help you grow, even if it goes beyond the original scope.',
+      'Most agencies move slowly and stick rigidly to scope. We respond fast, take ownership, and do what\'s needed to help you grow — even if it goes beyond the original brief. That\'s how we think about partnerships.',
     ],
-    emphasis: 'That\'s how we think about partnerships.',
   },
 ];
 
@@ -250,9 +245,9 @@ function StarRating({ rating, active = false, max = 5 }) {
 }
 
 const SLIDER_POS_COORDS = {
-  top:    { left: '150px', top: '118px' },
-  middle: { left: '200px', top: '225px' },
-  bottom: { left: '150px', top: '332px' },
+  top:    { left: '209px', top: '141px' },
+  middle: { left: '280px', top: '290px' },
+  bottom: { left: '209px', top: '439px' },
 };
 
 function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
@@ -284,12 +279,12 @@ function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
     <div className="testimonial-slider-wrap">
       {/* Arc SVG — direct child of wrap so it sits behind items */}
       <svg
-        viewBox="0 0 320 450"
+        viewBox="0 0 420 580"
         className="testimonial-slider-arcs"
         aria-hidden="true"
       >
         <path
-          d="M 60 85 A 140 140 0 0 1 60 365"
+          d="M 80 90 A 200 200 0 0 1 80 490"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
@@ -332,10 +327,9 @@ function TestimonialSlider({ testimonials, activeIndex, onSelect }) {
 const GROWTH_STEPS = [
   {
     num: 1,
-    title: 'Set up your data for accuracy',
+    title: 'Set up data for accuracy',
     description: [
-      "Most startups struggle with one core problem: they don't fully trust their data. Events break, definitions drift, and numbers don't line up across tools.",
-      "We start by fixing this. We audit your setup, clean up what's broken, and put checks in place so your team can rely on the data again.",
+      "Most startups don't fully trust their data, events break, definitions drift, and numbers don't line up. We audit your setup, fix what's broken, and put checks in place so your team can rely on the data again.",
     ],
     icon: '/growth-model-icons/accurate-data.svg',
   },
@@ -343,44 +337,39 @@ const GROWTH_STEPS = [
     num: 2,
     title: 'Data fragmentation',
     description: [
-      "Data often lives across multiple tools, each showing only part of the story. While individual reports are useful, they don't show how users move end to end through your product.",
-      "We consolidate your data into a single, consistent view so you can clearly see what's happening and make decisions that actually impact growth and revenue.",
+      "Data spread across multiple tools only tells part of the story. We consolidate everything into a single, consistent view so you can see how users move end to end, and make decisions that actually impact growth.",
     ],
     icon: '/growth-model-icons/data-fragmentation.svg',
   },
   {
     num: 3,
-    title: 'User behavioural insights & reporting',
+    title: 'User behavioural insights',
     description: [
-      "Once the foundation is solid, we build clear reports and dashboards that show how users behave, where they drop off, and what's working versus what isn't.",
-      "These dashboards are designed for daily use, giving your team a simple way to monitor product health and spot issues early.",
+      "We build clear, daily-use dashboards that show how users behave, where they drop off, and what's working. Your team gets a simple way to monitor product health and spot issues early.",
     ],
     icon: '/growth-model-icons/insights-reporting.svg',
   },
   {
     num: 4,
-    title: 'Alerting',
+    title: 'Detailed Alerting',
     description: [
-      "Data breaks often go unnoticed until it's too late. A small tracking issue can quietly affect weeks of analysis.",
-      "We set up alerts that flag problems as soon as they happen, so issues are caught early and fixed fast.",
+      "A small tracking issue can quietly affect weeks of analysis. We set up alerts that flag problems the moment they happen, so issues get caught early and fixed fast.",
     ],
     icon: '/growth-model-icons/alerting.svg',
   },
   {
     num: 5,
-    title: 'Ongoing Analysis & experimentation',
+    title: 'Analysis & experimentation',
     description: [
-      "With the basics in place, we work with you on continuous analysis. We help track new features, uncover insights, suggest experiments to run, and measure their impact over time.",
-      "In short, we take ownership of analytics so your team can focus on building and shipping.",
+      "We work with you on continuous analysis, tracking new features, uncovering insights, suggesting experiments, and measuring their impact. In short, we take ownership of analytics so your team can focus on building and shipping.",
     ],
     icon: '/growth-model-icons/analysis-experimentation.svg',
   },
   {
     num: 6,
-    title: 'Models to support growth & enabling the team to do quick analytics',
+    title: 'Models to support growth',
     description: [
-      "We go beyond dashboards. We help you build data models that combine full user journeys and unlock deeper analysis.",
-      "This includes models for use cases like identifying users at risk of churn and understanding their attributes to personalize retention strategies. These foundations also enable your team to answer questions quickly without waiting on complex analysis.",
+      "We go beyond dashboards. We help you build data models that combine full user journeys, identify churn risk, and unlock deeper analysis, so your team can answer questions quickly without waiting on complex work.",
     ],
     icon: '/growth-model-icons/growth-analytics.svg',
   },
@@ -400,10 +389,7 @@ export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const isPaused = useRef(false);
-  const [activeStep, setActiveStep] = useState(0);
-  const [hoveredStep, setHoveredStep] = useState(null);
   const growthSectionRef = useRef(null);
-  const growthListRef = useRef(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -422,25 +408,10 @@ export default function Home() {
       ...WHY_ITEMS.map((w) => w.image),
       ...GROWTH_STEPS.map((s) => s.icon),
       ...TESTIMONIALS.filter((t) => t.avatar).map((t) => t.avatar),
-      '/datalyze logo updated.svg',
     ];
     preloadImages(allUrls);
   }, []);
 
-  useEffect(() => {
-    function handleScroll() {
-      const section = growthSectionRef.current;
-      if (!section) return;
-      const scrolledIn = -section.getBoundingClientRect().top;
-      if (scrolledIn < 0) { setActiveStep(0); return; }
-      const scrollTravel = section.offsetHeight - window.innerHeight;
-      const newStep = Math.max(0, Math.min(GROWTH_STEPS.length - 1, Math.floor((scrolledIn / scrollTravel) * GROWTH_STEPS.length)));
-      setActiveStep(newStep);
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
@@ -452,16 +423,12 @@ export default function Home() {
       {/* Hero */}
       <section className="home-hero section" id="hero">
         <div className="container">
-            <div className="home-hero-logo-wrap">
-            <img src="/datalyze logo updated.svg" alt="Datalyze" className="home-hero-logo" />
-          </div>
           <div className="home-hero-inner">
             <div className="home-hero-left">
               <h1 className="home-hero-title">
                 Turn user behavior<br />
                 into measurable<br />
-                growth and revenue<br />
-                with Datalyze
+                growth and revenue
               </h1>
               <p className="home-hero-lead">
                 We help teams collect clean data, unlock insights, and run experiments that compound.
@@ -483,7 +450,7 @@ export default function Home() {
       <section className="section home-why" id="why-work-with-us">
         <div className="container">
           <div className="section-header">
-            <h2>Why work with us</h2>
+            <h1>Why work with us</h1>
           </div>
           <div className="home-why-grid">
             {WHY_ITEMS.map((item) => (
@@ -516,8 +483,7 @@ export default function Home() {
       >
         <div className="container">
           <div className="section-header">
-            <h2>Testimonials</h2>
-            <p className="section-lead">What our partners say about working with us.</p>
+            <h1>Testimonials</h1>
           </div>
           <div className="home-testimonials-inner">
             <div className="home-testimonials-slider-col">
@@ -538,17 +504,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA after Testimonials */}
-      <div className="home-section-cta">
-        <Link className="btn primary" to="/contact" onClick={() => mixpanel.track('CTA Clicked', { cta_text: 'Get a Free 30 min Audit', location: 'home_after_testimonials' })}>Get a Free 30 min Audit</Link>
-      </div>
 
       {/* Tech Stack - 6 columns, images only */}
       <section className="section home-tech" id="tech-stack">
         <div className="container">
           <div className="section-header">
-            <h2>Tech Stack</h2>
-            <p className="section-lead">Tools and platforms we work with every day.</p>
+            <h1>Tech Stack</h1>
+
           </div>
           <div className="home-tech-grid">
             {TECH_STACK_IMAGES.map((item, i) => (
@@ -562,44 +524,43 @@ export default function Home() {
 
       {/* Our Growth model */}
       <div className="home-growth-outer" ref={growthSectionRef} id="growth-model">
-        {/* Heading scrolls away normally — not part of the sticky panel */}
         <div className="home-growth-heading">
           <div className="container">
             <div className="section-header">
-              <h2>Our Growth Model</h2>
-              <p className="section-lead">A clear path from messy data to measurable growth.</p>
+              <h1>Our Growth Model</h1>
             </div>
           </div>
         </div>
-        <div className="home-growth-sticky">
-          <div className="container">
-            <div className="home-growth-list-wrap">
-              <div
-                className="home-growth-list"
-                ref={growthListRef}
-              >
-                <div className="home-growth-line" aria-hidden="true" />
-                {GROWTH_STEPS.map((step, idx) => (
-                  <div
-                    key={step.num}
-                    className={`home-growth-item${idx === (hoveredStep ?? activeStep) ? ' is-active' : ''}`}
-                    onMouseEnter={() => setHoveredStep(idx)}
-                    onMouseLeave={() => setHoveredStep(null)}
-                  >
-                    <div className="home-growth-num">{step.num}</div>
-                    <div className="home-growth-icon-box">
-                      <img src={step.icon} alt="" aria-hidden="true" className="home-growth-icon-img" loading="lazy" />
+        <div className="container">
+          <div className="home-growth-zigzag">
+            {GROWTH_STEPS.map((step, idx) => {
+              const isLeft = idx % 2 === 0;
+              const isLast = idx === GROWTH_STEPS.length - 1;
+              return (
+                <div key={step.num} className={`home-growth-zigzag-row ${isLeft ? 'row-left' : 'row-right'}`}>
+                  <div className="home-growth-zigzag-content">
+                    <div className="home-growth-zigzag-header">
+                      <img src={step.icon} alt="" aria-hidden="true" className="home-growth-zigzag-icon" loading="lazy" />
+                      <h3 className="home-growth-zigzag-title">{step.title}</h3>
                     </div>
-                    <div className="home-growth-copy">
-                      <h3 className="home-growth-title">{step.title}</h3>
+                    <div className="home-growth-zigzag-body">
                       {step.description.map((para, i) => (
-                        <p key={i} className="home-growth-desc">{para}</p>
+                        <p key={i}>{para}</p>
                       ))}
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                  {!isLast && (
+                    <div className="home-growth-zigzag-arrow">
+                      <img
+                        src={isLeft ? '/arrow-zigzag-right.svg' : '/arrow-zigzag-left.svg'}
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -613,7 +574,7 @@ export default function Home() {
       <section className="section home-faq" id="faq">
         <div className="container">
           <div className="section-header">
-            <h2>Frequently Asked Questions</h2>
+            <h1>Frequently Asked Questions</h1>
           </div>
           <div className="faq-list home-faq-list">
             {HOME_FAQS.map((faq, i) => (

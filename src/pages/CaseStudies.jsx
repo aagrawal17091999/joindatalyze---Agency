@@ -19,7 +19,7 @@ export default function CaseStudies() {
       />
       <div className="container">
         <div className="section-header">
-          <h2>Case Studies</h2>
+          <h1>Case Studies</h1>
         </div>
         <div className="case-gallery">
           {caseStudyList.map((c) => (
@@ -30,7 +30,7 @@ export default function CaseStudies() {
                   : <span className="case-thumb-name">{c.title}</span>}
               </div>
               <div className="case-meta">
-                <h3>{c.title}</h3>
+                <p className="case-meta-title">{c.title}</p>
                 <p>{c.description}</p>
                 <a className="btn primary" href={c.externalUrl} target="_blank" rel="noreferrer" onClick={() => mixpanel.track('Case Study Clicked', { case_study_title: c.title, case_study_slug: c.slug })}>View case study</a>
               </div>

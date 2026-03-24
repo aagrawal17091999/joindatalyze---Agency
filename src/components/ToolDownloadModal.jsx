@@ -83,7 +83,7 @@ export default function ToolDownloadModal({ tool, onClose }) {
             border: 'none',
             cursor: 'pointer',
             color: 'hsl(0, 0%, 62%)',
-            fontSize: '1.125rem',
+            fontSize: 'var(--font-subheading)',
             lineHeight: 1,
             padding: '0.25rem 0.5rem',
           }}
@@ -101,8 +101,8 @@ export default function ToolDownloadModal({ tool, onClose }) {
           style={{
             color: 'hsl(0, 0%, 62%)',
             marginBottom: '1.5rem',
-            fontSize: '0.9375rem',
-            lineHeight: 1.5,
+            fontSize: 'var(--font-paragraph)',
+            lineHeight: 'var(--lh-paragraph)',
             marginTop: 0,
           }}
         >
