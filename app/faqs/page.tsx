@@ -3,7 +3,6 @@ import Faq from '../_components/faq';
 import { homeFaqs } from '@/lib/data/home-faqs';
 
 export const metadata: Metadata = {
-  title: 'FAQs',
   description:
     'Frequently asked questions about working with Datalyze — pricing, team, engagement, and what to expect.',
   alternates: { canonical: '/faqs' },

@@ -8,16 +8,13 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://joindatalyze.com'),
-  title: {
-    default: "Datalyze — You've built the dashboards. Why does nothing line up?",
-    template: '%s · Datalyze',
-  },
+  title: 'Analytics & Growth Partner',
   description:
     "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",
   openGraph: {
     type: 'website',
     siteName: 'Datalyze',
-    title: "Datalyze — You've built the dashboards. Why does nothing line up?",
+    title: 'Analytics & Growth Partner',
     description:
       "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",
   },

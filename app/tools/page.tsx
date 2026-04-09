@@ -4,7 +4,6 @@ import CtaButton from '../_components/cta-button';
 import { toolList } from '@/lib/data/tools';
 
 export const metadata: Metadata = {
-  title: 'Tools',
   description:
     'Free analytics tools built by Datalyze. Export Mixpanel data, grade your analytics maturity, and more.',
   alternates: { canonical: '/tools' },

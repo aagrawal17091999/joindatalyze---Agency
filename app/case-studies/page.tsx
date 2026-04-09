@@ -4,7 +4,6 @@ import CtaButton from '../_components/cta-button';
 import { caseStudyList } from '@/lib/data/case-studies';
 
 export const metadata: Metadata = {
-  title: 'Case Studies',
   description:
     'See how Datalyze has helped 17+ startups improve activation, retention, and conversion with better analytics and experimentation.',
   alternates: { canonical: '/case-studies' },

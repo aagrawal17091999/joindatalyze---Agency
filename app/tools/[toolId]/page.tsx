@@ -18,10 +18,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { toolId } = await params;
   const tool = toolById[toolId];
-  if (!tool) return { title: 'Tool Not Found' };
+  if (!tool) return {};
 
   return {
-    title: tool.title,
     description: tool.longDescription,
     alternates: { canonical: `/tools/${toolId}` },
   };
