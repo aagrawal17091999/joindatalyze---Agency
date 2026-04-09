@@ -1,12 +1,9 @@
 import CtaButton from './cta-button';
-import HeroChartLine from './hero-chart-line';
 import HeroFoundation from './hero-foundation';
 
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <HeroChartLine />
-
       <div className="container hero__inner">
         <div className="hero__text">
           <div className="eyebrow hero__eyebrow">
