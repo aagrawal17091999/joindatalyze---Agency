@@ -14,7 +14,9 @@
       "Bash(curl -s http://localhost:4174/ai-analytics-agent/)",
       "Bash(curl -sL http://localhost:4174/services/)",
       "Bash(curl -sL http://localhost:4174/)",
-      "Bash(curl -sL http://localhost:4174/case-studies/some-slug)"
+      "Bash(curl -sL http://localhost:4174/case-studies/some-slug)",
+      "Bash(npx next:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

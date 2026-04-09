@@ -1,0 +1,49 @@
+import { caseStudyBySlug } from '@/lib/data/case-studies';
+import { homeCaseStudies } from '@/lib/data/home-case-studies';
+
+export default function CaseCards() {
+  return (
+    <section className="section" id="work">
+      <div className="container">
+        <header className="page-header page-header--center">
+          <div className="eyebrow eyebrow--center">Results</div>
+          <h2 className="page-header__title">
+            What happens after Datalyze gets involved
+          </h2>
+        </header>
+
+        <div className="case-grid">
+          {homeCaseStudies.map((cs) => (
+            <a
+              key={cs.slug}
+              href={caseStudyBySlug[cs.slug].externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="case-card"
+            >
+              <div className="case-card__tag">{cs.tag}</div>
+              <div className="case-card__metric">
+                <span className="case-card__metric-value">
+                  {cs.metricValue}
+                </span>
+                <span className="case-card__metric-label">
+                  {cs.metricLabel}
+                </span>
+              </div>
+              <p className="case-card__body">{cs.body}</p>
+              <div className="case-card__impact">
+                <span className="case-card__impact-label">
+                  {cs.impactLabel}
+                </span>
+                <span className="case-card__impact-value">
+                  {cs.impactValue}
+                </span>
+              </div>
+              <span className="case-card__link">Read the case study</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

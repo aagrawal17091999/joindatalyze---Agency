@@ -1,32 +1,30 @@
 {
   "name": "datalyze-landing",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
-    "preview": "vite preview",
-    "pm2:start": "pm2 start ecosystem.config.cjs",
-    "pm2:stop": "pm2 stop ecosystem.config.cjs",
-    "pm2:restart": "pm2 restart ecosystem.config.cjs"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "express": "^5.2.1",
+    "@google-cloud/bigquery": "^7.9.1",
     "html2canvas": "^1.4.1",
     "mixpanel-browser": "^2.75.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-helmet-async": "^3.0.0",
-    "react-router-dom": "^6.28.0"
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^4.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.3",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "puppeteer": "^24.39.0",
-    "tailwindcss": "^3.4.13",
-    "tailwindcss-animate": "^1.0.7",
-    "vite": "^5.4.10"
+    "@types/mixpanel-browser": "^2.50.2",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.0",
+    "typescript": "^5.7.2"
   }
 }

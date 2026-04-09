@@ -1,15 +1,17 @@
-# Dependencies & build
+# Dependencies
 node_modules
-dist
+
+# Next.js build output
+.next
+out
+next-env.d.ts
 
 # Environment (never commit secrets)
 .env
 .env.local
 .env.*.local
 
-# Backend secrets
-server/.env
-server/serviceAccountKey.json
+# Service-account / secret JSON
 **/serviceAccountKey.json
 **/service-account*.json
 
@@ -18,12 +20,10 @@ server/serviceAccountKey.json
 Thumbs.db
 *.log
 .cache
-
-# Optional
-coverage
 .vscode/settings.json
 
-package-lock.json
+# Test / coverage
+coverage
 
-server/package-lock.json
-.env.example
+# Vercel
+.vercel

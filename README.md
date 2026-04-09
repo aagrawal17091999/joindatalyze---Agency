@@ -1,43 +1,62 @@
 # Datalyze
 
-Marketing site and app for Datalyze (analytics & growth). Vite + Tailwind frontend; Node/Express API in `server/` with MySQL and Firebase Auth.
+Marketing site for Datalyze (analytics & growth partner). Next.js 15 App Router + TypeScript, deployed on Vercel.
 
 ## Quick start
 
-**Frontend**
 ```bash
 npm install
+cp .env.example .env.local   # then fill in values
 npm run dev
 ```
-Open **http://localhost:5173**. Copy `.env.example` to `.env` and set Firebase (and optional `VITE_API_BASE_URL`) if using auth or the contact API.
 
-**Backend**
-```bash
-cd server
-cp .env.example .env
-# Edit .env: DATABASE_URL (or MYSQL_*), Firebase, CORS_ORIGINS
-npm install
-npm run db:create   # if needed
-npm run migrate
-npm run dev
-```
-API: **http://localhost:4040**. See [server/README.md](server/README.md) and [docs/backend-setup.md](docs/backend-setup.md).
+Open **http://localhost:3000**.
 
 ## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start Vite dev server (frontend) |
-| `npm run build` | Build static assets to `dist/` |
-| `npm run preview` | Preview production build |
+| `npm run dev` | Start Next.js dev server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run Next.js ESLint |
+| `npm run typecheck` | Type-check without emitting |
 
 ## Structure
 
-- **Root** — Single `index.html` (SPA shell), Vite + Tailwind config.
-- **src/** — React SPA: `main.jsx` entry, `App.jsx` routes, `components/` (Layout, Header, Footer), `pages/` (one component per route), `context/AuthContext.jsx`, `data/caseStudies.js`. No legacy `.html` pages; all routes are React components.
-- **server/** — Express API, Sequelize, MySQL, Firebase Admin; migrations in `server/migrations/`.
-- **docs/** — [backend-setup.md](docs/backend-setup.md), [platform-setup.md](docs/platform-setup.md), [frontend-architecture.md](docs/frontend-architecture.md).
+- **`app/`** — App Router routes, layouts, route handlers, and private `_components/`.
+- **`lib/`** — Fonts (`next/font`), analytics helper, data files, API helpers (BigQuery / Resend / Ghost / download tokens).
+- **`public/`** — Static assets (logos, fonts, videos, images).
+- **`next.config.ts`** — Framework config (image optimization, etc.).
 
-## Deploy (static)
+## Key routes
 
-Build with `npm run build` and deploy the `dist/` folder to any static host (Netlify, Vercel, Cloudflare Pages, etc.). Node 18+ required for build.
+- `/` — Homepage
+- `/about`, `/contact`, `/faqs`, `/resources`, `/ai-analytics-agent`
+- `/case-studies` (listing from `lib/data/case-studies.ts`; each card links out to `blog.joindatalyze.com`)
+- `/tools` + `/tools/[toolId]` (SSG'd from `lib/data/tools.ts`)
+- `/tools/analytics-maturity-grader` + `/results` (interactive quiz)
+- `/api/health`, `/api/tool-downloads`, `/api/tool-downloads/file/[token]` (Vercel Functions)
+
+## Environment
+
+Copy `.env.example` to `.env.local` for local development. On Vercel, set the same keys via `vercel env add` for the Production, Preview, and Development scopes.
+
+## Design system
+
+Hand-written CSS in `app/globals.css` built on the tokens in the `:root` block. Three fonts via `next/font`:
+
+- **Instrument Serif** — display headlines (`--font-display`)
+- **General Sans** — body copy (`--font-body`, self-hosted from `public/fonts/`)
+- **JetBrains Mono** — numbers, eyebrows, mono labels (`--font-mono`)
+
+Single electric lime accent `#D4FF3F`, used sparingly. Rest is greyscale.
+
+## Deploy
+
+```bash
+vercel link
+vercel env add   # for every key in .env.example
+vercel deploy           # preview
+vercel deploy --prod    # production
+```
