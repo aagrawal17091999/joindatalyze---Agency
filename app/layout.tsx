@@ -4,6 +4,7 @@ import Nav from './_components/nav';
 import Footer from './_components/footer';
 import Grain from './_components/grain';
 import GfxObserver from './_components/graphic-observer';
+import MixpanelProvider from './_components/mixpanel-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${generalSans.variable}`}
     >
       <body>
+        <MixpanelProvider />
         <Grain />
         <GfxObserver />
         <Nav />
