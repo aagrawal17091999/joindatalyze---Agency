@@ -37,7 +37,7 @@ export default function CalendlyWidget() {
       />
       <div
         className="calendly-inline-widget"
-        data-url="https://calendly.com/anshagrawal17091999/chat?hide_event_type_details=1&hide_gdpr_banner=1"
+        data-url="https://calendly.com/ansh-datalyze/chat?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0b&text_color=fafaf9&primary_color=c4f02e"
         style={{
           minWidth: 320,
           height: 720,
