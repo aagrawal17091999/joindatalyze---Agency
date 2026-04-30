@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { instrumentSerif, jetbrainsMono, generalSans } from '@/lib/fonts';
 import Nav from './_components/nav';
 import Footer from './_components/footer';
@@ -40,6 +41,12 @@ export default function RootLayout({
       lang="en"
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${generalSans.variable}`}
     >
+      <head>
+        <Script
+          src="https://www.rocketsdr.ai/api/pixel?id=ts_843347486702a28fbe0402db6e1bc9ea"
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         <MixpanelProvider />
         <Grain />
