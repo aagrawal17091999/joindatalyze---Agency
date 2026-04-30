@@ -1,6 +1,5 @@
 'use client';
 
-import Script from 'next/script';
 import { useEffect } from 'react';
 import { track } from '@/lib/mixpanel';
 
@@ -9,6 +8,9 @@ declare global {
     gtag?: (...args: unknown[]) => void;
   }
 }
+
+const CALENDLY_URL =
+  'https://calendly.com/ansh-datalyze/chat?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0b&text_color=fafaf9&primary_color=c4f02e&embed_domain=joindatalyze.com&embed_type=Inline';
 
 export default function CalendlyWidget() {
   useEffect(() => {
@@ -30,22 +32,19 @@ export default function CalendlyWidget() {
   }, []);
 
   return (
-    <>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        strategy="lazyOnload"
-      />
-      <div
-        className="calendly-inline-widget"
-        data-url="https://calendly.com/ansh-datalyze/chat?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0a0b&text_color=fafaf9&primary_color=c4f02e"
-        style={{
-          minWidth: 320,
-          height: 720,
-          borderRadius: 'var(--radius-md)',
-          border: '1px solid var(--border-default)',
-          overflow: 'hidden',
-        }}
-      />
-    </>
+    <iframe
+      src={CALENDLY_URL}
+      title="Schedule a call with Datalyze"
+      style={{
+        display: 'block',
+        width: '100%',
+        minWidth: 320,
+        maxWidth: 1000,
+        margin: '0 auto',
+        height: 720,
+        border: 'none',
+        colorScheme: 'light',
+      }}
+    />
   );
 }

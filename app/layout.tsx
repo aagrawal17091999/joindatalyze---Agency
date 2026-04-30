@@ -42,6 +42,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${generalSans.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
         <Script
           src="https://www.rocketsdr.ai/api/pixel?id=ts_843347486702a28fbe0402db6e1bc9ea"
           strategy="afterInteractive"
