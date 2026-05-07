@@ -23,6 +23,11 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const primaryLinks =
+    pathname !== '/'
+      ? [{ href: '/', label: 'Home' }, ...PRIMARY_LINKS]
+      : PRIMARY_LINKS;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
@@ -62,7 +67,7 @@ export default function Nav() {
           </Link>
 
           <div className="nav__links">
-            {PRIMARY_LINKS.map((link) =>
+            {primaryLinks.map((link) =>
               link.external ? (
                 <a
                   key={link.href}
@@ -113,7 +118,7 @@ export default function Nav() {
         className={`nav__menu${menuOpen ? ' is-open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        {PRIMARY_LINKS.map((link) =>
+        {primaryLinks.map((link) =>
           link.external ? (
             <a
               key={link.href}
