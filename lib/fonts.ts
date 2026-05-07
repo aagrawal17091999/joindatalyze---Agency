@@ -1,4 +1,4 @@
-import { Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import { Instrument_Serif, Inter, JetBrains_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 
 export const instrumentSerif = Instrument_Serif({
@@ -6,6 +6,13 @@ export const instrumentSerif = Instrument_Serif({
   weight: '400',
   style: ['normal', 'italic'],
   variable: '--font-display',
+  display: 'swap',
+});
+
+export const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-sans',
   display: 'swap',
 });
 

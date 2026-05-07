@@ -1,30 +1,20 @@
 import CtaButton from './cta-button';
-import HeroFoundation from './hero-foundation';
+import ReconciliationFlow from './reconciliation-flow';
 
 export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="container hero__inner">
         <div className="hero__text">
-          <div className="eyebrow hero__eyebrow">
-            Analytics &amp; Growth Partner
-          </div>
-
           <h1 className="hero__headline">
-            You&apos;ve built the dashboards.
-            <br />
-            Hired the analyst.
-            <br />
-            Bought the tools.
-            <br />
-            <em>Why does nothing line up?</em>
+            The data team that rewires your tracking, ties your tools
+            together, and finds the growth nobody could see.
           </h1>
 
           <p className="hero__subhead">
-            We&apos;ve seen this across 150+ startups. The fix isn&apos;t
-            another dashboard or another tool — it&apos;s a foundation that
-            actually works. Datalyze rebuilds it, then shows you the growth
-            your data has been hiding.
+            Datalyze is the data team that 150+ startups, from Seed to Series
+            C, bring in to fix broken tracking, unify their analytics, and
+            turn raw data into decisions their teams actually trust.
           </p>
 
           <div className="hero__buttons">
@@ -59,7 +49,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
-          <HeroFoundation />
+          <ReconciliationFlow />
         </div>
       </div>
     </section>

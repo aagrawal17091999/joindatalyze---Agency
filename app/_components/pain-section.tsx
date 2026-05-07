@@ -9,13 +9,12 @@ export default function PainSection() {
           <header className="pain__header">
             <div className="eyebrow">The Cost</div>
             <h2 className="pain__title">
-              This is what <em>bad data</em>
+              Why most analytics work doesn't
               <br />
-              actually costs you
+              <em>move the business</em>
             </h2>
             <p className="pain__subhead">
-              Most of it doesn&apos;t show up on a line item. That&apos;s what
-              makes it expensive.
+              Most growing companies stall in one of these four places. None of them are obvious. All of them are expensive.
             </p>
           </header>
 

@@ -1,0 +1,210 @@
+/* Shared base */
+.operators, .timeline, .lift, .fix {
+  width: 100%;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+/* SeniorOperators (Card 01) */
+.operators {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.opRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 3px 0;
+  width: fit-content;
+}
+.opStrike {
+  color: rgba(232, 232, 230, 0.45);
+}
+.opStrike::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(232, 232, 230, 0.5);
+  width: 0;
+  animation: strike 5s ease-in-out infinite;
+  animation-delay: inherit;
+}
+@keyframes strike {
+  0% { width: 0; opacity: 1; }
+  18% { width: 100%; opacity: 1; }
+  85% { width: 100%; opacity: 1; }
+  95% { width: 100%; opacity: 0; }
+  100% { width: 0; opacity: 0; }
+}
+.opActive {
+  color: #d4ff00;
+  text-shadow: 0 0 6px rgba(212, 255, 0, 0.3);
+  animation: opGlow 5s ease-in-out infinite;
+}
+@keyframes opGlow {
+  0%, 100% { text-shadow: 0 0 4px rgba(212, 255, 0, 0.25); }
+  50% { text-shadow: 0 0 10px rgba(212, 255, 0, 0.55); }
+}
+.opYou {
+  font-size: 9px;
+  color: rgba(212, 255, 0, 0.55);
+  margin-left: 10px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+/* SpeedTimeline (Card 02) */
+.timelineSvg {
+  width: 100%;
+  height: 60px;
+}
+.timelineLine {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 0.5;
+  stroke-dasharray: 2 3;
+}
+.timelineDotActive {
+  fill: #d4ff00;
+  filter: drop-shadow(0 0 4px rgba(212, 255, 0, 0.5));
+  animation: dotPulse 2.4s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(212, 255, 0, 0.4)); opacity: 1; }
+  50% { filter: drop-shadow(0 0 10px rgba(212, 255, 0, 0.9)); opacity: 0.85; }
+}
+.timelineDotMuted {
+  fill: rgba(232, 232, 230, 0.3);
+}
+.timelineLabelActive {
+  fill: #d4ff00;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.timelineLabelMuted {
+  fill: rgba(232, 232, 230, 0.55);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+.timelineSubActive {
+  fill: rgba(212, 255, 0, 0.55);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 8px;
+  font-style: italic;
+}
+.timelineSubMuted {
+  fill: rgba(232, 232, 230, 0.4);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 8px;
+  font-style: italic;
+}
+
+/* RevenueLift (Card 03) */
+.liftSvg {
+  width: 100%;
+  height: 80px;
+}
+.liftAxis {
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 0.5;
+}
+.liftLine {
+  stroke: #d4ff00;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 280;
+  animation: liftDraw 4.5s ease-in-out infinite;
+}
+@keyframes liftDraw {
+  0% { stroke-dashoffset: 280; }
+  60%, 95% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 280; }
+}
+.liftDot {
+  fill: #d4ff00;
+  opacity: 0;
+  animation: liftFade 4.5s ease-in-out infinite;
+}
+.liftLabel {
+  fill: #d4ff00;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  animation: liftFade 4.5s ease-in-out infinite;
+}
+@keyframes liftFade {
+  0%, 55% { opacity: 0; }
+  65%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* FixCheckboxes (Card 04) */
+.fix {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fixRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+.fixCheck {
+  position: relative;
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  border: 0.5px solid rgba(212, 255, 0, 0.4);
+  border-radius: 2px;
+  background: rgba(212, 255, 0, 0.04);
+  flex-shrink: 0;
+}
+.fixCheck::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4ff00;
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1;
+  opacity: 0;
+  animation: checkAppear 5s ease-in-out infinite;
+  animation-delay: var(--check-delay);
+}
+@keyframes checkAppear {
+  0%, 25% { opacity: 0; }
+  35%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fixLabel {
+  color: rgba(232, 232, 230, 0.7);
+  flex: 1;
+  letter-spacing: 0.02em;
+}
+.fixStatus {
+  color: rgba(212, 255, 0, 0.6);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  font-style: italic;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .opStrike::after { width: 100%; animation: none; }
+  .opActive { animation: none; }
+  .timelineDotActive { animation: none; }
+  .liftLine { stroke-dashoffset: 0; animation: none; }
+  .liftDot, .liftLabel { opacity: 1; animation: none; }
+  .fixCheck::after { opacity: 1; animation: none; }
+}

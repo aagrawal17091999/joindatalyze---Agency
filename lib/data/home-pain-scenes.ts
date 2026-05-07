@@ -11,22 +11,31 @@ export const homePainScenes: PainScene[] = [
     number: '01',
     label: 'Money',
     title: "The money you're already spending wrong",
-    body: 'You spent $180K on paid acquisition last quarter. Your marketing dashboard says it drove 400 signups. Your product database says 260. Finance says 310. Nobody can tell you the real CAC. So you keep spending at the same level and hope the real number is somewhere close to the one you\'re reporting to investors.',
-    costValue:
-      "A CAC you don't actually know and a budget you can't defend.",
+    body: "You spent $180K on paid acquisition last quarter. Your marketing dashboard says it drove 400 signups. Your product database says 260. Finance says 310. Nobody can tell you the real CAC.",
+    costValue: "A CAC you don't actually know and a budget you can't defend.",
   },
   {
     number: '02',
     label: 'Time',
-    title: 'The feature that ate the quarter',
-    body: 'Your team shipped a feature based on funnel data showing a 40% drop-off at step three. Two months of engineering. A launch blog post. A campaign behind it. Then someone discovered the tracking had been misconfigured since March. The real drop-off was at step five. You optimized the wrong thing. The quarter is gone.',
-    costValue: 'Two months of engineering, gone.',
+    title: 'Three weeks to answer one question',
+    body: 'A board member asks what LTV looks like by acquisition channel. Stripe, Mixpanel, and your CRM each hold part of the answer; none of them talk. Three weeks of engineering produces a brittle integration. Stripe ships an API change. Three more weeks. By the third break, you stop asking questions that require multiple tools.',
+    costValue:
+      'Decisions shrinking to whatever lives in a single tool, because the cross-tool questions got too expensive to keep asking.',
   },
   {
     number: '03',
-    label: 'Opportunity',
-    title: 'The experiment you never ran',
-    body: "You want to test a pricing change, but you can't get a clean baseline. Amplitude doesn't match Stripe. Stripe doesn't match the warehouse. Your analyst has spent three weeks reconciling data instead of analyzing it. So you guess. Or worse — you don't run the experiment at all. You'll never know what it would have unlocked.",
-    costValue: "Every experiment you should have run but didn't.",
+    label: 'Team',
+    title: 'What your PM did last Tuesday',
+    body: "Your PM wrote SQL in BigQuery on Tuesday, trying to pull cohort retention. Your senior engineer spent Wednesday debugging a tracking event that's been wrong since March. Your head of growth reconciled MRR across Stripe and the warehouse on Sunday. None of them shipped a feature, ran an experiment, or talked to a customer.",
+    costValue:
+      "Senior people on plumbing, and the product features, customer calls, and experiments that didn't happen because of it.",
+  },
+  {
+    number: '04',
+    label: 'Growth',
+    title: 'The growth lever in plain sight',
+    body: "Your retention dashboard is accurate. It's been accurate for months. Nobody opens it. Six months in, you finally dig and find that users who adopted your March feature retain 40% better than those who didn't. You shipped that feature quietly as a side project. The data was sitting there the whole time.",
+    costValue:
+      "Insights buried in clean data, and the growth you'd already have captured if anyone was looking, every day.",
   },
 ];

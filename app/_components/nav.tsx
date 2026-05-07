@@ -9,6 +9,7 @@ const PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/ai-analytics-agent', label: 'AI Agent' },
   { href: '/case-studies', label: 'Case Studies' },
+  { href: 'https://blog.joindatalyze.com/', label: 'Blog', external: true },
 ];
 
 const SECONDARY_LINKS = [
@@ -61,15 +62,26 @@ export default function Nav() {
           </Link>
 
           <div className="nav__links">
-            {PRIMARY_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={pathname === link.href ? 'is-active' : undefined}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {PRIMARY_LINKS.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={pathname === link.href ? 'is-active' : undefined}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <div className="nav__right">
@@ -101,15 +113,27 @@ export default function Nav() {
         className={`nav__menu${menuOpen ? ' is-open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        {PRIMARY_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="nav__menu-primary"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {PRIMARY_LINKS.map((link) =>
+          link.external ? (
+            <a
+              key={link.href}
+              href={link.href}
+              className="nav__menu-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ) : (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="nav__menu-primary"
+            >
+              {link.label}
+            </Link>
+          )
+        )}
         {SECONDARY_LINKS.map((link) => (
           <Link key={link.href} href={link.href}>
             {link.label}

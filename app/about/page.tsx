@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
-import Principles from './_components/principles';
 
 export const metadata: Metadata = {
   description:
@@ -43,14 +42,10 @@ export default function AboutPage() {
         <div className="container about-hero__inner">
           <div className="eyebrow about-hero__eyebrow">About Datalyze</div>
           <h1 className="about-hero__headline">
-            Most analytics work doesn&apos;t change anything.{' '}
-            <em>We&apos;re trying to fix that.</em>
+            We don't sell dashboards. We build <span className="about-hero__headline-accent">foundations</span>.
           </h1>
           <p className="about-hero__subhead">
-            Datalyze was started by operators who&apos;d spent years watching
-            companies pour money into analytics tools that produced charts
-            nobody trusted. We don&apos;t sell dashboards. We sell foundations
-            that turn data into decisions — and decisions into revenue.
+            Datalyze was started by operators who'd spent years watching companies pour money into analytics tools that produced charts nobody trusted.
           </p>
         </div>
       </section>
@@ -83,62 +78,24 @@ export default function AboutPage() {
 
             <div className="founder-note__body">
               <p>
-                I started my analytics career at CRED. That&apos;s where I
-                learned what good analytics actually looks like — the
-                discipline of it, the craft of it, the difference between a
-                chart that&apos;s technically correct and a chart someone can
-                make a decision on.
+                I started my analytics career at CRED. After that, I spent a
+                few years freelancing — one startup at a time, fixing
+                tracking, unblocking data teams, surfacing insights buried
+                under broken foundations.
               </p>
               <p>
-                After that, I started freelancing. One startup at a time,
-                helping founders set up their analytics from scratch,
-                unblocking their data teams, surfacing the insights that had
-                been buried under broken tracking. By engagement 30 or 40, I
-                started seeing the same thing at every company I walked into.
+                By engagement 30 or 40, I&apos;d seen the same pattern at
+                every company: three tools, four dashboards, zero confidence
+                in any of the numbers. The fix wasn&apos;t more tools. It was
+                the foundation underneath them — the events, pipelines,
+                definitions, and models that nobody had time to fix.
               </p>
               <p>
-                A company would have three analytics tools, four dashboards,
-                and zero confidence in any of the numbers. Marketing would
-                report one figure, product would report another, finance a
-                third. Every important decision would come down to a debate
-                about whose data was right — and the actual question, the
-                one that mattered, never got answered.
-              </p>
-              <p>
-                The strange part was that most of these companies had already
-                paid for the fix. They had the tools. They had the warehouse.
-                Some of them had even hired full-time analysts. But the
-                foundation underneath all of it — the events, the pipelines,
-                the definitions, the models — was quietly broken in ways
-                nobody had time to find.
-              </p>
-              <p>
-                The industry&apos;s answer was usually to sell them another
-                tool, another dashboard, another report. I thought that was
-                backwards. The problem was never the tools. It was the
-                foundation.
-              </p>
-              <p>
-                For a long time, I fixed this one startup at a time as a
-                freelancer. But freelance work has a ceiling — I could only
-                be in one codebase, one problem, one company at a time. And
-                the pattern I kept seeing was too common to keep fixing one
-                founder at a time.
-              </p>
-              <p>
-                So in 2025, I started Datalyze. Same bet, bigger team: fix
-                the foundation first, then turn it into the kind of insights
-                that actually move revenue. No account managers. No junior
-                analysts learning on the client&apos;s budget. Just senior
-                operators who&apos;d done this enough times to know where to
-                look first.
-              </p>
-              <p>
-                We measure the revenue impact of every change we ship. Across
-                the engagements we&apos;ve run so far, we&apos;ve helped
-                companies grow revenue by 14% on average. Not because
-                we&apos;re magicians. Because we start by fixing what nobody
-                else wants to touch.
+                In 2025, I started Datalyze to do this at scale. Senior
+                operators only. No account managers, no junior analysts
+                learning on the client&apos;s budget. We fix the foundation
+                first, then turn it into the kind of insights that actually
+                move revenue.
               </p>
               <p>
                 If your data has been telling you three different stories,
@@ -157,9 +114,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Section 3 — Four principles */}
-      <Principles />
 
       {/* Section 4 — Team */}
       <section className="team" id="team">

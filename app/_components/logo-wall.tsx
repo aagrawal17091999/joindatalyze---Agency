@@ -6,9 +6,16 @@ export default function LogoWall() {
     <section className="section logo-wall" aria-label="Clients">
       <div className="container">
         <p className="logo-wall__intro">
-          From Seed rounds to unicorns. Here are a few teams we&apos;ve worked
+          From Seed rounds to Series C. Here are a few teams we&apos;ve worked
           with.
         </p>
+        <div className="logo-wall__categories">
+          {['B2B SaaS', 'Consumer SaaS', 'Web3', 'Fintech', 'D2C'].map((c) => (
+            <span key={c} className="logo-wall__category">
+              {c}
+            </span>
+          ))}
+        </div>
         <div className="logo-wall__grid">
           {homeLogos.map((logo) => (
             <div key={logo.name} className="logo-wall__cell">

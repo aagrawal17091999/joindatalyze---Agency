@@ -1,0 +1,206 @@
+@keyframes scan {
+  0%, 100% { background: transparent; }
+  10%, 18% { background: rgba(212, 255, 0, 0.06); }
+}
+@keyframes pulseDash {
+  0%, 100% { color: rgba(212, 255, 0, 0.5); }
+  50% { color: rgba(212, 255, 0, 1); }
+}
+@keyframes drawLine {
+  0% { stroke-dashoffset: 240; }
+  60%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes drawGrowth {
+  0% { stroke-dashoffset: 320; }
+  60%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes fadeIn {
+  0%, 100% { opacity: 0; }
+  20%, 90% { opacity: 1; }
+}
+
+/* Shared base — every visual matches this language */
+.audit, .unified, .dashboard, .growth {
+  background: rgba(255, 255, 255, 0.02);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 22px;
+  width: 100%;
+  max-width: 460px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+/* AuditReveal */
+.auditHeader {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.5);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.auditRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 4px;
+  animation: scan 5s ease-in-out infinite;
+}
+.auditEvent {
+  font-size: 13px;
+  color: rgba(232, 232, 230, 0.85);
+}
+.auditStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.auditIcon { font-size: 14px; }
+.status-ok .auditIcon { color: #d4ff00; }
+.status-warn .auditIcon { color: #ffb466; }
+.status-error .auditIcon { color: #ff8a73; }
+.auditLabel { color: rgba(232, 232, 230, 0.5); }
+
+/* ConnectedStack */
+.unified {
+  background: rgba(212, 255, 0, 0.04);
+  border-color: rgba(212, 255, 0, 0.4);
+}
+.unifiedTitle {
+  font-size: 13px;
+  color: #d4ff00;
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+}
+.unifiedRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.unifiedBend {
+  width: 60%;
+  max-width: 200px;
+  height: 28px;
+  display: block;
+  margin: 4px auto;
+  animation: pulseDash 2.4s ease-in-out infinite;
+}
+.unifiedBend path {
+  stroke: currentColor;
+}
+.pill {
+  background: rgba(212, 255, 0, 0.08);
+  border: 0.5px solid rgba(212, 255, 0, 0.4);
+  border-radius: 4px;
+  padding: 6px 11px;
+  font-size: 12px;
+  color: #e8e8e6;
+}
+.pillLink {
+  color: #d4ff00;
+  font-size: 12px;
+  animation: pulseDash 2.4s ease-in-out infinite;
+}
+.unifiedSub {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.5);
+  text-align: center;
+  font-style: italic;
+  margin-top: 18px;
+}
+
+/* DashboardMockup */
+.dashHeader {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.45);
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.statBlock {
+  margin-bottom: 18px;
+}
+.statTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.55);
+  margin-bottom: 6px;
+}
+.statTrend { color: #d4ff00; font-weight: 500; }
+.statValue {
+  font-size: 32px;
+  color: #d4ff00;
+  font-weight: 500;
+  line-height: 1;
+}
+.chartLabel {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.5);
+  margin-bottom: 8px;
+}
+.cohortSvg {
+  width: 100%;
+  height: 76px;
+  margin-bottom: 16px;
+}
+.cohortBg {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1;
+}
+.cohortLine {
+  stroke: #d4ff00;
+  stroke-width: 1.5;
+  stroke-dasharray: 240;
+  animation: drawLine 4s ease-in-out infinite;
+}
+
+/* GrowthCurve */
+.growthHeader {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.5);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+.growthSvg {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+.growthAxis {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 0.5;
+}
+.growthLine {
+  stroke: #d4ff00;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 320;
+  animation: drawGrowth 5s ease-in-out infinite;
+}
+.marker circle {
+  fill: #d4ff00;
+  animation: fadeIn 5s ease-in-out infinite;
+}
+.markerText {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  fill: rgba(232, 232, 230, 0.7);
+  animation: fadeIn 5s ease-in-out infinite;
+}
+.growthSub {
+  font-size: 12px;
+  color: rgba(232, 232, 230, 0.5);
+  font-style: italic;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auditRow, .pillLink, .unifiedBend, .cohortLine, .growthLine, .marker circle, .markerText {
+    animation: none !important;
+  }
+  .cohortLine, .growthLine { stroke-dashoffset: 0; }
+  .marker circle, .markerText { opacity: 1; }
+}

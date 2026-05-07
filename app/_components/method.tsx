@@ -1,5 +1,13 @@
 import { homeMethod } from '@/lib/data/home-method';
+import {
+  AuditReveal,
+  ConnectedStack,
+  DashboardMockup,
+  GrowthCurve,
+} from '@/components/method/MethodVisuals';
 import MethodScroll from './method-scroll';
+
+const stepVisuals = [AuditReveal, ConnectedStack, DashboardMockup, GrowthCurve];
 
 export default function Method() {
   return (
@@ -20,6 +28,7 @@ export default function Method() {
 
             {homeMethod.map((step, idx) => {
               const isLeft = idx % 2 === 0;
+              const Visual = stepVisuals[idx];
               return (
                 <article
                   key={step.number}
@@ -31,9 +40,13 @@ export default function Method() {
                     <h3 className="method-step__title">{step.title}</h3>
                     <p className="method-step__body">{step.body}</p>
                   </div>
-                  <div className="method-step__number-wrap">
-                    <span className="method-step__number">{step.number}</span>
-                    <div className="method-step__eyebrow">{step.eyebrow}</div>
+                  <div className="method-step__visual-wrap">
+                    <div className="method-step__label">
+                      {step.number} — {step.eyebrow}
+                    </div>
+                    <div className="method-step__visual">
+                      {Visual ? <Visual /> : null}
+                    </div>
                   </div>
                 </article>
               );

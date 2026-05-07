@@ -1,0 +1,151 @@
+'use client';
+import { useState } from 'react';
+import styles from './EngagementModel.module.css';
+
+type Tier = {
+  id: string;
+  number: string;
+  name: string;
+  timeframe: string;
+  buyerState: string;
+  included: string[];
+  outcome: string;
+  ctaLabel: string;
+  ctaQuery: string;
+};
+
+const tiers: Tier[] = [
+  {
+    id: 'audit',
+    number: '01',
+    name: 'AUDIT',
+    timeframe: '1–2 weeks',
+    buyerState: "For teams that suspect something's broken but can't pinpoint where.",
+    included: [
+      'Full audit across product, marketing, revenue, and warehouse',
+      'Tracking plan and schema documentation review',
+      "Stack health diagnosis — what's working, what's drifting, what's missing",
+      'Prioritized roadmap of fixes ranked by revenue impact',
+    ],
+    outcome: 'clarity on what to fix and what to build next.',
+    ctaLabel: 'Start with an audit',
+    ctaQuery: 'audit',
+  },
+  {
+    id: 'infra',
+    number: '02',
+    name: 'INFRA SETUP',
+    timeframe: '1–2 months',
+    buyerState: 'For teams laying a foundation they can actually trust.',
+    included: [
+      'Tracking plan designed around the questions you need to answer',
+      'Implementation across web, mobile, and server SDKs — with verification',
+      'Multi-tool connection (product analytics, warehouse, ad platforms, CRM)',
+      'Initial dashboard suite — executive, product, growth — owned by your team',
+    ],
+    outcome: 'a foundation that survives every future question.',
+    ctaLabel: 'Scope the setup',
+    ctaQuery: 'infra',
+  },
+  {
+    id: 'build',
+    number: '03',
+    name: 'BUILD',
+    timeframe: '4–8 weeks',
+    buyerState: 'For teams who know what they need built.',
+    included: [
+      'Retention analysis or cohort studies',
+      'Executive, product, and growth dashboards',
+      'Custom AI Analytics Agent setup',
+      'Migrations and rebuilds (e.g., GA4 → Mixpanel, or onto a warehouse)',
+    ],
+    outcome: 'a working system, fully owned by your team.',
+    ctaLabel: 'Scope a build',
+    ctaQuery: 'build',
+  },
+  {
+    id: 'embedded',
+    number: '04',
+    name: 'EMBEDDED',
+    timeframe: 'ongoing, monthly',
+    buyerState: 'For teams that need a data team without hiring one.',
+    included: [
+      'Fractional analytics leadership',
+      'Continuous experimentation design and measurement',
+      'Cross-tool integration maintenance',
+      'Weekly insight delivery and monthly reviews',
+    ],
+    outcome: 'a senior data function that compounds.',
+    ctaLabel: 'Talk about embedded',
+    ctaQuery: 'embedded',
+  },
+];
+
+export function EngagementModel() {
+  const [active, setActive] = useState(0);
+  const tier = tiers[active];
+  const dotPosition = 12.5 + active * 25;
+
+  return (
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <div className={styles.eyebrow}>■ HOW WE WORK</div>
+        <h2 className={styles.heading}>Four ways to start.</h2>
+
+        <div className={styles.selector}>
+          <div className={styles.selectorLine} aria-hidden="true" />
+          <div
+            className={styles.dot}
+            style={{ left: `${dotPosition}%` }}
+            aria-hidden="true"
+          />
+          <div className={styles.tabs} role="tablist" aria-label="Engagement tiers">
+            {tiers.map((t, i) => (
+              <button
+                key={t.id}
+                role="tab"
+                aria-selected={i === active}
+                aria-controls={`tier-panel-${t.id}`}
+                onClick={() => setActive(i)}
+                className={`${styles.tab} ${i === active ? styles.tabActive : ''}`}
+              >
+                <span className={styles.tabAnchor} aria-hidden="true" />
+                <span className={styles.tabNumber}>{t.number}</span>
+                <span className={styles.tabName}>{t.name}</span>
+                <span className={styles.tabTime}>{t.timeframe}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.panelWrap}>
+          <div
+            key={tier.id}
+            id={`tier-panel-${tier.id}`}
+            role="tabpanel"
+            className={styles.panel}
+          >
+            <div className={styles.panelHead}>
+              <span className={styles.panelName}>{tier.name}</span>
+              <span className={styles.panelTime}>— {tier.timeframe}</span>
+            </div>
+            <p className={styles.panelBuyer}>{tier.buyerState}</p>
+            <div className={styles.panelDivider} />
+            <div className={styles.panelIncludedLabel}>What&apos;s included</div>
+            <ul className={styles.panelList}>
+              {tier.included.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <p className={styles.panelOutcome}>
+              <span className={styles.panelOutcomeLabel}>Outcome:</span> {tier.outcome}
+            </p>
+            <a href={`/book?engagement=${tier.ctaQuery}`} className={styles.cta}>
+              {tier.ctaLabel} <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

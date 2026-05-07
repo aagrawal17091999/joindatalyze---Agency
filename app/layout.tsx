@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { instrumentSerif, jetbrainsMono, generalSans } from '@/lib/fonts';
+import { instrumentSerif, inter, jetbrainsMono, generalSans } from '@/lib/fonts';
 import Nav from './_components/nav';
 import Footer from './_components/footer';
 import Grain from './_components/grain';
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${jetbrainsMono.variable} ${generalSans.variable}`}
+      className={`${instrumentSerif.variable} ${inter.variable} ${jetbrainsMono.variable} ${generalSans.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />

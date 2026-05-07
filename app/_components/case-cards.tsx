@@ -21,7 +21,6 @@ export default function CaseCards() {
               rel="noopener noreferrer"
               className="case-card"
             >
-              <div className="case-card__tag">{cs.tag}</div>
               <div className="case-card__metric">
                 <span className="case-card__metric-value">
                   {cs.metricValue}
@@ -31,14 +30,6 @@ export default function CaseCards() {
                 </span>
               </div>
               <p className="case-card__body">{cs.body}</p>
-              <div className="case-card__impact">
-                <span className="case-card__impact-label">
-                  {cs.impactLabel}
-                </span>
-                <span className="case-card__impact-value">
-                  {cs.impactValue}
-                </span>
-              </div>
               <span className="case-card__link">Read the case study</span>
             </a>
           ))}

@@ -3,12 +3,14 @@ import Hero from './_components/hero';
 import LogoWall from './_components/logo-wall';
 import PainSection from './_components/pain-section';
 import Method from './_components/method';
+import { TechStack } from '@/components/tech-stack/TechStack';
 import CaseCards from './_components/case-cards';
-import TestimonialCarousel from './_components/testimonial-carousel';
-import Personas from './_components/personas';
+import WallOfLove from './_components/wall-of-love';
 import Differentiators from './_components/differentiators';
+import { EngagementModel } from '@/components/engagement/EngagementModel';
 import FinalCta from './_components/final-cta';
 import Faq from './_components/faq';
+import { InlineCTA } from '@/components/inline-cta/InlineCTA';
 
 export default function HomePage() {
   return (
@@ -17,7 +19,19 @@ export default function HomePage() {
       <LogoWall />
       <PainSection />
       <Method />
+      <InlineCTA
+        href="/contact?source=method"
+        heading="Curious how this would work on your stack?"
+        buttonLabel="Book a call"
+      />
+      <TechStack />
+      <Differentiators />
       <CaseCards />
+      <InlineCTA
+        href="/contact?source=cases"
+        heading="Want this kind of impact on your numbers?"
+        buttonLabel="Book a call"
+      />
       <section className="section" id="testimonials">
         <div className="container">
           <header className="page-header page-header--center">
@@ -26,11 +40,15 @@ export default function HomePage() {
               What teams say after they&apos;ve worked with us
             </h2>
           </header>
-          <TestimonialCarousel testimonials={homeTestimonials} />
+          <WallOfLove testimonials={homeTestimonials} />
         </div>
       </section>
-      <Personas />
-      <Differentiators />
+      <InlineCTA
+        href="/contact?source=testimonials"
+        heading="Ready to join them?"
+        buttonLabel="Book a call"
+      />
+      <EngagementModel />
       <FinalCta />
       <Faq />
     </>
