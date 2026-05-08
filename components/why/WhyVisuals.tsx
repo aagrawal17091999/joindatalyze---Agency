@@ -22,14 +22,19 @@ export function SeniorOperators() {
 export function SpeedTimeline() {
   return (
     <div className={styles.timeline}>
-      <svg className={styles.timelineSvg} viewBox="0 0 280 60" fill="none">
-        <line x1="20" y1="34" x2="260" y2="34" className={styles.timelineLine} />
-        <circle cx="20" cy="34" r="5" className={styles.timelineDotActive} />
-        <circle cx="260" cy="34" r="4" className={styles.timelineDotMuted} />
-        <text x="20" y="18" className={styles.timelineLabelActive} textAnchor="middle">24 HRS</text>
-        <text x="20" y="54" className={styles.timelineSubActive} textAnchor="middle">Datalyze</text>
-        <text x="260" y="18" className={styles.timelineLabelMuted} textAnchor="middle">2 WEEKS</text>
-        <text x="260" y="54" className={styles.timelineSubMuted} textAnchor="middle">industry avg</text>
+      <svg
+        className={styles.timelineSvg}
+        viewBox="0 0 280 60"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <line x1="30" y1="34" x2="250" y2="34" className={styles.timelineLine} />
+        <circle cx="30" cy="34" r="5" className={styles.timelineDotActive} />
+        <circle cx="250" cy="34" r="4" className={styles.timelineDotMuted} />
+        <text x="30" y="18" className={styles.timelineLabelActive} textAnchor="start">24 HRS</text>
+        <text x="30" y="54" className={styles.timelineSubActive} textAnchor="start">Datalyze</text>
+        <text x="250" y="18" className={styles.timelineLabelMuted} textAnchor="end">2 WEEKS</text>
+        <text x="250" y="54" className={styles.timelineSubMuted} textAnchor="end">industry avg</text>
       </svg>
     </div>
   );

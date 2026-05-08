@@ -5,7 +5,7 @@ export default function FinalCta() {
     <section className="final-cta" id="book">
       <div className="container">
         <div className="final-cta__inner">
-          <div className="eyebrow eyebrow--center">Book a Call</div>
+          <div className="eyebrow eyebrow--center">Final Step</div>
           <h2 className="final-cta__title">
             <em>See</em> what your data
             <br />

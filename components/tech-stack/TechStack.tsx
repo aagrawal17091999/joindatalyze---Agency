@@ -1,6 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './TechStack.module.css';
+
+const MOBILE_VISIBLE = 6;
 
 type Tool = {
   name: string;
@@ -41,7 +43,24 @@ type Filter = typeof filters[number];
 
 export function TechStack() {
   const [active, setActive] = useState<Filter>('All');
+  const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const visible = active === 'All' ? tools : tools.filter(t => t.category === active);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [active]);
+
+  const collapseOnMobile = isMobile && !expanded && visible.length > MOBILE_VISIBLE;
+  const hiddenCount = collapseOnMobile ? visible.length - MOBILE_VISIBLE : 0;
 
   return (
     <section className={styles.section}>
@@ -66,8 +85,13 @@ export function TechStack() {
         </div>
 
         <div className={styles.grid}>
-          {visible.map(tool => (
-            <div key={tool.name} className={styles.card}>
+          {visible.map((tool, i) => (
+            <div
+              key={tool.name}
+              className={`${styles.card} ${
+                collapseOnMobile && i >= MOBILE_VISIBLE ? styles.cardHiddenMobile : ''
+              }`}
+            >
               <div className={styles.logoWrap}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={tool.logo} alt={tool.name} className={styles.logo} />
@@ -77,6 +101,17 @@ export function TechStack() {
             </div>
           ))}
         </div>
+
+        {isMobile && visible.length > MOBILE_VISIBLE && (
+          <button
+            type="button"
+            className={`${styles.pill} ${styles.toggle}`}
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+          >
+            {expanded ? 'Show less' : `See ${hiddenCount} more`}
+          </button>
+        )}
       </div>
     </section>
   );

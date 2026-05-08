@@ -197,6 +197,25 @@
   text-align: center;
 }
 
+/* Mobile tuning so step diagrams fit cleanly within container width */
+@media (max-width: 480px) {
+  .audit, .unified, .dashboard, .growth {
+    padding: 16px;
+  }
+  .auditEvent { font-size: 12px; }
+  .auditStatus { font-size: 11px; }
+  .auditRow { padding: 7px 10px; }
+  .pill { font-size: 11px; padding: 5px 9px; }
+  .unifiedTitle { font-size: 12px; }
+  .unifiedSub, .growthSub { font-size: 11px; }
+  .dashHeader, .growthHeader { font-size: 11px; }
+  .statValue { font-size: 26px; }
+  .chartLabel { font-size: 11px; }
+  .cohortSvg { height: 64px; }
+  .growthSvg { height: 160px; }
+  .markerText { font-size: 9px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .auditRow, .pillLink, .unifiedBend, .cohortLine, .growthLine, .marker circle, .markerText {
     animation: none !important;

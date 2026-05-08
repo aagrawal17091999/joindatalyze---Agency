@@ -199,6 +199,34 @@
   font-style: italic;
 }
 
+/* Mobile tuning — keep timeline + revenue lift fully inside container */
+@media (max-width: 480px) {
+  .timelineSvg {
+    height: 56px;
+  }
+  .timelineLabelActive,
+  .timelineLabelMuted {
+    font-size: 9px;
+  }
+  .timelineSubActive,
+  .timelineSubMuted {
+    font-size: 7.5px;
+  }
+  .liftSvg {
+    height: 72px;
+  }
+  .liftLabel {
+    font-size: 11px;
+  }
+  .opRow,
+  .fixRow {
+    font-size: 10px;
+  }
+  .fixStatus {
+    font-size: 8.5px;
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .opStrike::after { width: 100%; animation: none; }
