@@ -9,9 +9,11 @@ type Props = {
   params: Promise<{ toolId: string }>;
 };
 
+const DEDICATED_PAGE_IDS = new Set(['event-tracking-plan-generator']);
+
 export function generateStaticParams() {
   return toolList
-    .filter((tool) => tool.type !== 'web')
+    .filter((tool) => tool.type !== 'web' && !DEDICATED_PAGE_IDS.has(tool.id))
     .map((tool) => ({ toolId: tool.id }));
 }
 

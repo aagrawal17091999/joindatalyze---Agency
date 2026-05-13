@@ -42,6 +42,23 @@ export const toolList: Tool[] = [
     fileType: 'Jupyter Notebook (.ipynb)',
   },
   {
+    id: 'event-tracking-plan-generator',
+    title: 'Event Tracking Plan Generator',
+    description:
+      'A Claude skill that walks your live product and generates a ready-to-implement event tracking plan as a CSV.',
+    longDescription:
+      'A Claude skill that generates a complete, ready-to-implement event tracking plan for your product — by actually opening your site, clicking through it, and figuring out what is worth tracking. Output is a CSV in the standard Mixpanel / PostHog / Amplitude / GA4 format. Free to download, free to use.',
+    features: [
+      'Drives your real Chrome browser via the Claude in Chrome extension',
+      'Walks your authenticated app section by section and pauses for your input',
+      'Outputs a CSV compatible with Mixpanel, PostHog, Amplitude, and GA4',
+      'Groups events by user journey: acquisition → signup → core → engagement → errors',
+      'Free — runs entirely inside Claude Pro / Max / Team',
+    ],
+    cta: 'Get the skill',
+    fileType: 'Claude Skill (.skill)',
+  },
+  {
     id: 'analytics-maturity-grader',
     type: 'web',
     title: 'Analytics Maturity Grader',

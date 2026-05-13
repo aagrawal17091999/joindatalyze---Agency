@@ -1,5 +1,6 @@
 export type ToolConfig = {
   filename?: string;
+  bundleFiles?: string[];
   label: string;
   description: string;
   webOnly?: boolean;
@@ -16,6 +17,16 @@ export const TOOL_CONFIG: Record<string, ToolConfig> = {
     label: 'Mixpanel Users Exporter',
     description:
       'Download raw Mixpanel user profile data from your project in a CSV.',
+  },
+  'event-tracking-plan-generator': {
+    filename: 'event-tracking-plan-generator.zip',
+    bundleFiles: [
+      'event-tracking-plan-creator.skill',
+      'event-tracking-plan-generator-page.md',
+    ],
+    label: 'Event Tracking Plan Generator',
+    description:
+      'Free Claude skill that generates a full event tracking plan for your product.',
   },
   'analytics-maturity-grader': {
     label: 'Analytics Maturity Grader',
