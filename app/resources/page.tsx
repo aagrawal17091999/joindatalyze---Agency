@@ -6,7 +6,21 @@ export const metadata: Metadata = {
   alternates: { canonical: '/resources' },
 };
 
-const RESOURCES = [
+type Resource = {
+  title: string;
+  href: string;
+  description: string;
+  internal?: boolean;
+};
+
+const RESOURCES: Resource[] = [
+  {
+    title: 'Client vs proxy vs server-side tracking',
+    href: '/resources/client-vs-proxy-vs-server-tracking',
+    internal: true,
+    description:
+      'Where to fire each event and why it matters for your data. A short, visual guide to the three places tracking can live.',
+  },
   {
     title: 'Mixpanel Simplified',
     href: 'https://mixpanelsimplified.substack.com/',
@@ -75,8 +89,9 @@ export default function ResourcesPage() {
             <a
               key={r.href}
               href={r.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(r.internal
+                ? {}
+                : { target: '_blank', rel: 'noopener noreferrer' })}
               className="card"
             >
               <h3 className="card__title">{r.title}</h3>
