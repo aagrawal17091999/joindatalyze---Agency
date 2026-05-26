@@ -28,6 +28,12 @@ export const TOOL_CONFIG: Record<string, ToolConfig> = {
     description:
       'Free Claude skill that generates a full event tracking plan for your product.',
   },
+  'analytics-strategy-creator': {
+    filename: 'analytics-strategy-creator.skill',
+    label: 'Analytics Strategy Creator',
+    description:
+      'Free Claude skill that turns a product decision into a tight analytics strategy.',
+  },
   'analytics-maturity-grader': {
     label: 'Analytics Maturity Grader',
     description:

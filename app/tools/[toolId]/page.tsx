@@ -9,7 +9,10 @@ type Props = {
   params: Promise<{ toolId: string }>;
 };
 
-const DEDICATED_PAGE_IDS = new Set(['event-tracking-plan-generator']);
+const DEDICATED_PAGE_IDS = new Set([
+  'event-tracking-plan-generator',
+  'analytics-strategy-creator',
+]);
 
 export function generateStaticParams() {
   return toolList

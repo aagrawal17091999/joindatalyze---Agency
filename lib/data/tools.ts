@@ -59,6 +59,24 @@ export const toolList: Tool[] = [
     fileType: 'Claude Skill (.skill)',
   },
   {
+    id: 'analytics-strategy-creator',
+    title: 'Analytics Strategy Creator',
+    description:
+      'A Claude skill that turns a fuzzy product question into a tight, decision-driven analytics strategy.',
+    longDescription:
+      'A Claude skill that turns a fuzzy "I want to understand X" into a tight, decision-driven analytics strategy — five-or-fewer primary metrics paired with counter-metrics, segmentation, and instrumentation notes. Outputs a markdown doc you can hand to your PM, eng team, or data person. Free to download, free to use.',
+    features: [
+      'Pins down the specific decision before recommending any metric',
+      'Researches your product directly from its URL',
+      'Picks 3–5 primary metrics — each paired with a counter-metric and segmentation',
+      'Calls out the vanity metrics worth explicitly skipping',
+      'Chains naturally into the Event Tracking Plan Generator for full instrumentation',
+      'Free — runs entirely inside Claude Pro / Max / Team',
+    ],
+    cta: 'Get the skill',
+    fileType: 'Claude Skill (.skill)',
+  },
+  {
     id: 'analytics-maturity-grader',
     type: 'web',
     title: 'Analytics Maturity Grader',
