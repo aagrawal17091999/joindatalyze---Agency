@@ -22,6 +22,13 @@ const RESOURCES: Resource[] = [
       'Where to fire each event and why it matters for your data. A short, visual guide to the three places tracking can live.',
   },
   {
+    title: 'How to improve your app’s retention',
+    href: '/resources/improve-app-retention',
+    internal: true,
+    description:
+      'A six-step diagnostic for finding what actually drives your D30 retention — and what to do about it. Walked through with sample data.',
+  },
+  {
     title: 'Mixpanel setup',
     href: 'https://www.notion.so/Mixpanel-setup-The-right-way-6b6ec85312f7433494e8649dfeb8f646?pvs=21',
     description:
