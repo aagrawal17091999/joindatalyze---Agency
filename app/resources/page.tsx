@@ -22,12 +22,6 @@ const RESOURCES: Resource[] = [
       'Where to fire each event and why it matters for your data. A short, visual guide to the three places tracking can live.',
   },
   {
-    title: 'Mixpanel Simplified',
-    href: 'https://mixpanelsimplified.substack.com/',
-    description:
-      'Practical writing on product analytics, Mixpanel usage, and common mistakes teams make when working with data.',
-  },
-  {
     title: 'Mixpanel setup',
     href: 'https://www.notion.so/Mixpanel-setup-The-right-way-6b6ec85312f7433494e8649dfeb8f646?pvs=21',
     description:
@@ -52,8 +46,8 @@ const RESOURCES: Resource[] = [
       'A hands-on course covering Mixpanel features with real examples. From basic usage to confident, day-to-day analysis.',
   },
   {
-    title: '@anshdoesanalytics',
-    href: 'https://www.youtube.com/@anshdoesanalytics',
+    title: 'Datalyze',
+    href: 'https://www.youtube.com/channel/UCKdowFIRu4Z5lFxNM_JNxSQ',
     description:
       'Videos on analytics concepts, Mixpanel walkthroughs, and practical problem-solving.',
   },
