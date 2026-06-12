@@ -1,0 +1,79 @@
+/* Layout for Playbook 01 — The Metrics That Lie.
+   A single readable column. Body copy uses the global .prose class; this module
+   handles the article column, graphic framing, and the section rhythm. */
+
+.article {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* Spacing between stacked prose / graphic / interactive blocks */
+.article > * + * {
+  margin-top: var(--space-7);
+}
+
+.section {
+  padding-top: var(--space-8);
+}
+
+.sectionHeading {
+  font-family: var(--font-display), serif;
+  font-size: var(--text-display-sm);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  font-weight: 400;
+  margin-bottom: var(--space-5);
+}
+
+/* Graphic frame — hard corners, thin border, sits on the page background so the
+   graphics' own surface boxes read against it. */
+.figure {
+  margin: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-none);
+  padding: var(--space-6);
+  background: var(--bg-base);
+}
+
+.figure + .figure {
+  margin-top: var(--space-6);
+}
+
+/* Dashboard sub-blocks inside Section 4 */
+.dashboard {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-6);
+}
+
+.dashboardTitle {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-h4);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+/* Footer series note */
+.seriesNote {
+  margin-top: var(--space-9);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body-sm);
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.backLink {
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .figure {
+    padding: var(--space-5);
+  }
+  .section {
+    padding-top: var(--space-7);
+  }
+}

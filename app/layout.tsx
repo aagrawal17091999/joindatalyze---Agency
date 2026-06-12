@@ -9,7 +9,7 @@ import MixpanelProvider from './_components/mixpanel-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://joindatalyze.com'),
+  metadataBase: new URL('https://www.joindatalyze.com'),
   title: 'Analytics & Growth Partner',
   description:
     "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",

@@ -2530,6 +2530,24 @@ h6 {
   transform: translateX(4px);
 }
 
+.card--soon {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.card--soon:hover {
+  border-color: var(--border-default);
+  transform: none;
+}
+
+.card__cta--soon {
+  color: var(--text-muted);
+}
+
+.card__cta--soon::after {
+  content: '';
+}
+
 /* -----------------------------------------------------------------------------
    22. About page
    ----------------------------------------------------------------------------- */

@@ -1,0 +1,150 @@
+/* TwoLayerDashboard — Playbook 03 centerpiece.
+   Six baseline (layer-one) tiles that flip to the behavioural (layer-two)
+   question hiding underneath. Lime is reserved for the flipped face only; the
+   front dashboard stays neutral. Hard corners, thin strokes, dark only. */
+
+.wrap {
+  padding: var(--space-2) 0;
+  font-family: var(--font-body), sans-serif;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: 14px;
+}
+
+.headLabel {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.reset {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0.5px solid var(--border-default);
+  border-radius: var(--radius-none);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.reset:hover {
+  border-color: var(--border-strong);
+}
+
+.reset:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-3);
+}
+
+.tile {
+  text-align: left;
+  border: 0.5px solid var(--border-default);
+  border-radius: var(--radius-none);
+  background: var(--bg-surface);
+  padding: var(--space-4);
+  cursor: pointer;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  transition: opacity 0.16s ease, border-color 0.2s ease;
+}
+
+.tile[data-flipped='0']:hover {
+  border-color: var(--border-strong);
+}
+
+.tile[data-flipped='1'] {
+  background: var(--accent-muted);
+  border-color: var(--accent);
+  border-width: 1px;
+}
+
+.tile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.lime {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.base {
+  font-family: var(--font-mono), monospace;
+  font-size: 34px;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin: auto 0 4px;
+}
+
+.baseLabel {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hint {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+}
+
+.question {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.detail {
+  font-size: 12.5px;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin-bottom: auto;
+}
+
+.decision {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+}
+
+.note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 14px 0 0;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile {
+    transition: border-color 0.2s ease;
+  }
+}
