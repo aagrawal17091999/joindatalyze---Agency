@@ -57,13 +57,23 @@ async function handle(req: NextRequest) {
     headers.set('set-cookie', setCookie.replace(/Domain=[^;]+/gi, 'Domain=joindatalyze.com'));
   }
 
-  // Rewrite Ghost's absolute URLs in text responses so canonicals, internal
-  // links, theme /assets, sitemap, and RSS all point at www/blog.
+  // Rewrite Ghost's URLs in text responses so canonicals, internal links,
+  // theme assets, sitemap, and RSS all resolve under /blog.
   const ct = upstream.headers.get('content-type') ?? '';
   if (/text\/html|xml|rss|json/.test(ct)) {
-    const body = (await upstream.text())
+    let body = (await upstream.text())
+      // Absolute origin URLs -> public subdirectory.
       .replaceAll(`https://${HOST}`, PUBLIC)
       .replaceAll(`http://${HOST}`, PUBLIC);
+    // Ghost also emits ROOT-RELATIVE URLs (post permalinks like "/slug/", its
+    // core "/public/*" scripts, form actions) that would otherwise resolve at
+    // the site root and 404. Re-anchor them under /blog. Skip protocol-relative
+    // ("//...") URLs and anything already under /blog.
+    if (ct.includes('text/html')) {
+      body = body
+        .replace(/(href|src|action)="\/(?!\/|blog[/"])/g, '$1="/blog/')
+        .replace(/\burl\(\/(?!\/|blog[/"])/g, 'url(/blog/');
+    }
     return new Response(body, { status: upstream.status, headers });
   }
   return new Response(upstream.body, { status: upstream.status, headers });
