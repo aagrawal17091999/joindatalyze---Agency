@@ -39,10 +39,16 @@ async function handle(req: NextRequest) {
   headers.delete('content-encoding');
   headers.delete('content-length');
 
-  // Keep Ghost's trailing-slash 301s inside /blog instead of bouncing to cms.*.
+  // Keep Ghost's redirects inside /blog instead of bouncing to cms.* or root.
   const loc = upstream.headers.get('location');
   if (loc) {
-    headers.set('location', loc.replaceAll(`https://${HOST}`, PUBLIC).replaceAll(`http://${HOST}`, PUBLIC));
+    let fixed = loc.replaceAll(`https://${HOST}`, PUBLIC).replaceAll(`http://${HOST}`, PUBLIC);
+    // Ghost also issues root-relative redirects (e.g. "/slug/") that drop the
+    // /blog prefix; re-anchor them so they don't escape to the site root.
+    if (fixed.startsWith('/') && !fixed.startsWith('/blog')) {
+      fixed = '/blog' + fixed;
+    }
+    headers.set('location', fixed);
   }
 
   // Re-scope any cookies Ghost sets so they apply on our domain.

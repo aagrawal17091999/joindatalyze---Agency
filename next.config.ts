@@ -2,6 +2,10 @@ import type { NextConfig } from 'next';
 
 const config: NextConfig = {
   reactStrictMode: true,
+  // Ghost serves canonical URLs WITH a trailing slash; Next strips them by
+  // default, which fought Ghost's own 301s and looped the /blog proxy. Skip the
+  // auto-redirect so trailing-slash URLs reach the proxy and serve directly.
+  skipTrailingSlashRedirect: true,
   images: {
     formats: ['image/avif', 'image/webp'],
   },

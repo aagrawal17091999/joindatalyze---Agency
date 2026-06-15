@@ -18,7 +18,17 @@
       "Bash(npx next:*)",
       "Bash(npx tsc:*)",
       "Bash(curl -sI https://datalyze.ghost.io/)",
-      "Bash(curl -sI https://blog.joindatalyze.com/)"
+      "Bash(curl -sI https://blog.joindatalyze.com/)",
+      "Bash(curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\\\\n' \"https://www.joindatalyze.com/blog/gamification-is-a-multiplier-but-multiply-by-zero-and-you-get-nothing/\")",
+      "Bash(curl -sIL \"https://www.joindatalyze.com/blog/gamification-is-a-multiplier-but-multiply-by-zero-and-you-get-nothing/\")",
+      "Bash(dig +short blog.joindatalyze.com)",
+      "Bash(curl -sI https://www.joindatalyze.com/blog/rss)",
+      "Bash(curl -sI \"https://datalyze.ghost.io/ghost/api/admin/members/\")",
+      "Bash(curl -sI \"https://cms.joindatalyze.com/ghost/api/admin/members/\")",
+      "Bash(curl -sI \"https://www.joindatalyze.com/blog/members/api/member/\")",
+      "Bash(echo \"---tsc exit: $?---\")",
+      "Bash(curl -sI \"https://blog.joindatalyze.com/some-old-slug/\")",
+      "Bash(curl -sI \"https://blog.joindatalyze.com/\")"
     ]
   }
 }
