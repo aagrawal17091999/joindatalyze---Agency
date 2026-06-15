@@ -16,7 +16,9 @@
       "Bash(curl -sL http://localhost:4174/)",
       "Bash(curl -sL http://localhost:4174/case-studies/some-slug)",
       "Bash(npx next:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(curl -sI https://datalyze.ghost.io/)",
+      "Bash(curl -sI https://blog.joindatalyze.com/)"
     ]
   }
 }

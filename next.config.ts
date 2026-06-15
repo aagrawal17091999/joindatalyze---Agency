@@ -14,6 +14,19 @@ const config: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Legacy blog subdomain -> subdirectory, slug preserved. Fires only for
+      // the blog.* host (now pointed at Vercel), so it never catches the proxy's
+      // fetches to the Ghost origin and cannot create a redirect loop.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'blog.joindatalyze.com' }],
+        destination: 'https://www.joindatalyze.com/blog/:path*',
+        permanent: true, // 301
+      },
+    ];
+  },
 };
 
 export default config;
