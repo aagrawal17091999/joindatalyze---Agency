@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ['/api/'],
     },
     sitemap: [
-      'https://joindatalyze.com/sitemap.xml',
+      'https://www.joindatalyze.com/sitemap.xml',
       'https://www.joindatalyze.com/blog/sitemap.xml',
     ],
   };
