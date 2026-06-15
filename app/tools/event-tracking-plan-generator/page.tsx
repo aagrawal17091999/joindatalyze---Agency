@@ -7,7 +7,7 @@ import CtaButton from '@/app/_components/cta-button';
 const tool = toolById['event-tracking-plan-generator'];
 
 export const metadata: Metadata = {
-  title: 'Free Event Tracking Plan Generator — Claude Skill | Datalyze',
+  title: 'Free Event Tracking Plan Generator — Claude Skill',
   description:
     'Generate a complete event tracking plan for your product in under an hour. Free Claude skill. Outputs a Mixpanel/PostHog/Amplitude/GA4-compatible CSV. Built by Datalyze.',
   alternates: { canonical: '/tools/event-tracking-plan-generator' },

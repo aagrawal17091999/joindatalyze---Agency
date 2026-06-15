@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Analytics Maturity Grader',
   description:
     'Take a 2-minute quiz to get a personalized analytics maturity scorecard with actionable recommendations.',
   alternates: { canonical: '/tools/analytics-maturity-grader' },

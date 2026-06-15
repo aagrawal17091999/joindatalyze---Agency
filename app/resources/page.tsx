@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Resources',
   description:
     'Guides, tools, courses, and content on product analytics, Mixpanel, PostHog, Amplitude, and data quality.',
   alternates: { canonical: '/resources' },

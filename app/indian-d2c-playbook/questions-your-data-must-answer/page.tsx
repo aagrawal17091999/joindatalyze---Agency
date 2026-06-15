@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 import Link from 'next/link';
 import TwoLayerDashboard from '@/components/playbook-metrics/TwoLayerDashboard';
 import FlatNumberFansOut from '@/components/playbook-metrics/FlatNumberFansOut';
@@ -16,6 +18,16 @@ export const metadata: Metadata = {
 export default function QuestionsYourDataMustAnswerPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Indian D2C Playbook', path: '/indian-d2c-playbook' },
+          {
+            name: 'The questions your data has to answer',
+            path: '/indian-d2c-playbook/questions-your-data-must-answer',
+          },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">Playbook 03 · D2C Data Series</div>

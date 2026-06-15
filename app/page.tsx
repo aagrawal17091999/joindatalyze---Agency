@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { homeTestimonials } from '@/lib/data/home-testimonials';
 import Hero from './_components/hero';
 import LogoWall from './_components/logo-wall';
@@ -10,7 +11,12 @@ import Differentiators from './_components/differentiators';
 import { EngagementModel } from '@/components/engagement/EngagementModel';
 import FinalCta from './_components/final-cta';
 import Faq from './_components/faq';
+import LatestPosts from './_components/latest-posts';
 import { InlineCTA } from '@/components/inline-cta/InlineCTA';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (
@@ -49,6 +55,7 @@ export default function HomePage() {
         buttonLabel="Book a call"
       />
       <EngagementModel />
+      <LatestPosts />
       <FinalCta />
       <Faq />
     </>

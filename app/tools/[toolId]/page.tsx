@@ -4,6 +4,8 @@ import { notFound, redirect } from 'next/navigation';
 import { toolList, toolById } from '@/lib/data/tools';
 import ToolDownloadForm from '@/app/_components/tool-download-form';
 import CtaButton from '@/app/_components/cta-button';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 type Props = {
   params: Promise<{ toolId: string }>;
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!tool) return {};
 
   return {
+    title: tool.title,
     description: tool.longDescription,
     alternates: { canonical: `/tools/${toolId}` },
   };
@@ -43,6 +46,13 @@ export default async function ToolLandingPage({ params }: Props) {
 
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Tools', path: '/tools' },
+          { name: tool.title, path: `/tools/${toolId}` },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">{tool.fileType ?? 'Datalyze Tool'}</div>

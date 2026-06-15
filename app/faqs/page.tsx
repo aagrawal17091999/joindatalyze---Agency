@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import Faq from '../_components/faq';
 import { homeFaqs } from '@/lib/data/home-faqs';
+import JsonLd from '@/components/seo/JsonLd';
+import { faqPageSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
+  title: 'Frequently Asked Questions',
   description:
     'Frequently asked questions about working with Datalyze — pricing, team, engagement, and what to expect.',
   alternates: { canonical: '/faqs' },
@@ -19,12 +22,15 @@ const EXTRA_FAQS = [
   },
 ];
 
+const FAQ_ITEMS = [...homeFaqs, ...EXTRA_FAQS];
+
 export default function FaqsPage() {
   return (
     <div className="page-shell">
+      <JsonLd data={faqPageSchema(FAQ_ITEMS)} />
       <div className="container">
         <Faq
-          items={[...homeFaqs, ...EXTRA_FAQS]}
+          items={FAQ_ITEMS}
           title="Frequently asked"
           eyebrow="FAQs"
         />

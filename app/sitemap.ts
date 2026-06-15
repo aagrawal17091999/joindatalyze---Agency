@@ -26,8 +26,6 @@ const RESOURCE_ARTICLES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   // Released Indian D2C Playbook entries + the playbook index. Coming-soon
   // entries have no slug and no page, so they're filtered out automatically.
   const playbookRoutes = [
@@ -58,9 +56,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]),
   );
 
+  // No lastModified: we have no reliable per-page edit timestamps, and emitting
+  // `new Date()` on every build trains Google to ignore the signal. Add a real
+  // date per entry here if/when content sources start tracking one.
   return allPaths.map((path) => ({
     url: `${BASE}${path}`,
-    lastModified: now,
     changeFrequency: changeFreqFor(path),
     priority: priorityFor(path),
   }));

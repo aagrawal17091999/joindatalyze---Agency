@@ -5,6 +5,7 @@ import Failures from './_components/failures';
 import QueryDemo from './_components/query-demo';
 
 export const metadata: Metadata = {
+  title: 'AI Analytics Agent',
   description:
     'Most AI data tools confidently give wrong answers. We fix the foundation, build the business context, and ship an AI analytics agent your team can actually trust. Custom-built or set up on top of Julius, Vanna, or DataGPT.',
   alternates: { canonical: '/ai-analytics-agent' },

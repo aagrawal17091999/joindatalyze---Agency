@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 import Link from 'next/link';
 import FourNumbersOneWeek from '@/components/playbook-metrics/FourNumbersOneWeek';
 import AttributionModels from '@/components/playbook-metrics/AttributionModels';
@@ -18,6 +20,16 @@ export const metadata: Metadata = {
 export default function WhyYourNumbersNeverMatchPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Indian D2C Playbook', path: '/indian-d2c-playbook' },
+          {
+            name: 'Why your numbers never match',
+            path: '/indian-d2c-playbook/why-your-numbers-never-match',
+          },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">Playbook 02 · D2C Data Series</div>

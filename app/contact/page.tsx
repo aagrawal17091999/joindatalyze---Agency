@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import CalendlyWidget from './calendly-widget';
 
 export const metadata: Metadata = {
+  title: 'Contact',
   description:
     "Book a free 30-minute analytics audit with Datalyze. Let's talk about how we can help grow your business with data.",
   alternates: { canonical: '/contact' },

@@ -6,11 +6,16 @@ import Footer from './_components/footer';
 import Grain from './_components/grain';
 import GfxObserver from './_components/graphic-observer';
 import MixpanelProvider from './_components/mixpanel-provider';
+import JsonLd from '@/components/seo/JsonLd';
+import { organizationSchema, websiteSchema } from '@/lib/seo';
 import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.joindatalyze.com'),
-  title: 'Analytics & Growth Partner',
+  title: {
+    default: 'Datalyze — Analytics & Growth Partner',
+    template: '%s | Datalyze',
+  },
   description:
     "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",
   openGraph: {
@@ -49,6 +54,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <JsonLd data={[organizationSchema, websiteSchema]} />
         <MixpanelProvider />
         <Grain />
         <GfxObserver />

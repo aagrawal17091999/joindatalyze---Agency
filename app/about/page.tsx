@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
 
 export const metadata: Metadata = {
+  title: 'About',
   description:
     'Datalyze is an analytics consultancy founded by Ansh Agrawal. We\u2019ve helped 150+ startups fix their data foundations and grow revenue by 14% on average.',
   alternates: { canonical: '/about' },

@@ -12,7 +12,7 @@ const RESOURCES_LINKS = [
   { href: '/faqs', label: 'FAQs' },
   { href: '/ai-analytics-agent', label: 'AI Analytics Agent' },
   {
-    href: 'https://blog.joindatalyze.com',
+    href: '/blog',
     label: 'Blog',
     external: true,
   },
