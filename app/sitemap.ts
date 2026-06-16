@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 import { TOOL_CONFIG } from '@/lib/data/tool-config';
-import { PLAYBOOKS } from '@/lib/data/playbooks';
 
 // Canonical host is www — the apex (joindatalyze.com) 307-redirects here, so
 // listing www URLs directly avoids a redirect hop on every sitemap entry.
@@ -26,15 +25,6 @@ const RESOURCE_ARTICLES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Released Indian D2C Playbook entries + the playbook index. Coming-soon
-  // entries have no slug and no page, so they're filtered out automatically.
-  const playbookRoutes = [
-    '/indian-d2c-playbook',
-    ...PLAYBOOKS.filter((p) => p.status === 'released' && p.slug).map(
-      (p) => `/indian-d2c-playbook/${p.slug}`,
-    ),
-  ];
-
   // Tool pages generated from the tool registry.
   const toolRoutes = Object.keys(TOOL_CONFIG).map((toolId) => `/tools/${toolId}`);
 
@@ -50,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allPaths = Array.from(
     new Set([
       ...CORE_ROUTES,
-      ...playbookRoutes,
       ...RESOURCE_ARTICLES,
       ...toolRoutes,
     ]),

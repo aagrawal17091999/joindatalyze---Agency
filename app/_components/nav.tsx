@@ -15,7 +15,6 @@ const PRIMARY_LINKS = [
 const SECONDARY_LINKS = [
   { href: '/tools', label: 'Tools' },
   { href: '/resources', label: 'Resources' },
-  { href: '/indian-d2c-playbook', label: 'Indian D2C Playbook' },
   { href: '/contact', label: 'Contact' },
 ];
 
