@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -36,8 +38,27 @@ const NUMBERS = [
 ];
 
 export default function AboutPage() {
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Ansh Agrawal',
+    jobTitle: 'Founder',
+    worksFor: { '@type': 'Organization', name: 'Datalyze', url: SITE_URL },
+    url: `${SITE_URL}/about`,
+    image: `${SITE_URL}/Ansh.png`,
+    sameAs: ['https://www.linkedin.com/company/joindatalyze'],
+  };
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+          personSchema,
+        ]}
+      />
       {/* Section 1 — Hero */}
       <section className="about-hero" id="about-hero">
         <div className="container about-hero__inner">

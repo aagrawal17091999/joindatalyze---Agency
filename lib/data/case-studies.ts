@@ -20,7 +20,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Improving sign up rate (+31%) & unifying data.',
     tags: ['Mixpanel', 'Conversion', 'Data quality'],
     thumbClass: '',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-copyfy/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-copyfy/',
   },
   {
     slug: 'foriio',
@@ -31,7 +31,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Improving Activation (+8%) & Retention (6%).',
     tags: ['Activation', 'Lifecycle', 'UX'],
     thumbClass: 'alt',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-foriio/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-foriio/',
   },
   {
     slug: 'cred',
@@ -43,7 +43,7 @@ export const caseStudyList: CaseStudyListItem[] = [
       'Improving PSR (+7%), reducing Cost (12%) and outage (93%).',
     tags: ['Optimization', 'Reliability', 'Fintech'],
     thumbClass: 'gradient',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-cred/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-cred/',
   },
   {
     slug: 'sama',
@@ -54,7 +54,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Improving retention (+4%).',
     tags: ['Retention', 'UX', 'Engagement'],
     thumbClass: 'bold',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-sama/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-sama/',
   },
   {
     slug: 'gametree',
@@ -65,7 +65,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Improving Day 0 Activation (+5%).',
     tags: ['Localization', 'Error reduction', 'Activation'],
     thumbClass: '',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-gametree/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-gametree/',
   },
   {
     slug: 'petcademy',
@@ -76,7 +76,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Reduced SMS cost (-12%) with no decline in engagement.',
     tags: ['Messaging', 'Cost', 'Personalization'],
     thumbClass: 'alt',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-petcademy/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-petcademy/',
   },
   {
     slug: 'stealth',
@@ -87,7 +87,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Increased Activation (+22%), and time spent on app (+2 mins).',
     tags: ['Activation', 'Pricing', 'Engagement'],
     thumbClass: 'gradient',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-stealth/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-stealth/',
   },
   {
     slug: 'videotap',
@@ -98,7 +98,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Increased Activation (+12%) and Onboarding (52%).',
     tags: ['Onboarding', 'Activation', 'UX'],
     thumbClass: 'bold',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-videotap/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-videotap/',
   },
   {
     slug: 'zeroone',
@@ -110,7 +110,7 @@ export const caseStudyList: CaseStudyListItem[] = [
       'Improved Week 2 retention (+15%), engagement (+30%), and implementation of new tracking.',
     tags: ['Activation', 'Habit loops', 'Analytics'],
     thumbClass: '',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-zeroone/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-zeroone/',
   },
   {
     slug: 'speedyloans',
@@ -121,7 +121,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Reduced cost (-30%) and increased engagement (+1%).',
     tags: ['Segmentation', 'Cost', 'Modeling'],
     thumbClass: 'alt',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-speedyloans/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-speedyloans/',
   },
   {
     slug: 'wellness-coach',
@@ -132,7 +132,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Helped regain trust in data.',
     tags: ['Taxonomy', 'Data quality', 'Retention'],
     thumbClass: 'gradient',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-wellnesscoach/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-wellnesscoach/',
   },
   {
     slug: 'sol',
@@ -144,7 +144,7 @@ export const caseStudyList: CaseStudyListItem[] = [
       'Helped clean up complex data structure into a simple accurate setup.',
     tags: ['Mixpanel', 'Governance', 'Scalability'],
     thumbClass: 'bold',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-sol/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-sol/',
   },
   {
     slug: 'answering-agent',
@@ -155,7 +155,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Helped create a call score using AI.',
     tags: ['AI', 'Quality', 'Measurement'],
     thumbClass: '',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-answering-agent/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-answering-agent/',
   },
   {
     slug: 'termplus',
@@ -167,7 +167,7 @@ export const caseStudyList: CaseStudyListItem[] = [
       'Setup the entire Data Analytics Infra, & unified user journey.',
     tags: ['Tracking', 'Dashboards', 'Data unification'],
     thumbClass: 'alt',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-termplus/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-termplus/',
   },
   {
     slug: 'frai',
@@ -178,7 +178,7 @@ export const caseStudyList: CaseStudyListItem[] = [
     description: 'Improved paid conversion rate (2x).',
     tags: ['Experiments', 'Conversion', 'Insights'],
     thumbClass: 'gradient',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-frai/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-frai/',
   },
   {
     slug: 'anyip',
@@ -190,7 +190,7 @@ export const caseStudyList: CaseStudyListItem[] = [
       'Helped get more visibility into marketing, and improving CAC, spend efficiency.',
     tags: ['Marketing analytics', 'CAC', 'Dashboards'],
     thumbClass: 'bold',
-    externalUrl: 'https://blog.joindatalyze.com/case-study-anyip/',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-anyip/',
   },
 ];
 

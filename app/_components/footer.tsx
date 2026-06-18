@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { toolList } from '@/lib/data/tools';
 
 const COMPANY_LINKS = [
   { href: '/about', label: 'About' },
@@ -7,16 +8,27 @@ const COMPANY_LINKS = [
 ];
 
 const RESOURCES_LINKS = [
-  { href: '/tools', label: 'Tools' },
   { href: '/resources', label: 'Resources' },
+  { href: '/resources/improve-app-retention', label: 'Improve App Retention' },
+  {
+    href: '/resources/client-vs-proxy-vs-server-tracking',
+    label: 'Client vs Server Tracking',
+  },
   { href: '/faqs', label: 'FAQs' },
   { href: '/ai-analytics-agent', label: 'AI Analytics Agent' },
   {
-    href: '/blog',
+    href: '/blog/',
     label: 'Blog',
     external: true,
   },
 ];
+
+// Individual tools get a sitewide footer column so they aren't orphaned with a
+// single inlink from the /tools hub.
+const TOOL_LINKS = toolList.map((t) => ({
+  href: `/tools/${t.id}`,
+  label: t.title,
+}));
 
 const CONTACT_LINKS = [
   { href: 'mailto:ansh@joindatalyze.com', label: 'ansh@joindatalyze.com' },
@@ -75,6 +87,17 @@ export default function Footer() {
                   </Link>
                 ),
               )}
+            </div>
+          </div>
+
+          <div>
+            <div className="footer__col-title">Free Tools</div>
+            <div className="footer__links">
+              {TOOL_LINKS.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 

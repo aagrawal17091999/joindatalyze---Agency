@@ -31,8 +31,9 @@ export default function FaqsPage() {
       <div className="container">
         <Faq
           items={FAQ_ITEMS}
-          title="Frequently asked"
+          title="Frequently Asked Questions"
           eyebrow="FAQs"
+          headingLevel="h1"
         />
       </div>
     </div>

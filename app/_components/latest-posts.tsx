@@ -53,7 +53,7 @@ export default async function LatestPosts() {
             <h2 className="page-header__title">Latest thinking on data &amp; growth</h2>
           </div>
           <a
-            href="/blog"
+            href="/blog/"
             style={{
               fontFamily: 'var(--font-mono), monospace',
               fontSize: 12,

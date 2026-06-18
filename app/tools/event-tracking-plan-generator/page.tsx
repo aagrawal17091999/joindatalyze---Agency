@@ -9,7 +9,7 @@ const tool = toolById['event-tracking-plan-generator'];
 export const metadata: Metadata = {
   title: 'Free Event Tracking Plan Generator — Claude Skill',
   description:
-    'Generate a complete event tracking plan for your product in under an hour. Free Claude skill. Outputs a Mixpanel/PostHog/Amplitude/GA4-compatible CSV. Built by Datalyze.',
+    'Generate a complete event tracking plan for your product in under an hour — a free Claude skill that outputs a Mixpanel/PostHog/Amplitude/GA4 CSV.',
   alternates: { canonical: '/tools/event-tracking-plan-generator' },
   openGraph: {
     title: 'Free Event Tracking Plan Generator — Claude Skill',

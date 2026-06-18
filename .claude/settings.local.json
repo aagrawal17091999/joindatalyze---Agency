@@ -40,7 +40,12 @@
       "Bash(rm -rf app/shot-temp shoot-temp.mjs upload-temp.mjs patch-temp.mjs)",
       "Bash(npm uninstall *)",
       "mcp__ghost-mcp__posts_read",
-      "mcp__ghost-mcp__posts_edit"
+      "mcp__ghost-mcp__posts_edit",
+      "Bash(python3)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s https://www.joindatalyze.com/)",
+      "Bash(curl -s https://www.joindatalyze.com/ai-analytics-agent)",
+      "Bash(curl -s https://www.joindatalyze.com/blog/d2c-playbook-1-the-data-foundation/)"
     ]
   }
 }

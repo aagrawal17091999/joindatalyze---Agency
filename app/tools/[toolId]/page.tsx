@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: tool.title,
-    description: tool.longDescription,
+    description: tool.description,
     alternates: { canonical: `/tools/${toolId}` },
   };
 }

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import CtaButton from '../_components/cta-button';
 import { toolList } from '@/lib/data/tools';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Free Analytics Tools',
@@ -13,6 +15,12 @@ export const metadata: Metadata = {
 export default function ToolsPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Tools', path: '/tools' },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">Tools</div>

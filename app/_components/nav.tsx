@@ -9,7 +9,7 @@ const PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/ai-analytics-agent', label: 'AI Agent' },
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/blog', label: 'Blog', external: true },
+  { href: '/blog/', label: 'Blog', external: true },
 ];
 
 const SECONDARY_LINKS = [

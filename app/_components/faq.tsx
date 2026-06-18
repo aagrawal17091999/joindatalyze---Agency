@@ -4,20 +4,23 @@ type Props = {
   items?: typeof homeFaqs;
   title?: string;
   eyebrow?: string;
+  headingLevel?: 'h1' | 'h2';
 };
 
 export default function Faq({
   items = homeFaqs,
   title = 'Frequently asked',
   eyebrow = 'Questions',
+  headingLevel = 'h2',
 }: Props) {
+  const Heading = headingLevel;
   return (
     <section className="section" id="faq">
       <div className="container">
         <div className="faq">
           <header className="faq__header">
             <div className="eyebrow eyebrow--center">{eyebrow}</div>
-            <h2 className="faq__title">{title}</h2>
+            <Heading className="faq__title">{title}</Heading>
           </header>
 
           <div className="faq-list">

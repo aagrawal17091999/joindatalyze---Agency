@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Resources',
@@ -76,6 +78,12 @@ const RESOURCES: Resource[] = [
 export default function ResourcesPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Resources', path: '/resources' },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">Resources</div>

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
 import { caseStudyList } from '@/lib/data/case-studies';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Case Studies',
@@ -13,6 +15,12 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Case Studies', path: '/case-studies' },
+        ])}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">Case Studies</div>

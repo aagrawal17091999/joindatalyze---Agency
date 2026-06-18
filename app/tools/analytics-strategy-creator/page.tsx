@@ -9,7 +9,7 @@ const tool = toolById['analytics-strategy-creator'];
 export const metadata: Metadata = {
   title: 'Free Analytics Strategy Creator — Claude Skill',
   description:
-    'Turn a fuzzy product question into a tight, decision-driven analytics strategy. Free Claude skill. Outputs a markdown strategy doc with primary metrics, counter-metrics, segmentation, and instrumentation notes. Built by Datalyze.',
+    'Turn a fuzzy product question into a decision-driven analytics strategy. A free Claude skill that outputs metrics, counter-metrics, and segmentation.',
   alternates: { canonical: '/tools/analytics-strategy-creator' },
   openGraph: {
     title: 'Free Analytics Strategy Creator — Claude Skill',

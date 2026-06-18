@@ -1,0 +1,28 @@
+# Datalyze
+
+> Datalyze is an analytics & growth partner for startups. We rebuild your data
+> foundation, then surface the growth your data has been hiding. Proven across
+> 150+ Seed–Series C SaaS, marketplace, e-commerce, and fintech teams.
+
+## Core pages
+- [Homepage](https://www.joindatalyze.com/): What Datalyze does and who it's for.
+- [AI Analytics Agent](https://www.joindatalyze.com/ai-analytics-agent): Our AI agent that answers product/growth questions on your own data.
+- [Case Studies](https://www.joindatalyze.com/case-studies): Quantified client outcomes (CRED, Copyfy, VideoTap, FRAI, and more).
+- [FAQs](https://www.joindatalyze.com/faqs): Pricing, team, engagement model, and what to expect.
+- [Contact](https://www.joindatalyze.com/contact): Book a free 30-minute analytics audit.
+- [About](https://www.joindatalyze.com/about): About the founder, Ansh Agrawal, and how we work.
+
+## Free tools
+- [Tools hub](https://www.joindatalyze.com/tools)
+- [Analytics Maturity Grader](https://www.joindatalyze.com/tools/analytics-maturity-grader)
+- [Analytics Strategy Creator](https://www.joindatalyze.com/tools/analytics-strategy-creator)
+- [Event Tracking Plan Generator](https://www.joindatalyze.com/tools/event-tracking-plan-generator)
+- [Mixpanel Exporter](https://www.joindatalyze.com/tools/mixpanel-exporter)
+
+## Resources & blog
+- [Blog](https://www.joindatalyze.com/blog/): Long-form essays on product analytics, retention, attribution, and the Indian D2C playbook.
+- [Resources](https://www.joindatalyze.com/resources): Guides on tracking strategy and retention.
+
+## Contact
+- Email: ansh@joindatalyze.com
+- LinkedIn: https://www.linkedin.com/company/joindatalyze

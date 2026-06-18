@@ -9,6 +9,21 @@ const config: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async headers() {
+    return [
+      {
+        // Security/trust headers across all routes. CSP is intentionally omitted
+        // here — it needs a per-site policy designed against the actual asset
+        // origins (Ghost CDN, Calendly, etc.) and a wrong CSP breaks the page.
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       // Serve the self-contained retention microsite at a clean, no-.html URL.

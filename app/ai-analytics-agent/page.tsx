@@ -3,11 +3,13 @@ import CtaButton from '../_components/cta-button';
 import Faq from '../_components/faq';
 import Failures from './_components/failures';
 import QueryDemo from './_components/query-demo';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'AI Analytics Agent',
   description:
-    'Most AI data tools confidently give wrong answers. We fix the foundation, build the business context, and ship an AI analytics agent your team can actually trust. Custom-built or set up on top of Julius, Vanna, or DataGPT.',
+    'Most AI data tools confidently give wrong answers. We fix the foundation, build the business context, and ship an AI analytics agent your team can trust.',
   alternates: { canonical: '/ai-analytics-agent' },
 };
 
@@ -114,6 +116,29 @@ const AGENT_FAQS = [
 export default function AIAnalyticsAgentPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'AI Analytics Agent', path: '/ai-analytics-agent' },
+          ]),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'AI Analytics Agent',
+            serviceType: 'AI analytics agent setup',
+            provider: {
+              '@type': 'Organization',
+              name: 'Datalyze',
+              url: SITE_URL,
+            },
+            url: `${SITE_URL}/ai-analytics-agent`,
+            areaServed: 'Worldwide',
+            description:
+              'We fix your data foundation, build the business-context knowledge base, and ship an AI analytics agent your team can actually trust.',
+          },
+        ]}
+      />
       {/* Section 1 — Hero */}
       <section className="ai-hero" id="ai-hero">
         <div className="container ai-hero__inner">

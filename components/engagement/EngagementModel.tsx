@@ -140,7 +140,7 @@ export function EngagementModel() {
             <p className={styles.panelOutcome}>
               <span className={styles.panelOutcomeLabel}>Outcome:</span> {tier.outcome}
             </p>
-            <a href={`/book?engagement=${tier.ctaQuery}`} className={styles.cta}>
+            <a href="/contact" className={styles.cta}>
               {tier.ctaLabel} <span aria-hidden="true">→</span>
             </a>
           </div>
