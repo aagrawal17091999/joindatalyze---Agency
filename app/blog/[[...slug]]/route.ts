@@ -78,6 +78,43 @@ async function handle(req: NextRequest) {
       body = body
         .replace(/(href|src|action)="\/(?!\/|blog[/"])/g, '$1="/blog/')
         .replace(/\burl\(\/(?!\/|blog[/"])/g, 'url(/blog/');
+
+      // SEO fixes for the Ghost "Source" theme, which paginates archives with a
+      // JS load-more button. Two things Screaming Frog flags as a result:
+      //   1. the rel=next/prev targets aren't exposed as crawlable <a> links, and
+      //   2. /page/N/ archive pages render no <h1>.
+      // Patch both in the proxied HTML (visually-hidden, so the design is
+      // untouched), and only when the element is actually missing.
+      const srOnly =
+        'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0';
+      const rel = [
+        ...body.matchAll(/<link[^>]+rel="(next|prev)"[^>]+href="([^"]+)"[^>]*>/gi),
+      ];
+      if (rel.length && body.includes('</main>')) {
+        const links = rel
+          .map(
+            (m) =>
+              `<a href="${m[2]}" rel="${m[1].toLowerCase()}">${
+                m[1].toLowerCase() === 'next' ? 'Older posts' : 'Newer posts'
+              }</a>`,
+          )
+          .join('');
+        body = body.replace(
+          '</main>',
+          `<nav aria-label="Pagination" style="${srOnly}">${links}</nav></main>`,
+        );
+      }
+      const pageNo = path.match(/\/page\/(\d+)\/?$/);
+      if (
+        pageNo &&
+        body.includes('<main class="gh-main">') &&
+        !/<h1[\s>]/i.test(body)
+      ) {
+        body = body.replace(
+          '<main class="gh-main">',
+          `<main class="gh-main"><h1 style="${srOnly}">Datalyze blog — page ${pageNo[1]}</h1>`,
+        );
+      }
     }
     return new Response(body, { status: upstream.status, headers });
   }
