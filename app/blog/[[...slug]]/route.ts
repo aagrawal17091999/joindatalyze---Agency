@@ -38,6 +38,11 @@ async function handle(req: NextRequest) {
   const headers = new Headers(upstream.headers);
   headers.delete('content-encoding');
   headers.delete('content-length');
+  // Never let an origin-level robots directive reach the public pages. The Ghost
+  // origin (cms.*) is deindexed on purpose; if it ever emitted X-Robots-Tag, copying
+  // it here would deindex /blog and sink its SEO. Indexing for /blog is controlled
+  // solely by the canonical/meta tags in the rewritten HTML body, not origin headers.
+  headers.delete('x-robots-tag');
 
   // Keep Ghost's redirects inside /blog instead of bouncing to cms.* or root.
   const loc = upstream.headers.get('location');
