@@ -60,7 +60,7 @@ export default function WallOfLove({ testimonials }: Props) {
               {t.avatar ? (
                 <Image
                   src={t.avatar}
-                  alt=""
+                  alt={t.name}
                   width={36}
                   height={36}
                   className={styles.avatar}

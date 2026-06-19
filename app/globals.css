@@ -2231,6 +2231,98 @@ h6 {
   margin-inline: auto;
 }
 
+/* Contact page — "what you'll get" block below the Calendly widget. */
+.contact-expect {
+  max-width: 720px;
+  margin: var(--space-10) auto 0;
+  text-align: center;
+}
+
+.contact-expect__title {
+  font-family: var(--font-display), serif;
+  font-size: var(--text-h2);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.contact-expect__intro {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-top: var(--space-5);
+}
+
+.contact-expect__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-6) 0 0;
+  display: grid;
+  gap: var(--space-5);
+  text-align: left;
+}
+
+.contact-expect__list li {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  padding: var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.contact-expect__list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Tool landing — long-form context + FAQ below the download box. */
+.tool-context {
+  max-width: 720px;
+  margin: var(--space-10) 0 0;
+}
+
+.tool-context__title {
+  font-family: var(--font-display), serif;
+  font-size: var(--text-h2);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.tool-context__p {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-top: var(--space-5);
+}
+
+.tool-context__faqs {
+  margin-top: var(--space-8);
+  display: grid;
+  gap: var(--space-6);
+}
+
+.tool-context__q {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-h3);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tool-context__a {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-top: var(--space-3);
+}
+
 .prose {
   font-family: var(--font-body), sans-serif;
   font-size: var(--text-body);

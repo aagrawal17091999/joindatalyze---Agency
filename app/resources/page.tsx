@@ -3,7 +3,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Resources',
+  title: 'Analytics Guides, Tools & Templates',
   description:
     'Guides, tools, courses, and content on product analytics, Mixpanel, PostHog, Amplitude, and data quality.',
   alternates: { canonical: '/resources' },
@@ -94,6 +94,9 @@ export default function ResourcesPage() {
           </p>
         </header>
 
+        <h2 className="visually-hidden">
+          Analytics guides, tools, and templates
+        </h2>
         <div className="card-grid">
           {RESOURCES.map((r) => (
             <a

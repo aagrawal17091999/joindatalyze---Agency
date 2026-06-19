@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About Our Analytics & Growth Team',
   description:
     'Datalyze is an analytics consultancy founded by Ansh Agrawal. We\u2019ve helped 150+ startups fix their data foundations and grow revenue by 14% on average.',
   alternates: { canonical: '/about' },
@@ -83,9 +83,9 @@ export default function AboutPage() {
                 <Image
                   src="/Ansh.png"
                   alt="Ansh Agrawal, founder of Datalyze"
-                  width={1344}
-                  height={768}
-                  sizes="(max-width: 768px) 100vw, 420px"
+                  width={840}
+                  height={480}
+                  sizes="(max-width: 768px) 90vw, 420px"
                   className="founder-note__photo"
                   priority
                 />

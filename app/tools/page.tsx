@@ -31,6 +31,7 @@ export default function ToolsPage() {
           </p>
         </header>
 
+        <h2 className="visually-hidden">Browse the tools</h2>
         <div className="card-grid">
           {toolList.map((tool) => (
             <Link key={tool.id} href={`/tools/${tool.id}`} className="card">
@@ -43,6 +44,30 @@ export default function ToolsPage() {
             </Link>
           ))}
         </div>
+
+        <section className="tool-context">
+          <h2 className="tool-context__title">
+            Free analytics tools for product and growth teams
+          </h2>
+          <p className="tool-context__p">
+            These are the small utilities we kept rebuilding for clients, so we
+            cleaned them up and made them free. The Mixpanel exporters pull your
+            raw event and user-profile data into clean CSVs you can load
+            anywhere — handy for warehouse syncs, modeling in a notebook, or
+            backing up a project before a migration. The Claude skills turn a
+            fuzzy product question into a focused analytics strategy and a
+            ready-to-implement event tracking plan. And the Analytics Maturity
+            Grader scores your stack across the five dimensions we assess in
+            every audit.
+          </p>
+          <p className="tool-context__p">
+            Everything here is genuinely free and self-serve — no sales call
+            required. They run on your own machine or inside your own Claude
+            account, so your data and credentials stay with you. If you need
+            something more tailored to your workflow, we also build custom tools
+            as part of our analytics engagements.
+          </p>
+        </section>
 
         <div
           style={{

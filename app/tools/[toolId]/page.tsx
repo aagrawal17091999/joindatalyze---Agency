@@ -159,6 +159,27 @@ export default async function ToolLandingPage({ params }: Props) {
           </div>
         </div>
 
+        {tool.context ? (
+          <section className="tool-context">
+            <h2 className="tool-context__title">{tool.context.heading}</h2>
+            {tool.context.body.map((p, i) => (
+              <p key={i} className="tool-context__p">
+                {p}
+              </p>
+            ))}
+            {tool.context.faqs?.length ? (
+              <div className="tool-context__faqs">
+                {tool.context.faqs.map((f) => (
+                  <div key={f.q} className="tool-context__faq">
+                    <h3 className="tool-context__q">{f.q}</h3>
+                    <p className="tool-context__a">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </section>
+        ) : null}
+
         <div
           style={{
             marginTop: 'var(--space-10)',

@@ -29,11 +29,19 @@ export default function FaqsPage() {
     <div className="page-shell">
       <JsonLd data={faqPageSchema(FAQ_ITEMS)} />
       <div className="container">
+        <header className="page-header page-header--center">
+          <div className="eyebrow eyebrow--center">FAQs</div>
+          <h1 className="page-header__title">Frequently Asked Questions</h1>
+          <p className="page-header__intro">
+            Pricing, team, engagement, and what to expect when you work with
+            Datalyze — answered.
+          </p>
+        </header>
         <Faq
           items={FAQ_ITEMS}
-          title="Frequently Asked Questions"
-          eyebrow="FAQs"
-          headingLevel="h1"
+          title="Common questions about working with us"
+          eyebrow="Good to know"
+          headingLevel="h2"
         />
       </div>
     </div>

@@ -115,6 +115,42 @@ async function handle(req: NextRequest) {
           `<main class="gh-main"><h1 style="${srOnly}">Datalyze blog — page ${pageNo[1]}</h1>`,
         );
       }
+
+      // The Ghost "Source" theme emits no <meta name="description"> on archive
+      // listings (the blog index, tag, and author pages, plus their /page/N/
+      // variants), which Screaming Frog flags as "Meta Description: Missing".
+      // Individual posts DO ship one, so this missing-guard leaves them alone.
+      // Derive a sensible description from the page <title> and inject it.
+      if (!/<meta\s+name="description"/i.test(body) && body.includes('</head>')) {
+        const rawTitle = (body.match(/<title>([^<]*)<\/title>/i)?.[1] ?? '').trim();
+        const pageMatch = rawTitle.match(/\(Page (\d+)\)/i);
+        const pageSuffix = pageMatch ? ` (page ${pageMatch[1]})` : '';
+        // Strip the "(Page N)" and the "| Datalyze" / "- Blog | Datalyze" chrome
+        // to recover the subject of the page (a tag, an author, or just "Blog").
+        let subject = rawTitle
+          .replace(/\s*\(Page \d+\)/i, '')
+          .replace(/\s*[-|]\s*Blog\s*\|\s*Datalyze\s*$/i, '')
+          .replace(/\s*\|\s*Datalyze\s*$/i, '')
+          .trim();
+        // Tag/author titles use the slug (e.g. "case-studies"); prettify it.
+        if (/^[a-z0-9]+(?:-[a-z0-9]+)+$/.test(subject)) {
+          subject = subject.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+        }
+        const desc =
+          !subject || /^blog$/i.test(subject)
+            ? `Practical analytics, Mixpanel, and growth guides from the Datalyze team${pageSuffix}.`
+            : `${subject} — articles and guides on the Datalyze blog${pageSuffix}.`;
+        const escAttr = (s: string) =>
+          s
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+        body = body.replace(
+          '</head>',
+          `<meta name="description" content="${escAttr(desc)}"></head>`,
+        );
+      }
     }
     return new Response(body, { status: upstream.status, headers });
   }

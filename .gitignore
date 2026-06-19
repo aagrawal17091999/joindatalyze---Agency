@@ -27,3 +27,6 @@ coverage
 
 # Vercel
 .vercel
+
+# Generated working file from scripts/ghost-image-alt.mjs
+ghost-alt-audit.csv

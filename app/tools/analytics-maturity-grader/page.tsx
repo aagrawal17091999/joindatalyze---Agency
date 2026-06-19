@@ -231,6 +231,48 @@ export default function MaturityGraderQuizPage() {
               </form>
             </div>
           </div>
+
+          <section className="tool-context">
+            <h2 className="tool-context__title">
+              What analytics maturity actually measures
+            </h2>
+            <p className="tool-context__p">
+              &quot;Analytics maturity&quot; is how reliably your team can turn
+              product and revenue data into decisions you trust. Most early
+              startups have analytics that look fine on the surface — a few
+              dashboards, an events pipeline — but quietly leak trust: events
+              fire inconsistently, definitions drift between teams, and nobody
+              is quite sure whether the numbers in the board deck are right.
+              When that happens, every &quot;data-driven&quot; decision is built
+              on sand.
+            </p>
+            <p className="tool-context__p">
+              This grader scores you across five dimensions we assess in every
+              client audit — tracking and instrumentation, data foundations and
+              governance, reporting and self-serve access, experimentation, and
+              how analytics actually feeds decisions. You answer a short set of
+              questions and get a letter grade per dimension, an overall score,
+              and a prioritized list of what to fix first — the same starting
+              point we use when we&apos;re hired to clean up a stack.
+            </p>
+            <div className="tool-context__faqs">
+              <div className="tool-context__faq">
+                <h3 className="tool-context__q">How long does it take?</h3>
+                <p className="tool-context__a">
+                  About two minutes. It&apos;s a short questionnaire, not a
+                  data integration — nothing connects to your tools.
+                </p>
+              </div>
+              <div className="tool-context__faq">
+                <h3 className="tool-context__q">Who is it for?</h3>
+                <p className="tool-context__a">
+                  Founders, product leaders, and growth or data teams who want
+                  an honest read on where their analytics stands before
+                  investing in fixing it.
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     );

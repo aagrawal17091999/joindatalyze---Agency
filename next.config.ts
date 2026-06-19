@@ -67,6 +67,17 @@ const config: NextConfig = {
         destination: 'https://www.joindatalyze.com/blog/:path*',
         permanent: true, // 301
       },
+      // Ghost serves the blog index canonically at /blog/ (trailing slash), but
+      // /blog (no slash) is also reachable through the proxy and returns 200 with
+      // a canonical pointing at /blog/ — so it gets flagged as canonicalised /
+      // non-indexable. 301 the bare /blog to the canonical form. This matches the
+      // exact path only (path-to-regexp '/blog' doesn't match '/blog/'), so it
+      // can't loop with the trailing-slash version or the proxy route.
+      {
+        source: '/blog',
+        destination: '/blog/',
+        permanent: true, // 301
+      },
     ];
   },
 };
