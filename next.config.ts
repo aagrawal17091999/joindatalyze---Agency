@@ -67,17 +67,11 @@ const config: NextConfig = {
         destination: 'https://www.joindatalyze.com/blog/:path*',
         permanent: true, // 301
       },
-      // Ghost serves the blog index canonically at /blog/ (trailing slash), but
-      // /blog (no slash) is also reachable through the proxy and returns 200 with
-      // a canonical pointing at /blog/ — so it gets flagged as canonicalised /
-      // non-indexable. 301 the bare /blog to the canonical form. This matches the
-      // exact path only (path-to-regexp '/blog' doesn't match '/blog/'), so it
-      // can't loop with the trailing-slash version or the proxy route.
-      {
-        source: '/blog',
-        destination: '/blog/',
-        permanent: true, // 301
-      },
+      // Note: canonicalising bare /blog -> /blog/ is handled inside the proxy
+      // route handler, NOT here. A config redirect with source '/blog' also
+      // matches '/blog/' (path-to-regexp is lenient about the trailing slash,
+      // especially with skipTrailingSlashRedirect), so it 308-loops /blog/ onto
+      // itself. The handler can compare the exact pathname and avoid that.
     ];
   },
 };

@@ -11,6 +11,17 @@ export const dynamic = 'force-dynamic';
 
 async function handle(req: NextRequest) {
   const url = new URL(req.url);
+
+  // Ghost serves the blog index canonically at /blog/ (trailing slash). The bare
+  // /blog also resolves through this proxy and returns 200 with a canonical
+  // pointing at /blog/, which gets flagged as canonicalised / non-indexable. 301
+  // the bare /blog to the canonical form. Done here (not in next.config) because
+  // a config-level source '/blog' also matches '/blog/' and 308-loops it; an
+  // exact pathname check here cannot loop.
+  if (url.pathname === '/blog') {
+    return Response.redirect(new URL('/blog/' + url.search, url.origin), 301);
+  }
+
   const path = url.pathname.replace(/^\/blog/, '') || '/';
 
   // Expose the public Content API (Portal/search need it); never the admin app.
