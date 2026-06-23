@@ -61,10 +61,28 @@ const config: NextConfig = {
       // Legacy blog subdomain -> subdirectory, slug preserved. Fires only for
       // the blog.* host (now pointed at Vercel), so it never catches the proxy's
       // fetches to the Ghost origin and cannot create a redirect loop.
+      //
+      // Split into root + path rules so we can re-append the trailing slash that
+      // ':path*' drops. Ghost serves every post/tag/author URL canonically WITH
+      // a trailing slash; landing on the no-slash form makes Ghost issue a second
+      // 301 to add it back (308 -> 301 -> 200, a two-hop chain). Targeting the
+      // slash form directly collapses it to a single hop straight to the 200.
       {
-        source: '/:path*',
+        // Bare subdomain root -> canonical blog index. Separate rule because
+        // ':path+' below requires >=1 segment, and appending '/' to an empty
+        // capture would emit '/blog//'.
+        source: '/',
         has: [{ type: 'host', value: 'blog.joindatalyze.com' }],
-        destination: 'https://www.joindatalyze.com/blog/:path*',
+        destination: 'https://www.joindatalyze.com/blog/',
+        permanent: true, // 301
+      },
+      {
+        // ':path+' (one-or-more segments) excludes the root handled above. The
+        // capture never includes the trailing slash, so we append one to hit the
+        // canonical form in a single hop.
+        source: '/:path+',
+        has: [{ type: 'host', value: 'blog.joindatalyze.com' }],
+        destination: 'https://www.joindatalyze.com/blog/:path+/',
         permanent: true, // 301
       },
       // Note: canonicalising bare /blog -> /blog/ is handled inside the proxy

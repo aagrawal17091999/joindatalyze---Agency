@@ -90,6 +90,16 @@ async function handle(req: NextRequest) {
         .replace(/(href|src|action)="\/(?!\/|blog[/"])/g, '$1="/blog/')
         .replace(/\burl\(\/(?!\/|blog[/"])/g, 'url(/blog/');
 
+      // The Ghost origin (cms.*) carries a site-wide `noindex` robots meta (added
+      // via Ghost code injection) so crawlers that hit cms.* directly drop it as a
+      // duplicate of /blog. That meta MUST NOT reach the public /blog pages or it
+      // would deindex them too — strip any robots=noindex meta from the proxied
+      // HTML. This is the body-level twin of the x-robots-tag header deletion
+      // above; together they keep cms deindexed while /blog stays indexable.
+      body = body.replace(/<meta[^>]+name=["']robots["'][^>]*>/gi, (m) =>
+        /noindex/i.test(m) ? '' : m,
+      );
+
       // SEO fixes for the Ghost "Source" theme, which paginates archives with a
       // JS load-more button. Two things Screaming Frog flags as a result:
       //   1. the rel=next/prev targets aren't exposed as crawlable <a> links, and
