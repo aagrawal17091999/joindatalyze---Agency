@@ -70,7 +70,7 @@ export function TechStack() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.eyebrow}>■ TECH STACK</div>
+        <div className={styles.eyebrow}>Tech stack</div>
         <h2 className={styles.heading}>Your stack is our stack.</h2>
         <p className={styles.sub}>
         </p>

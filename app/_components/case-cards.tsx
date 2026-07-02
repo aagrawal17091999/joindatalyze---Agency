@@ -1,5 +1,6 @@
 import { caseStudyBySlug } from '@/lib/data/case-studies';
 import { homeCaseStudies } from '@/lib/data/home-case-studies';
+import CtaButton from './cta-button';
 
 export default function CaseCards() {
   return (
@@ -33,6 +34,15 @@ export default function CaseCards() {
               <span className="case-card__link">Read the case study</span>
             </a>
           ))}
+        </div>
+
+        <div className="results-cta">
+          <p className="results-cta__line">
+            These are real results from teams like yours.
+          </p>
+          <CtaButton href="/contact" location="home_results">
+            See how we did it
+          </CtaButton>
         </div>
       </div>
     </section>

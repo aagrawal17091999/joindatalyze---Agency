@@ -11,7 +11,6 @@ import Differentiators from './_components/differentiators';
 import { EngagementModel } from '@/components/engagement/EngagementModel';
 import FinalCta from './_components/final-cta';
 import Faq from './_components/faq';
-import LatestPosts from './_components/latest-posts';
 import { InlineCTA } from '@/components/inline-cta/InlineCTA';
 
 export const metadata: Metadata = {
@@ -33,11 +32,7 @@ export default function HomePage() {
       <TechStack />
       <Differentiators />
       <CaseCards />
-      <InlineCTA
-        href="/contact?source=cases"
-        heading="Want this kind of impact on your numbers?"
-        buttonLabel="Book a call"
-      />
+      <EngagementModel />
       <section className="section" id="testimonials">
         <div className="container">
           <header className="page-header page-header--center">
@@ -54,8 +49,6 @@ export default function HomePage() {
         heading="Ready to join them?"
         buttonLabel="Book a call"
       />
-      <EngagementModel />
-      <LatestPosts />
       <FinalCta />
       <Faq />
     </>

@@ -1,7 +1,7 @@
 /* Shared base */
 .operators, .timeline, .lift, .fix {
   width: 100%;
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
 }
 
 /* SeniorOperators (Card 01) */
@@ -81,26 +81,26 @@
 }
 .timelineLabelActive {
   fill: #d4ff00;
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 10px;
   letter-spacing: 0.08em;
   font-weight: 500;
 }
 .timelineLabelMuted {
   fill: rgba(232, 232, 230, 0.55);
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 10px;
   letter-spacing: 0.08em;
 }
 .timelineSubActive {
   fill: rgba(212, 255, 0, 0.55);
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 8px;
   font-style: italic;
 }
 .timelineSubMuted {
   fill: rgba(232, 232, 230, 0.4);
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 8px;
   font-style: italic;
 }
@@ -133,7 +133,7 @@
 }
 .liftLabel {
   fill: #d4ff00;
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 12px;
   font-weight: 500;
   opacity: 0;

@@ -27,7 +27,7 @@
   padding: 22px;
   width: 100%;
   max-width: 460px;
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
 }
 
 /* AuditReveal */
@@ -185,7 +185,7 @@
   animation: fadeIn 5s ease-in-out infinite;
 }
 .markerText {
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 10px;
   fill: rgba(232, 232, 230, 0.7);
   animation: fadeIn 5s ease-in-out infinite;

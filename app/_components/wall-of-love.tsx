@@ -53,26 +53,30 @@ export default function WallOfLove({ testimonials }: Props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.masonry} ref={trackRef}>
-        {testimonials.map((t, i) => (
-          <div key={t.name + i} className={styles.card}>
-            <p className={styles.quote}>{t.text}</p>
-            <div className={styles.author}>
-              {t.avatar ? (
-                <Image
-                  src={t.avatar}
-                  alt={t.name}
-                  width={36}
-                  height={36}
-                  className={styles.avatar}
-                />
-              ) : null}
-              <div className={styles.authorMeta}>
-                <span className={styles.authorName}>{t.name}</span>
-                <span className={styles.authorRole}>{t.role}</span>
+        {testimonials.map((t, i) => {
+          const attribution = [t.name, t.title, t.company]
+            .filter(Boolean)
+            .join(', ');
+          return (
+            <div key={t.name + i} className={styles.card}>
+              <p className={styles.quote}>{t.text}</p>
+              <div className={styles.author}>
+                {t.avatar ? (
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    width={36}
+                    height={36}
+                    className={styles.avatar}
+                  />
+                ) : null}
+                <div className={styles.authorMeta}>
+                  <span className={styles.authorName}>{attribution}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className={styles.dots} aria-hidden={!isMobile}>

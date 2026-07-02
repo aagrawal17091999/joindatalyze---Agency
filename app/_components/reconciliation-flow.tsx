@@ -9,36 +9,22 @@ export default function ReconciliationFlow() {
 
       <div className="rf__label">data — fragmented</div>
       <div className="rf__sources">
-        <img
-          src="/tech-stack-svg/mixpanel.svg"
-          alt="Mixpanel"
-          className="rf__logo"
-        />
-        <img
-          src="/tech-stack-svg/posthog.svg"
-          alt="PostHog"
-          className="rf__logo"
-        />
-        <img
-          src="/tech-stack-svg/amplitude.svg"
-          alt="Amplitude"
-          className="rf__logo"
-        />
-        <img
-          src="/tech-stack-svg/stripe.svg"
-          alt="Stripe"
-          className="rf__logo"
-        />
-        <img
-          src="/tech-stack-svg/google-ads.svg"
-          alt="Google Ads"
-          className="rf__logo"
-        />
-        <img
-          src="/tech-stack-svg/bigquery.svg"
-          alt="BigQuery"
-          className="rf__logo"
-        />
+        <div className="rf__src">
+          <div className="rf__src-name">Product</div>
+          <div className="rf__src-sub">events</div>
+        </div>
+        <div className="rf__src">
+          <div className="rf__src-name">Marketing</div>
+          <div className="rf__src-sub">spend</div>
+        </div>
+        <div className="rf__src">
+          <div className="rf__src-name">Revenue</div>
+          <div className="rf__src-sub">MRR</div>
+        </div>
+        <div className="rf__src">
+          <div className="rf__src-name">Warehouse</div>
+          <div className="rf__src-sub">tables</div>
+        </div>
       </div>
 
       <div className="rf__conn">

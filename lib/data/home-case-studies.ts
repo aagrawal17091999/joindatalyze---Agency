@@ -13,18 +13,18 @@ export const homeCaseStudies: HomeCaseStudy[] = [
     slug: 'frai',
     metricValue: '2×',
     metricLabel: 'paid conversion rate',
-    body: 'FRAI had no clarity on which user segments converted, why others dropped off, or whether new experiments worked. We ran deep behavioural analysis, gave the team pointed recommendations on what to fix, and designed the A/B tests. Paid conversion doubled — with a repeatable experimentation process left behind.',
+    body: 'FRAI had no clarity on which user segments converted or why others dropped off. We ran deep behavioural analysis and designed the A/B tests, and paid conversion doubled, with a repeatable experimentation process left behind.',
   },
   {
     slug: 'cred',
     metricValue: '−93%',
     metricLabel: 'provider outages',
-    body: "CRED's payment routing was losing money in two ways: success rate that could be higher, and cost that should be lower. We built a linear-programming routing engine plus a real-time outage-detection model. Success rate up 7%, cost down 12%, provider outages down 93% month-over-month.",
+    body: "CRED's payment routing was leaking money on both success rate and cost. We built a linear-programming routing engine plus a real-time outage-detection model, taking success rate up 7%, cost down 12%, and provider outages down 93% month over month.",
   },
   {
     slug: 'videotap',
     metricValue: '+52pt',
     metricLabel: 'onboarding completion',
-    body: 'Most VideoTap signups never reached the dashboard. We audited the onboarding flow, removed the friction, and rebuilt the upload UX from 4 steps to 2. Onboarding completion went from 28% → 80%. Activation (first video uploaded) went from 7% → 19%.',
+    body: 'Most VideoTap signups never reached the dashboard. We rebuilt the upload UX from 4 steps to 2, taking onboarding completion from 28% to 80% and activation from 7% to 19%.',
   },
 ];

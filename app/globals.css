@@ -261,6 +261,13 @@ h6 {
   }
 }
 
+/* Offset in-page anchor targets (nav "How it works" / "Pricing") so the
+   fixed header doesn't cover the section heading on scroll. */
+#how-it-works,
+#pricing {
+  scroll-margin-top: 96px;
+}
+
 .container-narrow {
   max-width: var(--content-narrow);
   margin-inline: auto;
@@ -296,7 +303,7 @@ h6 {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  font-family: var(--font-mono), 'SF Mono', Menlo, monospace;
+  font-family: var(--font-body), 'SF Mono', Menlo, monospace;
   font-size: var(--text-eyebrow);
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -366,7 +373,7 @@ h6 {
 
 .btn-primary::after {
   content: '→';
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   transition: transform var(--duration-base) var(--ease-out);
 }
 
@@ -710,25 +717,38 @@ h6 {
 }
 
 .hero__headline {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   font-size: clamp(40px, 4vw, 72px);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
   max-width: 1000px;
   margin-top: var(--space-7);
 }
 
+/* Accent line directly below the H1 — the one italic Instrument Serif
+   moment in the hero, rendered in the lime accent token. */
+.hero__accent {
+  font-family: var(--font-display), serif;
+  font-style: italic;
+  font-size: clamp(28px, 2.6vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  margin-top: var(--space-4);
+  animation: hero-rise 700ms var(--ease-out) 350ms both;
+}
+
 .hero__subhead {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   font-size: var(--text-body-lg);
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-secondary);
   max-width: 680px;
-  margin-top: var(--space-7);
+  margin-top: var(--space-6);
 }
 
 .hero__buttons {
@@ -741,11 +761,8 @@ h6 {
 .hero__proof {
   display: flex;
   align-items: center;
-  gap: var(--space-9);
-  font-family: var(--font-mono), monospace;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  gap: var(--space-6);
+  font-family: var(--font-body), sans-serif;
   color: var(--text-primary);
   margin-top: var(--space-7);
   flex-wrap: nowrap;
@@ -753,38 +770,43 @@ h6 {
 
 .hero__proof-item {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-3);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
   white-space: nowrap;
 }
 
 .hero__proof-number {
   color: var(--accent);
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .hero__proof-label {
-  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
 }
 
 .hero__proof-divider {
   width: 1px;
-  height: 16px;
+  height: 34px;
   background: var(--border-default);
+  align-self: center;
 }
 
 @media (max-width: 768px) {
   .hero__proof {
     gap: var(--space-5);
-    font-size: 11px;
   }
   .hero__proof-number {
-    font-size: 16px;
+    font-size: 24px;
   }
   .hero__proof-divider {
-    display: none;
+    height: 30px;
   }
 }
 
@@ -793,19 +815,17 @@ h6 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-3);
-    font-size: 10px;
-    letter-spacing: 0.04em;
     margin-top: var(--space-6);
   }
   .hero__proof-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-1);
     min-width: 0;
     white-space: normal;
   }
   .hero__proof-number {
-    font-size: 14px;
+    font-size: 20px;
+  }
+  .hero__proof-label {
+    font-size: 11px;
   }
   .hero__proof-divider {
     display: none;
@@ -863,26 +883,148 @@ h6 {
   }
 }
 
-.hero__eyebrow {
-  animation: hero-rise 700ms var(--ease-out) 100ms both;
-}
 .hero__headline {
   animation: hero-rise 700ms var(--ease-out) 250ms both;
 }
 .hero__subhead {
-  animation: hero-rise 700ms var(--ease-out) 450ms both;
+  animation: hero-rise 700ms var(--ease-out) 500ms both;
 }
 .hero__buttons {
-  animation: hero-rise 700ms var(--ease-out) 600ms both;
+  animation: hero-rise 700ms var(--ease-out) 650ms both;
 }
 .hero__proof {
-  animation: hero-rise 700ms var(--ease-out) 750ms both;
+  animation: hero-rise 700ms var(--ease-out) 800ms both;
 }
-/* .hero__chart and .hero__foundation use their own translateY centering
-   (translateY(-30%) and translateY(-48%)), so they can't share the
-   hero-rise keyframes, which animate transform to translateY(0) and
-   would push them out of position. They fade in via the .gfx scroll
-   observer (.gfx-animate / .gfx-fade) once they enter the viewport. */
+.hero__visual {
+  animation: hero-rise 800ms var(--ease-out) 400ms both;
+}
+
+/* -----------------------------------------------------------------------------
+   8. Hero before/after visual (replaces the old reconciliation animation)
+   ----------------------------------------------------------------------------- */
+
+.ba {
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ba__box {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.ba__box--before {
+  border: 1px dashed var(--border-strong);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.ba__box--after {
+  border: 1px solid var(--accent);
+  background: var(--accent-muted);
+}
+
+.ba__tag {
+  display: inline-block;
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.ba__tag--after {
+  color: var(--accent);
+}
+
+.ba__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+}
+
+.ba__tool {
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.ba__tool--0 {
+  transform: rotate(-4deg);
+}
+.ba__tool--1 {
+  transform: rotate(3deg);
+}
+.ba__tool--2 {
+  transform: rotate(-1.5deg);
+}
+
+.ba__after-title {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-h4);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.ba__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.ba__chip {
+  font-family: var(--font-body), sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--accent);
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-full);
+  background: rgba(212, 255, 63, 0.06);
+}
+
+.ba__arrow {
+  color: var(--accent);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.ba__caption {
+  font-family: var(--font-body), sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 1024px) {
+  .ba {
+    max-width: 520px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__headline,
+  .hero__accent,
+  .hero__subhead,
+  .hero__buttons,
+  .hero__proof,
+  .hero__visual {
+    animation: none;
+  }
+}
 
 /* -----------------------------------------------------------------------------
    9. Logo wall (section 3)
@@ -903,7 +1045,7 @@ h6 {
   border: 1px solid var(--accent);
   border-radius: 999px;
   color: rgba(232, 232, 230, 0.7);
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 14.5px;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -1311,7 +1453,7 @@ h6 {
 }
 
 .scene__number {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -1321,7 +1463,7 @@ h6 {
 
 .scene__title {
   font-family: var(--font-display), serif;
-  font-style: italic;
+  font-style: normal;
   font-size: var(--text-display-sm);
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -1345,7 +1487,7 @@ h6 {
   gap: var(--space-4);
   margin-top: var(--space-6);
   padding-left: var(--space-5);
-  border-left: 2px solid var(--accent);
+  border-left: 3px solid var(--accent);
   flex-wrap: wrap;
   max-width: 600px;
 }
@@ -1359,7 +1501,7 @@ h6 {
 }
 
 .scene__cost-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -1370,9 +1512,33 @@ h6 {
 
 .scene__cost-value {
   font-family: var(--font-body), sans-serif;
-  font-size: var(--text-body);
-  color: var(--text-primary);
+  font-size: 15px;
+  line-height: 1.5;
+  /* The punchline of each scene — pure white so it reads, not the muted
+     gray it used to be. */
+  color: #ffffff;
   font-weight: 500;
+}
+
+/* "Sound familiar?" CTA block after the last cost scene. */
+.pain__cta {
+  margin-top: var(--space-9);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.pain__cta-line {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body-lg);
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--text-primary);
+  max-width: 620px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -1471,7 +1637,7 @@ h6 {
 }
 
 .method-step__label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   white-space: nowrap;
@@ -1642,10 +1808,10 @@ h6 {
 }
 
 .case-card__metric-value {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), sans-serif;
   font-size: 56px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--accent);
   letter-spacing: -0.03em;
 }
@@ -1670,7 +1836,7 @@ h6 {
 }
 
 .case-card__link {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1699,6 +1865,27 @@ h6 {
   }
 }
 
+/* Results CTA strip, below the stat cards, separated by a hairline. */
+.results-cta {
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.results-cta__line {
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body-lg);
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--text-primary);
+  max-width: 620px;
+}
+
 /* -----------------------------------------------------------------------------
    14. Personas (section 7)
    ----------------------------------------------------------------------------- */
@@ -1719,7 +1906,7 @@ h6 {
 }
 
 .audience__intro {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 13px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1780,7 +1967,7 @@ h6 {
 }
 
 .persona__outcome-arrow {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 20px;
   color: var(--accent);
   line-height: 1.4;
@@ -1848,7 +2035,7 @@ h6 {
 }
 
 .diff-block__number {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -1943,8 +2130,10 @@ h6 {
 
 .final-cta__btn {
   margin-top: var(--space-8);
-  padding: 22px 36px;
-  font-size: 17px;
+  /* Strongest CTA on the page: generous padding, 18px label. */
+  padding: 26px 52px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .final-cta__chart {
@@ -2034,7 +2223,7 @@ h6 {
 }
 
 .faq-item__icon {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 28px;
   font-weight: 400;
   color: var(--accent);
@@ -2118,7 +2307,7 @@ h6 {
 }
 
 .footer__col-title {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -2151,7 +2340,7 @@ h6 {
   margin-top: var(--space-8);
   padding-top: var(--space-6);
   border-top: 1px solid var(--border-subtle);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2456,7 +2645,7 @@ h6 {
 }
 
 .form-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2491,14 +2680,14 @@ h6 {
 
 .form-error {
   color: var(--negative);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   margin-top: var(--space-2);
 }
 
 .form-success {
   color: var(--accent);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   margin-top: var(--space-2);
 }
@@ -2547,7 +2736,7 @@ h6 {
 }
 
 .card__tag {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -2602,7 +2791,7 @@ h6 {
 }
 
 .card__cta {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2764,7 +2953,7 @@ h6 {
 }
 
 .founder-note__caption {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2825,7 +3014,7 @@ h6 {
 }
 
 .founder-note__signature-role {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2937,7 +3126,7 @@ h6 {
 }
 
 .principle__number {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 56px;
   line-height: 0.9;
   font-weight: 500;
@@ -3067,7 +3256,7 @@ h6 {
 }
 
 .team-member__role {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -3093,7 +3282,7 @@ h6 {
 }
 
 .team-member__pedigree-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3183,7 +3372,7 @@ h6 {
 }
 
 .number-stat__value {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: clamp(56px, 7vw, 96px);
   line-height: 1;
   font-weight: 500;
@@ -3192,7 +3381,7 @@ h6 {
 }
 
 .number-stat__label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3344,7 +3533,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: var(--space-5);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -3563,7 +3752,7 @@ h6 {
 }
 
 .query-demo__title {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3573,7 +3762,7 @@ h6 {
 
 .query-demo__body {
   padding: var(--space-6);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -3767,7 +3956,7 @@ h6 {
 }
 
 .failure__number {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.12em;
@@ -3816,7 +4005,7 @@ h6 {
 }
 
 .failure__problem-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -3884,7 +4073,7 @@ h6 {
 }
 
 .ai-step__number {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 88px;
   line-height: 0.85;
   font-weight: 500;
@@ -3934,7 +4123,7 @@ h6 {
 }
 
 .ai-step__fixes-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -4039,7 +4228,7 @@ h6 {
 }
 
 .path-card__label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
@@ -4084,7 +4273,7 @@ h6 {
 }
 
 .path-card__meta-label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -4163,7 +4352,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4215,7 +4404,7 @@ h6 {
 }
 
 .proof-card__label {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -4253,7 +4442,7 @@ h6 {
   position: absolute;
   left: 0;
   color: var(--accent);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
 }
 
 .proof-card__quote {
@@ -4285,7 +4474,7 @@ h6 {
   flex-direction: column;
   gap: var(--space-1);
   margin-top: var(--space-5);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
 }
 
 .proof-card__quote-name {
@@ -4378,7 +4567,7 @@ h6 {
 }
 
 .price-tier__type {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.14em;
@@ -4387,7 +4576,7 @@ h6 {
 }
 
 .price-tier__amount {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 32px;
   line-height: 1;
   font-weight: 500;
@@ -4431,7 +4620,7 @@ h6 {
 /* --- AI page scarcity note (under final CTA button) --- */
 .ai-scarcity {
   margin-top: var(--space-5);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -4495,7 +4684,7 @@ h6 {
 
 /* Text inside graphics */
 .gfx text {
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-body), monospace;
   font-size: 11px;
   fill: var(--text-muted);
   letter-spacing: 0.04em;
@@ -4648,400 +4837,6 @@ h6 {
   .gfx-fade {
     opacity: 1;
     transition: none;
-  }
-}
-
-/* === Reconciliation Flow (hero right column) === */
-@keyframes rfFlow {
-  0% {
-    transform: translateY(-8px);
-    opacity: 0;
-  }
-  15%,
-  85% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(56px);
-    opacity: 0;
-  }
-}
-
-@keyframes rfWarn {
-  0%,
-  100% {
-    color: #d4ff00;
-  }
-  50% {
-    color: #eaff66;
-  }
-}
-
-.rf {
-  width: 100%;
-  background: #0a0a0a;
-  border-radius: 12px;
-  padding: 28px 24px;
-  color: #e8e8e6;
-  border: 0.5px solid rgba(255, 255, 255, 0.06);
-  zoom: 0.72;
-}
-
-.rf__label {
-  font-family: var(--font-mono, ui-monospace, 'SF Mono', Menlo, monospace);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: rgba(232, 232, 230, 0.85);
-  margin-bottom: 10px;
-}
-
-.rf__sources {
-  background: rgba(212, 255, 0, 0.04);
-  border: 0.5px solid rgba(212, 255, 0, 0.5);
-  border-radius: 6px;
-  padding: 18px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: nowrap;
-}
-
-.rf__logo {
-  flex: 1 1 0;
-  min-width: 0;
-  height: 42px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center;
-  background: #ffffff;
-  border-radius: 4px;
-  padding: 6px 8px;
-  box-sizing: border-box;
-  animation: rfPulse 1.6s ease-in-out infinite;
-}
-
-@keyframes rfPulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.55;
-  }
-}
-
-.rf__logo:nth-child(1) {
-  animation-delay: 0s;
-}
-.rf__logo:nth-child(2) {
-  animation-delay: 0.25s;
-}
-.rf__logo:nth-child(3) {
-  animation-delay: 0.5s;
-}
-.rf__logo:nth-child(4) {
-  animation-delay: 0.75s;
-}
-.rf__logo:nth-child(5) {
-  animation-delay: 1s;
-}
-.rf__logo:nth-child(6) {
-  animation-delay: 1.25s;
-}
-
-.rf__conn {
-  height: 32px;
-  position: relative;
-}
-
-.rf__conn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.rf__dot {
-  position: absolute;
-  left: 50%;
-  margin-left: -2px;
-  top: 0;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #d4ff00;
-  animation: rfFlow 2.4s linear infinite;
-}
-
-.rf__conn:nth-of-type(2) .rf__dot {
-  animation-delay: 0.6s;
-}
-.rf__conn:nth-of-type(3) .rf__dot {
-  animation-delay: 1.2s;
-}
-.rf__conn:nth-of-type(4) .rf__dot {
-  animation-delay: 1.8s;
-}
-
-.rf__proc {
-  background: rgba(212, 255, 0, 0.06);
-  border: 0.5px solid rgba(212, 255, 0, 0.45);
-  border-radius: 6px;
-  padding: 10px 14px;
-  text-align: center;
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 14px;
-  font-weight: 600;
-  color: #d4ff00;
-  letter-spacing: 0.04em;
-}
-
-.rf__unified {
-  background: rgba(212, 255, 0, 0.04);
-  border: 0.5px solid rgba(212, 255, 0, 0.5);
-  border-radius: 6px;
-  padding: 14px;
-}
-
-.rf__unified-title {
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 14px;
-  font-weight: 600;
-  color: #d4ff00;
-  text-align: center;
-  margin-bottom: 10px;
-  letter-spacing: 0.04em;
-}
-
-.rf__unified-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-
-.rf__pill {
-  background: rgba(212, 255, 0, 0.08);
-  border: 0.5px solid rgba(212, 255, 0, 0.4);
-  border-radius: 4px;
-  padding: 4px 10px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #e8e8e6;
-}
-
-.rf__pill-link {
-  color: #d4ff00;
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.rf__unified-sub {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(232, 232, 230, 0.9);
-  text-align: center;
-  font-style: italic;
-}
-
-.rf__growth {
-  background: rgba(212, 255, 0, 0.04);
-  border: 0.5px solid rgba(212, 255, 0, 0.5);
-  border-radius: 6px;
-  padding: 14px;
-}
-
-.rf__growth-cap {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(232, 232, 230, 0.9);
-  font-style: italic;
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.rf__bar-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.rf__bar-row:last-child {
-  margin-bottom: 0;
-}
-
-.rf__bar-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(232, 232, 230, 0.95);
-  width: 130px;
-  flex-shrink: 0;
-}
-
-.rf__bar-track {
-  flex: 1;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.rf__bar-fill {
-  height: 100%;
-  border-radius: 2px;
-}
-
-.rf__bar-fill--lime {
-  background: #d4ff00;
-  width: 84%;
-}
-
-.rf__bar-fill--muted {
-  background: rgba(232, 232, 230, 0.3);
-  width: 26%;
-}
-
-.rf__bar-val {
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 13px;
-  font-weight: 600;
-  width: 32px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.rf__bar-val--lime {
-  color: #d4ff00;
-}
-
-.rf__bar-val--muted {
-  color: rgba(232, 232, 230, 0.85);
-}
-
-.rf__decision {
-  background: #0d0d0d;
-  border: 0.5px solid #d4ff00;
-  border-radius: 6px;
-  padding: 14px 16px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 600;
-  color: #e8e8e6;
-}
-
-.rf__decision-impact {
-  font-family: var(--font-mono, ui-monospace, monospace);
-  color: #d4ff00;
-  font-weight: 600;
-  margin-left: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rf__logo,
-  .rf__dot {
-    animation: none !important;
-  }
-  .rf__logo {
-    opacity: 1;
-  }
-}
-
-/* Mobile tuning so the hero centerpiece is fully visible at 390px / 320px.
-   The diagram is already a vertical stack; we just remove the desktop zoom
-   shrink, tighten padding, and shrink logo + bar label widths so 6 source
-   logos still fit one row without overflow. */
-@media (max-width: 768px) {
-  .rf {
-    zoom: 1;
-    padding: 20px 14px;
-  }
-  .rf__label {
-    font-size: 12px;
-  }
-  .rf__sources {
-    padding: 12px 8px;
-    gap: 6px;
-  }
-  .rf__logo {
-    height: 32px;
-    padding: 4px 4px;
-  }
-  .rf__conn {
-    height: 24px;
-  }
-  .rf__proc {
-    font-size: 12px;
-    padding: 8px 10px;
-  }
-  .rf__unified,
-  .rf__growth {
-    padding: 12px;
-  }
-  .rf__unified-title {
-    font-size: 12px;
-  }
-  .rf__pill {
-    font-size: 11px;
-    padding: 3px 7px;
-  }
-  .rf__pill-link {
-    font-size: 11px;
-  }
-  .rf__bar-label {
-    width: 92px;
-    font-size: 11px;
-  }
-  .rf__bar-val {
-    font-size: 11px;
-  }
-  .rf__growth-cap {
-    font-size: 11px;
-  }
-  .rf__decision {
-    font-size: 13px;
-    padding: 12px 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rf {
-    padding: 16px 10px;
-  }
-  .rf__sources {
-    padding: 10px 6px;
-    gap: 4px;
-  }
-  .rf__logo {
-    height: 26px;
-    padding: 3px;
-  }
-  .rf__bar-label {
-    width: 78px;
-    font-size: 10px;
-  }
-  .rf__pill {
-    font-size: 10px;
-    padding: 2px 6px;
-  }
-  .rf__pill-link {
-    display: none;
-  }
-  .rf__unified-row {
-    gap: 4px;
-  }
-  .rf__decision {
-    font-size: 12px;
-    padding: 10px 12px;
   }
 }
 

@@ -11,7 +11,7 @@ const stepVisuals = [AuditReveal, ConnectedStack, DashboardMockup, GrowthCurve];
 
 export default function Method() {
   return (
-    <section className="section method" id="method">
+    <section className="section method" id="how-it-works">
       <div className="container">
         <header className="method__header">
           <div className="eyebrow eyebrow--center">The Datalyze Method</div>

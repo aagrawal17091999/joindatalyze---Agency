@@ -21,28 +21,43 @@
 }
 
 .eyebrow {
-  font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 11px;
-  color: #d4ff00;
-  letter-spacing: 0.12em;
-  text-align: center;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
 }
 
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+/* Section heading: Instrument Serif, roman, same scale as every other
+   homepage section title. Not italic. */
 .heading {
-  font-family: var(--font-serif, Georgia, serif);
-  font-style: italic;
-  font-size: clamp(36px, 5vw, 56px);
+  font-family: var(--font-display), serif;
+  font-style: normal;
+  font-size: var(--text-display-lg);
   font-weight: 400;
   text-align: center;
-  color: #e8e8e6;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -0.035em;
+  line-height: 1.05;
   margin: 0 0 24px;
 }
 
 .sub {
-  font-family: var(--font-sans, system-ui);
+  font-family: var(--font-body, system-ui);
   font-size: 16px;
   line-height: 1.6;
   color: rgba(232, 232, 230, 0.75);
@@ -71,7 +86,7 @@
   border: 0.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 999px;
   color: rgba(232, 232, 230, 0.65);
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 12px;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -152,7 +167,7 @@
 }
 
 .cardLabel {
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 10px;
   letter-spacing: 0.1em;
   color: rgba(212, 255, 0, 0.55);
@@ -162,7 +177,7 @@
 }
 
 .partnerLabel {
-  font-family: var(--font-mono, ui-monospace, monospace);
+  font-family: var(--font-body, ui-monospace, monospace);
   font-size: 9.5px;
   color: #d4ff00;
   text-align: center;
