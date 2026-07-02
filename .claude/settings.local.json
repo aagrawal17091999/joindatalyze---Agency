@@ -45,7 +45,21 @@
       "Bash(python3 -c ' *)",
       "Bash(curl -s https://www.joindatalyze.com/)",
       "Bash(curl -s https://www.joindatalyze.com/ai-analytics-agent)",
-      "Bash(curl -s https://www.joindatalyze.com/blog/d2c-playbook-1-the-data-foundation/)"
+      "Bash(curl -s https://www.joindatalyze.com/blog/d2c-playbook-1-the-data-foundation/)",
+      "Bash(node /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-mp.mjs)",
+      "Bash(npm root *)",
+      "Read(//opt/**)",
+      "Read(//Users/anshagrawal/.npm-global/lib/node_modules/**)",
+      "Read(//Users/anshagrawal/.npm-global/lib/node_modules/playwright/**)",
+      "Read(//Users/anshagrawal/.npm-global/lib/node_modules/@playwright/**)",
+      "Read(//Users/anshagrawal/Library/Caches/ms-playwright/**)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('local playwright ok'\\)}catch\\(e\\){console.log\\('no local playwright'\\)}\")",
+      "Bash(sed -i '' \"s#/opt/homebrew/lib/node_modules/playwright/index.js#/Users/anshagrawal/.npm-global/lib/node_modules/@playwright/mcp/node_modules/playwright/index.js#\" /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-mp.mjs)",
+      "Bash(PLAYWRIGHT_BROWSERS_PATH=/Users/anshagrawal/Library/Caches/ms-playwright node /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-mp.mjs)",
+      "Read(//Users/anshagrawal/Library/Caches/ms-playwright/chromium-1228/**)",
+      "Bash(grep -iE \"MacOS/Chromium$\")",
+      "Read(//Users/anshagrawal/Library/Caches/ms-playwright/chromium_headless_shell-1228/**)",
+      "Bash(node /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-calendly.mjs)"
     ]
   }
 }
