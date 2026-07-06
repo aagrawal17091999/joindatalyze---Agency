@@ -49,10 +49,36 @@ export function trackPageview(url: string) {
   mixpanel.track('$mp_web_page_view', { page: url });
 }
 
-export function track(event: string, properties?: Record<string, unknown>) {
+type TrackOptions = {
+  // Runs once the event has been queued/sent — use to flush before navigating.
+  callback?: () => void;
+  // 'sendBeacon' survives page unload (tab close / navigation); use it for
+  // abandonment-style events fired from pagehide/visibilitychange handlers.
+  transport?: 'xhr' | 'sendBeacon';
+};
+
+export function track(
+  event: string,
+  properties?: Record<string, unknown>,
+  optionsOrCallback?: (() => void) | TrackOptions,
+) {
+  const options: TrackOptions =
+    typeof optionsOrCallback === 'function'
+      ? { callback: optionsOrCallback }
+      : (optionsOrCallback ?? {});
+
   ensureInitialized();
-  if (!initialized) return;
-  mixpanel.track(event, properties);
+  // If Mixpanel never initialized (blocked before our proxy, SSR, no token),
+  // still run the callback so callers that redirect on it aren't left hanging.
+  if (!initialized) {
+    options.callback?.();
+    return;
+  }
+
+  const requestOptions = options.transport
+    ? { transport: options.transport }
+    : {};
+  mixpanel.track(event, properties, requestOptions, options.callback);
 }
 
 export function identify(userId: string) {

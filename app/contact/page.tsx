@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import CalendlyWidget from './calendly-widget';
+import ContactForm from './contact-form';
 
 export const metadata: Metadata = {
   title: 'Book a Free 30-Minute Analytics Audit',
@@ -22,7 +22,7 @@ export default function ContactPage() {
           </p>
         </header>
 
-        <CalendlyWidget />
+        <ContactForm />
 
         <section className="contact-expect">
           <h2 className="contact-expect__title">What you&apos;ll get on the call</h2>

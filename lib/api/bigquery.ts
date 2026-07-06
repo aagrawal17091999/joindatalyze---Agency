@@ -76,3 +76,39 @@ export async function markToolDownloadEmailSent(token: string) {
     params: { token },
   });
 }
+
+export type InsertContactLeadInput = {
+  name: string;
+  email: string;
+  website: string | null;
+  goal: string | null;
+  source: string;
+};
+
+// Lead captured from the /contact form before we hand off to Calendly. Writing
+// this ourselves means the lead survives even if the visitor never completes
+// booking (ad blocker, drop-off, etc.). Table DDL:
+//   CREATE TABLE `<project>.datalyze.contact_leads` (
+//     id STRING, name STRING, email STRING, website STRING,
+//     goal STRING, source STRING, created_at TIMESTAMP);
+export async function insertContactLead({
+  name,
+  email,
+  website,
+  goal,
+  source,
+}: InsertContactLeadInput) {
+  if (!PROJECT_ID) {
+    throw new Error('BIGQUERY_PROJECT_ID is not configured');
+  }
+  const id = randomUUID();
+  await getClient().query({
+    query: `INSERT INTO \`${PROJECT_ID}.${DATASET_ID}.contact_leads\`
+            (id, name, email, website, goal, source, created_at)
+            VALUES (@id, @name, @email, @website, @goal, @source, CURRENT_TIMESTAMP())`,
+    params: { id, name, email, website, goal, source },
+    // Nullable params need explicit types so BigQuery can bind a NULL value.
+    types: { website: 'STRING', goal: 'STRING' },
+  });
+  return { id };
+}
