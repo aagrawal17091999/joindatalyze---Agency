@@ -20,10 +20,10 @@ export default function Hero() {
             Find the revenue your data is hiding.
           </h1>
 
-          <p className="hero__accent">We fix your tracking in 30 days.</p>
+          <p className="hero__accent">Fix your data. Find your growth.</p>
 
           <p className="hero__subhead">
-            The analytics partner for 150+ SaaS teams. We rebuild your data
+            The analytics partner for 150+ companies. We rebuild your data
             foundation, connect every tool, and show you where growth is
             leaking.
           </p>
