@@ -9,8 +9,8 @@ const PRIMARY_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/ai-analytics-agent', label: 'AI Agent' },
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/#how-it-works', label: 'How it works' },
-  { href: '/#pricing', label: 'Pricing' },
+  { href: '/how-it-works', label: 'How it works' },
+  { href: '/pricing', label: 'Pricing' },
   { href: '/blog/', label: 'Blog', external: true },
 ];
 
