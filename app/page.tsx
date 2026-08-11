@@ -12,6 +12,9 @@ import { EngagementModel } from '@/components/engagement/EngagementModel';
 import FinalCta from './_components/final-cta';
 import Faq from './_components/faq';
 import { InlineCTA } from '@/components/inline-cta/InlineCTA';
+import JsonLd from '@/components/seo/JsonLd';
+import { faqPageSchema } from '@/lib/seo';
+import { homeFaqs } from '@/lib/data/home-faqs';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -20,6 +23,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* Built from the same homeFaqs array the <Faq> section renders below. */}
+      <JsonLd data={faqPageSchema(homeFaqs)} />
       <Hero />
       <LogoWall />
       <PainSection />

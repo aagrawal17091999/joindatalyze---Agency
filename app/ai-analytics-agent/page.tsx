@@ -4,7 +4,7 @@ import Faq from '../_components/faq';
 import Failures from './_components/failures';
 import QueryDemo from './_components/query-demo';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { breadcrumbSchema, faqPageSchema, orgRef, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'AI Analytics Agent for Product Teams',
@@ -127,16 +127,15 @@ export default function AIAnalyticsAgentPage() {
             '@type': 'Service',
             name: 'AI Analytics Agent',
             serviceType: 'AI analytics agent setup',
-            provider: {
-              '@type': 'Organization',
-              name: 'Datalyze',
-              url: SITE_URL,
-            },
+            provider: orgRef,
             url: `${SITE_URL}/ai-analytics-agent`,
             areaServed: 'Worldwide',
             description:
               'We fix your data foundation, build the business-context knowledge base, and ship an AI analytics agent your team can actually trust.',
           },
+          // Generated from the same AGENT_FAQS array the <Faq> section below
+          // renders, so the markup can never drift from the visible answers.
+          faqPageSchema(AGENT_FAQS),
         ]}
       />
       {/* Section 1 — Hero */}

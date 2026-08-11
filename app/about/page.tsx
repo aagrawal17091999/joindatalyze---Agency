@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
+import { breadcrumbSchema, orgRef, personRef, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About Our Analytics & Growth Team',
@@ -38,15 +38,17 @@ const NUMBERS = [
 ];
 
 export default function AboutPage() {
-  const personSchema = {
+  // The Person and Organization are declared once site-wide (lib/seo.ts) and
+  // referenced by @id here, so this page describes itself as the founder's
+  // profile page rather than minting a second, competing Person entity.
+  const aboutPageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Ansh Agrawal',
-    jobTitle: 'Founder',
-    worksFor: { '@type': 'Organization', name: 'Datalyze', url: SITE_URL },
+    '@type': 'AboutPage',
+    '@id': `${SITE_URL}/about#page`,
     url: `${SITE_URL}/about`,
-    image: `${SITE_URL}/Ansh.png`,
-    sameAs: ['https://www.linkedin.com/company/joindatalyze'],
+    name: 'About Datalyze',
+    about: orgRef,
+    mainEntity: personRef,
   };
   return (
     <>
@@ -56,7 +58,7 @@ export default function AboutPage() {
             { name: 'Home', path: '/' },
             { name: 'About', path: '/about' },
           ]),
-          personSchema,
+          aboutPageSchema,
         ]}
       />
       {/* Section 1 — Hero */}

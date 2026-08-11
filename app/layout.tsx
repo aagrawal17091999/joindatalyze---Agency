@@ -7,7 +7,7 @@ import Grain from './_components/grain';
 import GfxObserver from './_components/graphic-observer';
 import MixpanelProvider from './_components/mixpanel-provider';
 import JsonLd from '@/components/seo/JsonLd';
-import { organizationSchema, websiteSchema } from '@/lib/seo';
+import { siteGraph } from '@/lib/seo';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -54,7 +54,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <JsonLd data={[organizationSchema, websiteSchema]} />
+        <JsonLd data={siteGraph} />
         <MixpanelProvider />
         <Grain />
         <GfxObserver />
