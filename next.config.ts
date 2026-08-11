@@ -90,6 +90,29 @@ const config: NextConfig = {
       // matches '/blog/' (path-to-regexp is lenient about the trailing slash,
       // especially with skipTrailingSlashRedirect), so it 308-loops /blog/ onto
       // itself. The handler can compare the exact pathname and avoid that.
+
+      // Renamed Ghost post slugs. Ghost does NOT create a redirect when a
+      // published post's slug changes via the Admin API — verified: both old
+      // URLs returned 404 at the origin immediately after the rename. Without
+      // these, every existing inbound link and indexed result for the old slugs
+      // dies. Each rule is listed once; path-to-regexp matches the trailing
+      // -slash and bare forms alike, and the destination carries the slash
+      // because that's the form Ghost serves canonically.
+      ...[
+        {
+          from: 'the-click-is-the-only-thing-your-ad-platfor-can-see',
+          to: 'the-click-is-the-only-thing-your-ad-platform-can-see',
+        },
+        {
+          from: 'week-9-learning-mixpanel-checking-6992b4900926b2001b6f6088',
+          to: 'week-9-learning-mixpanel-checking-data-flow',
+        },
+      ].map(({ from, to }) => ({
+        source: `/blog/${from}`,
+        destination: `/blog/${to}/`,
+        // Emits 308, which search engines treat exactly as a permanent 301.
+        permanent: true,
+      })),
     ];
   },
 };
