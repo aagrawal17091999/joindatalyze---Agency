@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import ContactForm from './contact-form';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Book a Free Analytics Audit',
@@ -11,6 +13,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Contact', path: '/contact' },
+        ])}
+      />
       <div className="container">
         <header className="page-header page-header--center">
           <div className="eyebrow eyebrow--center">Book a call</div>

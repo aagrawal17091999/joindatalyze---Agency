@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import AskChat from './ask-chat';
 import JsonLd from '@/components/seo/JsonLd';
-import { orgRef } from '@/lib/seo';
+import { breadcrumbSchema, orgRef } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: "Ask Ansh's AI",
@@ -21,17 +21,23 @@ export default function AskPage() {
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebApplication',
-          name: "Ask Ansh's AI",
-          applicationCategory: 'BusinessApplication',
-          url: 'https://www.joindatalyze.com/ask',
-          description:
-            "Answers analytics questions strictly from Ansh Agrawal's published writing, and refuses when the answer isn't there.",
-          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-          publisher: orgRef,
-        }}
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Ask', path: '/ask' },
+          ]),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebApplication',
+            name: "Ask Ansh's AI",
+            applicationCategory: 'BusinessApplication',
+            url: 'https://www.joindatalyze.com/ask',
+            description:
+              "Answers analytics questions strictly from Ansh Agrawal's published writing, and refuses when the answer isn't there.",
+            offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+            publisher: orgRef,
+          },
+        ]}
       />
 
       <AskChat />

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Faq from '../_components/faq';
 import { homeFaqs } from '@/lib/data/home-faqs';
 import JsonLd from '@/components/seo/JsonLd';
-import { faqPageSchema } from '@/lib/seo';
+import { breadcrumbSchema, faqPageSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
@@ -27,7 +27,15 @@ const FAQ_ITEMS = [...homeFaqs, ...EXTRA_FAQS];
 export default function FaqsPage() {
   return (
     <div className="page-shell">
-      <JsonLd data={faqPageSchema(FAQ_ITEMS)} />
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'FAQs', path: '/faqs' },
+          ]),
+          faqPageSchema(FAQ_ITEMS),
+        ]}
+      />
       <div className="container">
         <header className="page-header page-header--center">
           <div className="eyebrow eyebrow--center">FAQs</div>
