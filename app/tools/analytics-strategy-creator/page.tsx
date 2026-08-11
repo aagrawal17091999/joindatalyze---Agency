@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { toolById } from '@/lib/data/tools';
 import ToolDownloadForm from '@/app/_components/tool-download-form';
 import CtaButton from '@/app/_components/cta-button';
+import JsonLd from '@/components/seo/JsonLd';
+import { breadcrumbSchema, softwareApplicationSchema } from '@/lib/seo';
 
 const tool = toolById['analytics-strategy-creator'];
 
@@ -125,6 +127,21 @@ const monoInlineStyle = {
 export default function AnalyticsStrategyCreatorPage() {
   return (
     <div className="page-shell">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Tools', path: '/tools' },
+            { name: tool.title, path: '/tools/analytics-strategy-creator' },
+          ]),
+          softwareApplicationSchema({
+            name: tool.title,
+            description: tool.description,
+            path: '/tools/analytics-strategy-creator',
+            operatingSystem: 'Windows, macOS, Linux',
+          }),
+        ]}
+      />
       <div className="container">
         <header className="page-header">
           <div className="eyebrow">{tool.fileType}</div>

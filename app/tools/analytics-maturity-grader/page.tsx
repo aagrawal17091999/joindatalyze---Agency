@@ -9,8 +9,46 @@ import {
   computeResults,
   type Answers,
 } from '@/lib/data/maturity-grader-data';
+import JsonLd from '@/components/seo/JsonLd';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  softwareApplicationSchema,
+} from '@/lib/seo';
 
 const tool = toolById['analytics-maturity-grader'];
+
+// Verbatim copies of the two FAQs rendered in the landing state below. Kept
+// adjacent to the markup they describe so the two can't drift apart.
+const GRADER_FAQS = [
+  {
+    q: 'How long does it take?',
+    a: "About two minutes. It's a short questionnaire, not a data integration — nothing connects to your tools.",
+  },
+  {
+    q: 'Who is it for?',
+    a: 'Founders, product leaders, and growth or data teams who want an honest read on where their analytics stands before investing in fixing it.',
+  },
+];
+
+const graderSchema = [
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Tools', path: '/tools' },
+    {
+      name: 'Analytics Maturity Grader',
+      path: '/tools/analytics-maturity-grader',
+    },
+  ]),
+  softwareApplicationSchema({
+    name: 'Analytics Maturity Grader',
+    description:
+      'A 2-minute quiz that grades your analytics maturity across 5 dimensions and returns a scorecard with prioritized recommendations.',
+    path: '/tools/analytics-maturity-grader',
+    operatingSystem: 'Web',
+  }),
+  faqPageSchema(GRADER_FAQS),
+];
 const RESULTS_KEY = 'datalyze:maturity-results';
 
 type Status = 'idle' | 'loading' | 'error';
@@ -88,6 +126,9 @@ export default function MaturityGraderQuizPage() {
   if (!unlocked) {
     return (
       <div className="page-shell">
+        {/* Only in the landing state — this is the branch that renders the
+            FAQs the schema describes, and the one crawlers are served. */}
+        <JsonLd data={graderSchema} />
         <div className="container">
           <header className="page-header">
             <div className="eyebrow">Analytics Maturity Grader</div>

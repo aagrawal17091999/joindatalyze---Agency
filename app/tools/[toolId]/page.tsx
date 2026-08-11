@@ -5,7 +5,11 @@ import { toolList, toolById } from '@/lib/data/tools';
 import ToolDownloadForm from '@/app/_components/tool-download-form';
 import CtaButton from '@/app/_components/cta-button';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema } from '@/lib/seo';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  softwareApplicationSchema,
+} from '@/lib/seo';
 
 type Props = {
   params: Promise<{ toolId: string }>;
@@ -47,11 +51,26 @@ export default async function ToolLandingPage({ params }: Props) {
   return (
     <div className="page-shell">
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', path: '/' },
-          { name: 'Tools', path: '/tools' },
-          { name: tool.title, path: `/tools/${toolId}` },
-        ])}
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Tools', path: '/tools' },
+            { name: tool.title, path: `/tools/${toolId}` },
+          ]),
+          softwareApplicationSchema({
+            name: tool.title,
+            description: tool.description,
+            path: `/tools/${toolId}`,
+            // Downloadable notebooks/skills run on the user's own machine, not
+            // in the browser — claiming 'Web' for those would be false.
+            operatingSystem:
+              tool.type === 'web' ? 'Web' : 'Windows, macOS, Linux',
+          }),
+          // Only when the page actually renders FAQs below.
+          ...(tool.context?.faqs?.length
+            ? [faqPageSchema(tool.context.faqs)]
+            : []),
+        ]}
       />
       <div className="container">
         <header className="page-header">
