@@ -3,7 +3,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Analytics Guides, Tools & Templates',
+  title: 'Analytics Guides & Templates',
   description:
     'Guides, tools, courses, and content on product analytics, Mixpanel, PostHog, Amplitude, and data quality.',
   alternates: { canonical: '/resources' },

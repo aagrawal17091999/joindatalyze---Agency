@@ -9,7 +9,7 @@ import { breadcrumbSchema, softwareApplicationSchema } from '@/lib/seo';
 const tool = toolById['analytics-strategy-creator'];
 
 export const metadata: Metadata = {
-  title: 'Free Analytics Strategy Creator — Claude Skill',
+  title: { absolute: 'Free Analytics Strategy Creator — Claude Skill' },
   description:
     'Turn a fuzzy product question into a decision-driven analytics strategy. A free Claude skill that outputs metrics, counter-metrics, and segmentation.',
   alternates: { canonical: '/tools/analytics-strategy-creator' },

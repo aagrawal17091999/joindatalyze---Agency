@@ -6,7 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Analytics Case Studies & Client Results',
+  title: 'Analytics Case Studies',
   description:
     'See how Datalyze has helped 17+ startups improve activation, retention, and conversion with better analytics and experimentation.',
   alternates: { canonical: '/case-studies' },

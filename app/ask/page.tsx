@@ -6,7 +6,7 @@ import { orgRef } from '@/lib/seo';
 export const metadata: Metadata = {
   title: "Ask Ansh's AI",
   description:
-    "Ask any analytics question and get an answer drawn only from Ansh Agrawal's own writing — 460+ posts on tracking, attribution, retention and data quality. If it isn't covered, you get a straight no rather than a guess.",
+    "Ask any analytics question, answered only from Ansh Agrawal's own writing on tracking, attribution and retention. Not covered? You get a straight no.",
   alternates: { canonical: '/ask' },
   openGraph: {
     title: "Ask Ansh's AI",

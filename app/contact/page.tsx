@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ContactForm from './contact-form';
 
 export const metadata: Metadata = {
-  title: 'Book a Free 30-Minute Analytics Audit',
+  title: 'Book a Free Analytics Audit',
   description:
     "Book a free 30-minute analytics audit with Datalyze. Let's talk about how we can help grow your business with data.",
   alternates: { canonical: '/contact' },

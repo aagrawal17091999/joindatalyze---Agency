@@ -7,7 +7,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema, faqPageSchema, orgRef, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'AI Analytics Agent for Product Teams',
+  title: 'AI Analytics Agent',
   description:
     'Most AI data tools confidently give wrong answers. We fix the foundation, build the business context, and ship an AI analytics agent your team can trust.',
   alternates: { canonical: '/ai-analytics-agent' },

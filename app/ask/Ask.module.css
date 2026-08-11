@@ -1,0 +1,714 @@
+/* Ask Ansh's AI — chat surface.
+   Every value here is a token from globals.css. No new colours, no new scale. */
+
+/* Height of the fixed site nav (space-5 padding x2 + 56px logo mark). The chat
+   is an app pane, not a document: it fills what's left and scrolls internally,
+   so the composer stays put instead of chasing the page. */
+.app {
+  --nav-height: 104px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  height: calc(100dvh - var(--nav-height));
+  margin-top: var(--nav-height);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* --- sidebar -------------------------------------------------------------- */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 0;
+  padding: var(--space-5) var(--space-4);
+  border-right: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+}
+
+.newChat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.newChat:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.newChat:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.historyLabel {
+  margin-top: var(--space-3);
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  margin: 0 calc(var(--space-2) * -1);
+  padding: 0 var(--space-2);
+}
+
+.historyRow {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.historyRow:hover {
+  background: var(--bg-surface);
+}
+
+.historyActive {
+  background: var(--bg-surface);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.historyButton {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.historyActive .historyButton {
+  color: var(--text-primary);
+}
+
+.historyDelete {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-right: 4px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.historyRow:hover .historyDelete,
+.historyDelete:focus-visible {
+  opacity: 1;
+}
+
+.historyDelete:hover {
+  color: var(--negative);
+}
+
+.sidebarNote {
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.scrim {
+  display: none;
+}
+
+/* --- main pane ------------------------------------------------------------ */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Mobile-only header: the sidebar becomes a drawer below 900px. */
+.topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--gutter-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.topbarTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.iconButton {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+/* No smooth scrolling here on purpose: the stream nudges scrollTop many times a
+   second and smooth behaviour turns that into a lagging, rubber-banding pane. */
+.scroller {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.thread {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  padding: var(--space-7) var(--gutter-md) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+/* --- welcome / empty state ------------------------------------------------ */
+
+.welcome {
+  margin: auto 0;
+  padding-top: var(--space-5);
+}
+
+.title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.lede {
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  max-width: 60ch;
+}
+
+/* --- messages ------------------------------------------------------------- */
+
+.exchange {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.userRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* The visitor's turn reads as a message; the answer reads as a document. That
+   asymmetry is the point — one is a question, the other is publishable. */
+.bubble {
+  max-width: 80%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.assistantRow {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--accent-muted);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-caption);
+}
+
+.assistant {
+  flex: 1;
+  min-width: 0;
+}
+
+.answer {
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.answer p + p,
+.answer ul,
+.answer ol,
+.answer h3,
+.answer h4 {
+  margin-top: var(--space-4);
+}
+
+.answer h3,
+.answer h4 {
+  color: var(--text-primary);
+  font-size: var(--text-body-lg);
+  font-weight: 500;
+}
+
+.answer h4 {
+  font-size: var(--text-body);
+}
+
+.answer ul,
+.answer ol {
+  padding-left: var(--space-5);
+}
+
+.answer li {
+  margin-bottom: var(--space-2);
+}
+
+.answer li::marker {
+  color: var(--text-muted);
+}
+
+.answer strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.answer code {
+  padding: 2px 5px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-2);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+.answer a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Refusals are styled as ANSWERS, not errors — no --negative, no warning
+   iconography. A refusal styled as a failure teaches people the tool is broken;
+   styled as an answer it teaches them the tool is careful, which is the whole
+   claim. The only visual difference from an answer is the absence of chips. */
+.refusal {
+  composes: answer;
+}
+
+.refusalLead {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.cta {
+  margin-top: var(--space-4);
+  font-size: var(--text-body-sm);
+}
+
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Retrieval runs before the first token, so there is a real wait to fill. */
+.thinking {
+  display: flex;
+  gap: 5px;
+  padding-top: 9px;
+}
+
+.thinking span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--text-muted);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.thinking span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.thinking span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.notice {
+  padding: var(--space-5);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+}
+
+/* --- citations ------------------------------------------------------------ */
+
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 10px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: var(--font-mono), monospace;
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-out);
+  max-width: 100%;
+}
+
+a.chip:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+/* Internal notes have no public URL. Rendered unlinked and labelled rather
+   than pointing nowhere. */
+.chipInternal {
+  border-style: dashed;
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.chipLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- composer ------------------------------------------------------------- */
+
+.composer {
+  flex-shrink: 0;
+  padding: var(--space-4) var(--gutter-md) var(--space-5);
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.field {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-end;
+  padding: 8px 8px 8px var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.field:focus-within {
+  border-color: var(--border-strong);
+}
+
+.input {
+  flex: 1;
+  min-height: 24px;
+  max-height: 200px;
+  padding: 8px 0;
+  resize: none;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.send {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-size: 18px;
+  line-height: 1;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.send:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.send:disabled {
+  background: var(--bg-surface-2);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.stopIcon {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background: var(--text-inverse);
+}
+
+.meta {
+  max-width: var(--content-narrow);
+  margin: var(--space-3) auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+.metaHint {
+  flex-shrink: 0;
+}
+
+.error {
+  color: var(--negative);
+}
+
+/* --- starters ------------------------------------------------------------- */
+
+.starters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.starter {
+  padding: 8px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.starter:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+/* --- gate modal ----------------------------------------------------------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter-md);
+  background: rgba(10, 10, 11, 0.86);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  width: min(460px, 100%);
+  padding: var(--space-7);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.modalTitle {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: var(--text-h3);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.modalBody {
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  margin-bottom: var(--space-5);
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* The email field is a plain input, not the composer's borderless textarea. */
+.modalForm .input {
+  padding: 13px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--bg-base);
+}
+
+.modalForm .input:focus {
+  border-color: var(--accent);
+}
+
+.modalExit {
+  margin-top: var(--space-4);
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+}
+
+.modalExit a:hover {
+  color: var(--text-primary);
+}
+
+/* --- static Q&A pages (/ask/[slug]) --------------------------------------- */
+
+.shell {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  padding: var(--space-8) var(--gutter-md) var(--space-9);
+}
+
+/* --- responsive ----------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .topbar {
+    display: flex;
+  }
+
+  /* Sidebar becomes a drawer. Off-canvas rather than unmounted so the
+     transition has something to animate. */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 150;
+    width: 280px;
+    padding-top: var(--space-6);
+    transform: translateX(-100%);
+    transition: transform var(--duration-base) var(--ease-out);
+    border-right: 1px solid var(--border-default);
+    background: var(--bg-surface);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 140;
+    border: none;
+    background: rgba(10, 10, 11, 0.6);
+  }
+
+  .thread {
+    padding-top: var(--space-6);
+    gap: var(--space-6);
+  }
+
+  .metaHint {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    --nav-height: 92px;
+  }
+
+  .bubble {
+    max-width: 100%;
+  }
+
+  .shell {
+    padding-top: var(--space-6);
+  }
+}

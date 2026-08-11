@@ -59,7 +59,7 @@ export const toolList: Tool[] = [
     id: 'mixpanel-users-exporter',
     title: 'Mixpanel Users Exporter',
     description:
-      'Export every Mixpanel user profile to a clean CSV with a free Jupyter notebook. Walks the Engage API, flattens properties, and runs locally on your machine.',
+      'Export every Mixpanel user profile to a clean CSV with a free Jupyter notebook. Walks the Engage API, flattens properties, runs locally.',
     longDescription:
       'Export all your Mixpanel user profiles to a CSV file. This notebook handles the Engage API, iterates through all user profiles, and gives you a comprehensive dataset of user properties.',
     features: [

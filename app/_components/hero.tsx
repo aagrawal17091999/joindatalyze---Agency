@@ -41,6 +41,12 @@ export default function Hero() {
             </CtaButton>
           </div>
 
+          <div className="hero__ask">
+            <CtaButton href="/ask" location="home_hero_ask_ai" className="btn-link">
+              Or ask my AI an analytics question
+            </CtaButton>
+          </div>
+
           <div className="hero__proof">
             <div className="hero__proof-item">
               <span className="hero__proof-number">150+</span>

@@ -3,6 +3,8 @@ import { toolList } from '@/lib/data/tools';
 
 const COMPANY_LINKS = [
   { href: '/about', label: 'About' },
+  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/pricing', label: 'Pricing' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/contact', label: 'Contact' },
 ];
@@ -16,6 +18,9 @@ const RESOURCES_LINKS = [
   },
   { href: '/faqs', label: 'FAQs' },
   { href: '/ai-analytics-agent', label: 'AI Analytics Agent' },
+  // Sitewide inlink so the /ask answer pages aren't reachable only via the
+  // sitemap — they were previously orphaned from the main navigation.
+  { href: '/ask', label: "Ask Ansh's AI" },
   {
     href: '/blog/',
     label: 'Blog',

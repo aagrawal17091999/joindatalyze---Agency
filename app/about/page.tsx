@@ -5,7 +5,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema, orgRef, personRef, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'About Our Analytics & Growth Team',
+  title: 'About Datalyze & Ansh Agrawal',
   description:
     'Datalyze is an analytics consultancy founded by Ansh Agrawal. We\u2019ve helped 150+ startups fix their data foundations and grow revenue by 14% on average.',
   alternates: { canonical: '/about' },

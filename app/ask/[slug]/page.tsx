@@ -33,10 +33,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const ask = getPublishedAsk(slug);
   if (!ask) return {};
 
-  const description = `${ask.answer.answer.replace(/\s+/g, ' ').slice(0, 155).trim()}…`;
+  const description = `${ask.answer.answer.replace(/\s+/g, ' ').slice(0, 150).trim()}…`;
 
   return {
-    title: ask.title ?? ask.question,
+    // Absolute: these titles are the question verbatim, which is the whole
+    // point of the page. Appending "| Datalyze" spent 11 characters of a
+    // ~60-character SERP budget on branding the question can't afford.
+    title: { absolute: ask.title ?? ask.question },
     description,
     alternates: { canonical: `/ask/${ask.slug}` },
     openGraph: { title: ask.question, description, type: 'article' },

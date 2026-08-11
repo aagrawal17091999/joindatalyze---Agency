@@ -9,7 +9,7 @@ import { breadcrumbSchema, softwareApplicationSchema } from '@/lib/seo';
 const tool = toolById['event-tracking-plan-generator'];
 
 export const metadata: Metadata = {
-  title: 'Free Event Tracking Plan Generator — Claude Skill',
+  title: { absolute: 'Free Event Tracking Plan Generator — Claude Skill' },
   description:
     'Generate a complete event tracking plan for your product in under an hour — a free Claude skill that outputs a Mixpanel/PostHog/Amplitude/GA4 CSV.',
   alternates: { canonical: '/tools/event-tracking-plan-generator' },
