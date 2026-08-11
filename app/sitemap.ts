@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { TOOL_CONFIG } from '@/lib/data/tool-config';
+import { PUBLISHED_ASKS } from '@/lib/data/ask-answers';
 
 // Canonical host is www — the apex (joindatalyze.com) 307-redirects here, so
 // listing www URLs directly avoids a redirect hop on every sitemap entry.
@@ -11,10 +12,13 @@ const CORE_ROUTES = [
   '/about',
   '/case-studies',
   '/contact',
+  '/pricing',
+  '/how-it-works',
   '/tools',
   '/resources',
   '/faqs',
   '/ai-analytics-agent',
+  '/ask',
 ];
 
 // File-based resource articles under /resources. Add new article slugs here
@@ -28,9 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Tool pages generated from the tool registry.
   const toolRoutes = Object.keys(TOOL_CONFIG).map((toolId) => `/tools/${toolId}`);
 
+  // Reviewed /ask answers only. PUBLISHED_ASKS already filters out drafts, so
+  // an unreviewed answer can never be advertised to Google.
+  const askRoutes = PUBLISHED_ASKS.map((a) => `/ask/${a.slug}`);
+
   // Dedupe by path so a route listed in more than one source emits once.
   const priorityFor = (path: string) => {
     if (path === '') return 1;
+    // The two pages that answer the questions buyers actually search for.
+    if (path === '/pricing' || path === '/how-it-works') return 0.9;
     if (path.startsWith('/tools/')) return 0.6;
     return 0.7;
   };
@@ -42,6 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       ...CORE_ROUTES,
       ...RESOURCE_ARTICLES,
       ...toolRoutes,
+      ...askRoutes,
     ]),
   );
 

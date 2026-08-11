@@ -3,9 +3,12 @@
 > Datalyze is an analytics & growth partner for startups. We rebuild your data
 > foundation, then surface the growth your data has been hiding. Proven across
 > 150+ Seed–Series C SaaS, marketplace, e-commerce, and fintech teams.
+> Founded by Ansh Agrawal (https://www.linkedin.com/in/anshagrawal/).
 
 ## Core pages
 - [Homepage](https://www.joindatalyze.com/): What Datalyze does and who it's for.
+- [Pricing](https://www.joindatalyze.com/pricing): What an engagement costs — audits from $1k, projects $1.5k–$4k, embedded retainers $2k–$5k/month.
+- [How it works](https://www.joindatalyze.com/how-it-works): The four phases of an engagement — foundation, unification, visibility, compounding.
 - [AI Analytics Agent](https://www.joindatalyze.com/ai-analytics-agent): Our AI agent that answers product/growth questions on your own data.
 - [Case Studies](https://www.joindatalyze.com/case-studies): Quantified client outcomes (CRED, Copyfy, VideoTap, FRAI, and more).
 - [FAQs](https://www.joindatalyze.com/faqs): Pricing, team, engagement model, and what to expect.
@@ -14,10 +17,14 @@
 
 ## Free tools
 - [Tools hub](https://www.joindatalyze.com/tools)
-- [Analytics Maturity Grader](https://www.joindatalyze.com/tools/analytics-maturity-grader)
-- [Analytics Strategy Creator](https://www.joindatalyze.com/tools/analytics-strategy-creator)
-- [Event Tracking Plan Generator](https://www.joindatalyze.com/tools/event-tracking-plan-generator)
-- [Mixpanel Exporter](https://www.joindatalyze.com/tools/mixpanel-exporter)
+- [Analytics Maturity Grader](https://www.joindatalyze.com/tools/analytics-maturity-grader): 2-minute quiz scoring your analytics maturity across 5 dimensions.
+- [Analytics Strategy Creator](https://www.joindatalyze.com/tools/analytics-strategy-creator): Free Claude skill that turns a product decision into an analytics strategy.
+- [Event Tracking Plan Generator](https://www.joindatalyze.com/tools/event-tracking-plan-generator): Free Claude skill that generates a full event tracking plan.
+- [Mixpanel Event Exporter](https://www.joindatalyze.com/tools/mixpanel-exporter): Free notebook that exports raw Mixpanel events to CSV.
+- [Mixpanel Users Exporter](https://www.joindatalyze.com/tools/mixpanel-users-exporter): Free notebook that exports Mixpanel user profiles to CSV.
+
+## Ask Ansh
+- [Ask Ansh's AI](https://www.joindatalyze.com/ask): Ask an analytics question, answered only from Ansh's published writing.
 
 ## Resources & blog
 - [Blog](https://www.joindatalyze.com/blog/): Long-form essays on product analytics, retention, attribution, and the Indian D2C playbook.
@@ -25,4 +32,5 @@
 
 ## Contact
 - Email: ansh@joindatalyze.com
-- LinkedIn: https://www.linkedin.com/company/joindatalyze
+- LinkedIn (company): https://www.linkedin.com/company/joindatalyze
+- LinkedIn (founder): https://www.linkedin.com/in/anshagrawal/
