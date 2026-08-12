@@ -1,0 +1,355 @@
+{
+  "calibratedAt": "2026-08-11T06:28:45.474Z",
+  "indexVersion": "20260811-061248",
+  "embeddingModel": "voyage-context-4",
+  "rerankModel": "rerank-2.5-lite",
+  "tau": 0.640625,
+  "delta": 0.0146484375,
+  "coverage": 0.96,
+  "leaks": 0,
+  "counts": {
+    "answerable": 25,
+    "adjacent": 12,
+    "offTopic": 5
+  },
+  "recallAt5": 0.72,
+  "verdict": "GO — coverage at zero leaks is acceptable.",
+  "scored": [
+    {
+      "kind": "answerable",
+      "question": "how do I figure out why my conversion rate isn't improving when I keep testing stuff",
+      "top": 0.76171875,
+      "gap": 0.1220703125,
+      "topTitle": "Imagine trying to solve a puzzle, but the pieces are in four different rooms. That is e...",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I track company-level metrics in mixpanel not just individual users",
+      "top": 0.8238281249999999,
+      "gap": 0.1687011718749999,
+      "topTitle": "[Week 21] Learning Mixpanel: Group Analytics in Mixpanel",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how to fix messy event tracking when we have multiple analytics tools but cant trust any of the data",
+      "top": 0.88671875,
+      "gap": 0.072265625,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I know which metrics to put on a dashboard for my team",
+      "top": 0.7265625,
+      "gap": 0.072265625,
+      "topTitle": "A common pitfall in analytics is creating a dashboard with every metric that comes to y...",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "what's the mixpanel feature that shows all our events and properties in one place?",
+      "top": 0.8125,
+      "gap": 0.16254882812500004,
+      "topTitle": "[Week 3] Learning Mixpanel: Introduction to Lexicon",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "when should we automate vs keep things manual in our product",
+      "top": 0.640625,
+      "gap": 0.0830078125,
+      "topTitle": "In this era of digital transformation, I'm pretty sure everyone prefers automated equip...",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "best analytics tool for startups that lets you query data without setting up a warehouse?",
+      "top": 0.890625,
+      "gap": 0.1591796875,
+      "topTitle": "My Love-Hate Relationship With PostHog (And Why I Keep Recommending It Anyway)",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I fix messy event tracking and get our data stack actually working together?",
+      "top": 0.76953125,
+      "gap": 0.0361328125,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do i fix my mixpanel data its all over the place",
+      "top": 0.75390625,
+      "gap": 0.05078125,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I get more users to actually use my product after signing up instead of just bouncing",
+      "top": 0.828125,
+      "gap": 0.0556640625,
+      "topTitle": "Activation should be part of your onboarding flow - it’s all one process.",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do you know if teams actually need data quality monitoring or if it's just nice to have",
+      "top": 0.578125,
+      "gap": 0.0234375,
+      "topTitle": "Most companies hire for data because they know they should care about it.",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "what's the difference between event properties and profile properties in mixpanel",
+      "top": 0.9140625,
+      "gap": 0.052197265625000044,
+      "topTitle": "The way to gain insights about how users are using your product, is not just by trackin...",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I know if my data tracking is actually good enough or just looks like it is",
+      "top": 0.75390625,
+      "gap": 0.029296875,
+      "topTitle": "Here’s why you need to stop chasing 100% data accuracy.",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do i bucket/group numeric values in mixpanel for analysis",
+      "top": 0.8683593749999999,
+      "gap": 0.2321777343749999,
+      "topTitle": "[Week 27] Learning Mixpanel: Bucket Customisation Types",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "why is my analytics data always incomplete or wrong",
+      "top": 0.765625,
+      "gap": 0.0341796875,
+      "topTitle": "If you’re struggling with data on Mixpanel, Amplitude, Posthog, etc. that just doesn’t ...",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I avoid losing analytics data from adblockers",
+      "top": 0.82421875,
+      "gap": 0.04453125000000002,
+      "topTitle": "D2C Playbook 1 -- The Data Foundation: Fix Your Owned Layer Before You Scale Spend",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I know if my analytics setup is actually good enough or if we need to fix it before scaling",
+      "top": 0.8828125,
+      "gap": 0.0361328125,
+      "topTitle": "D2C Playbook 1 -- The Data Foundation: Fix Your Owned Layer Before You Scale Spend",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do i verify my mixpanel tracking is working correctly after dev implements it",
+      "top": 0.92578125,
+      "gap": 0.15214843749999996,
+      "topTitle": "Developer’s guide to implementing Mixpanel (client-side)",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "what should my analytics person actually be doing besides just making dashboards",
+      "top": 0.859375,
+      "gap": 0.0654296875,
+      "topTitle": "Analytics folks need to stand up & add value to businesses.",
+      "hitExpected": false
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I get my analytics team to be more proactive instead of just answering data requests all day",
+      "top": 0.875,
+      "gap": 0.1884765625,
+      "topTitle": "Transforming analytics from a support function to a growth function at your organization",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I know if I'm using this crisis productively or just wasting time complaining",
+      "top": 0.640625,
+      "gap": 0.21728515625,
+      "topTitle": "Interestingly enough, this lockdown has been very insightful on the characters of people.",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do i get free mixpanel credits for my startup",
+      "top": 0.91015625,
+      "gap": 0.292822265625,
+      "topTitle": "Getting start with Mixpanel: The basics",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how to write problem statements that actually lead to results?",
+      "top": 0.8046875,
+      "gap": 0.1005859375,
+      "topTitle": "Lifecycle of a problem statement: Defining a good one, & the approach to solve it",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do I cut email costs without losing engagement?",
+      "top": 0.859375,
+      "gap": 0.3759765625,
+      "topTitle": "Speedyloans: Reduced cost (-30%) and increased engagement (+1%)",
+      "hitExpected": true
+    },
+    {
+      "kind": "answerable",
+      "question": "how do you scale from solo consultant to agency when getting more client requests",
+      "top": 0.6953125,
+      "gap": 0.19482421875,
+      "topTitle": "Today’s a good day. I booked 2 new clients to help them understand user behavior, run e...",
+      "hitExpected": true
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I configure row-level security in Snowflake?",
+      "top": 0.38671875,
+      "gap": 0.03046874999999999,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "What is the best dbt incremental model strategy for late-arriving facts?",
+      "top": 0.3984375,
+      "gap": 0.01611328125,
+      "topTitle": "D2C Playbook 6 -- Incrementality Testing",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I set up a Braze journey with a canvas entry event?",
+      "top": 0.37890625,
+      "gap": 0.02197265625,
+      "topTitle": "How to Set Up Product Analytics the Right Way",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I shard Postgres for multi-tenancy?",
+      "top": 0.419921875,
+      "gap": 0.08203125,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "What is the difference between Airflow and Dagster for orchestration?",
+      "top": 0.337890625,
+      "gap": 0.013671875,
+      "topTitle": "3 years ago, I would spend hours manually cleaning data; and now it barely takes me min...",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I write a Looker LookML derived table?",
+      "top": 0.42578125,
+      "gap": 0.06862792968749998,
+      "topTitle": "Today, I tried out the Blended Data feature in Looker Studio. Pretty cool to have a SQL...",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I configure Snowplow event validation schemas?",
+      "top": 0.384765625,
+      "gap": 0.0302734375,
+      "topTitle": "How to Create a Tracking Plan, and Why It Matters",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "What is the right way to model slowly changing dimensions in Snowflake?",
+      "top": 0.486328125,
+      "gap": 0.11372070312499999,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I set up Kafka Connect to stream into ClickHouse?",
+      "top": 0.396484375,
+      "gap": 0.03830566406250002,
+      "topTitle": "You have data flowing everywhere and trust none of it",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I implement a feature store with Feast?",
+      "top": 0.37890625,
+      "gap": 0.052734375,
+      "topTitle": "Sol: Helped clean up complex data structure into a simple accurate setup",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "What is the best way to do reverse ETL with Census?",
+      "top": 0.5078125,
+      "gap": 0.11474609375,
+      "topTitle": "Don’t waste weeks building or researching your analytics stack.",
+      "hitExpected": null
+    },
+    {
+      "kind": "adjacent",
+      "question": "How do I tune a Databricks Delta Live Tables pipeline?",
+      "top": 0.376953125,
+      "gap": 0.0185546875,
+      "topTitle": "3 years ago, I would spend hours manually cleaning data; and now it barely takes me min...",
+      "hitExpected": null
+    },
+    {
+      "kind": "off-topic",
+      "question": "What is a good recipe for carbonara?",
+      "top": 0.396484375,
+      "gap": 0.0478515625,
+      "topTitle": "Would be super helpful if you guys could put out your honest views on this.",
+      "hitExpected": null
+    },
+    {
+      "kind": "off-topic",
+      "question": "Who won the 2022 FIFA World Cup?",
+      "top": 0.384765625,
+      "gap": 0.03857421875,
+      "topTitle": "THIS IS BLOODY AMAZING.",
+      "hitExpected": null
+    },
+    {
+      "kind": "off-topic",
+      "question": "How do I change a flat tyre?",
+      "top": 0.333984375,
+      "gap": 0.01220703125,
+      "topTitle": "What’s a flattening retention curve, & how to get your product there?",
+      "hitExpected": null
+    },
+    {
+      "kind": "off-topic",
+      "question": "What is the capital of Portugal?",
+      "top": 0.349609375,
+      "gap": 0.01220703125,
+      "topTitle": "The bigger the gap between what’s promised and what’s delivered, the more negative the ...",
+      "hitExpected": null
+    },
+    {
+      "kind": "off-topic",
+      "question": "Write me a Python function to reverse a linked list.",
+      "top": 0.38671875,
+      "gap": 0.04638671875,
+      "topTitle": "Knowing SQL or Python syntax used to feel like a superpower.",
+      "hitExpected": null
+    }
+  ]
+}

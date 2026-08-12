@@ -1,0 +1,212 @@
+[
+  {
+    "kind": "answerable",
+    "question": "how do I figure out why my conversion rate isn't improving when I keep testing stuff",
+    "expectedDocId": "linkedin:7492807052344311808"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I track company-level metrics in mixpanel not just individual users",
+    "expectedDocId": "ghost:8d2d72b7-e29a-4435-85ca-0f1bc8d261ad"
+  },
+  {
+    "kind": "answerable",
+    "question": "how to fix messy event tracking when we have multiple analytics tools but cant trust any of the data",
+    "expectedDocId": "gdoc:local#who-is-ansh"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I know which metrics to put on a dashboard for my team",
+    "expectedDocId": "linkedin:7172910820769644544"
+  },
+  {
+    "kind": "answerable",
+    "question": "what's the mixpanel feature that shows all our events and properties in one place?",
+    "expectedDocId": "ghost:5a236e45-28b2-4926-b120-29855c53c244"
+  },
+  {
+    "kind": "answerable",
+    "question": "when should we automate vs keep things manual in our product",
+    "expectedDocId": "linkedin:6565266768141615104"
+  },
+  {
+    "kind": "answerable",
+    "question": "best analytics tool for startups that lets you query data without setting up a warehouse?",
+    "expectedDocId": "ghost:5df18810-ea41-480a-aa6d-d89f5a0df685"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I fix messy event tracking and get our data stack actually working together?",
+    "expectedDocId": "gdoc:local#datalyze-company-knowledge-base"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do i fix my mixpanel data its all over the place",
+    "expectedDocId": "linkedin:7307742430735278080"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I get more users to actually use my product after signing up instead of just bouncing",
+    "expectedDocId": "ghost:f11d6081-7fc4-415c-adca-9214a9b50055"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do you know if teams actually need data quality monitoring or if it's just nice to have",
+    "expectedDocId": "linkedin:7401492613629218816"
+  },
+  {
+    "kind": "answerable",
+    "question": "what's the difference between event properties and profile properties in mixpanel",
+    "expectedDocId": "ghost:99b60a13-928c-4ddc-b69d-62c93da9fafe"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I know if my data tracking is actually good enough or just looks like it is",
+    "expectedDocId": "linkedin:7442223784671141888"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do i bucket/group numeric values in mixpanel for analysis",
+    "expectedDocId": "ghost:ef2039ae-1d88-4733-a3cd-46d7c19fcf4b"
+  },
+  {
+    "kind": "answerable",
+    "question": "why is my analytics data always incomplete or wrong",
+    "expectedDocId": "linkedin:7234415495062388736"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I avoid losing analytics data from adblockers",
+    "expectedDocId": "ghost:521d4b12-bdbc-4aa8-beff-0d2f338d03ba"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I know if my analytics setup is actually good enough or if we need to fix it before scaling",
+    "expectedDocId": "linkedin:7345337853314244611"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do i verify my mixpanel tracking is working correctly after dev implements it",
+    "expectedDocId": "ghost:2cd09ab3-70a0-433f-8e1f-0b6c9437a131"
+  },
+  {
+    "kind": "answerable",
+    "question": "what should my analytics person actually be doing besides just making dashboards",
+    "expectedDocId": "linkedin:7259546269314920449"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I get my analytics team to be more proactive instead of just answering data requests all day",
+    "expectedDocId": "ghost:5d0addb1-617a-42bc-9234-6f573483a687"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I know if I'm using this crisis productively or just wasting time complaining",
+    "expectedDocId": "linkedin:6663665804673986560"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do i get free mixpanel credits for my startup",
+    "expectedDocId": "ghost:a2bff3ec-715f-4a56-a006-c37ed2d06cc2"
+  },
+  {
+    "kind": "answerable",
+    "question": "how to write problem statements that actually lead to results?",
+    "expectedDocId": "linkedin:7151509466448842753"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do I cut email costs without losing engagement?",
+    "expectedDocId": "ghost:57dc7735-102a-4313-b57b-dcfef8111085"
+  },
+  {
+    "kind": "answerable",
+    "question": "how do you scale from solo consultant to agency when getting more client requests",
+    "expectedDocId": "linkedin:7406549678068183040"
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I configure row-level security in Snowflake?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "What is the best dbt incremental model strategy for late-arriving facts?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I set up a Braze journey with a canvas entry event?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I shard Postgres for multi-tenancy?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "What is the difference between Airflow and Dagster for orchestration?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I write a Looker LookML derived table?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I configure Snowplow event validation schemas?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "What is the right way to model slowly changing dimensions in Snowflake?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I set up Kafka Connect to stream into ClickHouse?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I implement a feature store with Feast?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "What is the best way to do reverse ETL with Census?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "adjacent",
+    "question": "How do I tune a Databricks Delta Live Tables pipeline?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "off-topic",
+    "question": "What is a good recipe for carbonara?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "off-topic",
+    "question": "Who won the 2022 FIFA World Cup?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "off-topic",
+    "question": "How do I change a flat tyre?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "off-topic",
+    "question": "What is the capital of Portugal?",
+    "expectedDocId": null
+  },
+  {
+    "kind": "off-topic",
+    "question": "Write me a Python function to reverse a linked list.",
+    "expectedDocId": null
+  }
+]

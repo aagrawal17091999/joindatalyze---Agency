@@ -1,0 +1,354 @@
+{
+  "how-to-set-up-mixpanel-properly": {
+    "question": "How do I set up Mixpanel the right way?",
+    "answer": "An end-to-end Mixpanel setup has five steps :\n\n**1. Create an Event Tracking implementation Spec.** Document all user interactions (events) you need to track and the data (properties) to send with each one. Make sure to include User profile properties and Super properties for deeper analysis .\n\n**2. Insert code and verify data flow.** Have your developer follow the tracking plan and insert code into your product. Then fire events from your product, check Mixpanel, and confirm all events and properties are flowing correctly. If not, have the developer fix them .\n\n**3. Create an analytics strategy.** Use a framework like the AAARRR funnel to build a story about how users are using your product. Define a north star metric for each piece of the funnel and supporting KPIs .\n\n**4. Build dashboards on Mixpanel.** Structure them to tell a complete story, make them easy to read, and keep them dynamic with filtering options. Each dashboard should answer specific questions about your product .\n\n**5. Run deeper analysis.** Develop hypotheses from your dashboards, run A/B tests to understand the \"why,\" make product changes, and measure impact on your north star metric. Use analytics as an insight tool, not just an information tool .",
+    "sources": [
+      {
+        "docId": "ghost:aab49fa9-62cf-4e23-9dee-5906ca7cb69b",
+        "title": "Mixpanel setup \u2192 The right way",
+        "url": "https://www.joindatalyze.com/blog/mixpanel-setup-the-right-way/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9219,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:09.676Z",
+    "reviewed": true
+  },
+  "what-is-an-event-tracking-plan": {
+    "question": "What should be in an event tracking plan?",
+    "answer": "A tracking plan should include six core components :\n\n**Event Trigger** \u2014 describes when the event happens, like \"When a user completes sign-up.\"\n\n**Event Name** \u2014 the name of the event, such as \"Sign_up completed.\"\n\n**Properties/Data** \u2014 the data that goes with the event, like user email and sign-up method.\n\n**Property Type** \u2014 defines if it's an event, super, or profile property.\n\n**Example Values** \u2014 provides examples to guide implementation, like ansh@gmail.com for email.\n\n**Data Type** \u2014 indicates what type of data it is, like strings for email.\n\nBeyond these structural elements, the best tracking plans are rich with properties rather than creating separate events for similar actions . For example, instead of creating separate events for \"Viewed Shoes,\" \"Viewed Bags,\" and \"Viewed Shirts,\" use one \"Product Viewed\" event with a category property. This keeps your plan clean and queryable .",
+    "sources": [
+      {
+        "docId": "ghost:8be49fd0-94e6-4b71-aca1-1b6973b594ab",
+        "title": "How to Create a Tracking Plan, and Why It Matters",
+        "url": "https://www.joindatalyze.com/blog/how-to-create-a-tracking-plan-and/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:abb8ef5a-2afe-4206-840d-9e07ffbac7a1",
+        "title": "D2C Playbook 4 -- Event Taxonomy & Tool Stack Before You Scale Spend",
+        "url": "https://www.joindatalyze.com/blog/d2c-playbook-4-event-taxonomy-tool-stack-before-you-scale-spend/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.8906,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:15.343Z",
+    "reviewed": true
+  },
+  "how-to-measure-retention": {
+    "question": "How do I measure retention properly?",
+    "answer": "Measure retention by first defining what it means for your context\u2014specify whether you're tracking Day 7, Day 14, monthly, or another timeframe, and whether you're using bounded or unbounded retention. Then segment users into cohorts of retained vs. non-retained and examine both their behavioral patterns (what actions they take) and persona characteristics (demographics, acquisition channel, job title). \n\nWhen running experiments to improve retention, don't rely on Day 7 or Day 30 metrics\u2014those are lagging indicators affected by too many variables. Instead, pick experiment metrics that respond fast to user interaction, move only because of the experiment you're running, and are expressed as percentages rather than absolute counts. The goal is clear, immediate signals about what actually changed, not a delayed picture of outcomes.\n\nFinally, ensure you have enough users in both cohorts before analyzing\u2014without sufficient data, your insights won't be meaningful.",
+    "sources": [
+      {
+        "docId": "linkedin:7341746474117943297",
+        "title": "Too many founders measure experiments with Day 7 or Day 30 retention.",
+        "url": "https://www.linkedin.com/posts/anshagrawal_too-many-founders-measure-experiments-with-activity-7341746474117943297-n50j",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:ac171e60-cf90-4689-8133-d83d53c53660",
+        "title": "Solving Retention Problems: A Strategic Framework",
+        "url": "https://www.joindatalyze.com/blog/solving-retention-problems-a-strategic/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.7852,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:22.547Z",
+    "reviewed": true
+  },
+  "what-is-lexicon-in-mixpanel": {
+    "question": "What is Lexicon in Mixpanel?",
+    "answer": "Lexicon in Mixpanel is a centralized dictionary that gives you an overview of all the events and properties being tracked in your project. It helps you manage and maintain consistency in your event tracking. \n\nBeyond that foundational role, Lexicon also serves as the gateway for more advanced data enrichment\u2014you can set up lookup tables within it to add additional context to your properties.",
+    "sources": [
+      {
+        "docId": "ghost:5a236e45-28b2-4926-b120-29855c53c244",
+        "title": "[Week 3] Learning Mixpanel: Introduction to Lexicon",
+        "url": "https://www.joindatalyze.com/blog/week-3-learning-mixpanel-introduction/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:538a321a-df2d-4fb1-8e0c-6705d30355be",
+        "title": "[Week 22] Learning Mixpanel: Lookup Tables",
+        "url": "https://www.joindatalyze.com/blog/week-22-learning-mixpanel-lookup/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9141,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:26.744Z",
+    "reviewed": true
+  },
+  "incrementality-testing-for-d2c": {
+    "question": "How should I think about incrementality testing for a D2C brand?",
+    "answer": "Incrementality testing measures the sales your advertising actually caused that wouldn't have happened otherwise\u2014not just the sales that happened to pass through an ad on the way to checkout. This is the distinction that matters most, because platform dashboards conflate presence with causation. \n\nThe cleanest version for most D2C brands is a geo holdout: pick matched cities where ads keep running and comparable cities where they stop entirely for four weeks. The cities without ads show you what would have happened anyway. The difference between them is incremental revenue. \n\nWhy this matters in practice: a channel reporting 4.0x ROAS can actually be sitting at 1.7x once you account for sales that were coming regardless. That gap is not a small correction\u2014it's often the difference between doubling a budget and holding it flat. A 4.0x channel looks like a money printer. A 1.7x channel at a 60% margin is barely breaking even, and the test tells you which decision to actually make. \n\nThe test is straightforward to run: split six to eight comparable cities into two matched groups, keep one group's ads on and pause them entirely in the other, run it for four weeks, then calculate the difference in revenue between the groups. The math is simple, but the execution matters\u2014contamination from email or influencer campaigns reaching your \"dark\" cities, too short a window, or seasonality events hitting one region will all break the result quietly. \n\nStart with the channel you least believe in. That's where the gap between reported and real ROAS is usually widest, and where one test can save you the most wasted spend.",
+    "sources": [
+      {
+        "docId": "ghost:001cc317-ff56-42f6-b2b7-3f2de8b3d624",
+        "title": "D2C Playbook 6 -- Incrementality Testing",
+        "url": "https://www.joindatalyze.com/blog/d2c-playbook-6-incrementality-testing/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.8867,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:36.263Z",
+    "reviewed": true
+  },
+  "are-branded-search-conversions-real": {
+    "question": "Are my branded search conversions actually incremental?",
+    "answer": "Most of them probably aren't. When people actually test branded search with incrementality methods, somewhere between 70 to 90% of those conversions turn out to be non-incremental\u2014meaning they'd have happened without the ad. \n\nHere's why: branded search targets people who already know who you are. They typed your company name into Google. They were coming to find you anyway. You're paying to put an ad in front of demand you already created, then paying again when they convert. Attribution can't see this gap because it only ever sees the conversions that happened, never the counterfactual\u2014the ones that would have happened without the ad. \n\nA concrete example: a campaign reporting 4x return can sit far below that once you strip out the sales coming regardless. When you run an actual test\u2014a geo holdout where you turn the channel off in matched regions and measure the difference\u2014the real incremental return often tells a completely different story. \n\nThe only way to know for your specific brand is to test it. A geo holdout is the simplest version: pick comparable cities, turn branded search off in half of them for a few weeks, keep it running in the other half, and read the gap.",
+    "sources": [
+      {
+        "docId": "ghost:3991992a-bcc5-48a8-a26e-94dbfb08935a",
+        "title": "70% of Your Branded Search Conversions Would Have Happened Anyway",
+        "url": "https://www.joindatalyze.com/blog/70-of-your-branded-search-conversions-would-have-happened-anyway/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:001cc317-ff56-42f6-b2b7-3f2de8b3d624",
+        "title": "D2C Playbook 6 -- Incrementality Testing",
+        "url": "https://www.joindatalyze.com/blog/d2c-playbook-6-incrementality-testing/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9023,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:43.587Z",
+    "reviewed": true
+  },
+  "why-do-my-conversions-look-too-good": {
+    "question": "Why do my conversions look too good?",
+    "answer": "Your conversions look too good because the ad platforms are inflating the numbers in two separate ways. \n\n**The totals problem:** Meta and Google are both claiming credit for the same orders. When you add up what each platform says it drove, the sum is usually higher than what your backend actually recorded. A single customer sees your ad on Instagram, then searches your brand on Google and clicks, then buys\u2014one sale. But Meta counts it as a Meta conversion through its 7-day click and 1-day view window, and Google counts it as a Google conversion. Neither platform knows about the other, so the same \u20b91,000 order shows up twice on your dashboards. \n\n**The per-channel problem:** On top of double-counting, Meta claims credit for view-throughs\u2014someone scrolls past your ad without clicking, then buys hours later through another channel, and Meta still records it as its own conversion even though it can't prove the ad was actually looked at. \n\nThe fix isn't to make the numbers match\u2014they're not supposed to. Take only your spend from the ad platforms, build attribution in-house on your own reconciled event data, and treat that as your source of truth.",
+    "sources": [
+      {
+        "docId": "ghost:3f2666e3-f93a-4faa-96db-2038fcf32b56",
+        "title": "D2C Playbook 3-- Why your conversions look too good",
+        "url": "https://www.joindatalyze.com/blog/d2c-playbook-3-why-your-conversions-look-too-good/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.8711,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:50.139Z",
+    "reviewed": true
+  },
+  "what-is-marketing-mix-modeling": {
+    "question": "What is marketing mix modeling and when is it worth it?",
+    "answer": "Marketing mix modeling is how you divide an entire ad budget across every channel at once, including ones you can't cleanly isolate or tag. It takes two years of weekly spend and revenue data and splits your sales into named pieces: how much was base (revenue that would happen anyway), how much came from Meta, Google, quick-commerce, and so on. \n\nThe core insight is that MMM models two effects: adstock (the fact that an ad you run today sells for days after), and saturation (the tenth rupee spent on a channel converts worse than the first). Together these curves tell you where your marginal return crosses your margin\u2014the point where the next rupee actually makes money. \n\nWhen to use it: You earn MMM when you're spending across four or more channels, several of which you can't test one at a time, and you have roughly two years of genuinely varied spend history. Most Seed to Series A brands don't have that yet. If your spending is flat week to week, the model learns nothing. \n\nThe critical caveat: An uncalibrated MMM is just a correlation engine and will confidently hand you wrong numbers. It becomes trustworthy only when you feed it causal ground truth from incrementality tests\u2014geo holdouts that prove what each channel actually causes. Without that calibration, don't bother building it.",
+    "sources": [
+      {
+        "docId": "ghost:e83e406a-c1ad-4269-9bb6-06194292d279",
+        "title": "D2C Playbook 7 -- Marketing Mix Modeling (MMM)",
+        "url": "https://www.joindatalyze.com/blog/d2c-playbook-7-marketing-mix-modeling-mmm/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.8359,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:02:57.774Z",
+    "reviewed": true
+  },
+  "events-vs-properties-in-mixpanel": {
+    "question": "What is the difference between events and properties in Mixpanel?",
+    "answer": "Events are actions users take in your product, while properties are additional details that provide context about those actions. \n\nTo use a concrete example: if a user signs up, \"Sign Up\" is the event. Properties attached to that event might include the user's email or the sign-up method. Think of it like a database table\u2014events are the rows representing user actions, and properties are the columns containing details about those actions. \n\nThere are three main types of properties: event properties (tied to a specific event), profile properties (tied to the user and show current state), and super properties (automatically attached to all subsequent events after being set).",
+    "sources": [
+      {
+        "docId": "ghost:99b60a13-928c-4ddc-b69d-62c93da9fafe",
+        "title": "What are events & properties in Mixpanel?",
+        "url": "https://www.joindatalyze.com/blog/what-are-events-and-properties-in/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:284d37b1-6774-45ca-a32f-eed6e3704ab8",
+        "title": "[Week 2] Learning Mixpanel: Mixpanel Basics",
+        "url": "https://www.joindatalyze.com/blog/week-2-learning-mixpanel-mixpanel/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9414,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:02.659Z",
+    "reviewed": true
+  },
+  "what-are-super-properties": {
+    "question": "What are super properties and when should I use them?",
+    "answer": "Super properties are attributes you set once in Mixpanel, and they automatically attach to every subsequent event without you having to specify them each time. Unlike profile properties, which overwrite previous values and don't change past events, super properties persist across all future events while leaving historical data untouched. \n\nYou should use super properties for attributes that don't change frequently, like user type, subscription level, or email. They're particularly valuable when you need to know what state a user was in when they performed a specific action\u2014for example, \"What plan was a user on when they posted their fifth Instagram post?\" Super properties solve this perfectly because if a user upgrades from a free plan to premium, the super property updates for all new events going forward, but previous events keep the original value attached.",
+    "sources": [
+      {
+        "docId": "linkedin:7168554958965891073",
+        "title": "You\u2019re not using a tool like Mixpanel to its full potential, if you\u2019re not using super ...",
+        "url": "https://www.linkedin.com/posts/anshagrawal_anshdoesanalytics-mixpanel-startup-activity-7168554958965891073-jx_g",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:8be49fd0-94e6-4b71-aca1-1b6973b594ab",
+        "title": "How to Create a Tracking Plan, and Why It Matters",
+        "url": "https://www.joindatalyze.com/blog/how-to-create-a-tracking-plan-and/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:99b60a13-928c-4ddc-b69d-62c93da9fafe",
+        "title": "What are events & properties in Mixpanel?",
+        "url": "https://www.joindatalyze.com/blog/what-are-events-and-properties-in/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9258,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:08.166Z",
+    "reviewed": true
+  },
+  "client-vs-server-side-tracking": {
+    "question": "Should I track client-side or server-side?",
+    "answer": "It depends on what matters most to your business.\n\n**Track client-side** if you want rich, detailed user interaction data and don't want to spend engineering effort on setup. You'll get real-time insights into clicks, page views, and user behavior out of the box. The tradeoff: you could lose up to 20% of your data to ad blockers and privacy tools. \n\n**Track server-side** if data accuracy and site performance are your priority. You'll avoid ad-blocker data loss entirely and improve loading times, but you won't capture client-side metadata like UTM parameters or browser info without extra work. \n\n**Go hybrid** if you want both. Track your core events\u2014signups, purchases, activations\u2014server-side to keep your heartbeat metrics reliable, then track everything else client-side. You'll preserve behavioral insights while ensuring you don't miss entire user segments. This is more complex to set up, but it's the best balance.",
+    "sources": [
+      {
+        "docId": "linkedin:7168202812122710017",
+        "title": "Analytics tracking: Client side vs Server side",
+        "url": "https://www.linkedin.com/posts/anshagrawal_anshdoesanalytics-analytics-mixpanel-activity-7168202812122710017-uVsn",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "linkedin:7330849778936750082",
+        "title": "You might be missing up to 20% of your users\u2014and not even know it.",
+        "url": "https://www.linkedin.com/posts/anshagrawal_you-might-be-missing-up-to-20-of-your-usersand-activity-7330849778936750082-BZLp",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:521d4b12-bdbc-4aa8-beff-0d2f338d03ba",
+        "title": "Data tracking: Comparing Client vs Server vs Hybrid",
+        "url": "https://www.joindatalyze.com/blog/data-tracking-comparing-client-vs/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.918,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:15.169Z",
+    "reviewed": true
+  },
+  "how-to-find-your-aha-moment": {
+    "question": "How do I find the aha moment for my product?",
+    "answer": "There's a data-driven approach that works better than guessing. Start by creating hypotheses about which user actions signal true value\u2014make sure each hypothesis has a specific time window, like \"completing action X within Y days of signup.\" \n\nNext, split your users into two cohorts: those who stayed and those who churned. Compare their behavior against each hypothesis. If 70% of retained users performed action X within three days but only 20% of churned users did, that's a signal. \n\nTest all your hypotheses\u2014the AHA moment might be a combination of actions rather than a single one. Then validate by talking to users directly: ask retained users how they felt performing the action, and ask churned users why they left. Confirm whether simplifying the action would make the value clearer.",
+    "sources": [
+      {
+        "docId": "ghost:b9a7d6d7-b261-4761-b6b4-203fce12e798",
+        "title": "Finding the AHA moment for your product",
+        "url": "https://www.joindatalyze.com/blog/finding-the-aha-moment-for-your-product/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9375,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:20.254Z",
+    "reviewed": true
+  },
+  "why-nobody-trusts-our-data": {
+    "question": "Why does nobody on my team trust our analytics data?",
+    "answer": "The core reason is almost always that your team has experienced real problems with the data before. When they've caught discrepancies multiple times, confidence breaks down completely\u2014and once trust is lost, it's incredibly difficult to rebuild. \n\nThe actual data problems behind this distrust are usually one of a few things. You're likely tracking too much\u2014hundreds of events where only a fraction are actually used for decisions, which means things break constantly and nobody wants to fix them. Or your events are named inconsistently across platforms (signup_complete on web, SignUpDone on mobile), so your funnels are silently wrong. Or identity stitching is broken and the same person shows up as multiple profiles. \n\nThe fix isn't to overhaul everything at once\u2014that's how these projects die. Start by picking five core metrics your team actually uses for decisions, audit and fix the tracking for just those five, and verify every event fires correctly. Make the structure simple and easy to understand, because when trust is low, your team will avoid anything that looks complicated. Once they see that one part working reliably, trust starts to come back.",
+    "sources": [
+      {
+        "docId": "linkedin:7249440923632205824",
+        "title": "The biggest reason teams struggle to gain insights from their data? They just don't tru...",
+        "url": "https://www.linkedin.com/posts/anshagrawal_product-analytics-founders-activity-7249440923632205824-up2f",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:b848b6be-5482-4776-b336-729d9dd4986d",
+        "title": "Analytics Debt: The Silent Killer Nobody Talks About Until Series B",
+        "url": "https://www.joindatalyze.com/blog/analytics-debt-the-silent-killer-nobody-talks-about-until-series-b/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "linkedin:7284903043488215040",
+        "title": "Here\u2019s how you can rebuild trust in your team\u2019s data if it\u2019s been lost.",
+        "url": "https://www.linkedin.com/posts/anshagrawal_product-startup-activity-7284903043488215040-ALB2",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:0b7e10ad-3847-4b37-aad0-e0974462301e",
+        "title": "You have data flowing everywhere and trust none of it",
+        "url": "https://www.joindatalyze.com/blog/you-have-data-flowing-everywhere-and-trust-none-of-it/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.8516,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:27.484Z",
+    "reviewed": true
+  },
+  "mixpanel-vs-ga4": {
+    "question": "Should I move from Google Analytics to Mixpanel?",
+    "answer": "It depends on what you're trying to do. \n\nIf you need to understand user behavior deeply\u2014digging into individual users, building cohorts, creating custom reports without expert knowledge, or comparing user segments\u2014Mixpanel outperforms GA. Its interface is more intuitive, and it makes this kind of analysis straightforward where GA makes it daunting. \n\nIf you only need basic metrics and conversion rates and want to avoid spending money on analytics tools, GA is fine. \n\nThe real case for moving hits if you're trying to connect product behavior to revenue and ad spend. GA can't do that work at all\u2014you'll end up exporting everything to a warehouse and rebuilding the analysis by hand. Mixpanel (or PostHog or Amplitude) can be the central place where product events, ad data, and revenue live together, so you can answer questions GA was never built for: which channels actually bring customers who stay and pay, and what's your real cost per retained user.",
+    "sources": [
+      {
+        "docId": "ghost:c7874fb5-7c87-4521-a863-7e1b85540bbe",
+        "title": "Why It's Time to Switch from GA to Mixpanel",
+        "url": "https://www.joindatalyze.com/blog/why-its-time-to-switch-from-ga-to/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "ghost:3a9fa8db-6c83-4074-9189-81a4a309ed07",
+        "title": "Your Cheapest Channel Is Probably Your Worst",
+        "url": "https://www.joindatalyze.com/blog/the-click-is-the-only-thing-your-ad-platfor-can-see/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.918,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:33.647Z",
+    "reviewed": true
+  },
+  "how-to-build-an-analytics-strategy": {
+    "question": "How do I build an analytics strategy for my product?",
+    "answer": "Build your analytics strategy in three core steps. \n\n**Break down your product.** Don't tackle everything at once. Segment into pieces using the AAARRR funnel (Awareness, Acquisition, Activation, Retention, Revenue, Referral) or by features. A holistic approach will miss the nuances of how users behave in different parts of your product. \n\n**Design metrics that are actually actionable.** For each metric, ask: What decision will this inform? Does it enhance understanding of user behavior and drive action? If not, it's a vanity metric and should be excluded. A metric like \"total products viewed in a week\" tells you nothing; \"products viewed before adding to cart\" tells you where to optimize the funnel. \n\n**Avoid going too deep.** You'll be tempted to track everything, but you'll end up with nothing. Start broad to identify areas for deeper investigation, then progressively refine your insights. For each segment of the AAARRR funnel, define a north star metric\u2014your major focus for the quarter\u2014and the L1 and L2 KPIs that inform it.",
+    "sources": [
+      {
+        "docId": "linkedin:7168962180946546688",
+        "title": "A Simple framework to create an analytics strategy for your product.",
+        "url": "https://www.linkedin.com/posts/anshagrawal_analytics-startup-anshdoesanalytics-activity-7168962180946546688-mCzV",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "ghost:e017e154-1a25-4d94-b7f9-1a532298b45f",
+        "title": "How to create an analytics strategy for your product?",
+        "url": "https://www.joindatalyze.com/blog/how-to-create-an-analytics-strategy/",
+        "sourceType": "ghost"
+      }
+    ],
+    "topScore": 0.9414,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:39.705Z",
+    "reviewed": true
+  },
+  "what-is-analytics-debt": {
+    "question": "What is analytics debt and how do I know if I have it?",
+    "answer": "Analytics debt is the accumulated cost of every shortcut, inconsistency, and missing data point in your analytics setup that makes it harder to make good decisions as you scale. \n\nIt compounds silently. At 500 users, event naming inconsistencies don't matter. At 50,000 users, that same sloppiness means your conversion funnel is wrong by 15-20%, and you've been making product decisions on bad data for months. \n\nThe fastest way to diagnose it: ask five people on your team these questions\u2014what's your activation rate, weekly retention at 4 weeks, best acquisition channel, and percentage of users hitting core value in their first session? If you get five different answers to any of them, or if nobody can explain why their number is right, you have material analytics debt. Another red flag: if a new hire can't understand your data within 20 minutes, you don't have an analytics setup\u2014you have a liability. \n\nMost founders think they're in the \"patchwork\" stage of debt accumulation. They're usually already in the \"dashboard graveyard\" stage, where dashboards exist but nobody trusts them because everyone's pulling different numbers.",
+    "sources": [
+      {
+        "docId": "ghost:b848b6be-5482-4776-b336-729d9dd4986d",
+        "title": "Analytics Debt: The Silent Killer Nobody Talks About Until Series B",
+        "url": "https://www.joindatalyze.com/blog/analytics-debt-the-silent-killer-nobody-talks-about-until-series-b/",
+        "sourceType": "ghost"
+      },
+      {
+        "docId": "linkedin:7474699563035947008",
+        "title": "Every startup accumulates analytics debt and I call these 5 stages the Analytics Debt C...",
+        "url": "https://www.linkedin.com/posts/anshagrawal_every-startup-accumulates-analytics-debt-activity-7474699563035947008-W0X0",
+        "sourceType": "linkedin"
+      },
+      {
+        "docId": "linkedin:7345337853314244611",
+        "title": "If a new hire can\u2019t understand your data within 20 minutes, you don\u2019t have an analytics...",
+        "url": "https://www.linkedin.com/posts/anshagrawal_if-a-new-hire-cant-understand-your-data-activity-7345337853314244611-V27w",
+        "sourceType": "linkedin"
+      }
+    ],
+    "topScore": 0.875,
+    "indexVersion": "20260811-094554",
+    "draftedAt": "2026-08-11T11:03:46.769Z",
+    "reviewed": true
+  }
+}

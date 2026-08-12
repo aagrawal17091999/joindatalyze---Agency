@@ -59,7 +59,9 @@
       "Read(//Users/anshagrawal/Library/Caches/ms-playwright/chromium-1228/**)",
       "Bash(grep -iE \"MacOS/Chromium$\")",
       "Read(//Users/anshagrawal/Library/Caches/ms-playwright/chromium_headless_shell-1228/**)",
-      "Bash(node /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-calendly.mjs)"
+      "Bash(node /private/tmp/claude-501/-Users-anshagrawal-Desktop-joindatalyze---Agency/8187e1bd-85d7-45a0-a3ee-e4a045f9f1d3/scratchpad/verify-calendly.mjs)",
+      "Bash(npx tsx *)",
+      "Bash(node -e ' *)"
     ]
   }
 }

@@ -592,6 +592,7 @@ a.chip:hover {
 }
 
 .modal {
+  position: relative;
   width: min(460px, 100%);
   padding: var(--space-7);
   background: var(--bg-surface);
@@ -600,6 +601,7 @@ a.chip:hover {
 }
 
 .modalTitle {
+  padding-right: var(--space-6);
   font-family: var(--font-display), Georgia, serif;
   font-size: var(--text-h3);
   color: var(--text-primary);
@@ -631,14 +633,24 @@ a.chip:hover {
   border-color: var(--accent);
 }
 
-.modalExit {
-  margin-top: var(--space-4);
-  font-size: var(--text-caption);
+.modalClose {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  font-size: 22px;
+  line-height: 1;
   color: var(--text-muted);
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
-.modalExit a:hover {
+.modalClose:hover {
   color: var(--text-primary);
+  background: var(--bg-base);
 }
 
 /* --- static Q&A pages (/ask/[slug]) --------------------------------------- */

@@ -37,6 +37,16 @@ VARS=(
   TOOL_DOWNLOAD_TOKEN_SECRET
   NEXT_PUBLIC_MIXPANEL_TOKEN
   NEXT_PUBLIC_SITE_URL
+  # Ask Ansh's AI. A key missing from this list works locally and 500s in
+  # production — that is the single most common way to break this feature.
+  ANTHROPIC_API_KEY
+  GHOST_CONTENT_API_KEY
+  VOYAGE_API_KEY
+  APIFY_TOKEN
+  APIFY_LINKEDIN_ACTOR_ID
+  KB_GDOC_ID
+  CRON_SECRET
+  KB_SYNC_REPORT_TO
 )
 
 ENVIRONMENTS=(production preview development)

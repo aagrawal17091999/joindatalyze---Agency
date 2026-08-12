@@ -651,15 +651,18 @@ export default function AskChat() {
       {authed === false && (
         <div className={styles.overlay} role="dialog" aria-modal="true">
           <div className={styles.modal}>
+            {/* The gate covers the nav, so the close button is the way out. */}
+            <Link href="/" className={styles.modalClose} aria-label="Close">
+              ×
+            </Link>
             <h2 className={styles.modalTitle}>
               {held ? 'Where should I send the good stuff?' : 'Your email, then ask away'}
             </h2>
-            <p className={styles.modalBody}>
-              {held
-                ? "Drop your email and I'll answer — then ask as much as you like."
-                : 'One email unlocks unlimited questions, and brings back every chat you’ve had with me before — on any device.'}{' '}
-              I&apos;ll add you to the list too; unsubscribe whenever.
-            </p>
+            {held && (
+              <p className={styles.modalBody}>
+                Drop your email to ask me questions.
+              </p>
+            )}
             <form className={styles.modalForm} onSubmit={submitEmail}>
               <input
                 className={styles.input}
@@ -676,10 +679,6 @@ export default function AskChat() {
                 {gateBusy ? 'One moment…' : held ? 'Ask my question' : 'Start asking'}
               </button>
             </form>
-            {/* The gate covers the nav, so it needs its own way out. */}
-            <p className={styles.modalExit}>
-              <Link href="/">Back to the site</Link>
-            </p>
           </div>
         </div>
       )}
