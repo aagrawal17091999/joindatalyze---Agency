@@ -1,0 +1,17 @@
+{
+  "slug": "lifecycle-of-a-problem-statement",
+  "tldr": "A good problem statement is well-defined and prioritised before anyone opens a dashboard. Then the approach runs in five steps: hypothesis, data analysis, deep dive for the actionable finding, implementation plan, and measurement.",
+  "headings": [
+    ["Crafting the right problem statement", "How do you craft the right problem statement?"],
+    ["Well-defined problem", "What makes a problem well-defined?"],
+    ["Adopting an effective approach to solving the problem", "What's the approach to solving it?"],
+    ["Hypothesis development", "How do you develop hypotheses?"],
+    ["Deep dive for actionable", "How do you get to something actionable?"],
+    ["Implementation planning", "How do you plan implementation?"]
+  ],
+  "faq": [
+    ["What makes a problem statement good?", "It's well-defined — specific enough that you'd know when it's solved — and it's been prioritised against the others. Vague problems produce analysis nobody can act on."],
+    ["Why start with a hypothesis rather than the data?", "Because data without a hypothesis becomes a fishing expedition. The hypothesis tells you which cut of the data would actually change your mind."],
+    ["What does the measurement step add?", "It closes the loop. Without it you've shipped a change and assumed it worked, which is the same position you were in before the analysis."]
+  ]
+}

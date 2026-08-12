@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 
-// Reverse proxy for Mixpanel ingestion — events (/track), profiles (/engage),
+// Reverse proxy for Mixpanel ingestion - events (/track), profiles (/engage),
 // session replay (/record), feature flags (/flags) and settings. Routing this
 // through our own origin means ad/content blockers, which match on *.mxpnl.com
 // and api*.mixpanel.com, never see a blockable request, so events and replays

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // -----------------------------------------------------------------------------
-// Threshold calibration — docs/ai-avatar-plan.md §2.4, step 3.
+// Threshold calibration - docs/ai-avatar-plan.md §2.4, step 3.
 //
 //   npx tsx scripts/kb/calibrate.mjs            generate the set, sweep, report
 //   npx tsx scripts/kb/calibrate.mjs --reuse    reuse the saved question set
@@ -8,11 +8,11 @@
 // The question set is GENERATED, not hand-written, so this costs you an
 // afternoon of compute rather than an afternoon of writing:
 //
-//   answerable   — Claude reads a real chunk and writes the question a VISITOR
+//   answerable   - Claude reads a real chunk and writes the question a VISITOR
 //                  would type to reach it (not a summary of the chunk).
-//   adjacent     — analytics-shaped questions the corpus provably doesn't cover.
+//   adjacent     - analytics-shaped questions the corpus provably doesn't cover.
 //                  This is the discriminating set; weight it heaviest.
-//   off-topic    — smoke test. Cheap to pass, near-zero information.
+//   off-topic    - smoke test. Cheap to pass, near-zero information.
 //
 // Sweeping picks the LOWEST tau at which zero non-answerable questions get
 // through, then steps up one notch for margin. Deliberately NOT F1: F1 treats a
@@ -20,7 +20,7 @@
 // are not. Coverage is the price paid for zero leaks, and it is reported, not
 // optimised.
 //
-// Writes docs/kb-calibration.json — commit it. It is the record of what tau was
+// Writes docs/kb-calibration.json - commit it. It is the record of what tau was
 // set to, against which index_version, and on what evidence.
 // -----------------------------------------------------------------------------
 
@@ -256,10 +256,10 @@ console.log(
 
 const verdict =
   coverage / answerable.length >= 0.6
-    ? 'GO — coverage at zero leaks is acceptable.'
+    ? 'GO - coverage at zero leaks is acceptable.'
     : coverage / answerable.length >= 0.4
-      ? 'MARGINAL — usable, but retrieval work would pay off before launch.'
-      : 'NO-GO — retrieval is the problem, not the threshold. Do not tune around this.';
+      ? 'MARGINAL - usable, but retrieval work would pay off before launch.'
+      : 'NO-GO - retrieval is the problem, not the threshold. Do not tune around this.';
 console.log(`  ${verdict}`);
 
 writeFileSync(

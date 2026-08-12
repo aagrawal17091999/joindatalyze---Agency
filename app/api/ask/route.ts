@@ -14,10 +14,10 @@ import { getQuota, recordOutcome, recordQuestion } from '@/lib/kb/users';
 import { checkLimits, hashIp, readCache, writeCache } from '@/lib/kb/limits';
 import type { ScoredDocument } from '@/lib/kb/retrieve';
 
-// Ask Ansh's AI — the serving endpoint.
+// Ask Ansh's AI - the serving endpoint.
 //
 // Node runtime (the default here, and required: @google-cloud/bigquery is
-// gRPC-native and `after()` is Node-only). Streams NDJSON rather than SSE —
+// gRPC-native and `after()` is Node-only). Streams NDJSON rather than SSE -
 // the client is our own fetch reader, not EventSource, so a line-delimited
 // JSON protocol is simpler and carries structured events natively.
 //
@@ -32,7 +32,7 @@ const MAX_QUESTION_CHARS = 500;
 
 /**
  * The corpus is cached at module scope so warm Fluid Compute invocations reuse
- * it — the same reasoning as the BigQuery client in lib/api/bigquery.ts. At
+ * it - the same reasoning as the BigQuery client in lib/api/bigquery.ts. At
  * ~957 chunks this is a few MB and loads in a second or two on a cold start.
  *
  * The in-flight promise is cached too, so concurrent cold requests trigger one
@@ -42,7 +42,7 @@ let corpusPromise: Promise<Corpus> | null = null;
 function getCorpus(): Promise<Corpus> {
   if (!corpusPromise) {
     corpusPromise = loadCorpus().catch((err) => {
-      // Don't cache a failure — the next request should retry.
+      // Don't cache a failure - the next request should retry.
       corpusPromise = null;
       throw err;
     });
@@ -60,7 +60,7 @@ type Event =
 type PublicSource = {
   docId: string;
   title: string;
-  /** Null for internal notes — the UI renders those unlinked, as "from my notes". */
+  /** Null for internal notes - the UI renders those unlinked, as "from my notes". */
   url: string | null;
   sourceType: string;
   publishedAt: string | null;
@@ -150,7 +150,7 @@ export async function POST(request: Request) {
       let scoresTop5: number[] = [];
       let outputTokens: number | null = null;
       let corpus: Corpus | null = null;
-      // Null when the per-email cap is off, which is the default — the UI shows
+      // Null when the per-email cap is off, which is the default - the UI shows
       // no counter in that case rather than an invented one.
       const remainingAfter = quota.remaining === null ? null : Math.max(0, quota.remaining - 1);
       let cacheHit = false;
@@ -169,7 +169,7 @@ export async function POST(request: Request) {
         timing.corpusMs = Date.now() - corpusStart;
 
         // Cache lookup happens AFTER the corpus loads because the key is
-        // invalidated by index_version — a cached answer must never outlive
+        // invalidated by index_version - a cached answer must never outlive
         // the content it cited.
         const cached = readCache(question, corpus.indexVersion);
         if (cached) {
@@ -294,7 +294,7 @@ export async function POST(request: Request) {
         controller.close();
       } finally {
         const totalMs = Date.now() - started;
-        // after() so logging never delays the response — and so it still runs
+        // after() so logging never delays the response - and so it still runs
         // when the client disconnects mid-stream.
         after(async () => {
           try {
@@ -326,7 +326,7 @@ export async function POST(request: Request) {
             await recordOutcome(session.emailHash, answered);
           } catch (err) {
             // A logging failure must never surface to the user, but it should
-            // be visible — a silently broken query log is a silently lost
+            // be visible - a silently broken query log is a silently lost
             // content roadmap.
             console.error('[ask] query log failed:', err);
           }

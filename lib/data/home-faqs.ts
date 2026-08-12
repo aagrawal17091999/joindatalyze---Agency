@@ -5,8 +5,12 @@ export type HomeFaq = {
 
 export const homeFaqs: HomeFaq[] = [
   {
-    q: 'What does it cost, and how long until we see results?',
-    a: 'Most engagements run between $2,000 and $5,000 per month, depending on the size of your stack and the scope of work. Some clients start with a one-time audit and scale into a retainer; others go straight into ongoing work. Most teams see their first actionable insights within 2 to 3 weeks of kickoff.',
+    q: 'How much does Datalyze cost?',
+    a: 'Three tiers: a one-time audit from $1,000; infra setup at $1,500 to $3,000 per project; and embedded (ongoing) at $2,000 to $5,000 per month. Most teams start with the audit and scale from there.',
+  },
+  {
+    q: 'How long until we see results?',
+    a: 'Most teams see their first actionable insights within 2 to 3 weeks of kickoff. The audit itself takes 1 to 2 weeks.',
   },
   {
     q: 'Why not just hire a full-time analyst?',
@@ -18,7 +22,7 @@ export const homeFaqs: HomeFaq[] = [
   },
   {
     q: 'How fast can you actually start?',
-    a: "Within a day of kickoff. We've done this 100+ times. We don't need a month to learn your stack or a week of onboarding meetings. Share access and we're auditing your data by tomorrow.",
+    a: "Within a day of kickoff. We don't need a month to learn your stack or a week of onboarding meetings. Share access and we're auditing your data by tomorrow.",
   },
   {
     q: 'What if we already have some analytics setup?',
@@ -32,4 +36,19 @@ export const homeFaqs: HomeFaq[] = [
     q: 'How do you measure the 14% revenue lift?',
     a: 'We measure the before-and-after revenue impact of the specific changes made during each engagement: conversion improvements from tracking fixes, retention gains from product changes, revenue from experiments we design and run. The 14% is a weighted average across 150+ engagements, not a cherry-picked best case.',
   },
+];
+
+/**
+ * The homepage shows a deliberate subset. /faqs is the canonical FAQ entity and
+ * carries every question grouped into sections; if the homepage emitted
+ * FAQPage schema over the same nine questions, the two pages would compete with
+ * identical structured data. These five are the buying questions - the ones
+ * worth answering before someone scrolls to the CTA.
+ */
+export const homepageFaqs: HomeFaq[] = [
+  homeFaqs[0], // How much does Datalyze cost?
+  homeFaqs[1], // How long until we see results?
+  homeFaqs[4], // How fast can you actually start?
+  homeFaqs[2], // Why not just hire a full-time analyst?
+  homeFaqs[3], // We already have analytics tools. Why do we need you?
 ];

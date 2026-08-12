@@ -7,7 +7,7 @@
 //   "Who won the 2022 World Cup?"              fused top = 0.0323   ← higher
 //
 // RRF assigns 1/(60+rank), so the score encodes rank position, not match
-// quality — the best-ranked result scores the same whether it answers the
+// quality - the best-ranked result scores the same whether it answers the
 // question or is merely the least irrelevant thing present. Cosine similarity
 // is only marginally better: it is a similarity measure pressed into service as
 // a relevance measure, and its values bunch into a narrow band.
@@ -48,7 +48,7 @@ export async function rerank(
   const key = process.env.VOYAGE_API_KEY;
   if (!key) {
     throw new Error(
-      'VOYAGE_API_KEY is not set — reranking is required for the refusal gate ' +
+      'VOYAGE_API_KEY is not set - reranking is required for the refusal gate ' +
         'to function. See lib/kb/gate.ts.',
     );
   }

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // -----------------------------------------------------------------------------
-// Ask Ansh's AI — BigQuery schema migration
+// Ask Ansh's AI - BigQuery schema migration
 //
 //   node scripts/kb/migrate.mjs           create/verify every table
 //   node scripts/kb/migrate.mjs --check   report what exists, create nothing
 //
 // Idempotent (CREATE TABLE IF NOT EXISTS), so it's safe to re-run. Adding a
-// column later means adding an ALTER below, not editing the CREATE — BigQuery
+// column later means adding an ALTER below, not editing the CREATE - BigQuery
 // won't retro-apply a changed CREATE to a table that already exists, and a
 // silently-diverged schema is the kind of bug that only shows up in production.
 //
@@ -14,7 +14,7 @@
 //   kb_documents      one row per source document (post / doc section)
 //   kb_chunks         retrieval units; embedded and searched at this level
 //   ai_avatar_users   one row per email that used the chat
-//   ai_avatar_queries one row per question asked — the content roadmap
+//   ai_avatar_queries one row per question asked - the content roadmap
 //   ai_avatar_conversations  one row per chat thread, so history follows the email
 //
 // Design notes live in docs/ai-avatar-plan.md §2.3 and §2.8.
@@ -110,7 +110,7 @@ OPTIONS (description = "Retrieval units. Search here, expand to kb_documents.ful
 )
 PARTITION BY DATE(first_seen_at)
 CLUSTER BY email_hash
-OPTIONS (description = "One row per email that used Ask Ansh's AI. Lead table — sits beside contact_leads.")`,
+OPTIONS (description = "One row per email that used Ask Ansh's AI. Lead table - sits beside contact_leads.")`,
   },
   {
     name: 'ai_avatar_queries',
@@ -162,13 +162,13 @@ OPTIONS (description = "One row per question. The refused half is the content ro
   turn_count INT64,
   saved_at TIMESTAMP NOT NULL,      -- server clock; created_at/updated_at come from the browser
   turns STRING,                     -- JSON transcript. Opaque to SQL on purpose: this is a
-                                    -- restore blob for the UI, not an analytics surface —
+                                    -- restore blob for the UI, not an analytics surface -
                                     -- ai_avatar_queries is where questions get analysed.
   deleted BOOL                      -- soft: a delete is one MERGE, and a mis-click is recoverable
 )
 -- Deliberately NOT partitioned, unlike every other table here. The dataset
 -- carries a 60-day default partition expiry, so a partitioned thread table
--- would quietly delete the history it exists to preserve — and a partition key
+-- would quietly delete the history it exists to preserve - and a partition key
 -- taken from the visitor's clock can land in an already-expired partition, so
 -- the row vanishes the moment it's written. This table is one small row per
 -- thread and is only ever read by email_hash: clustering is what it needs.
@@ -210,7 +210,7 @@ async function main() {
   // Row counts are a cheap sanity check that we're pointed at the right dataset.
   const [rows] = await bq.query({
     query: TABLES.map(
-      // `rows` is a BigQuery reserved keyword — alias as row_count.
+      // `rows` is a BigQuery reserved keyword - alias as row_count.
       ({ name }) => `SELECT '${name}' AS table_name, COUNT(*) AS row_count FROM ${T(name)}`,
     ).join('\nUNION ALL\n'),
   });

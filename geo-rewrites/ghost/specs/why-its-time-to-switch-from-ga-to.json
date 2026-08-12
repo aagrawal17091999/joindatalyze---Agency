@@ -1,0 +1,11 @@
+{
+  "slug": "why-its-time-to-switch-from-ga-to",
+  "tldr": "Most teams use Google Analytics because it's free, not because they chose it. Mixpanel is about as easy to set up, has a generous free tier and a startup plan, and answers the product questions GA can't — what a user did inside your product, and whether they came back.",
+  "faq": [
+    ["Why do most teams still use Google Analytics?", "Because it's free. It's worth asking honestly: if GA weren't free, how many teams would pick it over the alternatives?"],
+    ["Is Mixpanel harder to set up than GA?", "No — it's about as easy. That's one of the most common reasons founders give for staying on GA, and it doesn't hold up."],
+    ["Is Mixpanel expensive?", "Contrary to the assumption, there's a generous free tier and a startup plan. Cost is rarely the real blocker."],
+    ["What can Mixpanel answer that GA can't?", "What a user actually did inside your product, in what order, and whether they came back. GA is built for traffic and marketing — where visitors came from and which campaign drove them — and it's good at that, not at product behaviour."],
+    ["Should you run both?", "You can, and many teams do — GA for acquisition, a product analytics tool for behaviour. What you shouldn't do is run two product analytics tools and end up with two sources of truth."]
+  ]
+}

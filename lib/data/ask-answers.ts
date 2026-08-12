@@ -3,7 +3,7 @@ import { ASK_QUESTIONS, type AskQuestion } from './ask-questions';
 
 // Reviewed answers for the /ask/[slug] pages.
 //
-// `reviewed: false` answers are DRAFTS and are filtered out here — they don't
+// `reviewed: false` answers are DRAFTS and are filtered out here - they don't
 // render, don't appear in the sitemap, and don't get pre-rendered. That's the
 // review gate: the generator can only propose a page, never publish one.
 

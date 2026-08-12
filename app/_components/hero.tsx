@@ -22,10 +22,14 @@ export default function Hero() {
 
           <p className="hero__accent">Fix your data. Find your growth.</p>
 
+          {/* Answer-first: this paragraph has to stand alone as a quotable
+              definition of what Datalyze is, since it's the first prose an
+              answer engine reads on the site. */}
           <p className="hero__subhead">
-            The analytics partner for 150+ companies. We rebuild your data
-            foundation, connect every tool, and show you where growth is
-            leaking.
+            Datalyze is an analytics & growth partner for startups. We audit
+            your data layer, fix the tracking that&apos;s broken, connect your
+            product, marketing, revenue & warehouse tools into one source of
+            truth, and find the growth that was buried.
           </p>
 
           <div className="hero__buttons">
@@ -93,11 +97,6 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-
-            <figcaption className="ba__caption">
-              Before: data scattered across 6+ tools. After: one source of
-              truth.
-            </figcaption>
           </figure>
         </div>
       </div>

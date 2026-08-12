@@ -3,7 +3,7 @@ import { uploadArtifact, type KbArtifact } from './artifact';
 
 // Build the serving artifact from what's actually in BigQuery and upload it.
 //
-// Runs once per sync, out of the request path — so the ~47s BigQuery read that
+// Runs once per sync, out of the request path - so the ~47s BigQuery read that
 // makes it unusable for serving is completely fine here.
 
 const PROJECT_ID = process.env.BIGQUERY_PROJECT_ID;
@@ -37,7 +37,7 @@ export async function publishArtifact(): Promise<number> {
   });
 
   if (!chunkRows.length) {
-    throw new Error('Refusing to publish an empty artifact — no embedded chunks found.');
+    throw new Error('Refusing to publish an empty artifact - no embedded chunks found.');
   }
 
   const artifact: KbArtifact = {

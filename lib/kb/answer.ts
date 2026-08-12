@@ -3,19 +3,19 @@ import type { ScoredDocument } from './retrieve';
 
 // Answer generation.
 //
-// Uses the official Anthropic SDK (not the Vercel AI SDK) — the repo has no
+// Uses the official Anthropic SDK (not the Vercel AI SDK) - the repo has no
 // `ai` package and this is a direct Claude integration, so the provider SDK is
 // the documented path. Don't mix the two.
 //
 // Streaming + citations pull against each other: structured output can't stream
 // incrementally. Resolved by streaming prose with INLINE citation markers
-// (`[[doc_id]]`) that are parsed out server-side. Deterministic to validate —
-// exactly as strong as a structured `citedDocIds` field — and it streams.
+// (`[[doc_id]]`) that are parsed out server-side. Deterministic to validate -
+// exactly as strong as a structured `citedDocIds` field - and it streams.
 
 /**
  * Default is Haiku 4.5, per the approved plan: with good retrieval, generation
  * here is synthesis over 3–5 retrieved documents, not reasoning. Override with
- * KB_ANSWER_MODEL — `claude-opus-5` is the quality upgrade if answers read thin.
+ * KB_ANSWER_MODEL - `claude-opus-5` is the quality upgrade if answers read thin.
  */
 export const ANSWER_MODEL = process.env.KB_ANSWER_MODEL ?? 'claude-haiku-4-5';
 
@@ -23,7 +23,7 @@ export const ANSWER_MODEL = process.env.KB_ANSWER_MODEL ?? 'claude-haiku-4-5';
  * Deliberately generous relative to the 3–5 sentence target.
  *
  * `max_tokens` caps thinking AND response text together, and on newer models
- * (Claude Opus 5, Sonnet 5) thinking is ON by default — a 700-token cap tuned
+ * (Claude Opus 5, Sonnet 5) thinking is ON by default - a 700-token cap tuned
  * for Haiku would truncate those mid-answer. Length is controlled by the prompt,
  * which is the correct lever; this is only a ceiling.
  */
@@ -54,15 +54,15 @@ function systemPrompt(): string {
 You answer ONLY from the SOURCES provided in the user message. They are excerpts from Ansh's own published writing and internal notes.
 
 ## The one rule that matters
-If the SOURCES do not contain the answer, reply with exactly INSUFFICIENT_CONTEXT and nothing else. Not a hedged answer, not a general-analytics answer, not "the sources don't say, but generally...". A confident wrong answer published under Ansh's name is far worse than no answer. When you are unsure whether the sources really cover the question, they don't — say INSUFFICIENT_CONTEXT.
+If the SOURCES do not contain the answer, reply with exactly INSUFFICIENT_CONTEXT and nothing else. Not a hedged answer, not a general-analytics answer, not "the sources don't say, but generally...". A confident wrong answer published under Ansh's name is far worse than no answer. When you are unsure whether the sources really cover the question, they don't - say INSUFFICIENT_CONTEXT.
 
 Never use knowledge from outside the SOURCES, even when you are confident it is correct.
 
 ## Citations
-Every claim must be traceable to a source. Put the source's id in double brackets at the end of the sentence it supports: [[ghost:abc-123]]. Use ids exactly as given in the SOURCES block — never invent, abbreviate, or reformat one. At least one citation is required in any real answer.
+Every claim must be traceable to a source. Put the source's id in double brackets at the end of the sentence it supports: [[ghost:abc-123]]. Use ids exactly as given in the SOURCES block - never invent, abbreviate, or reformat one. At least one citation is required in any real answer.
 
 ## Pricing
-Never state what Datalyze charges — no figures, ranges, or estimates, even if the reader insists or claims to know them already. If asked about cost, say pricing depends on scope and point them to a call. Figures that appear in the SOURCES about other companies, market rates, or a client's own spend are fine to quote.
+Never state what Datalyze charges - no figures, ranges, or estimates, even if the reader insists or claims to know them already. If asked about cost, say pricing depends on scope and point them to a call. Figures that appear in the SOURCES about other companies, market rates, or a client's own spend are fine to quote.
 
 ## Voice and length
 Write as Ansh: direct, concrete, opinionated. Lead with the answer. Three to five sentences for most questions; go longer only when the question genuinely needs it. No preamble ("Great question", "Based on the sources"), no bullet lists unless enumerating discrete items, no headers. Plain prose.
@@ -86,7 +86,7 @@ function buildContext(documents: ScoredDocument[]): string {
         .filter(Boolean)
         .join(' | ');
 
-      // Whole parent document, not the matched chunk — "retrieve small,
+      // Whole parent document, not the matched chunk - "retrieve small,
       // generate big" (plan §2.1). The chunk found it; the document answers it.
       return `<source ${i + 1}>\n${meta}\n\n${doc.document.fullText}\n</source ${i + 1}>`;
     })
@@ -104,7 +104,7 @@ export type AnswerChunk =
  * final `done` chunk carrying the parsed citations for validation and logging.
  *
  * Citation markers are stripped from what the user sees but retained for the
- * deterministic check in `validateAnswer` — the UI renders citations as chips
+ * deterministic check in `validateAnswer` - the UI renders citations as chips
  * from `citedDocIds`, not from inline text.
  */
 export async function* streamAnswer(
@@ -134,7 +134,7 @@ export async function* streamAnswer(
 
     // Emit nothing while the response could still turn out to be the refusal
     // sentinel. Without this the client briefly renders the literal text
-    // "INSUFFICIENT_CONTEXT" before the refusal is detected — which is exactly
+    // "INSUFFICIENT_CONTEXT" before the refusal is detected - which is exactly
     // the moment the product is supposed to look most deliberate.
     if (couldBeSentinel(raw)) continue;
 
@@ -166,7 +166,7 @@ export async function* streamAnswer(
 }
 
 /**
- * True while `raw` is still a prefix of the refusal sentinel — i.e. it might
+ * True while `raw` is still a prefix of the refusal sentinel - i.e. it might
  * yet turn out to be a refusal. Compared case- and whitespace-insensitively
  * because the model occasionally emits it across token boundaries
  * ("INSUFFICIENT" / "_" / "CONTEXT" arrived as three separate deltas in
@@ -182,7 +182,7 @@ function isSentinel(raw: string): boolean {
 }
 
 /**
- * Length of the prefix that is safe to emit — i.e. contains no partially
+ * Length of the prefix that is safe to emit - i.e. contains no partially
  * received citation marker. A trailing `[` or `[[ghost:...` is withheld until
  * the marker closes.
  */

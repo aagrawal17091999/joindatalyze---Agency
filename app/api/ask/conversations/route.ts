@@ -4,7 +4,7 @@ import { deleteThread, saveThread, type StoredThread } from '@/lib/kb/threads';
 // Thread sync. The browser owns the transcript; this mirrors it against the
 // email so it survives a cleared cache or a second device.
 //
-// POST is called once per completed answer, not per token — see lib/kb/threads.ts.
+// POST is called once per completed answer, not per token - see lib/kb/threads.ts.
 
 const MAX_TITLE = 200;
 

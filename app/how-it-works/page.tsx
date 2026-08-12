@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How Datalyze Works',
     description:
-      'The four phases of a Datalyze engagement — foundation, unification, visibility, and compounding growth.',
+      'The four phases of a Datalyze engagement - foundation, unification, visibility, and compounding growth.',
     url: '/how-it-works',
     type: 'website',
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const PROCESS_FAQS = [
   {
     q: 'How does the Datalyze process work?',
-    a: 'It runs in four phases. First, foundation: we audit your entire data layer — product events, warehouse tables, pipelines, definitions — and fix what\'s broken. Second, unification: we connect and model product analytics, warehouses, pipelines, billing, and CRM into a single source of truth. Third, visibility: we build the reporting layer your team will actually use. Fourth, compounding: we find why users churn or fail to convert, then design and run the experiments that fix it.',
+    a: 'It runs in four phases. First, foundation: we audit your entire data layer - product events, warehouse tables, pipelines, definitions - and fix what\'s broken. Second, unification: we connect and model product analytics, warehouses, pipelines, billing, and CRM into a single source of truth. Third, visibility: we build the reporting layer your team will actually use. Fourth, compounding: we find why users churn or fail to convert, then design and run the experiments that fix it.',
   },
   {
     q: 'How long does onboarding take?',
@@ -42,8 +42,12 @@ const PROCESS_FAQS = [
     a: "Most companies do. The question is whether anyone trusts it. We audit what you have, fix what's broken, fill what's missing, and build on what's working. We don't rip and replace, we make your current investment reliable.",
   },
   {
+    q: 'Do we own what you build?',
+    a: 'Yes. Everything - tracking plans, models, dashboards, documentation - is built in your tools and owned by your team. When you eventually hire in-house, they inherit a clean, documented foundation.',
+  },
+  {
     q: 'Which tools do you work with?',
-    a: "Whatever you're already running. Mixpanel, Amplitude, PostHog, BigQuery, Snowflake, Databricks, Postgres, and the pipelines and modeling layers around them — dbt, Fivetran, Segment, Rudderstack. If your data lives somewhere unusual, mention it on the first call and we'll tell you straight whether we can handle it.",
+    a: "Whatever you're already running. Mixpanel, Amplitude, PostHog, BigQuery, Snowflake, Databricks, Postgres, and the pipelines and modeling layers around them - dbt, Fivetran, Segment, Rudderstack. If your data lives somewhere unusual, mention it on the first call and we'll tell you straight whether we can handle it.",
   },
 ];
 
@@ -78,27 +82,11 @@ export default function HowItWorksPage() {
         ]}
       />
 
-      <div className="page-shell">
-        <div className="container">
-          {/* Answer-first: the four phases are named in the opening sentences
-              so an answer engine can lift the process without reading on. */}
-          <header className="page-header">
-            <div className="eyebrow">How it works</div>
-            <h1 className="page-header__title">How a Datalyze engagement works</h1>
-            <p className="page-header__intro">
-              The Datalyze process has four phases: foundation, unification,
-              visibility, and compounding. We start by making your existing data
-              trustworthy, connect your tools into one source of truth, build the
-              reporting your team will actually use, then run the experiments
-              that turn those insights into revenue. Onboarding takes less than a
-              day, and most teams see their first actionable insights within 2 to
-              3 weeks.
-            </p>
-          </header>
-        </div>
+      {/* The method section is the page's lead content, so its title carries
+          the h1 - a separate page header above it said the same thing twice. */}
+      <div className="page-lead">
+        <Method headingAs="h1" />
       </div>
-
-      <Method />
 
       <InlineCTA
         href="/contact?source=how-it-works"

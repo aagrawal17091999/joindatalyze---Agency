@@ -62,7 +62,7 @@ export default async function ToolLandingPage({ params }: Props) {
             description: tool.description,
             path: `/tools/${toolId}`,
             // Downloadable notebooks/skills run on the user's own machine, not
-            // in the browser — claiming 'Web' for those would be false.
+            // in the browser - claiming 'Web' for those would be false.
             operatingSystem:
               tool.type === 'web' ? 'Web' : 'Windows, macOS, Linux',
           }),

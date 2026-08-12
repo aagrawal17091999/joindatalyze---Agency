@@ -13,17 +13,19 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.joindatalyze.com'),
   title: {
-    default: 'Datalyze — Analytics & Growth Partner',
+    default: 'Datalyze - Analytics & Growth Partner for Startups',
     template: '%s | Datalyze',
   },
+  // Fallback description for every page without its own, so it has to stand
+  // alone as a snippet rather than depend on surrounding context.
   description:
-    "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",
+    'Datalyze rebuilds your data foundation, connects your tools into one source of truth, and finds the growth hiding in it. 150+ startups.',
   openGraph: {
     type: 'website',
     siteName: 'Datalyze',
-    title: 'Analytics & Growth Partner',
+    title: 'Analytics & Growth Partner for Startups',
     description:
-      "We've seen this across 150+ startups. Datalyze rebuilds your data foundation, then shows you the growth your data has been hiding.",
+      'Datalyze rebuilds your data foundation, connects your tools into one source of truth, and finds the growth hiding in it. 150+ startups.',
   },
   twitter: {
     card: 'summary_large_image',

@@ -19,13 +19,10 @@ const RESOURCES_LINKS = [
   { href: '/faqs', label: 'FAQs' },
   { href: '/ai-analytics-agent', label: 'AI Analytics Agent' },
   // Sitewide inlink so the /ask answer pages aren't reachable only via the
-  // sitemap — they were previously orphaned from the main navigation.
+  // sitemap - they were previously orphaned from the main navigation.
   { href: '/ask', label: "Ask Ansh's AI" },
-  {
-    href: '/blog/',
-    label: 'Blog',
-    external: true,
-  },
+  // /blog is the Ghost proxy on this same domain, so it's an internal link.
+  { href: '/blog/', label: 'Blog' },
 ];
 
 // Individual tools get a sitewide footer column so they aren't orphaned with a
@@ -76,22 +73,11 @@ export default function Footer() {
           <div>
             <div className="footer__col-title">Resources</div>
             <div className="footer__links">
-              {RESOURCES_LINKS.map((link) =>
-                link.external ? (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link key={link.href} href={link.href}>
-                    {link.label}
-                  </Link>
-                ),
-              )}
+              {RESOURCES_LINKS.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 

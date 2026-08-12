@@ -1,0 +1,15 @@
+{
+  "slug": "transforming-analytics-from-a-support",
+  "tldr": "Analytics as a support function answers other people's questions and waits for the next request. As a growth function it owns questions of its own, brings hypotheses to the product team, and is measured on outcomes rather than tickets closed. The shift is mostly about who sets the agenda.",
+  "headings": [
+    ["Analytics as a support function", "What does analytics look like as a support function?"],
+    ["Analytics as a growth function", "What does analytics look like as a growth function?"],
+    ["Why Transform Analytics into a Growth Driver?", "Why make the shift?"],
+    ["Finally, how do you make the shift?", "How do you make the shift?"]
+  ],
+  "faq": [
+    ["What's the difference between analytics as support and analytics as growth?", "A support function answers the questions it's handed and waits for the next one. A growth function sets its own agenda, brings hypotheses to the product team, and is judged on whether the business moved."],
+    ["Why does it matter which one you have?", "Because a support function's ceiling is the quality of the questions other people think to ask. Most of the valuable questions never get asked, so they never get answered."],
+    ["Who has to change for the shift to happen?", "Not only the analyst. It needs the product and growth teams to treat analytics as a source of hypotheses rather than a reporting queue — which is a leadership decision more than a tooling one."]
+  ]
+}

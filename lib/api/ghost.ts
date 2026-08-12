@@ -45,7 +45,7 @@ export async function addGhostMember(email: string): Promise<void> {
     const err = body.errors?.[0] || {};
     const msg = err.message || '';
     const ctx = err.context || '';
-    // 422 "Member already exists" is expected — don't treat as failure.
+    // 422 "Member already exists" is expected - don't treat as failure.
     if (
       res.status === 422 &&
       (msg + ctx).toLowerCase().includes('already exists')

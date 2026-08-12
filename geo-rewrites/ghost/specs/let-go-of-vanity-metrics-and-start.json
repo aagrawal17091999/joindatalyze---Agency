@@ -1,0 +1,14 @@
+{
+  "slug": "let-go-of-vanity-metrics-and-start",
+  "tldr": "9 out of 10 founders I talk to are tracking vanity metrics, often more than 100 of them for a simple product. The result is data overload and no value. A vanity metric sounds impressive and gives you no direction; an actionable metric is usually plainer and tells you where to steer.",
+  "headings": [
+    ["Understanding the Difference: Vanity Metrics vs. Actionable Metrics", "What's the difference between vanity and actionable metrics?"],
+    ["Combining metrics for actionable insights", "How do you combine metrics into something actionable?"]
+  ],
+  "faq": [
+    ["What is a vanity metric?", "A number that's impressive and sounds important but rarely points anywhere. Worth noting: what counts as vanity depends on context — the same metric can be actionable for one product and decorative for another."],
+    ["What makes a metric actionable?", "It gives clear guidance on where to steer the product. Actionable metrics are usually more straightforward and less flattering than the vanity ones sitting next to them."],
+    ["How many metrics are too many?", "If you're tracking over 100 for a simple product, you have data overload rather than insight. That's the pattern I see in most founder conversations."],
+    ["Can two vanity metrics be useful together?", "Sometimes. Combining metrics — a count against a denominator, or a number against time — is often what turns a decorative number into one you can act on."]
+  ]
+}

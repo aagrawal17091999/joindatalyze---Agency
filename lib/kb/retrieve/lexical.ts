@@ -1,8 +1,8 @@
 // BM25 lexical search.
 //
 // This is the half of hybrid retrieval that dense embeddings are bad at, and
-// for this domain it is not optional. Ansh's corpus is dense with exact terms —
-// HogQL, UTM, GA4, $identify, mixpanel_distinct_id, Lexicon, MMM — and an
+// for this domain it is not optional. Ansh's corpus is dense with exact terms -
+// HogQL, UTM, GA4, $identify, mixpanel_distinct_id, Lexicon, MMM - and an
 // embedding model maps "HogQL" into roughly the same region as "SQL" and
 // "query language". Semantically reasonable, practically useless when someone
 // asked about HogQL and gets a chunk about BigQuery SQL.
@@ -31,7 +31,7 @@ const STOPWORDS = new Set([
  * Tokenise while preserving the exact terms this domain runs on.
  *
  * Rules that matter:
- *  - keep `$identify` and `$mp_web_page_view` — the leading `$` is meaningful
+ *  - keep `$identify` and `$mp_web_page_view` - the leading `$` is meaningful
  *    in Mixpanel and stripping it merges distinct events
  *  - keep `ga4`, `utm_source`, `mixpanel_distinct_id` intact (digits and
  *    underscores are part of the token, not separators)

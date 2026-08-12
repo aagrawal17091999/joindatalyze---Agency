@@ -1,4 +1,4 @@
-/* Ask Ansh's AI — chat surface.
+/* Ask Ansh's AI - chat surface.
    Every value here is a token from globals.css. No new colours, no new scale. */
 
 /* Height of the fixed site nav (space-5 padding x2 + 56px logo mark). The chat
@@ -236,7 +236,7 @@
 }
 
 /* The visitor's turn reads as a message; the answer reads as a document. That
-   asymmetry is the point — one is a question, the other is publishable. */
+   asymmetry is the point - one is a question, the other is publishable. */
 .bubble {
   max-width: 80%;
   padding: 12px 16px;
@@ -333,7 +333,7 @@
   text-underline-offset: 3px;
 }
 
-/* Refusals are styled as ANSWERS, not errors — no --negative, no warning
+/* Refusals are styled as ANSWERS, not errors - no --negative, no warning
    iconography. A refusal styled as a failure teaches people the tool is broken;
    styled as an answer it teaches them the tool is careful, which is the whole
    claim. The only visual difference from an answer is the absence of chips. */

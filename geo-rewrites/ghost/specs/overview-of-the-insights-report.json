@@ -1,0 +1,16 @@
+{
+  "slug": "overview-of-the-insights-report",
+  "tldr": "The Insights report is where most Mixpanel analysis starts. Pick what to measure, filter the events, break it down by a property, set the timeframe, and choose the chart type. Those five choices cover most of the questions you'll ask day to day.",
+  "headings": [
+    ["Choosing what to measure", "How do you choose what to measure?"],
+    ["Filtering events and selecting Metrics", "How do you filter events and pick metrics?"],
+    ["Breakdown", "What does breakdown do?"],
+    ["Changing timeframes", "How do you change the timeframe?"],
+    ["Choosing Chart Type", "Which chart type should you use?"]
+  ],
+  "faq": [
+    ["What is the Insights report used for?", "It's the general-purpose report in Mixpanel — counting events, segmenting them by property, and plotting them over time. Most day-to-day questions start here."],
+    ["What does a breakdown actually do?", "Splits your metric by a property, so one line becomes one line per value. It's the difference between knowing how many people signed up and knowing which source they came from."],
+    ["Which chart type should you use?", "Line for anything over time, bar for comparing values at a point, and a number when the trend doesn't matter. Choosing badly is the most common way a correct report gets misread."]
+  ]
+}

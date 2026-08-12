@@ -1,0 +1,20 @@
+{
+  "slug": "you-have-data-flowing-everywhere-and-trust-none-of-it",
+  "headings": [
+    ["Fix the data first", "Why do you have to fix your existing data first?"],
+    ["Getting the data in is the easy half", "Why is getting the data in only the easy half?"],
+    ["The part that makes it usable: model it to the right grain", "What is grain, and why does it decide whether the data is usable?"],
+    ["Now join it so it actually means something", "How do you join marketing and product data?"],
+    ["What you can finally see", "What can you finally see?"],
+    ["The one decision to get right", "What's the one decision to get right?"]
+  ],
+  "faq": [
+    ["Why don't I trust my own data even though I have all the tools?", "Usually because you're tracking too much. If you're firing an event on every click and every button, that's the root problem, and it never scales. Fix what you already have before you connect a single new tool."],
+    ["What is grain, and why does it matter?", "The level of detail one row represents. Every source arrives at its own natural grain — ad spend per campaign per day, an event per user, an invoice per account — and you have to decide what each becomes. Getting the data in is where most people stop, then wonder why the unified setup still can't answer their questions."],
+    ["What's the join key between marketing and product data?", "The campaign. Your product analytics tool captures UTM parameters the first time a user lands and stores them as properties on that user. Your ad platform data carries the same campaign name or ID. Model spend per campaign in the warehouse, key it on that shared value, and the two halves connect."],
+    ["Does the tool I'm on change how hard this is?", "Considerably. How hard the unification is depends heavily on which product analytics tool you're already running — some bring the warehouse and connectors with them, others expect you to stand that up yourself."],
+    ["What does a silently empty join cost?", "Months of decisions made on nothing. A join that returns no rows doesn't throw an error — the dashboard just quietly shows less than it should, and nobody notices until someone checks the arithmetic by hand."]
+  ],
+  "meta_title": "Data Flowing Everywhere and You Trust None of It",
+  "meta_description": "Fix the data you already have, unify your tools, model it to the right grain, then join it. The order matters more than the tooling."
+}

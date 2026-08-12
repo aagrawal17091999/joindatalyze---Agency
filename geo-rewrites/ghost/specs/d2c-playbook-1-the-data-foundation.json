@@ -1,0 +1,19 @@
+{
+  "slug": "d2c-playbook-1-the-data-foundation",
+  "headings": [
+    ["Your site and app are the only data you actually own", "Which of your channels give you data you actually own?"],
+    ["Capture: a small spine of clean events beats tracking everything", "How many events should a D2C brand track?"],
+    ["Identity: the silent failure that turns every retention number into fiction", "Why does identity stitching fail, and what breaks when it does?"],
+    ["Stop tracking Client-side", "Why does your Shopify revenue not match Meta's?"],
+    ["The payoff: real CAC, true drop-off, real retention", "What does a clean owned layer actually buy you?"]
+  ],
+  "faq": [
+    ["What is the owned data layer?", "Your site and app — the only channels where you control the tracking and see the full journey. Quick commerce, marketplaces and ad platforms all hand you a filtered view of their own performance. Fix the owned layer first, because everything you build on top inherits its problems."],
+    ["Why is quick commerce a black box for D2C brands?", "You list on Blinkit, Zepto or Swiggy Instamart, you move volume, and what comes back is aggregate. You don't get the customer, you don't get the journey, and you can't tie a sale to the ad that drove it. Marketplaces like Amazon and Flipkart are a half-step better, not a solved problem."],
+    ["How many events should we track?", "A small spine, not everything. Eight clean events that describe the journey from \"looked at something\" to \"gave you money\" beat 80 nobody can interpret. Use object-action naming — Product Viewed, Order Completed — and write it down where your engineers will actually look."],
+    ["Which events should go through a proxy, and which server-side?", "Route high-volume browsing events — page views, Product Viewed, list views, search — through the proxy. Route the money events server-side: Add to Cart, Checkout Started, and above all Order Completed. It isn't all-or-nothing; the two layers do different jobs."],
+    ["Do we need consent before sending hashed email and phone to Meta and Google?", "Yes. The whole server-side approach depends on hashing customer identifiers and passing them onward, and you can't do that without a lawful basis. Get consent handled before you build the pipe, not after."],
+    ["Where should we start if our spend is still modest?", "Often with just the proxy, for cleaner first-party collection, and add server-side for the money events as spend grows. Start with the three checks at the end of the post — they'll tell you exactly where your foundation is cracked."]
+  ],
+  "meta_title": "D2C Playbook 1: Fix Your Data Foundation First"
+}

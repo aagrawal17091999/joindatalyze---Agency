@@ -3,18 +3,51 @@ import Link from 'next/link';
 import { toolById } from '@/lib/data/tools';
 import ToolDownloadForm from '@/app/_components/tool-download-form';
 import CtaButton from '@/app/_components/cta-button';
+import Faq from '@/app/_components/faq';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema, softwareApplicationSchema } from '@/lib/seo';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  softwareApplicationSchema,
+} from '@/lib/seo';
+
+// This was the only tool page without an FAQ block or FAQPage schema.
+const STRATEGY_FAQS = [
+  {
+    q: 'What is an analytics strategy?',
+    a: 'A short document that names the specific decision you are trying to make, then picks the few metrics that actually inform it. You write it before you build a dashboard or set up tracking.',
+  },
+  {
+    q: 'How is it different from a tracking plan?',
+    a: 'The strategy decides what to measure and why; the tracking plan specs which events fire and with what properties. Strategy first, then plan.',
+  },
+  {
+    q: 'What is a counter-metric?',
+    a: 'The number you watch to catch your primary metric being gamed. Push signups and you can wreck signup quality - the counter-metric is what catches it. Every primary metric in the strategy is paired with one.',
+  },
+  {
+    q: 'What do I need to run it?',
+    a: "A Claude Pro, Max or Team account - skills aren't available on the free plan. Nothing else.",
+  },
+  {
+    q: 'How long does it take?',
+    a: 'A run typically takes 10 to 20 minutes, depending on how sharp your decision is going in.',
+  },
+  {
+    q: 'What if I already have metrics defined?',
+    a: "Run it anyway and compare. The common failure it catches isn't a missing metric - it's a metric with no counter-metric, or a set of metrics that don't map to any decision you're about to make.",
+  },
+];
 
 const tool = toolById['analytics-strategy-creator'];
 
 export const metadata: Metadata = {
-  title: { absolute: 'Free Analytics Strategy Creator — Claude Skill' },
+  title: { absolute: 'Free Analytics Strategy Creator - Claude Skill' },
   description:
     'Turn a fuzzy product question into a decision-driven analytics strategy. A free Claude skill that outputs metrics, counter-metrics, and segmentation.',
   alternates: { canonical: '/tools/analytics-strategy-creator' },
   openGraph: {
-    title: 'Free Analytics Strategy Creator — Claude Skill',
+    title: 'Free Analytics Strategy Creator - Claude Skill',
     description:
       'Turn a fuzzy product question into a tight, decision-driven analytics strategy. Free Claude skill.',
     url: '/tools/analytics-strategy-creator',
@@ -140,6 +173,7 @@ export default function AnalyticsStrategyCreatorPage() {
             path: '/tools/analytics-strategy-creator',
             operatingSystem: 'Windows, macOS, Linux',
           }),
+          faqPageSchema(STRATEGY_FAQS),
         ]}
       />
       <div className="container">
@@ -235,7 +269,7 @@ export default function AnalyticsStrategyCreatorPage() {
             decision you&apos;re trying to make, then picks the few metrics that
             actually inform it. It&apos;s the thing you write{' '}
             <strong>before</strong> you build a dashboard, set up tracking, or
-            argue about KPIs — so you don&apos;t spend the next quarter staring
+            argue about KPIs - so you don&apos;t spend the next quarter staring
             at numbers that don&apos;t change anyone&apos;s mind.
           </p>
           <p style={paragraphStyle}>
@@ -291,7 +325,7 @@ export default function AnalyticsStrategyCreatorPage() {
               <code style={monoInlineStyle}>DAU</code>,{' '}
               <code style={monoInlineStyle}>MAU</code>,{' '}
               <code style={monoInlineStyle}>signups</code>, and{' '}
-              <code style={monoInlineStyle}>page_views</code> — none of which
+              <code style={monoInlineStyle}>page_views</code> - none of which
               change what they ship next
             </li>
             <li style={bulletItemStyle}>
@@ -313,7 +347,7 @@ export default function AnalyticsStrategyCreatorPage() {
           <p style={paragraphStyle}>
             By the time you realize the numbers aren&apos;t actually helping you
             decide anything, you&apos;ve already shipped a dashboard the team
-            doesn&apos;t trust — and you&apos;re back to gut feel.
+            doesn&apos;t trust - and you&apos;re back to gut feel.
           </p>
         </section>
 
@@ -326,7 +360,7 @@ export default function AnalyticsStrategyCreatorPage() {
           <ol style={numberedListStyle}>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>01</span>
-              Pins down the specific decision before recommending any metric —
+              Pins down the specific decision before recommending any metric -
               and pushes back firmly if you answer with a vanity count or a
               vague category
             </li>
@@ -343,7 +377,7 @@ export default function AnalyticsStrategyCreatorPage() {
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>04</span>
               Picks 3–5 primary metrics, each paired with a counter-metric and
-              segmentation dimensions — and names the vanity metrics
+              segmentation dimensions - and names the vanity metrics
               you&apos;re explicitly skipping
             </li>
             <li style={numberedItemStyle}>
@@ -479,7 +513,7 @@ export default function AnalyticsStrategyCreatorPage() {
             </table>
           </div>
           <p style={paragraphStyle}>
-            The doc is intentionally short — roughly 1–2 printed pages. If you
+            The doc is intentionally short - roughly 1–2 printed pages. If you
             want full instrumentation specs to hand to engineering, the output
             chains naturally into the{' '}
             <Link
@@ -528,7 +562,7 @@ export default function AnalyticsStrategyCreatorPage() {
           </p>
           <blockquote style={blockquoteStyle}>
             &ldquo;I want an analytics strategy for{' '}
-            <code style={monoInlineStyle}>https://app.yourproduct.com</code> —
+            <code style={monoInlineStyle}>https://app.yourproduct.com</code> -
             I&apos;m trying to decide [the specific decision].&rdquo;
           </blockquote>
           <p style={paragraphStyle}>
@@ -537,7 +571,7 @@ export default function AnalyticsStrategyCreatorPage() {
           <ol style={numberedListStyle}>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>01</span>
-              <strong>Decision first</strong> — Claude pins down the specific
+              <strong>Decision first</strong> - Claude pins down the specific
               decision you&apos;re making. If you answer with a vanity count
               (&ldquo;I want to track DAU&rdquo;) or a vague category
               (&ldquo;engagement&rdquo;), it&apos;ll push back until you have a
@@ -546,14 +580,14 @@ export default function AnalyticsStrategyCreatorPage() {
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>02</span>
-              <strong>Product context</strong> — share your URL and a few
+              <strong>Product context</strong> - share your URL and a few
               sentences on what the product does, who uses it, and the core
               action. Claude fetches your site to fill in the rest, then
               recaps so you can correct anything off.
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>03</span>
-              <strong>Business context</strong> — stage (pre-PMF / early growth
+              <strong>Business context</strong> - stage (pre-PMF / early growth
               / scale), existing instrumentation (
               <code style={monoInlineStyle}>nothing yet</code> /{' '}
               <code style={monoInlineStyle}>GA4</code> /{' '}
@@ -562,7 +596,7 @@ export default function AnalyticsStrategyCreatorPage() {
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>04</span>
-              <strong>Scope recap</strong> — Claude confirms the decision,
+              <strong>Scope recap</strong> - Claude confirms the decision,
               product, stage, and stack before writing. Then it produces the
               markdown strategy doc.
             </li>
@@ -570,9 +604,69 @@ export default function AnalyticsStrategyCreatorPage() {
           <p style={paragraphStyle}>
             The whole run typically takes <strong>10–20 minutes</strong>,
             depending on how sharp your decision is going in. The markdown doc
-            is delivered at the end — short, opinionated, and ready to share.
+            is delivered at the end - short, opinionated, and ready to share.
           </p>
         </section>
+
+        {/* Strategy and tracking plan get conflated constantly. The table
+            captures that query and routes people to the right tool. */}
+        <section style={{ marginTop: 'var(--space-10)' }}>
+          <h2 style={sectionTitleStyle}>
+            Analytics strategy vs tracking plan: what&apos;s the difference?
+          </h2>
+          <div className="cs-overview__scroll">
+            <table className="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col" />
+                  <th scope="col">Analytics strategy</th>
+                  <th scope="col">Event tracking plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Answers</th>
+                  <td>What should we measure, and why?</td>
+                  <td>What events do we fire, and with what properties?</td>
+                </tr>
+                <tr>
+                  <th scope="row">Written</th>
+                  <td>Before instrumentation</td>
+                  <td>After the strategy, before implementation</td>
+                </tr>
+                <tr>
+                  <th scope="row">Output</th>
+                  <td>Markdown doc: decision, 3–5 metrics, counter-metrics, segmentation</td>
+                  <td>CSV: event names, properties, types, triggers</td>
+                </tr>
+                <tr>
+                  <th scope="row">Audience</th>
+                  <td>Founder, PM, whoever owns the decision</td>
+                  <td>Engineers implementing tracking</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tool</th>
+                  <td>This one</td>
+                  <td>
+                    <Link href="/tools/event-tracking-plan-generator">
+                      Event Tracking Plan Generator
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style={paragraphStyle}>
+            Do them in that order. A tracking plan without a strategy is
+            instrumentation that maps to no decision.
+          </p>
+        </section>
+
+        <Faq
+          items={STRATEGY_FAQS}
+          title="Questions"
+          eyebrow="Good to know"
+        />
 
         <div
           style={{

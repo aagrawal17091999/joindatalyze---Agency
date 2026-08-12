@@ -5,6 +5,13 @@ type Props = {
   title?: string;
   eyebrow?: string;
   headingLevel?: 'h1' | 'h2';
+  /** Exclusive-accordion group name. Pages that render more than one <Faq>
+   *  must pass a distinct value per section, or opening an item in one section
+   *  silently closes the open item in another. */
+  group?: string;
+  /** Open the first item. Off when a page stacks several sections, so they
+   *  don't fight over the shared accordion group. */
+  defaultOpen?: boolean;
 };
 
 export default function Faq({
@@ -12,6 +19,8 @@ export default function Faq({
   title = 'Frequently asked',
   eyebrow = 'Questions',
   headingLevel = 'h2',
+  group = 'home-faq',
+  defaultOpen = true,
 }: Props) {
   const Heading = headingLevel;
   return (
@@ -28,8 +37,8 @@ export default function Faq({
               <details
                 key={item.q}
                 className="faq-item"
-                name="home-faq"
-                open={i === 0}
+                name={group}
+                open={defaultOpen && i === 0}
               >
                 <summary className="faq-item__question">
                   <span>{item.q}</span>

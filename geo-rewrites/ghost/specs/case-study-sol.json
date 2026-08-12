@@ -1,0 +1,5 @@
+{
+  "slug": "case-study-sol",
+  "tldr": "Sol is a complex product that had ended up with tracking to match. We defined core event categories instead of granular events and moved the complexity into properties. The result was a simple, accurate setup that scales.",
+  "tldr_label": "In short"
+}

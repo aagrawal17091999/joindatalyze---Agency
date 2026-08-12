@@ -6,7 +6,7 @@ import { isPricingQuestion } from './gate';
 //
 // This is the actual long-term payoff of the whole feature. A question two
 // strangers independently asked, that Ansh has not written about, is a
-// validated content brief — better signal than any keyword tool, because
+// validated content brief - better signal than any keyword tool, because
 // someone typed it while genuinely wanting the answer.
 //
 // Clustered before sending. The same question arrives in fifteen phrasings and
@@ -17,7 +17,7 @@ const DATASET_ID = process.env.BIGQUERY_DATASET_ID || 'datalyze';
 
 /** Above this cosine, two refused questions are treated as the same ask. */
 const CLUSTER_THRESHOLD = Number(process.env.KB_DIGEST_CLUSTER_THRESHOLD ?? 0.82);
-/** Cap the embedding spend — the tail is single-occurrence noise anyway. */
+/** Cap the embedding spend - the tail is single-occurrence noise anyway. */
 const MAX_QUESTIONS = 120;
 
 let client: BigQuery | null = null;
@@ -34,7 +34,7 @@ function bq(): BigQuery {
 }
 
 export type RefusedCluster = {
-  /** The most-asked phrasing in the cluster — the one to write for. */
+  /** The most-asked phrasing in the cluster - the one to write for. */
   representative: string;
   askers: number;
   variants: string[];
@@ -87,7 +87,7 @@ export async function buildDigest(windowDays = 7): Promise<Digest> {
         count: Number(r.n),
         score: Number(r.avg_score ?? 0),
       }))
-      // Pricing questions refuse BY DESIGN — they are a product decision, not a
+      // Pricing questions refuse BY DESIGN - they are a product decision, not a
       // coverage gap. Leaving them in would put "how much does it cost" at the
       // top of the content roadmap every single week, forever, and no blog post
       // would ever resolve it.
@@ -111,7 +111,7 @@ type Candidate = { text: string; count: number; score: number };
 /**
  * Greedy single-pass clustering. Questions arrive sorted by frequency, so the
  * first member of each cluster is its most-asked phrasing and becomes the
- * representative — which is also the one worth writing for.
+ * representative - which is also the one worth writing for.
  */
 async function clusterQuestions(candidates: Candidate[]): Promise<RefusedCluster[]> {
   if (!candidates.length) return [];
@@ -153,11 +153,11 @@ export function formatDigest(digest: Digest): { subject: string; text: string } 
 
   const lines: string[] = [
     `Last ${digest.windowDays} days`,
-    `  ${digest.totalQueries} questions — ${digest.answered} answered, ${digest.refused} refused ` +
+    `  ${digest.totalQueries} questions - ${digest.answered} answered, ${digest.refused} refused ` +
       `(${(digest.refusalRate * 100).toFixed(0)}% refusal rate)`,
     digest.p95LatencyMs ? `  p95 latency ${digest.p95LatencyMs}ms` : '',
     '',
-    // A sudden DROP is the dangerous direction — it means the gate broke and
+    // A sudden DROP is the dangerous direction - it means the gate broke and
     // the thing is answering questions it shouldn't.
     'Watch the refusal rate for a sudden fall, not a rise: falling means the gate broke.',
     '',

@@ -15,6 +15,13 @@ export const homeTestimonials: HomeTestimonial[] = [
     avatar: '/testimonials/Sandeep.jpeg',
   },
   {
+    name: 'Hmayak',
+    title: 'Founder',
+    company: 'Buildern',
+    text: "Datalyze set up PostHog for us, built data models on top of our backend database, and connected it all into one view of the user journey from marketing to product to revenue. For the first time we can see which customer segments convert, which don't, and where we're losing people. We're continuing to work with them and I'd recommend them to anyone who needs help with their data.",
+    avatar: '/testimonials/Hmayak.jpeg',
+  },
+  {
     name: 'Nick',
     title: 'Product Owner',
     company: 'Sama',
@@ -83,5 +90,12 @@ export const homeTestimonials: HomeTestimonial[] = [
     company: 'TermPlus',
     text: "Ansh partnered with our fintech in a very short time-frame to set up advanced tracking and integrated data and analytics that align with every stage of our customer journey. His work has already helped us drive product growth and understand the impact of our marketing and user behaviour. Ansh is incredibly understanding, flexible, and easy to work with. He delivers smart, practical solutions and is a true professional, always taking the time to understand our unique business and provide meaningful tools, insights, and results. We're excited to continue partnering with him.",
     avatar: '/testimonials/Ryan.jpeg',
+  },
+  {
+    name: 'Dee',
+    title: 'Marketing',
+    company: 'Digitap',
+    text: 'Ansh helped us setup Mixpanel for one of our clients, and better understand where our revenue is coming from so that we could make better decisions. He also built out an end to end automated AI model to analyze data everyday, and give insights on channels doing well vs not across multiple aspects like CAC, ROAS, Spend, conversions.',
+    avatar: null,
   },
 ];

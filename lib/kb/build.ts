@@ -59,7 +59,7 @@ function newIndexVersion(): string {
  * Rebuild the knowledge base from every source.
  *
  * This is the body of both the one-off corpus rebuild (step 1) and the weekly
- * sync (step 7) — same code path, so the thing that runs every week is the
+ * sync (step 7) - same code path, so the thing that runs every week is the
  * thing that was verified up front.
  */
 export async function buildKnowledgeBase(
@@ -85,7 +85,7 @@ export async function buildKnowledgeBase(
   // note as deleted. Leaving it out means "no news from this source".
   if (!gdoc.skipped) results.push(gdoc);
 
-  // LinkedIn. Absent until APIFY_TOKEN exists — and the run says so loudly,
+  // LinkedIn. Absent until APIFY_TOKEN exists - and the run says so loudly,
   // because the Doc's copies of these posts are excluded as duplicates, so a
   // silent skip means ~355 posts are missing from the knowledge base entirely.
   if (hasApifyToken()) {
@@ -94,7 +94,7 @@ export async function buildKnowledgeBase(
     results.push(await fetchLinkedInDocuments(runMode, log));
   } else {
     warnings.push(
-      'APIFY_TOKEN not set — LinkedIn posts are NOT in this build. The Doc\'s ' +
+      'APIFY_TOKEN not set - LinkedIn posts are NOT in this build. The Doc\'s ' +
         'copies of them are excluded as duplicates, so those ~355 posts are ' +
         'currently absent from the knowledge base entirely.',
     );
@@ -186,14 +186,14 @@ export async function buildKnowledgeBase(
   );
 
   if (options.dryRun) {
-    log('dry run — nothing written');
+    log('dry run - nothing written');
     return report;
   }
 
   // --- guards ----------------------------------------------------------------
   //
   // FULL runs only. The guard exists to stop a short pull from tombstoning the
-  // corpus — and only full runs reconcile deletes, so only full runs can do
+  // corpus - and only full runs reconcile deletes, so only full runs can do
   // that damage. On an incremental run a small count is the expected outcome
   // (16 recent LinkedIn posts vs 386 total), and checking it there turns the
   // safety net into a weekly false alarm that blocks the sync entirely.
@@ -223,8 +223,8 @@ export async function buildKnowledgeBase(
   } else if (dirtyChunks.length) {
     warnings.push(
       options.skipEmbedding
-        ? 'Embedding skipped by flag — chunks written with NULL embedding.'
-        : 'VOYAGE_API_KEY not set — chunks written with NULL embedding. ' +
+        ? 'Embedding skipped by flag - chunks written with NULL embedding.'
+        : 'VOYAGE_API_KEY not set - chunks written with NULL embedding. ' +
           'Re-run once the key exists to backfill; nothing is retrievable until then.',
     );
   }
@@ -235,7 +235,7 @@ export async function buildKnowledgeBase(
   // the order decides what a partial failure leaves behind. Documents carry the
   // content_hash that drives change detection, so writing them first means a
   // later chunk failure leaves hashes claiming "up to date" over an empty
-  // kb_chunks — and the next run skips the work and reports success. (That is
+  // kb_chunks - and the next run skips the work and reports success. (That is
   // not hypothetical: it happened on the first run of this pipeline.)
   //
   // This order fails safe instead: chunks may be written for a document whose
@@ -249,7 +249,7 @@ export async function buildKnowledgeBase(
     log('no changes to write');
   }
 
-  // Publish the serving artifact. Must come after the writes — it is a
+  // Publish the serving artifact. Must come after the writes - it is a
   // snapshot of what actually landed, not of what we intended to write.
   try {
     const bytes = await publishArtifact();

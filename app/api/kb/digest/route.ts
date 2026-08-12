@@ -2,7 +2,7 @@ import { buildDigest, formatDigest, sendDigest } from '@/lib/kb/digest';
 
 // Weekly refused-query digest. Cron: Mondays after the sync (see vercel.ts).
 //
-// ?dry=1 returns the digest without emailing — useful for checking the
+// ?dry=1 returns the digest without emailing - useful for checking the
 // clustering threshold without spamming yourself.
 
 export const maxDuration = 120;

@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server';
 
-// Proxy for Mixpanel's lazy-loaded bundles — most importantly the session-replay
+// Proxy for Mixpanel's lazy-loaded bundles - most importantly the session-replay
 // recorder, which the SDK fetches on demand from cdn.mxpnl.com/libs/. Blockers
 // block that CDN too, so without this proxy the recorder never loads and no
 // session is captured, even though the ingestion proxy in ../api is in place.

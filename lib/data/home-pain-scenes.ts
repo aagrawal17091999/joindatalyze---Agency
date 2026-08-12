@@ -26,7 +26,7 @@ export const homePainScenes: PainScene[] = [
     number: '03',
     label: 'Growth',
     title: 'The growth lever in plain sight',
-    body: "Your retention dashboard is accurate. It's been accurate for months. Nobody opens it. Six months in, you finally dig and find that users who adopted your March feature retain 40% better than those who didn't. You shipped that feature quietly as a side project. The data was sitting there the whole time.",
+    body: "Your retention dashboard is accurate. It's been accurate for months. Nobody opens it. Six months in, you finally dig and find that users who adopted your March feature retain 40% better than those who didn't. You shipped that feature quietly. The data was sitting there the whole time.",
     costValue:
       "Insights buried in clean data, and the growth you'd already have captured if anyone was looking, every day.",
   },

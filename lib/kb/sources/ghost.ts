@@ -1,7 +1,7 @@
 import type { SourceDocument, SourceResult, SourceTier } from '../types';
 import { htmlToText } from '../text';
 
-// Ghost blog + case studies. Read-only, via the Content API (not Admin) — the
+// Ghost blog + case studies. Read-only, via the Content API (not Admin) - the
 // key already exists in .env.local as GHOST_CONTENT_API_KEY.
 //
 // NOTE: fetches the Ghost origin directly (cms.joindatalyze.com by default),
@@ -12,7 +12,7 @@ const CONTENT_API_VERSION = 'v5.0';
 
 /**
  * The `[Week N] Learning Mixpanel` series gets its own tier. It's 28 of 82
- * posts — a third of the blog by count and denser than average — and it's
+ * posts - a third of the blog by count and denser than average - and it's
  * tutorial content rather than opinion. Left at `published` it would dominate
  * retrieval on anything Mixpanel-adjacent, and "how do I do X in Mixpanel"
  * overlaps heavily with "how should I think about X", so strategy questions
@@ -75,7 +75,7 @@ export async function fetchGhostDocuments(): Promise<SourceResult> {
   if (!key) {
     throw new Error(
       'GHOST_CONTENT_API_KEY is not set. It exists in .env.local but is NOT in ' +
-        'push-env-to-vercel.sh\'s VARS array — add it there before deploying, or ' +
+        'push-env-to-vercel.sh\'s VARS array - add it there before deploying, or ' +
         'the sync works locally and 500s in production.',
     );
   }

@@ -1,4 +1,4 @@
-# Datalyze — SEO + GEO Build Spec for Claude Code
+# Datalyze - SEO + GEO Build Spec for Claude Code
 
 **Purpose:** Hand this file to Claude Code with every landing-page build. It defines how to structure, write, and mark up a page so it ranks in Google (SEO) and gets cited by AI answer engines like ChatGPT, Perplexity, Gemini, and Google AI Overviews (GEO).
 
@@ -31,7 +31,7 @@ PROOF TO USE:     specific case-study numbers relevant to this page (e.g. Copyfy
 
 These override everything else. A page that breaks these ships broken.
 
-1. **ZERO em dashes (—) or en dashes (–) in body copy.** Use commas, periods, parentheses, or " - " (spaced hyphen). This is a hard brand rule and also the fastest tell of AI-generated text.
+1. **ZERO em dashes (-) or en dashes (–) in body copy.** Use commas, periods, parentheses, or " - " (spaced hyphen). This is a hard brand rule and also the fastest tell of AI-generated text.
 2. **No marketer words:** leverage, synergy, unlock, transform, robust, best-in-class, actionable (as filler), holistic, "in today's data-driven world." Write plainly.
 3. **Every claim is real.** Use only true Datalyze numbers and real case studies. Never invent a stat, client, or result. If a number isn't verified, don't write it. Fabricated specifics destroy both trust and GEO (AI cross-checks across sources).
 4. **Specificity over vagueness.** "200+ unused events," "14% average lift," "4,949-user tracking gap" - never "a lot" or "many." Specific numbers are what AI extracts and cites.
@@ -89,8 +89,8 @@ The first 150-200 words carry disproportionate weight in both Google's AI featur
 Every page must satisfy all of these before it ships.
 
 **Metadata**
-- `<title>` — under ~60 chars, primary query near the front, brand at the end. Format: `Primary Query | Datalyze`.
-- `<meta name="description">` — 140-160 chars, contains the primary query, written as a benefit, ends with an implicit reason to click. Not keyword-stuffed.
+- `<title>` - under ~60 chars, primary query near the front, brand at the end. Format: `Primary Query | Datalyze`.
+- `<meta name="description">` - 140-160 chars, contains the primary query, written as a benefit, ends with an implicit reason to click. Not keyword-stuffed.
 - One `<h1>` matching the page intent.
 - `<link rel="canonical">` set to the clean URL.
 - Slug is short, lowercase, hyphenated, keyword-bearing, no dates or stop-word clutter.
@@ -134,11 +134,11 @@ Schema makes the page machine-readable for both Google and AI engines. Add the b
 - **FAQPage rarely earns Google rich results anymore** (Google restricted them to authoritative government and health sites in 2023). Keep FAQPage schema anyway, because its real value now is clean AI extraction and entity clarity, not a Google snippet.
 
 **Sitewide (every page)**
-- `Organization` — Datalyze, logo, url, `sameAs` (LinkedIn company page, YouTube, any profiles). This builds the brand as a known entity.
-- `BreadcrumbList` — reflects the URL path.
+- `Organization` - Datalyze, logo, url, `sameAs` (LinkedIn company page, YouTube, any profiles). This builds the brand as a known entity.
+- `BreadcrumbList` - reflects the URL path.
 
 **Author (every content page)**
-- `Person` — Ansh Agrawal, `jobTitle: Founder`, `worksFor: Datalyze`, credentials (Mixpanel Certified Partner), `sameAs` to his LinkedIn/profiles. Author authority is a real GEO + E-E-A-T signal.
+- `Person` - Ansh Agrawal, `jobTitle: Founder`, `worksFor: Datalyze`, credentials (Mixpanel Certified Partner), `sameAs` to his LinkedIn/profiles. Author authority is a real GEO + E-E-A-T signal.
 
 **By page type**
 - **Money / service pages →** `Service` or `ProfessionalService` with `provider: Datalyze`, `areaServed`, `serviceType`, and an `offers`/price-range hint where appropriate.

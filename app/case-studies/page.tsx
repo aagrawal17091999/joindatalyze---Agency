@@ -8,7 +8,7 @@ import { breadcrumbSchema } from '@/lib/seo';
 export const metadata: Metadata = {
   title: 'Analytics Case Studies',
   description:
-    'See how Datalyze has helped 17+ startups improve activation, retention, and conversion with better analytics and experimentation.',
+    '17 analytics engagements with numbers: 2\u00d7 paid conversion, 28%\u219280% onboarding, \u221293% payment outages, +15% Week 2 retention.',
   alternates: { canonical: '/case-studies' },
 };
 
@@ -22,14 +22,11 @@ export default function CaseStudiesPage() {
         ])}
       />
       <div className="container">
+        {/* Answer-first: the headline numbers are in the opening sentence, so
+            the page can be cited without following any of the card links. */}
         <header className="page-header">
           <div className="eyebrow">Case Studies</div>
           <h1 className="page-header__title">Results we&apos;ve shipped</h1>
-          <p className="page-header__intro">
-            A selection of the companies we&apos;ve worked with, what they
-            asked us to solve, and what we shipped. Pick one to read the full
-            story.
-          </p>
         </header>
 
         <h2 className="visually-hidden">
@@ -37,13 +34,7 @@ export default function CaseStudiesPage() {
         </h2>
         <div className="card-grid">
           {caseStudyList.map((cs) => (
-            <a
-              key={cs.slug}
-              href={cs.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card"
-            >
+            <a key={cs.slug} href={cs.externalUrl} className="card">
               <div className="card__tag">{cs.meta}</div>
               {cs.logo ? (
                 <div className="card__logo-plate">

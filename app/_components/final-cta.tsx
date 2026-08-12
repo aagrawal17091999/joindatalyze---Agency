@@ -11,11 +11,6 @@ export default function FinalCta() {
             <br />
             is hiding from you
           </h2>
-          <p className="final-cta__subhead">
-            Most teams are sitting on revenue they can&apos;t see: broken
-            tracking, misattributed spend, drop-offs nobody&apos;s caught. Bring
-            us your stack, and in 30 minutes we&apos;ll show you where yours is.
-          </p>
           <CtaButton
             href="/contact"
             location="home_final_cta"

@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// Analytics Maturity Grader — Questions, Scoring & Recommendations
+// Analytics Maturity Grader - Questions, Scoring & Recommendations
 // ---------------------------------------------------------------------------
 
 export type QuestionOption = {
@@ -54,7 +54,7 @@ export const dimensions: Dimension[] = [
         options: [
           {
             label: 'A',
-            text: 'We have a documented tracking plan with named events, properties, and ownership — and it\u2019s maintained as part of our release process.',
+            text: 'We have a documented tracking plan with named events, properties, and ownership - and it\u2019s maintained as part of our release process.',
             points: 25,
           },
           {
@@ -80,7 +80,7 @@ export const dimensions: Dimension[] = [
         options: [
           {
             label: 'A',
-            text: 'Tracking is part of the feature spec — events are defined before development starts, QA\u2019d before release, and documented.',
+            text: 'Tracking is part of the feature spec - events are defined before development starts, QA\u2019d before release, and documented.',
             points: 25,
           },
           {
@@ -90,7 +90,7 @@ export const dimensions: Dimension[] = [
           },
           {
             label: 'C',
-            text: 'It depends on the feature — sometimes we track it, sometimes we don\u2019t.',
+            text: 'It depends on the feature - sometimes we track it, sometimes we don\u2019t.',
             points: 8,
           },
           {
@@ -196,7 +196,7 @@ export const dimensions: Dimension[] = [
         options: [
           {
             label: 'A',
-            text: 'Yes — we have a metrics dictionary or dashboard with definitions that any new hire can reference.',
+            text: 'Yes - we have a metrics dictionary or dashboard with definitions that any new hire can reference.',
             points: 25,
           },
           {
@@ -228,7 +228,7 @@ export const dimensions: Dimension[] = [
         options: [
           {
             label: 'A',
-            text: 'PMs and growth leads self-serve — they build their own dashboards, run queries, and bring data to every decision.',
+            text: 'PMs and growth leads self-serve - they build their own dashboards, run queries, and bring data to every decision.',
             points: 25,
           },
           {
@@ -250,11 +250,11 @@ export const dimensions: Dimension[] = [
       },
       {
         id: 'q8',
-        text: 'When someone on the team says "the data shows X" — what happens next?',
+        text: 'When someone on the team says "the data shows X" - what happens next?',
         options: [
           {
             label: 'A',
-            text: 'People ask clarifying questions — "which cohort?", "what\u2019s the sample size?", "is this stat sig?" The team is data-critical.',
+            text: 'People ask clarifying questions - "which cohort?", "what\u2019s the sample size?", "is this stat sig?" The team is data-critical.',
             points: 25,
           },
           {
@@ -269,7 +269,7 @@ export const dimensions: Dimension[] = [
           },
           {
             label: 'D',
-            text: 'This doesn\u2019t happen often — data isn\u2019t really part of how decisions are discussed.',
+            text: 'This doesn\u2019t happen often - data isn\u2019t really part of how decisions are discussed.',
             points: 2,
           },
         ],
@@ -312,7 +312,7 @@ export const dimensions: Dimension[] = [
         options: [
           {
             label: 'A',
-            text: 'We dig into the data — segment by cohort, check the instrumentation, and figure out why before deciding next steps.',
+            text: 'We dig into the data - segment by cohort, check the instrumentation, and figure out why before deciding next steps.',
             points: 25,
           },
           {
@@ -371,39 +371,39 @@ const overallGradeScale: Array<{ min: number; grade: string; label: string }> =
 
 const recommendations: Record<string, Record<string, string>> = {
   'tracking-infrastructure': {
-    A: 'Your tracking foundation is solid. Focus on maintaining it — add tracking plan reviews to your sprint cycle.',
-    B: 'You\u2019re tracking the right things but without structure. Create a tracking plan document this week — list every event, its definition, and who owns it.',
-    C: 'You\u2019re sitting on pageview-level data, which can\u2019t tell you what users actually do in your product. Set up event tracking in Mixpanel, Amplitude, or PostHog — start with your top 3 user flows.',
+    A: 'Your tracking foundation is solid. Focus on maintaining it - add tracking plan reviews to your sprint cycle.',
+    B: 'You\u2019re tracking the right things but without structure. Create a tracking plan document this week - list every event, its definition, and who owns it.',
+    C: 'You\u2019re sitting on pageview-level data, which can\u2019t tell you what users actually do in your product. Set up event tracking in Mixpanel, Amplitude, or PostHog - start with your top 3 user flows.',
     D: 'You\u2019re making decisions with zero visibility. Before anything else, instrument your core signup \u2192 activation \u2192 retention flow with basic event tracking. This is day-one infrastructure.',
     F: 'You\u2019re making decisions with zero visibility. Before anything else, instrument your core signup \u2192 activation \u2192 retention flow with basic event tracking. This is day-one infrastructure.',
   },
   'data-governance': {
     A: 'Your data hygiene is strong. Consider adding automated data quality alerts to catch drift before humans notice.',
-    B: 'You\u2019ve got data debt accumulating. Schedule a tracking audit — delete unused events, fix broken ones, and document what\u2019s left. A focused set of 30\u201350 events you trust beats 300 you don\u2019t.',
-    C: 'You don\u2019t know what you\u2019re tracking or if it\u2019s right. Start with an event inventory — export your tracked events list, mark which ones map to actual business metrics, and archive the rest.',
+    B: 'You\u2019ve got data debt accumulating. Schedule a tracking audit - delete unused events, fix broken ones, and document what\u2019s left. A focused set of 30\u201350 events you trust beats 300 you don\u2019t.',
+    C: 'You don\u2019t know what you\u2019re tracking or if it\u2019s right. Start with an event inventory - export your tracked events list, mark which ones map to actual business metrics, and archive the rest.',
     D: 'Your data is unreliable or nonexistent. Nothing you build on top of this will be trustworthy. Start from scratch with a clean, minimal tracking plan built around your 5 most important business questions.',
     F: 'Your data is unreliable or nonexistent. Nothing you build on top of this will be trustworthy. Start from scratch with a clean, minimal tracking plan built around your 5 most important business questions.',
   },
   'metric-definitions': {
-    A: 'Your metric definitions are tight and shared. Keep evolving them — add benchmarks and targets to each metric so the team knows what \u201Cgood\u201D looks like.',
+    A: 'Your metric definitions are tight and shared. Keep evolving them - add benchmarks and targets to each metric so the team knows what \u201Cgood\u201D looks like.',
     B: 'Your metrics exist but aren\u2019t formalized. Create a one-page metrics dictionary with exact definitions (e.g., \u201CActivation = user completes first project within 7 days of signup\u201D). Share it company-wide.',
-    C: 'You\u2019re tracking vanity metrics without defining the ones that matter. Define your North Star Metric, plus activation, retention, and revenue metrics — with exact formulas.',
+    C: 'You\u2019re tracking vanity metrics without defining the ones that matter. Define your North Star Metric, plus activation, retention, and revenue metrics - with exact formulas.',
     D: 'You have no shared language for measuring success. Before setting goals or running experiments, define the 3\u20135 metrics your company lives or dies by. Get the leadership team to agree on these definitions in a single meeting.',
     F: 'You have no shared language for measuring success. Before setting goals or running experiments, define the 3\u20135 metrics your company lives or dies by. Get the leadership team to agree on these definitions in a single meeting.',
   },
   'team-data-literacy': {
-    A: 'Your team is self-sufficient with data. Invest in tooling that accelerates them — saved reports, shared dashboards, and automated weekly metric summaries.',
-    B: 'Your team consumes data but can\u2019t create analysis. Run a \u201Cdata for PMs\u201D workshop — teach them to build their own funnels and cohort analyses in your analytics tool. Self-serve unlocks speed.',
+    A: 'Your team is self-sufficient with data. Invest in tooling that accelerates them - saved reports, shared dashboards, and automated weekly metric summaries.',
+    B: 'Your team consumes data but can\u2019t create analysis. Run a \u201Cdata for PMs\u201D workshop - teach them to build their own funnels and cohort analyses in your analytics tool. Self-serve unlocks speed.',
     C: 'Data is an afterthought in your team\u2019s workflow. Start a weekly 15-minute \u201Cmetrics check-in\u201D where the team reviews 3 key numbers together. Build the habit before building the skill.',
     D: 'Your team operates on gut feel. The fastest fix: create one shared dashboard with 5 numbers the team checks every Monday. Make data visible before trying to make it sophisticated.',
     F: 'Your team operates on gut feel. The fastest fix: create one shared dashboard with 5 numbers the team checks every Monday. Make data visible before trying to make it sophisticated.',
   },
   'decision-making-culture': {
-    A: 'You\u2019re data-informed without being data-paralyzed. Protect this culture as you scale — it\u2019s your competitive advantage.',
+    A: 'You\u2019re data-informed without being data-paralyzed. Protect this culture as you scale - it\u2019s your competitive advantage.',
     B: 'Data shows up in decisions sometimes but not systematically. Add a \u201Cwhat does the data say?\u201D checkpoint to your product review process. Make it a habit, not a hero effort.',
-    C: 'You use data to confirm decisions you\u2019ve already made. Flip the order — start decisions with \u201Cwhat do we know?\u201D before \u201Cwhat do we think?\u201D Even asking the question changes behavior.',
-    D: 'Data isn\u2019t part of your decision-making process. This isn\u2019t a tooling problem — it\u2019s a culture problem. Start by requiring one metric as justification for every product decision. Just one. Build from there.',
-    F: 'Data isn\u2019t part of your decision-making process. This isn\u2019t a tooling problem — it\u2019s a culture problem. Start by requiring one metric as justification for every product decision. Just one. Build from there.',
+    C: 'You use data to confirm decisions you\u2019ve already made. Flip the order - start decisions with \u201Cwhat do we know?\u201D before \u201Cwhat do we think?\u201D Even asking the question changes behavior.',
+    D: 'Data isn\u2019t part of your decision-making process. This isn\u2019t a tooling problem - it\u2019s a culture problem. Start by requiring one metric as justification for every product decision. Just one. Build from there.',
+    F: 'Data isn\u2019t part of your decision-making process. This isn\u2019t a tooling problem - it\u2019s a culture problem. Start by requiring one metric as justification for every product decision. Just one. Build from there.',
   },
 };
 

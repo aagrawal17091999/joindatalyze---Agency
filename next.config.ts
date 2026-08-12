@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 // Content-Security-Policy. Applies to the whole site INCLUDING the proxied
 // /blog/* (Ghost) pages, so it must allow Ghost's needs too (jsdelivr, Ghost
 // storage CDN, its inline theme scripts). 'unsafe-inline'/'unsafe-eval' are
-// required — Next.js static output, our inline JSON-LD, and the Ghost theme all
+// required - Next.js static output, our inline JSON-LD, and the Ghost theme all
 // ship inline scripts, and there's no nonce path for statically rendered pages.
 // The value is still meaningful: it blocks script/frame loads from any origin
 // not on the allowlist, and adds frame-ancestors/object-src/base-uri hardening.
@@ -35,7 +35,7 @@ const config: NextConfig = {
     return [
       {
         // Security/trust headers across all routes. CSP is intentionally omitted
-        // here — it needs a per-site policy designed against the actual asset
+        // here - it needs a per-site policy designed against the actual asset
         // origins (Ghost CDN, Calendly, etc.) and a wrong CSP breaks the page.
         source: '/:path*',
         headers: [
@@ -92,7 +92,7 @@ const config: NextConfig = {
       // itself. The handler can compare the exact pathname and avoid that.
 
       // Renamed Ghost post slugs. Ghost does NOT create a redirect when a
-      // published post's slug changes via the Admin API — verified: both old
+      // published post's slug changes via the Admin API - verified: both old
       // URLs returned 404 at the origin immediately after the rename. Without
       // these, every existing inbound link and indexed result for the old slugs
       // dies. Each rule is listed once; path-to-regexp matches the trailing

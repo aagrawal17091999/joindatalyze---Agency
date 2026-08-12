@@ -1,0 +1,21 @@
+{
+  "slug": "the-5k-analytics-stack-that-should-cost-100",
+  "replacements": [["90+ of them", "150+ of them"]],
+  "tldr": "Most startups spending $5k a month on analytics need exactly two things: one product analytics tool and one warehouse. The money leaks on overlapping tools nobody consolidated, seats for people who don't log in, and event volume nobody pruned. You can set up the $100/month version in a weekend.",
+  "headings": [
+    ["You need exactly two things", "What do you actually need? Exactly two things"],
+    ["What each tool actually does for you", "What does each tool actually do for you?"],
+    ["Where the money actually leaks", "Where does the money actually leak?"],
+    ["The trap is \"just one more tool\"", "Why is \"just one more tool\" the trap?"],
+    ["What I'd set up in a weekend", "What would I set up in a weekend?"],
+    ["\"But we need dashboards for the board\"", "\"But we need dashboards for the board\""],
+    ["The $100/month stack, spelled out", "What does the $100/month stack look like?"],
+    ["When to add more", "When should you add more?"]
+  ],
+  "faq": [
+    ["What does a startup analytics stack actually need?", "Two things: one product analytics tool and one warehouse. Everything beyond that is a want, and most of it duplicates something you already pay for."],
+    ["Why do analytics stacks end up costing $5k a month?", "Overlapping tools nobody consolidated, seats assigned to people who never log in, and event volume nobody has pruned since the tracking plan was written."],
+    ["Can you really run analytics for $100 a month?", "For most early-stage products, yes. The free and startup tiers of the major tools cover more than founders expect, and the warehouse cost at low volume is small."],
+    ["When should you spend more?", "When a specific question you need answered is genuinely blocked by the tooling — not when a vendor tells you you've outgrown it."]
+  ]
+}

@@ -39,9 +39,9 @@ function subjectFor(report: BuildReport): string {
   const added = report.sources.reduce((s, x) => s + x.added, 0);
   const changed = report.sources.reduce((s, x) => s + x.changed, 0);
 
-  if (report.warnings.length) return `KB sync OK (${added} new, ${changed} changed) — ${report.warnings.length} warning(s)`;
-  if (added === 0 && changed === 0) return 'KB sync OK — nothing new this week';
-  return `KB sync OK — ${added} new, ${changed} changed`;
+  if (report.warnings.length) return `KB sync OK (${added} new, ${changed} changed) - ${report.warnings.length} warning(s)`;
+  if (added === 0 && changed === 0) return 'KB sync OK - nothing new this week';
+  return `KB sync OK - ${added} new, ${changed} changed`;
 }
 
 function successBody(report: BuildReport): string {

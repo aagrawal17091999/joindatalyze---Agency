@@ -1,0 +1,50 @@
+{
+  "slug": "how-to-create-a-tracking-plan-and",
+  "tldr": "A tracking plan is the document listing every user action you'll track and the properties sent with each. It's what stops three people naming the same event three ways. Decide what to track by asking whether the answer changes a decision — not by tracking everything and sorting it out later.",
+  "headings": [
+    [
+      "What is an Event Tracking Plan?",
+      "What is an event tracking plan?"
+    ],
+    [
+      "Types of Properties in Mixpanel (and other product analytics tools too)",
+      "What types of properties are there?"
+    ],
+    [
+      "What Does a Good Tracking Plan Include?",
+      "What does a good tracking plan include?"
+    ],
+    [
+      "How to Decide What to Track",
+      "How do you decide what to track?"
+    ],
+    [
+      "How to Create a Great Tracking Plan",
+      "How do you actually create one?"
+    ]
+  ],
+  "faq": [
+    [
+      "What is an event tracking plan?",
+      "A structured document listing every user interaction you'll track and the properties sent with each. It's the spec your engineers implement against."
+    ],
+    [
+      "What are the three property types?",
+      "Event properties, tied to a single action. Profile properties, tied to the user and reflecting their current state. Super properties, attached to every event after they're set — without rewriting the past."
+    ],
+    [
+      "How do you decide whether to track something?",
+      "Ask whether losing it costs you an insight you'd act on. If not, leave it out. That single test is what keeps a plan at 25 events instead of 200."
+    ],
+    [
+      "Why does a tracking plan matter so much?",
+      "Because everything downstream inherits it. Without one you get add_to_cart, AddToCart and btn_atc meaning the same thing, three numbers that disagree, and no reason to trust any dashboard built on top."
+    ]
+  ],
+  "replacements": [
+    [
+      "helped 60+ startups",
+      "helped 150+ startups"
+    ]
+  ]
+}

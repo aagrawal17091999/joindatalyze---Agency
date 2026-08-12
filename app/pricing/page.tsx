@@ -8,12 +8,12 @@ import { breadcrumbSchema, faqPageSchema, orgRef, SITE_URL } from '@/lib/seo';
 export const metadata: Metadata = {
   title: 'Analytics Consulting Pricing',
   description:
-    'Datalyze pricing starts at $1k for an audit. Project work runs $1.5k–$4k; embedded engagements are $2k–$5k per month. See what each tier includes.',
+    'Datalyze pricing starts at $1k for an audit. Infra setup runs $1.5k–$3k; embedded engagements are $2k–$5k per month. See what each tier includes.',
   alternates: { canonical: '/pricing' },
   openGraph: {
     title: 'Datalyze Pricing',
     description:
-      'What a Datalyze engagement costs, tier by tier — audit, infra setup, build, and embedded.',
+      'What a Datalyze engagement costs, tier by tier - audit, infra setup, and embedded.',
     url: '/pricing',
     type: 'website',
   },
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 
 // Every answer below is drawn from the tier data rendered by <EngagementModel />
 // and the homepage FAQ. Nothing here states a number that isn't already on the
-// site — the schema and the visible copy come from the same source.
+// site - the schema and the visible copy come from the same source.
 const PRICING_FAQS = [
   {
     q: 'How much does Datalyze cost?',
-    a: 'Datalyze pricing starts at $1,000 for a one-time audit. Project work runs $1,500 to $4,000 depending on scope, and ongoing embedded engagements are $2,000 to $5,000 per month. Most engagements land between $2,000 and $5,000 per month, depending on the size of your stack and the scope of work.',
+    a: 'Datalyze pricing starts at $1,000 for a one-time audit. Infra setup runs $1,500 to $3,000 depending on scope, and ongoing embedded engagements are $2,000 to $5,000 per month. Most teams start with the audit.',
   },
   {
     q: 'What is the best first step?',
@@ -33,11 +33,15 @@ const PRICING_FAQS = [
   },
   {
     q: 'Do I have to commit to a retainer?',
-    a: 'No. The audit, infra setup, and build tiers are all scoped as one-time projects. Some clients start with a one-time audit and scale into a retainer; others go straight into ongoing work, and others take a project and run it themselves afterwards. Everything we build is owned by your team.',
+    a: 'No. The audit and infra setup tiers are both scoped as one-time projects. Some clients start with a one-time audit and scale into a retainer; others go straight into ongoing work, and others take a project and run it themselves afterwards. Everything we build is owned by your team.',
   },
   {
     q: 'How long until we see results?',
     a: 'Most teams see their first actionable insights within 2 to 3 weeks of kickoff. The audit itself takes one to two weeks, and infra setup runs about 30 days.',
+  },
+  {
+    q: 'Do you charge for the first call?',
+    a: 'No. The first call is 30 minutes, free, and ends with us telling you what we would fix first - whether or not you hire us.',
   },
   {
     q: 'Why not just hire a full-time analyst?',
@@ -65,7 +69,7 @@ export default function PricingPage() {
             url: `${SITE_URL}/pricing`,
             areaServed: 'Worldwide',
             description:
-              'Analytics audits, tracking infrastructure setup, analytics builds, and embedded fractional analytics teams for startups.',
+              'Analytics audits, tracking infrastructure setup, and embedded fractional analytics teams for startups.',
             offers: [
               {
                 '@type': 'Offer',
@@ -95,19 +99,6 @@ export default function PricingPage() {
               },
               {
                 '@type': 'Offer',
-                name: 'Build',
-                description:
-                  'Retention and cohort analysis, dashboards, AI analytics agent setup, and migrations.',
-                priceCurrency: 'USD',
-                priceSpecification: {
-                  '@type': 'PriceSpecification',
-                  minPrice: '2000',
-                  maxPrice: '4000',
-                  priceCurrency: 'USD',
-                },
-              },
-              {
-                '@type': 'Offer',
                 name: 'Embedded',
                 description:
                   'Fractional analytics leadership, continuous experimentation, integration maintenance, and weekly insight delivery.',
@@ -125,26 +116,11 @@ export default function PricingPage() {
         ]}
       />
 
-      <div className="page-shell">
-        <div className="container">
-          {/* Answer-first: the direct answer to "what does this cost" sits in
-              the first two sentences, before any narrative. */}
-          <header className="page-header">
-            <div className="eyebrow">Pricing</div>
-            <h1 className="page-header__title">What Datalyze costs</h1>
-            <p className="page-header__intro">
-              Datalyze pricing starts at $1,000 for a one-time audit. Project
-              work runs $1,500 to $4,000 depending on scope, and ongoing
-              embedded engagements are $2,000 to $5,000 per month. Most teams
-              start with an audit, then scale into a project or a retainer once
-              they can see what&apos;s actually broken. Work begins within a day
-              of kickoff.
-            </p>
-          </header>
-        </div>
+      {/* The tier selector is the page's lead content, so its title carries the
+          h1 - a separate page header above it only repeated the same question. */}
+      <div className="page-lead">
+        <EngagementModel headingAs="h1" />
       </div>
-
-      <EngagementModel />
 
       <Faq
         items={PRICING_FAQS}

@@ -3,13 +3,13 @@ import type { EmbeddedChunk, KbChunk, PreparedDocument, RunMode, SourceType } fr
 import { packEmbedding } from './text';
 
 // BigQuery is the source of truth for the knowledge base. The vector store is a
-// derived, disposable serving copy — which is the property that lets us swap it
+// derived, disposable serving copy - which is the property that lets us swap it
 // later without ceremony.
 //
 // Writes go through MERGE from a temp staging table, never streaming inserts.
 // BigQuery has no primary keys, so a retried sync using INSERT would silently
 // duplicate every row. (lib/api/bigquery.ts uses plain INSERT for leads, which
-// is correct there — append-only, one row per event.)
+// is correct there - append-only, one row per event.)
 
 const PROJECT_ID = process.env.BIGQUERY_PROJECT_ID;
 const DATASET_ID = process.env.BIGQUERY_DATASET_ID || 'datalyze';
@@ -76,13 +76,13 @@ export async function assertSourceNotCollapsed(
   if (incomingCount === 0) {
     throw new Error(
       `Source "${sourceType}" returned 0 documents but ${previous} are active. ` +
-        'Refusing to tombstone the corpus — check credentials and the upstream API.',
+        'Refusing to tombstone the corpus - check credentials and the upstream API.',
     );
   }
   if (incomingCount < previous * 0.5) {
     throw new Error(
       `Source "${sourceType}" returned ${incomingCount} documents, down from ${previous} ` +
-        '(>50% drop). Refusing to proceed — re-run, and if the drop is real, ' +
+        '(>50% drop). Refusing to proceed - re-run, and if the drop is real, ' +
         'raise the threshold deliberately for this run.',
     );
   }
@@ -233,7 +233,7 @@ export async function replaceChunks(
     content_hash: c.contentHash,
     token_count: c.tokenCount,
     contains_pricing: c.containsPricing,
-    // BigQuery has no NULL arrays — a REPEATED field takes [] for "absent", and
+    // BigQuery has no NULL arrays - a REPEATED field takes [] for "absent", and
     // rejects null outright ("Field value of embedding cannot be empty").
     embedding: 'embedding' in c ? c.embedding : [],
     // Serving copy: base64 Float32. The ARRAY<FLOAT64> above stays as the
@@ -246,7 +246,7 @@ export async function replaceChunks(
     status: 'active',
   }));
 
-  // Load job, in batches — embeddings are ~1024 floats each, so a full corpus
+  // Load job, in batches - embeddings are ~1024 floats each, so a full corpus
   // rebuild is a large payload.
   const BATCH = 500;
   for (let i = 0; i < rows.length; i += BATCH) {
@@ -257,7 +257,7 @@ export async function replaceChunks(
 /**
  * Soft-delete documents a FULL run didn't return.
  *
- * Never called for incremental runs — see plan §2.5. An incremental pull
+ * Never called for incremental runs - see plan §2.5. An incremental pull
  * returns a recent slice, and reconciling deletes against it would tombstone
  * everything older.
  */

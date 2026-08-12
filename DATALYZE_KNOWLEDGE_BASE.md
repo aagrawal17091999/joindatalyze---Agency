@@ -1,15 +1,15 @@
-# Datalyze — Company Knowledge Base
+# Datalyze - Company Knowledge Base
 
 > A complete reference of all content from the Datalyze website (joindatalyze.com).
 > Purpose: give any agent or teammate the full picture of what Datalyze does, what it
-> offers, how it works, and who it has worked with — without needing to crawl the site.
+> offers, how it works, and who it has worked with - without needing to crawl the site.
 
 ---
 
 ## 1. Company Overview
 
 **Datalyze** is an analytics & growth consultancy. It is the data team that 150+
-startups — from Seed to Series C — bring in to fix broken tracking, unify their
+startups - from Seed to Series C - bring in to fix broken tracking, unify their
 analytics, and turn raw data into decisions their teams actually trust.
 
 - **Website:** https://joindatalyze.com
@@ -20,7 +20,7 @@ analytics, and turn raw data into decisions their teams actually trust.
 - **Founder:** Ansh Agrawal
 
 **Positioning / tagline:** "We don't sell dashboards. We build foundations."
-The foundation your data was supposed to be — Datalyze rebuilds it, then finds the
+The foundation your data was supposed to be - Datalyze rebuilds it, then finds the
 growth it's been hiding.
 
 **Site meta description:** "We've seen this across 150+ startups. Datalyze rebuilds
@@ -74,31 +74,31 @@ Proof bar: 150+ Companies Served · 14% Avg. Revenue Lift · 1-Day Kickoff.
 B2B SaaS · Consumer SaaS · Web3 · Fintech · D2C
 ("From Seed rounds to Series C.")
 
-### The Cost — "Why most analytics work doesn't move the business"
+### The Cost - "Why most analytics work doesn't move the business"
 Most growing companies stall in one of these four places. None are obvious; all are
 expensive.
 
-1. **Money — The money you're already spending wrong.** You spent $180K on paid
+1. **Money - The money you're already spending wrong.** You spent $180K on paid
    acquisition last quarter. Marketing dashboard says it drove 400 signups; the
    product database says 260; finance says 310. Nobody knows the real CAC.
    *Real cost:* A CAC you don't actually know and a budget you can't defend.
 
-2. **Time — Three weeks to answer one question.** A board member asks what LTV looks
+2. **Time - Three weeks to answer one question.** A board member asks what LTV looks
    like by acquisition channel. Stripe, Mixpanel, and the CRM each hold part of the
    answer; none talk. Three weeks of engineering produces a brittle integration;
    Stripe ships an API change; three more weeks. By the third break, you stop asking
    cross-tool questions.
    *Real cost:* Decisions shrinking to whatever lives in a single tool.
 
-3. **Team — What your PM did last Tuesday.** Your PM wrote SQL in BigQuery trying to
+3. **Team - What your PM did last Tuesday.** Your PM wrote SQL in BigQuery trying to
    pull cohort retention. A senior engineer spent a day debugging a tracking event
    wrong since March. Head of growth reconciled MRR across Stripe and the warehouse
    on a Sunday. None of them shipped a feature, ran an experiment, or talked to a
    customer.
    *Real cost:* Senior people on plumbing instead of product, customers, experiments.
 
-4. **Growth — The growth lever in plain sight.** Your retention dashboard is accurate
-   and has been for months — nobody opens it. Six months in you find users who
+4. **Growth - The growth lever in plain sight.** Your retention dashboard is accurate
+   and has been for months - nobody opens it. Six months in you find users who
    adopted the March feature retain 40% better. The data was sitting there the whole
    time.
    *Real cost:* Insights buried in clean data, and the growth you'd already have
@@ -108,17 +108,17 @@ expensive.
 "Most agencies start with dashboards. We start with the foundation. By the time we
 get to dashboards, they actually mean something."
 
-1. **Foundation — Your data becomes trustworthy.** Audit the entire data layer —
+1. **Foundation - Your data becomes trustworthy.** Audit the entire data layer -
    product events, warehouse tables, pipelines, definitions. Fix what's broken, fill
    what's missing, rebuild what drifts. Every team pulls the same number for the same
    question.
-2. **Unification — Your tools start talking to each other.** Connect and model
+2. **Unification - Your tools start talking to each other.** Connect and model
    product analytics, warehouses, pipelines, billing, and CRM into a single source of
    truth. One view of the customer from first touch to revenue.
-3. **Visibility — You see what's actually happening.** Build the reporting layer the
-   team will actually use — executive dashboards, product funnels, cohort analyses.
-4. **Compounding — You grow with evidence, not intuition.** Find the answers — why
-   users churn, why they don't convert, why some cohorts stick — then design and run
+3. **Visibility - You see what's actually happening.** Build the reporting layer the
+   team will actually use - executive dashboards, product funnels, cohort analyses.
+4. **Compounding - You grow with evidence, not intuition.** Find the answers - why
+   users churn, why they don't convert, why some cohorts stick - then design and run
    the experiments that fix it.
 
 ### Why Datalyze (differentiators)
@@ -131,15 +131,15 @@ get to dashboards, they actually mean something."
    needle, they say so and run a better one. Revenue impact is measured on every
    change shipped.
 4. **If we find it, we fix it.** No change orders for in-the-wild problems. When
-   something broken is found — even out of scope — they fix it.
+   something broken is found - even out of scope - they fix it.
 
 ### Voices / testimonials section heading
-"What teams say after they've worked with us" — followed by the wall of testimonials
+"What teams say after they've worked with us" - followed by the wall of testimonials
 (see Section 11).
 
 ### Final CTA
 "See what your data is hiding from you. Most teams are sitting on revenue they can't
-see — broken tracking, misattributed spend, drop-offs nobody's caught. Bring us your
+see - broken tracking, misattributed spend, drop-offs nobody's caught. Bring us your
 stack, and in 30 minutes we'll show you where yours is." → Book a Call.
 
 ### Inline CTAs used across the home page
@@ -149,7 +149,7 @@ stack, and in 30 minutes we'll show you where yours is." → Book a Call.
 
 ---
 
-## 4. Tech Stack — "Your stack is our stack"
+## 4. Tech Stack - "Your stack is our stack"
 
 Datalyze works fluently across 20+ tools, grouped by category:
 
@@ -164,7 +164,7 @@ Datalyze works fluently across 20+ tools, grouped by category:
 
 ---
 
-## 5. How We Work — Engagement Model ("Four ways to start")
+## 5. How We Work - Engagement Model ("Four ways to start")
 
 | # | Tier | Timeframe | For whom |
 |---|---|---|---|
@@ -173,28 +173,28 @@ Datalyze works fluently across 20+ tools, grouped by category:
 | 03 | **Build** | 4–8 weeks | Teams who know what they need built |
 | 04 | **Embedded** | Ongoing, monthly | Teams that need a data team without hiring one |
 
-### 01 — Audit
+### 01 - Audit
 - Full audit across product, marketing, revenue, and warehouse
 - Tracking plan and schema documentation review
-- Stack health diagnosis — what's working, what's drifting, what's missing
+- Stack health diagnosis - what's working, what's drifting, what's missing
 - Prioritized roadmap of fixes ranked by revenue impact
 - *Outcome:* clarity on what to fix and what to build next.
 
-### 02 — Infra Setup
+### 02 - Infra Setup
 - Tracking plan designed around the questions you need to answer
-- Implementation across web, mobile, and server SDKs — with verification
+- Implementation across web, mobile, and server SDKs - with verification
 - Multi-tool connection (product analytics, warehouse, ad platforms, CRM)
-- Initial dashboard suite — executive, product, growth — owned by your team
+- Initial dashboard suite - executive, product, growth - owned by your team
 - *Outcome:* a foundation that survives every future question.
 
-### 03 — Build
+### 03 - Build
 - Retention analysis or cohort studies
 - Executive, product, and growth dashboards
 - Custom AI Analytics Agent setup
 - Migrations and rebuilds (e.g., GA4 → Mixpanel, or onto a warehouse)
 - *Outcome:* a working system, fully owned by your team.
 
-### 04 — Embedded
+### 04 - Embedded
 - Fractional analytics leadership
 - Continuous experimentation design and measurement
 - Cross-tool integration maintenance
@@ -216,14 +216,14 @@ Datalyze works fluently across 20+ tools, grouped by category:
 operators who'd spent years watching companies pour money into analytics tools that
 produced charts nobody trusted."
 
-### Founder note (Ansh Agrawal — "Why We Exist")
+### Founder note (Ansh Agrawal - "Why We Exist")
 > I started my analytics career at CRED. After that, I spent a few years freelancing
-> — one startup at a time, fixing tracking, unblocking data teams, surfacing insights
+> - one startup at a time, fixing tracking, unblocking data teams, surfacing insights
 > buried under broken foundations.
 >
 > By engagement 30 or 40, I'd seen the same pattern at every company: three tools,
 > four dashboards, zero confidence in any of the numbers. The fix wasn't more tools.
-> It was the foundation underneath them — the events, pipelines, definitions, and
+> It was the foundation underneath them - the events, pipelines, definitions, and
 > models that nobody had time to fix.
 >
 > In 2025, I started Datalyze to do this at scale. Senior operators only. No account
@@ -231,17 +231,17 @@ produced charts nobody trusted."
 > first, then turn it into the kind of insights that actually move revenue.
 >
 > If your data has been telling you three different stories, we'd like to help.
-> — Ansh Agrawal, Founder, Datalyze
+> - Ansh Agrawal, Founder, Datalyze
 
-### Team — "The people in your data"
+### Team - "The people in your data"
 Small team. Senior operators only. Every person has built analytics foundations for
 dozens of companies before joining Datalyze.
 
-- **Ansh Agrawal — Founder.** Built analytics infrastructure for 90+ startups before
+- **Ansh Agrawal - Founder.** Built analytics infrastructure for 90+ startups before
   founding Datalyze in 2025. Specializes in product analytics, experimentation, and
   the messy first 90 days of fixing a broken stack. Mixpanel Certified. Based in India.
-- **Sara Maarouf — Product Growth.** Leads growth and experimentation engagements.
-  Specializes in turning trustworthy data into experiments that compound — pricing
+- **Sara Maarouf - Product Growth.** Leads growth and experimentation engagements.
+  Specializes in turning trustworthy data into experiments that compound - pricing
   tests, onboarding flows, conversion paths.
 
 ### By the Numbers
@@ -251,7 +251,7 @@ dozens of companies before joining Datalyze.
 - 20+ tools worked fluently across
 - 7 years building foundations
 
-### How We Work — Four things we believe about data and growth (principles)
+### How We Work - Four things we believe about data and growth (principles)
 1. **We start with the foundation, not the dashboards.** Every dashboard built on bad
    inputs is a dashboard that lies to you.
 2. **We measure what we ship.** Every fix, recommendation, and experiment is tracked
@@ -274,57 +274,57 @@ you ask for one."
 **Positioning:** "Most AI data tools confidently give you wrong answers. Ours
 doesn't." The reason every "ask your data in plain English" tool fails is the same:
 it's built on broken data, with no understanding of the business. Datalyze fixes the
-foundation, builds the context, and ships an AI agent the team can trust — custom-built
+foundation, builds the context, and ships an AI agent the team can trust - custom-built
 for the product, or set up on top of Julius, Vanna, or DataGPT.
 
 Meta highlights: 4-Week Build · Custom or Tool-Based · Tested on Your Real Data.
 Capacity note: "We take on 2–3 new AI analytics builds per month."
 
-### Why it fails — three failure modes
-1. **Hallucination — It hallucinates numbers that look right.** Ask for last month's
+### Why it fails - three failure modes
+1. **Hallucination - It hallucinates numbers that look right.** Ask for last month's
    MRR; it returns a reasonable-sounding number that's off by 18% (wrong tables,
    stale event). *Real problem:* No validation layer; the model doesn't know what
    "MRR" means in your business.
-2. **Wrong Questions — It can't answer the questions that matter.** "Why did paid
+2. **Wrong Questions - It can't answer the questions that matter.** "Why did paid
    conversion drop in the EU last week?" → "I don't have enough information," or a
    technically-correct query answering a different question. *Real problem:* No
    business context.
-3. **Abandonment — It works for two weeks, then your team stops using it.** After the
+3. **Abandonment - It works for two weeks, then your team stops using it.** After the
    third or fourth wrong answer, the team goes back to asking the analyst. *Real
    problem:* No feedback loop; nobody validated answers early, trust eroded.
 
-### The Datalyze Build — 6 steps (4–6 weeks end to end)
-1. **Start with how your business actually works** — not the schema, the team. What
+### The Datalyze Build - 6 steps (4–6 weeks end to end)
+1. **Start with how your business actually works** - not the schema, the team. What
    questions get asked weekly, what metrics matter to the CEO, what language differs
    between product and finance. *Fixes the "no business context" failure.*
-2. **Clean and model your data so the agent can reason over it** — audit the full
+2. **Clean and model your data so the agent can reason over it** - audit the full
    data layer and rebuild the parts the agent will query. Side benefit: clean,
    reusable tables. *Fixes the "hallucinated numbers" failure.*
-3. **Build the agent's brain** — a deep knowledge base of business context, metric
+3. **Build the agent's brain** - a deep knowledge base of business context, metric
    definitions, table relationships, common questions, and the gotchas only a senior
    analyst knows. *Fixes the "can't answer the questions that matter" failure.*
-4. **Build the agent or set up the right tool** — either a custom agent or configure
+4. **Build the agent or set up the right tool** - either a custom agent or configure
    Julius AI, Vanna.ai, or DataGPT on top of the foundation. *Fixes lock-in and
    overspend* (no incentive to push the more expensive option).
-5. **Two weeks of supervised testing on your real questions** — refine the knowledge
+5. **Two weeks of supervised testing on your real questions** - refine the knowledge
    base until the team trusts the answers. *Fixes the "team stops using it" failure.*
-6. **Keep it sharp over time** — ongoing maintenance plans keep the data model
+6. **Keep it sharp over time** - ongoing maintenance plans keep the data model
    current and retrain when the business changes. *Fixes slow decay.*
 
 ### Two paths
-- **Path A — Custom AI Agent.** Datalyze builds the agent, tailored to the stack and
+- **Path A - Custom AI Agent.** Datalyze builds the agent, tailored to the stack and
   business logic. Client owns code, knowledge base, deployment. No per-seat pricing,
   no vendor lock-in. *Best for:* complex data, unique product logic, sensitive data,
   or teams wanting full control. *Timeline:* 4–6 weeks build + ongoing maintenance.
-- **Path B — Tool Setup.** Configure a best-in-class tool (Julius AI, Vanna.ai,
+- **Path B - Tool Setup.** Configure a best-in-class tool (Julius AI, Vanna.ai,
   DataGPT) on top of cleaned data and a knowledge base. *Best for:* teams whose data
   fits an existing tool's model, buyers wanting a polished UI, or those preferring a
   SaaS subscription over maintaining custom code. *Timeline:* 3–4 weeks setup +
   ongoing maintenance.
-- "Not sure which? That's what the first call is for" — even if the answer is "you
+- "Not sure which? That's what the first call is for" - even if the answer is "you
   don't need this yet."
 
-### Proof — Series B Fintech (Consumer Finance, 100K+ customers)
+### Proof - Series B Fintech (Consumer Finance, 100K+ customers)
 - *Problem:* Growth team asked the data team 30+ ad-hoc questions/week; half were
   repeats, the rest took 2–3 days and returned conflicting numbers. Analyst spent 60%
   of the week on repeat questions.
@@ -345,12 +345,12 @@ Capacity note: "We take on 2–3 new AI analytics builds per month."
   understanding of business metrics, (3) no early validation so trust erodes.
 - **How long to build?** 4–6 weeks end to end (2–3 weeks foundation, 1–2 weeks build/
   setup, 2 weeks supervised testing). Can start within a day of signing.
-- **Do I need SQL skills?** No — the team asks in plain English.
+- **Do I need SQL skills?** No - the team asks in plain English.
 - **What if I already have an analyst?** The agent removes repetitive questions from
   their queue so they focus on analysis that needs a human.
 - **What if it gives a wrong answer after launch?** It will occasionally; supervised
   testing catches failure modes early and ongoing maintenance keeps accuracy up.
-- **Can you work with our existing data warehouse?** Yes — BigQuery, Snowflake,
+- **Can you work with our existing data warehouse?** Yes - BigQuery, Snowflake,
   Databricks, Postgres, and most modern warehouses, plus dbt, Fivetran, Segment,
   Rudderstack.
 
@@ -362,20 +362,20 @@ your top 5 weekly questions, and any AI tools you've already tried."
 
 ## 8. Case Studies
 
-Homepage featured results — "What happens after Datalyze gets involved":
-- **FRAI — 2× paid conversion rate.** No clarity on which segments converted or
+Homepage featured results - "What happens after Datalyze gets involved":
+- **FRAI - 2× paid conversion rate.** No clarity on which segments converted or
   whether experiments worked. Datalyze ran deep behavioural analysis, gave pointed
   recommendations, and designed the A/B tests. Paid conversion doubled, with a
   repeatable experimentation process left behind.
-- **CRED — −93% provider outages.** Payment routing was losing money two ways.
+- **CRED - −93% provider outages.** Payment routing was losing money two ways.
   Datalyze built a linear-programming routing engine plus a real-time outage-detection
   model. Success rate +7%, cost −12%, provider outages −93% MoM.
-- **VideoTap — +52pt onboarding completion.** Most signups never reached the
+- **VideoTap - +52pt onboarding completion.** Most signups never reached the
   dashboard. Datalyze audited the onboarding flow, removed friction, rebuilt upload
   UX from 4 steps to 2. Onboarding completion 28% → 80%; activation (first video
   uploaded) 7% → 19%.
 
-Full case study index ("Results we've shipped" — each links to
+Full case study index ("Results we've shipped" - each links to
 blog.joindatalyze.com):
 
 | Company | Industry / Focus | Result | Tags |
@@ -424,7 +424,7 @@ Free to download and use; runs entirely inside Claude Pro / Max / Team.
 - Walks the authenticated app section by section and pauses for input
 - Groups events by user journey: acquisition → signup → core → engagement → errors
 - **What a tracking plan is:** a structured document listing every user interaction
-  to track, plus the properties sent with each event — answering, for every event:
+  to track, plus the properties sent with each event - answering, for every event:
   when does it fire, what's it called, what data goes with it, and what type each
   property is. "Tracking debt compounds faster than tech debt."
 - **CSV columns produced:** Event (plain-English trigger), Event Name (snake_case),
@@ -443,15 +443,15 @@ download a shareable scorecard image. Runs in the browser; email required to sta
 
 The grader scores **5 dimensions** (10 questions total, 2 per dimension, 0–50 points
 each, 250 total):
-1. **Tracking Infrastructure** — event tracking setup; what happens to tracking when
+1. **Tracking Infrastructure** - event tracking setup; what happens to tracking when
    a new feature ships.
-2. **Data Governance** — confidence that data is accurate; how many events tracked
+2. **Data Governance** - confidence that data is accurate; how many events tracked
    vs. actually used.
-3. **Metric Definitions** — documented key metrics with shared definitions; whether a
+3. **Metric Definitions** - documented key metrics with shared definitions; whether a
    new PM could find/understand them in week one.
-4. **Team Data Literacy** — how product/growth uses data week-to-week; whether the
+4. **Team Data Literacy** - how product/growth uses data week-to-week; whether the
    team questions a stated "the data shows X."
-5. **Decision-Making Culture** — how many recent major decisions were data-backed;
+5. **Decision-Making Culture** - how many recent major decisions were data-backed;
    what the team does when an experiment misses target.
 
 Overall grade scale: A+/A = "Analytics Leader", B+/B = "On The Right Track", C+/C =
@@ -465,24 +465,24 @@ workflow on request.
 
 ## 10. Resources
 
-Guides, tools, courses, and content on product analytics — "Everything we've written,
+Guides, tools, courses, and content on product analytics - "Everything we've written,
 recorded, and built for teams trying to make their analytics stack trustworthy."
 
-- **Mixpanel Simplified** (https://mixpanelsimplified.substack.com/) — practical
+- **Mixpanel Simplified** (https://mixpanelsimplified.substack.com/) - practical
   writing on product analytics, Mixpanel usage, and common mistakes.
-- **Mixpanel setup** (Notion guide) — implementing Mixpanel with clean events, clear
+- **Mixpanel setup** (Notion guide) - implementing Mixpanel with clean events, clear
   definitions, reliable data.
-- **PostHog setup** (Notion guide) — avoiding common tracking issues for consistent
+- **PostHog setup** (Notion guide) - avoiding common tracking issues for consistent
   data in PostHog.
-- **Amplitude setup** (Notion guide) — implementing Amplitude so teams trust their
+- **Amplitude setup** (Notion guide) - implementing Amplitude so teams trust their
   metrics.
-- **Learning Mixpanel** (https://anshagrawal.gumroad.com/l/learning-mixpanel) — a
+- **Learning Mixpanel** (https://anshagrawal.gumroad.com/l/learning-mixpanel) - a
   hands-on Mixpanel course with real examples.
-- **@anshdoesanalytics** (https://www.youtube.com/@anshdoesanalytics) — videos on
+- **@anshdoesanalytics** (https://www.youtube.com/@anshdoesanalytics) - videos on
   analytics concepts and Mixpanel walkthroughs.
-- **Pravix** (https://joinpravix.com/) — monitor Mixpanel data quality in real time
+- **Pravix** (https://joinpravix.com/) - monitor Mixpanel data quality in real time
   and catch tracking issues before they affect reports.
-- **DatalyzeInsights** (https://datalyzeinsights.com/) — turn product videos into
+- **DatalyzeInsights** (https://datalyzeinsights.com/) - turn product videos into
   tracking plans and analytics strategies using AI.
 
 ---
@@ -496,7 +496,7 @@ recorded, and built for teams trying to make their analytics stack trustworthy."
   problems quickly; pushed sharper strategic thinking on north star and second-level
   metrics.
 - **Christian** (Founder, Tiun): Helped develop the V2 analytics strategy and set up
-  Mixpanel dashboards — proactive, adaptable, fast.
+  Mixpanel dashboards - proactive, adaptable, fast.
 - **Moshe** (SEO Consultant): Exceptional grasp of Mixpanel for a client project;
   professionalism, dedication, insight.
 - **Srinivas** (Founder, Phygital): Knowledgeable on Mixpanel, prompt deliverables.
@@ -514,7 +514,7 @@ recorded, and built for teams trying to make their analytics stack trustworthy."
   analytics across the customer journey; drove product growth.
 
 (Note: the brand previously operated through founder Ansh Agrawal's individual
-consulting — many testimonials reference "Ansh" directly.)
+consulting - many testimonials reference "Ansh" directly.)
 
 ---
 
@@ -527,7 +527,7 @@ day, and costs a fraction of a salary. A future hire inherits a clean, documente
 foundation.
 
 **We already have analytics tools. Why do we need you?** The tool is rarely the
-problem — the implementation is. Most audited setups have 20–40% of events, models, or
+problem - the implementation is. Most audited setups have 20–40% of events, models, or
 pipelines misconfigured, missing, or quietly broken. Datalyze fixes the foundation
 across the whole stack, no rip-and-replace.
 
@@ -545,11 +545,11 @@ broken, missing, or tracked-but-unused). Then prioritize, fix critical tracking,
 unify data sources, build needed reporting, identify growth levers. Weekly syncs.
 
 **How do you measure the 14% revenue lift?** Before-and-after revenue impact of the
-specific changes made each engagement — conversion improvements, retention gains,
+specific changes made each engagement - conversion improvements, retention gains,
 revenue from experiments. The 14% is a weighted average across 150+ engagements, not
 a cherry-picked best case.
 
-**Who will I work with?** A small, focused team based on need — may include a product
+**Who will I work with?** A small, focused team based on need - may include a product
 analyst, analytics engineer, growth strategist, developer. No unnecessary layers.
 
 **What do you need from our team?** Light developer support to implement tracking,
@@ -560,7 +560,7 @@ add events, or help with data foundations for modeling.
 ## 13. Contact
 
 **Book a call:** "Get a free 30-minute audit to see how we can help grow your
-business. Bring your stack — in 30 minutes we'll show you where the money is hiding."
+business. Bring your stack - in 30 minutes we'll show you where the money is hiding."
 Booking is done via a Calendly widget on the `/contact` page. Email:
 ansh@joindatalyze.com.
 

@@ -1,0 +1,16 @@
+{
+  "slug": "solving-retention-problems-a-strategic",
+  "tldr": "Three steps. Define what retention means for you first — which day, and bounded or unbounded. Then build cohorts of retained versus non-retained users and compare their characteristics. Then turn the differences into experiments and watch the metric move.",
+  "headings": [
+    ["Define Retention", "How do you define retention for your product?"],
+    ["Build cohorts and Analyze", "How do you build and compare retention cohorts?"],
+    ["Turn Insights into Action", "How do you turn retention insights into action?"]
+  ],
+  "faq": [
+    ["Why is retention so hard to fix?", "It's complex, multifaceted, and it depends on genuinely understanding user behaviour rather than one metric. The way through is to step back and let the data show you the patterns separating retained from non-retained users."],
+    ["What does defining retention actually involve?", "Picking the window — Day 7, Day 14, monthly — and deciding whether you're measuring bounded or unbounded retention. Skip this and every downstream number means something slightly different to each person reading it."],
+    ["What's the difference between bounded and unbounded retention?", "Bounded asks whether a user came back in a specific window; unbounded asks whether they came back on or after a given day. They produce different curves from the same data, which is why the definition has to come first."],
+    ["What should you compare between cohorts?", "Start with the basic characteristics of retained versus non-retained users and go deeper from there. The differences are the hypotheses."],
+    ["How do you act on what you find?", "Take it to the product team, build experiments to test the hypotheses, watch the impact on your retention metric, and iterate. Insight that doesn't become an experiment doesn't move retention."]
+  ]
+}

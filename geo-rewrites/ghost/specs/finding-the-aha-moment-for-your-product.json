@@ -1,0 +1,15 @@
+{
+  "slug": "finding-the-aha-moment-for-your-product",
+  "tldr": "The aha moment is when a user first experiences the real value of your product. Intuition and user interviews can point at it, but it means nothing until data validates it. Once you've found it, the growth work is getting more users to that action sooner — ideally inside onboarding.",
+  "headings": [
+    ["Identifying the AHA moment for your product", "How do you identify your product's aha moment?"],
+    ["Leveraging the AHA moment for growth", "How do you use the aha moment to grow?"]
+  ],
+  "faq": [
+    ["What is an aha moment?", "The instant a user experiences the true value of your product for the first time — the point where they realise the benefit for them. It often determines whether they stay or leave."],
+    ["How do you find it?", "Intuition and talking to users will give you candidates, but none of it means anything until it's validated by data. Look for the actions that separate users who stick from users who don't."],
+    ["Where should the aha moment sit in the journey?", "In the onboarding flow, or immediately after. Delaying it costs you retention — every step between signup and first value is a place people leave."],
+    ["What do you do once you've found it?", "Get more users to perform that action. Enhance the path to it, remove steps before it, and prompt the users who haven't reached it yet."],
+    ["Is the aha moment the same as activation?", "They're closely related: activation is usually defined as reaching the aha moment. Finding the moment is what lets you define activation in a way that actually predicts retention."]
+  ]
+}

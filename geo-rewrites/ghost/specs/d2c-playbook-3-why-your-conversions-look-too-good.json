@@ -1,0 +1,14 @@
+{
+  "slug": "d2c-playbook-3-why-your-conversions-look-too-good",
+  "headings": [
+    ["Your backend is telling you the truth. The ad platforms aren't.", "Which number should you trust — your backend or the ad platform?"],
+    ["Why the totals don't add up", "Why do Meta and Google together claim more revenue than you made?"]
+  ],
+  "faq": [
+    ["Why do my ad platform conversions add up to more than my actual revenue?", "Double-counting. One customer sees your Instagram ad in the morning, searches your brand on Google later, then buys. Meta claims the sale and Google claims the sale. One order, counted twice. Sum the platforms and you exceed what your backend recorded."],
+    ["Which revenue number is the real one?", "Your backend. It records an order the moment payment is captured — no model, no attribution window, no guesswork. Every other number is a platform's estimate of its own contribution, and each platform is grading its own homework."],
+    ["Does this mean the ad platforms are lying?", "No — they're answering a different question than you think. They report what their attribution model credits within their window. That's useful for optimising inside the platform, and it's the wrong input for deciding how to split budget across platforms."],
+    ["How do I fix the double-counting?", "Stop adding platform numbers together. Measure against your backend as the single source of truth, and use incrementality testing to work out what each channel actually added rather than what it claimed."]
+  ],
+  "meta_title": "Why Your D2C Conversion Numbers Look Too Good"
+}

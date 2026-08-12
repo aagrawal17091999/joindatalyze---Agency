@@ -50,7 +50,7 @@ export function trackPageview(url: string) {
 }
 
 type TrackOptions = {
-  // Runs once the event has been queued/sent — use to flush before navigating.
+  // Runs once the event has been queued/sent - use to flush before navigating.
   callback?: () => void;
   // 'sendBeacon' survives page unload (tab close / navigation); use it for
   // abandonment-style events fired from pagehide/visibilitychange handlers.

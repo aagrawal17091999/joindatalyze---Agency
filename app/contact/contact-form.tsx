@@ -339,7 +339,7 @@ export default function ContactForm() {
           margin: 0,
         }}
       >
-        You&apos;ll choose a time on the next step — your details are prefilled.
+        You&apos;ll choose a time on the next step - your details are prefilled.
       </p>
     </form>
   );

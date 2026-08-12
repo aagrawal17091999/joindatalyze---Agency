@@ -1,0 +1,24 @@
+{
+  "slug": "the-click-is-the-only-thing-your-ad-platform-can-see",
+  "tldr": "Your ad platform only sees the click, so it grades channels on signups. Join ad data to product and revenue data and the ranking flips: the channel with the cheapest signups often produces the users who never activate and never pay. Get off GA4, get ad spend and revenue into your product tool, and judge channels on retained revenue instead of cost per signup.",
+  "headings": [
+    ["First, get off GA4", "Why do you need to get off GA4 first?"],
+    ["Your product tool already has half the picture", "What does your product analytics tool already know?"],
+    ["Get your ad data in, and mind the one rule that makes or breaks it", "How do you get ad data in, and what's the one rule?"],
+    ["Get revenue in too, or you're measuring half a business", "Why does revenue data have to come in too?"],
+    ["Now you can see the whole journey, per campaign", "What does the full journey per campaign look like?"],
+    ["The part that stings: cheap signups aren't good users", "Why are cheap signups often your worst users?"],
+    ["What this actually unlocks", "What does this actually unlock?"],
+    ["Your numbers won't match the platforms, and that's fine", "Why won't your numbers match the ad platforms?"],
+    ["The honest limit", "What's the honest limit of this approach?"]
+  ],
+  "faq": [
+    ["Why is my cheapest channel probably my worst?", "Because cost per signup is measured at the click and nothing after it. A channel can deliver signups at half the price and produce users who never activate, never pay and never come back. You only see it once you join ad data to product and revenue data and judge the channel on retained revenue instead."],
+    ["Why isn't GA4 enough for this?", "GA4 is built for traffic and marketing, not for what a user does inside your product afterwards. You need user-level journeys from click through activation to revenue, and that's a product analytics tool's job."],
+    ["What's the one rule for getting ad data in?", "Naming. UTM and campaign naming has to be consistent, because every join downstream depends on it. It's simple in theory and quietly painful in practice — this is where most of these projects actually stall."],
+    ["Should my numbers match what Meta and Google report?", "No, and that's fine. The platforms each claim credit under their own attribution model and windows, so their totals overlap and overstate. Your joined view is the one to make decisions from; theirs is for optimising inside the platform."],
+    ["What's the honest limit of this?", "It's still correlational. Joining the data tells you which channels are associated with good users — it doesn't prove the channel caused them. For that you need incrementality testing on top."]
+  ],
+  "meta_title": "Your Cheapest Channel Is Probably Your Worst",
+  "meta_description": "Ad platforms only see the click, so they rank channels on signups. Join ad, product and revenue data and the cheapest channel often turns out to be the worst."
+}

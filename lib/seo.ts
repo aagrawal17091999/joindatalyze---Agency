@@ -21,16 +21,41 @@ export const personRef = { '@id': PERSON_ID };
 
 type Json = Record<string, unknown>;
 
+/**
+ * Topical authority signal, shared by the Organization and the Person so the
+ * two can't drift. Every entry here is something the site actually publishes on.
+ */
+const KNOWS_ABOUT = [
+  'Product analytics',
+  'Mixpanel',
+  'Amplitude',
+  'PostHog',
+  'Marketing attribution',
+  'Incrementality testing',
+  'Marketing mix modelling',
+  'User retention',
+  'Event tracking plans',
+  'Identity stitching',
+  'Data warehousing',
+  'Experimentation',
+];
+
 const organizationNode: Json = {
   '@type': 'Organization',
   '@id': ORG_ID,
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/icon.png`,
+  // The single most important string on the site for entity resolution: this is
+  // what an answer engine reads to learn what Datalyze *is*. Concrete service
+  // nouns, not metaphor.
   description:
-    'Datalyze is an analytics & growth partner. We rebuild your data foundation, then surface the growth your data has been hiding.',
+    'Datalyze is an analytics and growth consultancy for startups. We rebuild the data foundation - events, pipelines, definitions, models - connect product, marketing, revenue and warehouse tools into one source of truth, and run the experiments that turn it into revenue. Founded 2019 by Ansh Agrawal.',
   email: 'ansh@joindatalyze.com',
+  foundingDate: '2019',
   founder: personRef,
+  areaServed: 'Worldwide',
+  knowsAbout: KNOWS_ABOUT,
   sameAs: ['https://www.linkedin.com/company/joindatalyze'],
 };
 
@@ -43,18 +68,8 @@ const personNode: Json = {
   url: `${SITE_URL}/about`,
   image: `${SITE_URL}/Ansh.png`,
   description:
-    'Built analytics infrastructure for 90+ startups before founding Datalyze in 2025. Specializes in product analytics, experimentation, and the messy first 90 days of fixing a broken stack. Mixpanel Certified. Based in India.',
-  knowsAbout: [
-    'Product analytics',
-    'Mixpanel',
-    'Amplitude',
-    'PostHog',
-    'Marketing attribution',
-    'User retention',
-    'Event tracking plans',
-    'Data warehousing',
-    'Experimentation',
-  ],
+    'Built analytics infrastructure for 150+ startups since founding Datalyze in 2019. Specializes in product analytics, experimentation, and the messy first 90 days of fixing a broken stack. Mixpanel Certified Partner. Based in India.',
+  knowsAbout: KNOWS_ABOUT,
   sameAs: ['https://www.linkedin.com/in/anshagrawal/'],
 };
 
@@ -64,7 +79,7 @@ const websiteNode: Json = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   publisher: orgRef,
-  // No `potentialAction: SearchAction` — the site has no site-wide search
+  // No `potentialAction: SearchAction` - the site has no site-wide search
   // endpoint, and declaring one that doesn't exist is a spam signal.
 };
 

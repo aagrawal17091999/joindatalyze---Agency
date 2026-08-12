@@ -5,7 +5,7 @@ export type HomeCaseStudy = {
   body: string;
 };
 
-// Three featured case studies for the homepage — FRAI, CRED, VideoTap.
+// Three featured case studies for the homepage - FRAI, CRED, VideoTap.
 // Each card links out to the full write-up on blog.joindatalyze.com via the
 // matching entry in lib/data/case-studies.ts.
 export const homeCaseStudies: HomeCaseStudy[] = [

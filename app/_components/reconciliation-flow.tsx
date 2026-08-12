@@ -7,7 +7,7 @@ export default function ReconciliationFlow() {
         about onboarding completion that drives a product decision.
       </h2>
 
-      <div className="rf__label">data — fragmented</div>
+      <div className="rf__label">data - fragmented</div>
       <div className="rf__sources">
         <div className="rf__src">
           <div className="rf__src-name">Product</div>
@@ -37,7 +37,7 @@ export default function ReconciliationFlow() {
         <span className="rf__dot" />
       </div>
 
-      <div className="rf__label">foundation — unified</div>
+      <div className="rf__label">foundation - unified</div>
       <div className="rf__unified">
         <div className="rf__unified-title">one source of truth</div>
         <div className="rf__unified-row">
@@ -56,7 +56,7 @@ export default function ReconciliationFlow() {
         <span className="rf__dot" />
       </div>
 
-      <div className="rf__label">growth — surfaced</div>
+      <div className="rf__label">growth - surfaced</div>
       <div className="rf__growth">
         <div className="rf__growth-cap">
           Day 30 retention by onboarding completion
@@ -81,7 +81,7 @@ export default function ReconciliationFlow() {
         <span className="rf__dot" />
       </div>
 
-      <div className="rf__label">decision — made</div>
+      <div className="rf__label">decision - made</div>
       <div className="rf__decision">
         Ship onboarding v2 →
         <span className="rf__decision-impact">+12% projected activation</span>

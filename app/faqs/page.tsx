@@ -5,24 +5,81 @@ import JsonLd from '@/components/seo/JsonLd';
 import { breadcrumbSchema, faqPageSchema } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions',
+  title: 'Datalyze FAQs - Pricing, Process, Team',
   description:
-    'Frequently asked questions about working with Datalyze — pricing, team, engagement, and what to expect.',
+    'What Datalyze costs, how fast we start, who does the work, what we need from your team, and what happens when an engagement ends.',
   alternates: { canonical: '/faqs' },
 };
 
-const EXTRA_FAQS = [
+// /faqs is the canonical FAQ entity for the site: it carries every question,
+// grouped, and it's the only page whose FAQPage schema covers all of them. The
+// homepage emits its own, smaller FAQPage over the buying questions only - the
+// two used to overlap on nine identical questions, which is duplicate
+// structured data competing with itself.
+//
+// Grouping matters for extraction: each section is self-contained, so an answer
+// engine can lift "Timing and process" without dragging in pricing.
+const SECTIONS: { title: string; items: { q: string; a: string }[] }[] = [
   {
-    q: 'Who will I work with?',
-    a: "You'll work with a small, focused team based on your needs. This may include a product analyst, analytics engineer, growth strategist, and developer. No unnecessary layers — you talk directly to the people doing the work.",
+    title: 'Pricing and commitment',
+    items: [
+      homeFaqs[0], // How much does Datalyze cost?
+      {
+        q: 'Do I have to commit to a retainer?',
+        a: 'No. The audit and infra setup tiers are both one-time projects. Some clients start with an audit and scale into a retainer; others take a project and run it themselves afterwards.',
+      },
+      homeFaqs[2], // Why not just hire a full-time analyst?
+    ],
   },
   {
-    q: 'What do you need from our team?',
-    a: 'We may need light developer support to implement tracking, add events, or help with data foundations for modeling.',
+    title: 'Timing and process',
+    items: [
+      homeFaqs[4], // How fast can you actually start?
+      homeFaqs[1], // How long until we see results?
+      homeFaqs[6], // What does a typical engagement look like?
+      {
+        q: 'What happens when an engagement ends?',
+        a: 'Everything we built - tracking plans, models, dashboards, documentation - is in your tools and owned by your team.',
+      },
+    ],
+  },
+  {
+    title: 'The team',
+    items: [
+      {
+        q: 'Who will I work with?',
+        a: "You'll work with a small, focused team based on your needs. This may include a product analyst, analytics engineer, growth strategist, and developer. No unnecessary layers - you talk directly to the people doing the work.",
+      },
+      {
+        q: 'What do you need from our team?',
+        a: 'We may need light developer support to implement tracking, add events, or help with data foundations for modeling.',
+      },
+    ],
+  },
+  {
+    title: 'Tools and setup',
+    items: [
+      homeFaqs[3], // We already have analytics tools. Why do we need you?
+      homeFaqs[5], // What if we already have some analytics setup?
+      {
+        q: 'Which tools do you work with?',
+        a: "Whatever you're already running: Mixpanel (Certified Partner), PostHog (Implementation Specialist), Amplitude, Heap, GA4, Google Tag Manager, Google Ads, Meta Ads, HubSpot, Stripe, Chargebee, Recurly, RevenueCat, BigQuery, Snowflake, Postgres, Looker Studio, Metabase, Databricks, Segment, dbt, Fivetran, Hightouch and Airbyte.",
+      },
+    ],
+  },
+  {
+    title: 'Results',
+    items: [
+      homeFaqs[7], // How do you measure the 14% revenue lift?
+      {
+        q: 'What if the work does not move the numbers?',
+        a: "When an experiment doesn't move the needle, we tell you and run a better one. We measure revenue impact on every change we ship.",
+      },
+    ],
   },
 ];
 
-const FAQ_ITEMS = [...homeFaqs, ...EXTRA_FAQS];
+const ALL_FAQS = SECTIONS.flatMap((s) => s.items);
 
 export default function FaqsPage() {
   return (
@@ -33,7 +90,7 @@ export default function FaqsPage() {
             { name: 'Home', path: '/' },
             { name: 'FAQs', path: '/faqs' },
           ]),
-          faqPageSchema(FAQ_ITEMS),
+          faqPageSchema(ALL_FAQS),
         ]}
       />
       <div className="container">
@@ -41,16 +98,23 @@ export default function FaqsPage() {
           <div className="eyebrow eyebrow--center">FAQs</div>
           <h1 className="page-header__title">Frequently Asked Questions</h1>
           <p className="page-header__intro">
-            Pricing, team, engagement, and what to expect when you work with
-            Datalyze — answered.
+            What it costs, how fast we start, who does the work, and what we
+            need from you. If your question isn&apos;t here,{' '}
+            <a href="/ask">ask my AI</a>.
           </p>
         </header>
-        <Faq
-          items={FAQ_ITEMS}
-          title="Common questions about working with us"
-          eyebrow="Good to know"
-          headingLevel="h2"
-        />
+
+        {SECTIONS.map((section) => (
+          <Faq
+            key={section.title}
+            items={section.items}
+            title={section.title}
+            eyebrow="Good to know"
+            headingLevel="h2"
+            group={section.title}
+            defaultOpen={false}
+          />
+        ))}
       </div>
     </div>
   );

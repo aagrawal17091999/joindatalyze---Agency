@@ -1,0 +1,18 @@
+{
+  "slug": "70-of-your-branded-search-conversions-would-have-happened-anyway",
+  "tldr": "Attribution is correlational: it tells you users who touched a campaign went on to pay, not that the campaign caused it. Branded search and retargeting look best precisely because they reach people who were already coming. Incrementality tests one channel's true contribution; MMM splits a whole budget. Neither works if your raw conversions aren't deduped and consistently defined.",
+  "headings": [
+    ["You're past the beginner problem", "What breaks once you can already see per-channel outcomes?"],
+    ["Why single-touch attribution breaks at scale", "Why does single-touch attribution break at scale?"]
+  ],
+  "faq": [
+    ["Why would branded search conversions have happened anyway?", "Because of who those clicks are. Someone searching your brand name already knows you and was already coming. The click is a toll booth on a road they were driving down regardless. Attribution can't see this — in its world every tagged touch looks like it contributed, so a click that changed nothing and a click that changed everything score identically."],
+    ["Is retargeting the same problem?", "Yes, wearing a different shirt. You're paying to re-reach people who were coming back regardless, and the dashboard rewards you for it."],
+    ["What's the difference between attribution and incrementality?", "Attribution is correlational — it tells you users who touched a campaign went on to pay. Incrementality measures the counterfactual: how many conversions you'd have gotten without the ad. Subtract that, and what's left is what your spend actually caused."],
+    ["What is a geo holdout?", "The simplest real incrementality test. Turn a channel off in a set of matched regions, keep it running everywhere else, and read the gap in conversions. Simple in theory, easy to botch — wrong regions, wrong window, and you measure noise."],
+    ["When should you use MMM instead of incrementality testing?", "Incrementality answers one channel at a time, which is useful for validating big bets and slow for splitting a whole budget. MMM models your entire spend against revenue at once. Its real advantage is the channels attribution is blind to — anything you can't put a UTM on: offline, brand, podcast, connected TV."],
+    ["What has to be true before any of this works?", "Your raw numbers have to be clean. Dedup across platforms — Meta, Google and TikTok will each claim the same conversion, so the three together often report more conversions than you had. And \"conversion\" has to mean the same thing everywhere; trial start, paid signup and retained-at-30-days are wildly different numbers."]
+  ],
+  "meta_title": "Branded Search Conversions Would Have Happened Anyway",
+  "meta_description": "Attribution says branded search and retargeting are your best channels. They look best because they reach people already coming. What to measure instead."
+}

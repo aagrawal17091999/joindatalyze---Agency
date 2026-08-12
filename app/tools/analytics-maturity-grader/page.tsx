@@ -23,11 +23,19 @@ const tool = toolById['analytics-maturity-grader'];
 const GRADER_FAQS = [
   {
     q: 'How long does it take?',
-    a: "About two minutes. It's a short questionnaire, not a data integration — nothing connects to your tools.",
+    a: "About two minutes. It's a short questionnaire, not a data integration - nothing connects to your tools.",
   },
   {
     q: 'Who is it for?',
     a: 'Founders, product leaders, and growth or data teams who want an honest read on where their analytics stands before investing in fixing it.',
+  },
+  {
+    q: 'What is analytics maturity?',
+    a: 'How reliably a company can go from a question, to a number it trusts, to a decision it actually makes. Not how many tools or dashboards you have.',
+  },
+  {
+    q: 'Do I have to give my email?',
+    a: 'Yes - the quiz asks for your email so we can send you the scorecard. Nothing connects to your analytics tools, and no product data is collected: the questions are self-reported.',
   },
 ];
 
@@ -126,7 +134,7 @@ export default function MaturityGraderQuizPage() {
   if (!unlocked) {
     return (
       <div className="page-shell">
-        {/* Only in the landing state — this is the branch that renders the
+        {/* Only in the landing state - this is the branch that renders the
             FAQs the schema describes, and the one crawlers are served. */}
         <JsonLd data={graderSchema} />
         <div className="container">
@@ -137,7 +145,7 @@ export default function MaturityGraderQuizPage() {
             </h1>
             <p className="page-header__intro">
               Most startups are flying blind on bad data. Find out where you
-              actually stand — in 2 minutes.
+              actually stand - in 2 minutes.
             </p>
           </header>
 
@@ -231,7 +239,7 @@ export default function MaturityGraderQuizPage() {
                   marginBottom: 'var(--space-5)',
                 }}
               >
-                Enter your email to start the quiz — takes less than 2 minutes.
+                Enter your email to start the quiz - takes less than 2 minutes.
               </p>
               <form
                 onSubmit={handleEmailSubmit}
@@ -280,28 +288,69 @@ export default function MaturityGraderQuizPage() {
             <p className="tool-context__p">
               &quot;Analytics maturity&quot; is how reliably your team can turn
               product and revenue data into decisions you trust. Most early
-              startups have analytics that look fine on the surface — a few
-              dashboards, an events pipeline — but quietly leak trust: events
+              startups have analytics that look fine on the surface - a few
+              dashboards, an events pipeline - but quietly leak trust: events
               fire inconsistently, definitions drift between teams, and nobody
               is quite sure whether the numbers in the board deck are right.
               When that happens, every &quot;data-driven&quot; decision is built
               on sand.
             </p>
             <p className="tool-context__p">
-              This grader scores you across five dimensions we assess in every
-              client audit — tracking and instrumentation, data foundations and
-              governance, reporting and self-serve access, experimentation, and
-              how analytics actually feeds decisions. You answer a short set of
-              questions and get a letter grade per dimension, an overall score,
-              and a prioritized list of what to fix first — the same starting
-              point we use when we&apos;re hired to clean up a stack.
+              This grader scores you across the five dimensions we assess in
+              every client audit. You answer a short set of questions and get a
+              letter grade per dimension, an overall score, and a prioritized
+              list of what to fix first - the same starting point we use when
+              we&apos;re hired to clean up a stack.
             </p>
+
+            {/* The five dimensions were only visible inside the quiz. Naming
+                them, with the symptom of a low score, is what makes the page
+                worth citing for someone who never takes it. The rows are
+                keyed to the same dimensions scored in maturity-grader-data.ts. */}
+            <div className="cs-overview__scroll">
+              <table className="cs-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dimension</th>
+                    <th scope="col">What it measures</th>
+                    <th scope="col">What a low score looks like</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Tracking infrastructure</th>
+                    <td>Whether events are captured correctly and completely in the first place</td>
+                    <td>Events named three different ways, revenue firing client-side, nobody sure when tracking last worked</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Data governance</th>
+                    <td>Whether anyone owns definitions, and anything stops them drifting</td>
+                    <td>New events added ad hoc, no tracking plan, no review before shipping</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Metric definitions</th>
+                    <td>Whether a metric means the same thing in two rooms</td>
+                    <td>Marketing&apos;s &ldquo;signup&rdquo; and product&apos;s &ldquo;signup&rdquo; disagree, and both are technically right</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Team data literacy</th>
+                    <td>Whether non-analysts can answer their own questions</td>
+                    <td>Every question routes through one person, and that person is a bottleneck</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Decision-making culture</th>
+                    <td>Whether anything actually changes because of the data</td>
+                    <td>Accurate dashboards nobody opens; decisions made in the room and justified afterwards</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <div className="tool-context__faqs">
               <div className="tool-context__faq">
                 <h3 className="tool-context__q">How long does it take?</h3>
                 <p className="tool-context__a">
                   About two minutes. It&apos;s a short questionnaire, not a
-                  data integration — nothing connects to your tools.
+                  data integration - nothing connects to your tools.
                 </p>
               </div>
               <div className="tool-context__faq">
@@ -310,6 +359,24 @@ export default function MaturityGraderQuizPage() {
                   Founders, product leaders, and growth or data teams who want
                   an honest read on where their analytics stands before
                   investing in fixing it.
+                </p>
+              </div>
+              <div className="tool-context__faq">
+                <h3 className="tool-context__q">
+                  What is analytics maturity?
+                </h3>
+                <p className="tool-context__a">
+                  How reliably a company can go from a question, to a number it
+                  trusts, to a decision it actually makes. Not how many tools or
+                  dashboards you have.
+                </p>
+              </div>
+              <div className="tool-context__faq">
+                <h3 className="tool-context__q">Do I have to give my email?</h3>
+                <p className="tool-context__a">
+                  Yes - the quiz asks for your email so we can send you the
+                  scorecard. Nothing connects to your analytics tools, and no
+                  product data is collected: the questions are self-reported.
                 </p>
               </div>
             </div>
@@ -328,7 +395,7 @@ export default function MaturityGraderQuizPage() {
             Answer 10 questions. See your scorecard.
           </h1>
           <p className="page-header__intro">
-            Be honest — the point is to see where the real gaps are.
+            Be honest - the point is to see where the real gaps are.
           </p>
         </header>
 

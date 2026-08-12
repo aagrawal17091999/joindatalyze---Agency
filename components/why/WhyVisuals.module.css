@@ -20,7 +20,7 @@
   width: fit-content;
 }
 .opStrike {
-  color: rgba(232, 232, 230, 0.45);
+  color: rgba(232, 232, 230, 0.68);
 }
 .opStrike::after {
   content: '';
@@ -188,7 +188,7 @@
   100% { opacity: 0; }
 }
 .fixLabel {
-  color: rgba(232, 232, 230, 0.7);
+  color: rgba(232, 232, 230, 0.82);
   flex: 1;
   letter-spacing: 0.02em;
 }
@@ -199,7 +199,7 @@
   font-style: italic;
 }
 
-/* Mobile tuning — keep timeline + revenue lift fully inside container */
+/* Mobile tuning - keep timeline + revenue lift fully inside container */
 @media (max-width: 480px) {
   .timelineSvg {
     height: 56px;

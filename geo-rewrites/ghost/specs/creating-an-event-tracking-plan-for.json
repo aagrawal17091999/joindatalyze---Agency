@@ -1,0 +1,18 @@
+{
+  "slug": "creating-an-event-tracking-plan-for",
+  "tldr": "An event tracking plan is a structured document listing every user interaction you'll track and the properties sent with each. Scope it deliberately rather than tracking everything, pick one naming convention and casing, group similar actions into one event with a property, and write it down before any code gets shipped.",
+  "headings": [
+    ["Scope Your Data Detail Level", "How much detail should you track?"],
+    ["Naming Conventions and Casing", "How should you name events?"],
+    ["Structure Your Events Wisely", "Should you add an event or a property?"],
+    ["Drafting the Tracking Plan", "How do you draft the tracking plan?"],
+    ["Best Practices for a Robust Tracking Plan", "What makes a tracking plan hold up over time?"]
+  ],
+  "faq": [
+    ["What is an event tracking plan?", "A structured document listing all the user interactions to be tracked, along with the data sent with each one. In Mixpanel those interactions are events and that data is properties."],
+    ["Should you track everything?", "No. Resist the urge. Track what will inform your analysis and decisions — you can always expand later based on a specific need, and it's far cheaper than untangling a plan nobody scoped."],
+    ["Should event names describe actions or outcomes?", "Either works, as long as you pick one and stay with it. \"Clicking on sign up button\" is action-based; \"landed on sign up page\" is outcome-based. Consistency in naming and casing is what keeps the data usable."],
+    ["When should similar actions share one event?", "Whenever they fall under a single bucket. Use one event with a property distinguishing them rather than separate events for each variant. Only genuinely different actions deserve their own event."],
+    ["What happens if you skip the tracking plan?", "Messy data, missing insight and wasted dev time. It's the step teams most often skip and the one everything downstream depends on."]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "slug": "creating-a-good-tracking-plan-using-ai",
+  "headings": [
+    ["The lazy prompt gives you something, and that's the problem", "Why is a lazy prompt worse than no prompt?"],
+    ["Specify the sheet before you specify the task", "Why specify the sheet before the task?"],
+    ["Make it map before it writes", "Why make it map the product before it writes?"],
+    ["Claude in Chrome is not optional here", "Why is Claude in Chrome not optional?"],
+    ["The rules that stop the drift", "Which rules stop the drift?"],
+    ["Where you still have to show up", "Where do you still have to show up?"],
+    ["The prompt", "The prompt"]
+  ],
+  "faq": [
+    ["Can AI write a good tracking plan?", "It can, but not from a lazy prompt. Asked vaguely, it produces something plausible-looking — which is worse than nothing, because it looks finished."],
+    ["Why specify the output format first?", "Because if you specify the sheet before the task, every event it writes has to fit a structure you chose. Specify the task first and you get prose you then have to reshape."],
+    ["Why does it need to browse the product?", "Because a tracking plan written from a description is a guess. Driving a real browser through your authenticated app is what makes it map what's actually there rather than what a product like yours usually has."],
+    ["What still needs a human?", "The decisions: which events matter to your business, what counts as activation, and which of the model's suggestions are noise. The AI does the enumeration; you do the judgement."]
+  ]
+}

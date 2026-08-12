@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { TOOL_CONFIG } from '@/lib/data/tool-config';
 import { PUBLISHED_ASKS } from '@/lib/data/ask-answers';
 
-// Canonical host is www — the apex (joindatalyze.com) 307-redirects here, so
+// Canonical host is www - the apex (joindatalyze.com) 307-redirects here, so
 // listing www URLs directly avoids a redirect hop on every sitemap entry.
 const BASE = 'https://www.joindatalyze.com';
 
@@ -24,8 +24,8 @@ const CORE_ROUTES = [
 // File-based resource articles under /resources. Add new article slugs here
 // when a new app/resources/<slug>/page.tsx (or rewrite) ships.
 const RESOURCE_ARTICLES = [
-  '/resources/client-vs-proxy-vs-server-tracking',
   '/resources/improve-app-retention',
+  '/resources/client-vs-proxy-vs-server-tracking',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

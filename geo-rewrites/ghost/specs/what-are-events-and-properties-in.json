@@ -1,0 +1,16 @@
+{
+  "slug": "what-are-events-and-properties-in",
+  "tldr": "An event is an action a user takes, like \"user signed up\". A property is context attached to it. Mixpanel has three kinds: event properties (tied to one action), profile properties (tied to the user's current state, and they update), and super properties (attached to every event after they're set, without rewriting the past).",
+  "headings": [
+    ["Event Properties", "What are event properties?"],
+    ["Profile properties", "What are profile properties?"],
+    ["Super properties", "What are super properties?"]
+  ],
+  "faq": [
+    ["What is an event in Mixpanel?", "An action a user takes in your product. If a user signs up, you record an event named \"user signed up\"."],
+    ["What is a property?", "Additional information attached to an event to give it context. On a sign-up event, that might be the plan type, the source, or the device."],
+    ["What's the difference between event, profile and super properties?", "An event property is attached to a single action. A profile property is tied to the user rather than the event, so it reflects their current state and updates over time. A super property attaches to every subsequent event once set."],
+    ["Do super properties change historical events?", "No. When a super property's value changes, the new value flows to all events from that moment on — previous events keep the value they had. That's what makes them useful for asking what a user's state was at the time they acted."],
+    ["When should you use a profile property instead of an event property?", "When you want to segment users by their current state — free vs premium vs pro — rather than analyse the details of one action."]
+  ]
+}

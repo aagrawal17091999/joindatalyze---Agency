@@ -6,12 +6,12 @@ type Tier = {
   id: string;
   number: string;
   name: string;
-  timeframe: string;
-  // PLACEHOLDER PRICING — these figures are provisional and MUST be confirmed
-  // with the team before launch.
   price: string;
   badge?: string;
   subline?: string;
+  /** One-sentence definition of the thing being bought. This is what gets
+   *  extracted for "what is an analytics audit"-style queries; the `included`
+   *  bullets never will be. */
   buyerState: string;
   included: string[];
   outcome: string;
@@ -24,7 +24,6 @@ const tiers: Tier[] = [
     id: 'audit',
     number: '01',
     name: 'AUDIT',
-    timeframe: '1-2 weeks',
     price: 'From $1k',
     badge: 'Best first step',
     subline: 'Most teams identify 3-5 revenue leaks in the first audit.',
@@ -33,9 +32,8 @@ const tiers: Tier[] = [
       'Full audit across product, marketing, revenue, and warehouse',
       'Tracking plan and schema documentation review',
       "Stack health diagnosis: what's working, what's drifting, what's missing",
-      'Prioritized roadmap of fixes ranked by revenue impact',
     ],
-    outcome: 'clarity on what to fix and what to build next.',
+    outcome: 'clarity on what to fix and what to build next',
     ctaLabel: 'Start with an audit',
     ctaQuery: 'audit',
   },
@@ -43,7 +41,6 @@ const tiers: Tier[] = [
     id: 'infra',
     number: '02',
     name: 'INFRA SETUP',
-    timeframe: '30 days',
     price: '$1.5k-3k, project',
     buyerState: 'For teams laying a foundation they can actually trust.',
     included: [
@@ -52,32 +49,14 @@ const tiers: Tier[] = [
       'Multi-tool connection (product analytics, warehouse, ad platforms, CRM)',
       'Initial dashboard suite (executive, product, growth) owned by your team',
     ],
-    outcome: 'a foundation that survives every future question.',
+    outcome: 'a solid product analytics foundation',
     ctaLabel: 'Scope the setup',
     ctaQuery: 'infra',
   },
   {
-    id: 'build',
-    number: '03',
-    name: 'BUILD',
-    timeframe: '4-8 weeks',
-    price: '$2-4k, project',
-    buyerState: 'For teams who know what they need built.',
-    included: [
-      'Retention analysis or cohort studies',
-      'Executive, product, and growth dashboards',
-      'Custom AI Analytics Agent setup',
-      'Migrations and rebuilds (e.g. GA4 to Mixpanel, or onto a warehouse)',
-    ],
-    outcome: 'a working system, fully owned by your team.',
-    ctaLabel: 'Scope a build',
-    ctaQuery: 'build',
-  },
-  {
     id: 'embedded',
-    number: '04',
+    number: '03',
     name: 'EMBEDDED',
-    timeframe: 'ongoing, monthly',
     price: '$2-5k / mo',
     buyerState: 'For teams that need a data team without hiring one.',
     included: [
@@ -86,25 +65,43 @@ const tiers: Tier[] = [
       'Cross-tool integration maintenance',
       'Weekly insight delivery and monthly reviews',
     ],
-    outcome: 'a senior data function that compounds.',
+    outcome: 'accurate data and insights on where to focus',
     ctaLabel: 'Talk about embedded',
     ctaQuery: 'embedded',
   },
 ];
 
-export function EngagementModel() {
+/** The section title is an h2 on the homepage, where the hero owns the h1, and
+ *  an h1 on /pricing, where this section is the page's lead content. */
+export function EngagementModel({
+  headingAs: Heading = 'h2',
+}: {
+  headingAs?: 'h1' | 'h2';
+}) {
   const [active, setActive] = useState(0);
   const tier = tiers[active];
-  const dotPosition = 12.5 + active * 25;
+  // Tabs are equal-width columns, so the dot sits at the centre of the active
+  // one and the dashed line spans centre-to-centre. Both derive from the tier
+  // count so adding or removing a tier keeps them aligned.
+  const halfColumn = 100 / (tiers.length * 2);
+  const dotPosition = halfColumn * (active * 2 + 1);
 
   return (
     <section className={styles.section} id="pricing">
       <div className={styles.container}>
         <div className={styles.eyebrow}>Pricing</div>
-        <h2 className={styles.heading}>How we work</h2>
+        <Heading className={styles.heading}>How much does Datalyze cost?</Heading>
+        <p className={styles.summary}>
+          From $1k for a one-time audit, up to $2&ndash;5k/month embedded. Most
+          teams start with the audit.
+        </p>
 
         <div className={styles.selector}>
-          <div className={styles.selectorLine} aria-hidden="true" />
+          <div
+            className={styles.selectorLine}
+            style={{ left: `${halfColumn}%`, right: `${halfColumn}%` }}
+            aria-hidden="true"
+          />
           <div
             className={styles.dot}
             style={{ left: `${dotPosition}%` }}
@@ -123,7 +120,6 @@ export function EngagementModel() {
                 <span className={styles.tabAnchor} aria-hidden="true" />
                 <span className={styles.tabNumber}>{t.number}</span>
                 <span className={styles.tabName}>{t.name}</span>
-                <span className={styles.tabTime}>{t.timeframe}</span>
               </button>
             ))}
           </div>
@@ -138,7 +134,6 @@ export function EngagementModel() {
           >
             <div className={styles.panelHead}>
               <span className={styles.panelName}>{tier.name}</span>
-              <span className={styles.panelTime}>{tier.timeframe}</span>
               {tier.badge ? (
                 <span className={styles.badge}>{tier.badge}</span>
               ) : null}

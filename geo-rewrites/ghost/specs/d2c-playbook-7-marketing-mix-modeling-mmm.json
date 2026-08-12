@@ -1,0 +1,26 @@
+{
+  "slug": "d2c-playbook-7-marketing-mix-modeling-mmm",
+  "headings": [
+    ["See it on one brand", "What does MMM look like on a real brand?"],
+    ["What goes in", "What data does MMM need?"],
+    ["What comes out", "What does MMM give you back?"],
+    ["What you actually do with it", "What do you actually do with the output?"],
+    ["Base versus incremental", "What is base versus incremental revenue?"],
+    ["The two curves MMM cares about", "Which two curves does MMM care about?"],
+    ["Adstock: today's spend sells for days", "Adstock: why does today's spend sell for days?"],
+    ["Saturation: the tenth lakh is not the first", "Saturation: why isn't the tenth lakh worth the same as the first?"],
+    ["Where MMM lies", "Where does MMM lie?"],
+    ["Calibrate it, or don't bother", "Why must you calibrate MMM against a real test?"],
+    ["What to do Monday", "What should you do Monday?"]
+  ],
+  "faq": [
+    ["What is marketing mix modeling?", "A way to divide a whole budget across every channel at once, including the ones you can't turn off. It takes about two years of weekly data and infers what each channel contributed from how revenue moved as spend moved. It's a model, not a measurement — most vendor decks won't tell you that."],
+    ["How is MMM different from incrementality testing?", "Incrementality testing tells you whether one channel is real — you turn Meta off in a few cities and read the gap. But you can only test one channel at a time. MMM asks the same question about your entire business at once, across every channel."],
+    ["What data does MMM need?", "A spreadsheet, not user data. One row per week going back roughly two years, with a column for each channel's spend and a column for revenue. No user IDs, no cookies, no attribution windows — which is why MMM survives iOS privacy changes."],
+    ["What is base revenue?", "The part of your revenue that happens no matter what you spend — repeat buyers, organic traffic, people searching your brand. For the brand in this post it's the single largest driver, larger than any channel. It's also the number attribution can never give you, and the reason platform ROAS is inflated."],
+    ["Why does my Meta spend need to vary for MMM to work?", "Because the model learns what Meta did by watching what happened when Meta spend moved. A channel held flat across two years gives the model nothing to learn from, and its contribution estimate will be unreliable no matter how good the modelling is."],
+    ["What are adstock and saturation?", "Adstock is the fact that today's spend keeps selling for days afterwards. Saturation is the fact that the tenth lakh you spend doesn't buy what the first one did. Both are curves MMM has to fit, and getting them wrong is a common way for a model to look confident and be wrong."],
+    ["Do you need to calibrate MMM?", "Yes, or don't bother. Calibrate the model against a real incrementality test. In the example here, MMM put Meta's marginal ROAS at 1.7x — the same number the geo holdout found — and that agreement is what makes the rest of the model trustworthy."]
+  ],
+  "meta_title": "D2C Playbook 7: Marketing Mix Modeling (MMM)"
+}

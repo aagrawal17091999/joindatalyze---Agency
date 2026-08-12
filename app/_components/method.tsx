@@ -9,16 +9,23 @@ import MethodScroll from './method-scroll';
 
 const stepVisuals = [AuditReveal, ConnectedStack, DashboardMockup, GrowthCurve];
 
-export default function Method() {
+/** h2 on the homepage, where the hero owns the h1; h1 on /how-it-works, where
+ *  this section is the page's lead content. */
+export default function Method({
+  headingAs: Heading = 'h2',
+}: {
+  headingAs?: 'h1' | 'h2';
+}) {
   return (
     <section className="section method" id="how-it-works">
       <div className="container">
         <header className="method__header">
           <div className="eyebrow eyebrow--center">The Datalyze Method</div>
-          <h2 className="method__title">Introducing The Datalyze Method</h2>
+          <Heading className="method__title">
+            How does Datalyze fix analytics?
+          </Heading>
           <p className="method__intro">
-            Most agencies start with dashboards. We start with the foundation.
-            By the time we get to dashboards, they actually mean something.
+            Four stages - Foundation, Unification, Visibility, Compounding
           </p>
         </header>
 
@@ -42,7 +49,7 @@ export default function Method() {
                   </div>
                   <div className="method-step__visual-wrap">
                     <div className="method-step__label">
-                      {step.number} — {step.eyebrow}
+                      {step.number} - {step.eyebrow}
                     </div>
                     <div className="method-step__visual">
                       {Visual ? <Visual /> : null}

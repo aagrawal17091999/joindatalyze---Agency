@@ -5,7 +5,7 @@ export type HomeLogo = {
   height: number;
 };
 
-// Prioritised subset for the homepage wall — 18 strongest / most recognisable.
+// Prioritised subset for the homepage wall - 24 strongest / most recognisable.
 export const homeLogos: HomeLogo[] = [
   { name: 'CRED', src: '/logos/CRED.png', width: 140, height: 40 },
   { name: 'AWeber', src: '/logos/AWeber.png', width: 140, height: 40 },
@@ -35,4 +35,15 @@ export const homeLogos: HomeLogo[] = [
   { name: 'Sucasa', src: '/logos/Sucasa.png', width: 140, height: 40 },
   { name: 'Copyfy', src: '/logos/Copyfy.png', width: 140, height: 40 },
   { name: 'Foriio', src: '/logos/Foriio.png', width: 140, height: 40 },
+  { name: 'Fincart', src: '/logos/Fincart.png', width: 140, height: 40 },
+  { name: 'Sarvam AI', src: '/logos/Sarvam.png', width: 140, height: 40 },
+  { name: 'Kruzee', src: '/logos/Kruzee.png', width: 140, height: 40 },
+  {
+    name: 'TrueFoundry',
+    src: '/logos/TrueFoundry.png',
+    width: 140,
+    height: 40,
+  },
+  { name: 'Buildern', src: '/logos/Buildern.png', width: 140, height: 40 },
+  { name: 'Yearn', src: '/logos/Yearn.png', width: 140, height: 40 },
 ];

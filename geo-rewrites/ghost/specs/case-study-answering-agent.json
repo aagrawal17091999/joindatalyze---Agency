@@ -1,0 +1,5 @@
+{
+  "slug": "case-study-answering-agent",
+  "tldr": "Answering Agent had no visibility into the quality of its AI calls. We studied the product and industry benchmarks, defined a full event set, and built an AI-generated call score. They could finally measure call quality directly.",
+  "tldr_label": "In short"
+}

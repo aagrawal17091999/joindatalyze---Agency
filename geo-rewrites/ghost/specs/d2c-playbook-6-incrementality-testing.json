@@ -1,0 +1,20 @@
+{
+  "slug": "d2c-playbook-6-incrementality-testing",
+  "headings": [
+    ["See it on one brand", "What does incrementality look like on a real brand?"],
+    ["What incrementality actually means", "What is incrementality testing?"],
+    ["The test, walked through end to end", "How does a geo holdout test work, end to end?"],
+    ["How to actually run one", "How do you actually run an incrementality test?"],
+    ["What makes an incrementality test lie", "What makes an incrementality test lie?"],
+    ["What to do Monday", "What should you do Monday?"]
+  ],
+  "faq": [
+    ["What is incrementality testing?", "Measuring the sales your advertising caused that would not have happened otherwise. Nothing more complicated than that. The hard part is the counterfactual — the parallel version of the same four weeks where you never ran the ad — which you can't observe directly, so every method estimates it."],
+    ["How is incrementality different from attribution?", "Attribution doesn't estimate incrementality at all. It watches who touched an ad on the way to checkout and assigns them credit. That tells you how many buyers saw your ad, not how many bought because of it. Only the second number decides whether your spend is working."],
+    ["Why can't I trust platform-reported ROAS?", "Because every ad platform you pay is graded on a test it writes, marks and reports itself. Meta decides which sales to claim, then hands you a ROAS. It isn't a lie exactly — it's answering a question you didn't ask."],
+    ["What is a geo holdout?", "You turn off spend in a set of geographies, keep it running in comparable ones, and compare. Same product, same period, the only difference being the ads. It's the most practical incrementality test for a D2C brand, and it's how the skincare brand in this post found their reported and incremental numbers told opposite stories."],
+    ["How long should an incrementality test run?", "Long enough to cover your purchase cycle and clear the noise — the example here ran four weeks. Too short and you're measuring randomness; too long and market conditions drift underneath you."],
+    ["What makes an incrementality test give the wrong answer?", "Mismatched test and control geographies, a window shorter than your purchase cycle, spillover between regions, and anything else that changed at the same time as the ads. If you can't hold everything else steady, you're measuring that instead."]
+  ],
+  "meta_title": "D2C Playbook 6: Incrementality Testing"
+}

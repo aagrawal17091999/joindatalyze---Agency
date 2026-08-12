@@ -71,8 +71,11 @@ export function TechStack() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.eyebrow}>Tech stack</div>
-        <h2 className={styles.heading}>Your stack is our stack.</h2>
+        <h2 className={styles.heading}>
+          Which analytics tools does Datalyze work with?
+        </h2>
         <p className={styles.sub}>
+          We work inside your stack, not ours. As of 2026:
         </p>
 
         <div className={styles.filterRow} role="tablist" aria-label="Filter tools by category">

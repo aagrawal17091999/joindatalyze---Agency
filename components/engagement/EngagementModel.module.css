@@ -41,7 +41,15 @@
   color: var(--text-primary);
   letter-spacing: -0.035em;
   line-height: 1.05;
+  margin: 0 auto 20px;
+}
+
+.summary {
+  text-align: center;
+  max-width: 560px;
   margin: 0 auto 80px;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* ─ Selector ─────────────────────────────────────── */
@@ -53,8 +61,7 @@
 .selectorLine {
   position: absolute;
   top: 8px;
-  left: 12.5%;
-  right: 12.5%;
+  /* left/right are set inline from the tier count */
   height: 1px;
   background-image: linear-gradient(
     to right,
@@ -82,7 +89,7 @@
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   position: relative;
   z-index: 1;
 }
@@ -98,7 +105,7 @@
   cursor: pointer;
   font-family: inherit;
   position: relative;
-  color: rgba(232, 232, 230, 0.55);
+  color: rgba(232, 232, 230, 0.78);
   transition: color 0.3s ease;
 }
 
@@ -209,7 +216,14 @@
 .panelTime {
   font-family: var(--font-body, ui-monospace, monospace);
   font-size: 12px;
-  color: rgba(232, 232, 230, 0.55);
+  color: rgba(232, 232, 230, 0.78);
+}
+
+.panelDefinition {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(232, 232, 230, 0.85);
+  margin: 0 0 16px;
 }
 
 .panelBuyer {
@@ -232,7 +246,7 @@
   font-family: var(--font-body, ui-monospace, monospace);
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: rgba(232, 232, 230, 0.5);
+  color: rgba(232, 232, 230, 0.7);
   margin-bottom: 14px;
   text-transform: uppercase;
 }
@@ -333,12 +347,12 @@
   font-family: var(--font-body), sans-serif;
   font-size: 13px;
   line-height: 1.5;
-  color: rgba(232, 232, 230, 0.6);
+  color: rgba(232, 232, 230, 0.78);
   text-align: center;
   margin: 14px 0 0;
 }
 
-/* ─ Mobile (≤768px): selector becomes 2×2 pill grid ─── */
+/* ─ Mobile (≤768px): selector becomes a stack of pills ─── */
 @media (max-width: 768px) {
   .selectorLine,
   .dot,
@@ -347,7 +361,7 @@
   }
 
   .tabs {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 

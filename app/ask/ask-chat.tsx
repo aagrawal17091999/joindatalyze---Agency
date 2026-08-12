@@ -25,7 +25,7 @@ import styles from './Ask.module.css';
 //   - streaming : text arriving, cancellable
 //   - blocked   : an abuse limit fired (per-IP or global), not a per-user quota
 //
-// A refusal is rendered with the same type, spacing and CTA as an answer — the
+// A refusal is rendered with the same type, spacing and CTA as an answer - the
 // only difference is the absence of citation chips. See Ask.module.css.
 //
 // History is local-first and mirrored to BigQuery; see ./conversations.ts.
@@ -68,10 +68,10 @@ function refusalCopy(reason: string): { lead: string; body: string } {
   }
 }
 
-/** The abuse limits are shared, not personal — say so rather than blaming the visitor. */
+/** The abuse limits are shared, not personal - say so rather than blaming the visitor. */
 function blockedCopy(reason: string): string {
   if (reason === 'ip_cap') {
-    return "That's a lot of questions from one place today. The counter resets at midnight UTC — or book a call and skip the queue.";
+    return "That's a lot of questions from one place today. The counter resets at midnight UTC - or book a call and skip the queue.";
   }
   return "I've hit today's ceiling on answers across everyone. Try again tomorrow, or book a call.";
 }
@@ -83,7 +83,7 @@ export default function AskChat() {
 
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
-  /** null while /api/ask/session is in flight — the gate only shows on a real false. */
+  /** null while /api/ask/session is in flight - the gate only shows on a real false. */
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [held, setHeld] = useState<{ question: string; conversationId: string } | null>(null);
   const [email, setEmail] = useState('');
@@ -102,7 +102,7 @@ export default function AskChat() {
   const runningRef = useRef(false);
   /** conversation id -> updatedAt already mirrored to BigQuery. */
   const pushedRef = useRef(new Map<string, number>());
-  // Only follow the stream while the reader is already at the bottom — yanking
+  // Only follow the stream while the reader is already at the bottom - yanking
   // someone back down while they're re-reading an earlier answer is hostile.
   const stickRef = useRef(true);
 
@@ -119,14 +119,14 @@ export default function AskChat() {
       const remote: Conversation[] = Array.isArray(data.conversations)
         ? data.conversations
         : [];
-      // Anything that came from the server is already stored there — record it
+      // Anything that came from the server is already stored there - record it
       // so the sync effect below doesn't immediately write it back.
       for (const c of remote) pushedRef.current.set(c.id, c.updatedAt ?? 0);
       if (remote.length) setConversations((prev) => mergeConversations(prev, remote));
       return true;
     } catch {
       // Offline or a blocked request. Don't gate someone who may well have a
-      // valid cookie — the answer endpoint gates for real.
+      // valid cookie - the answer endpoint gates for real.
       return true;
     }
   }, []);
@@ -272,7 +272,7 @@ export default function AskChat() {
       });
 
       if (res.status === 401) {
-        // Session expired or was never minted — hold the question behind the gate.
+        // Session expired or was never minted - hold the question behind the gate.
         dropLastTurn();
         setHeld({ question, conversationId });
         setAuthed(false);
@@ -309,7 +309,7 @@ export default function AskChat() {
           } else if (event.type === 'text') {
             patch((t) => ({ ...t, text: t.text + event.text }));
           } else if (event.type === 'refusal') {
-            // A late refusal REPLACES anything already streamed — the server can
+            // A late refusal REPLACES anything already streamed - the server can
             // retract an answer it couldn't validate, but it can't un-send it.
             patch((t) => ({
               ...t,
@@ -326,7 +326,7 @@ export default function AskChat() {
         }
       }
     } catch (err) {
-      // A stop is not a failure — keep whatever streamed and say nothing.
+      // A stop is not a failure - keep whatever streamed and say nothing.
       if (!(err instanceof DOMException && err.name === 'AbortError')) {
         patch((t) => ({ ...t, error: 'Something broke on my end. Try again in a moment.' }));
       }
@@ -362,7 +362,7 @@ export default function AskChat() {
     if (busy) return;
     setSidebarOpen(false);
 
-    // An untouched chat is already a new chat — don't stack empties.
+    // An untouched chat is already a new chat - don't stack empties.
     const existingEmpty = conversations.find((c) => c.turns.length === 0);
     if (existingEmpty) {
       setActiveId(existingEmpty.id);
@@ -402,7 +402,7 @@ export default function AskChat() {
 
       const next = conversations.filter((c) => c.id !== id);
       if (next.length === 0) {
-        // The sidebar is never empty — deleting the last chat starts a fresh one.
+        // The sidebar is never empty - deleting the last chat starts a fresh one.
         const fresh = emptyConversation();
         setConversations([fresh]);
         setActiveId(fresh.id);
@@ -418,7 +418,7 @@ export default function AskChat() {
     async (e: React.FormEvent) => {
       e.preventDefault();
       // The button is disabled while this runs, but a second submit can still
-      // arrive from the Enter key before React repaints — hence the guard.
+      // arrive from the Enter key before React repaints - hence the guard.
       if (gateBusy) return;
       setGateBusy(true);
       setGateError(null);
@@ -532,7 +532,7 @@ export default function AskChat() {
                   Ask me anything about <em>analytics</em>
                 </h1>
                 <p className={styles.lede}>
-                  Every answer comes from something I&apos;ve actually written — 460+ posts,
+                  Every answer comes from something I&apos;ve actually written - 460+ posts,
                   blog pieces and case studies. If I haven&apos;t covered it, you&apos;ll get a
                   straight no and a link to book time instead of a confident guess.
                 </p>
@@ -596,7 +596,7 @@ export default function AskChat() {
             {blocked && (
               <div className={styles.notice}>
                 <p>{blocked}</p>
-                <BookCta label="Or skip ahead —" />
+                <BookCta label="Or skip ahead -" />
               </div>
             )}
           </div>
@@ -714,7 +714,7 @@ function Refusal({ turn }: { turn: Turn }) {
           ) : (
             <em>{nearest.title}</em>
           )}{' '}
-          — though that&apos;s not quite what you asked.
+          - though that&apos;s not quite what you asked.
         </p>
       )}
       <BookCta label="Want a straight answer on this?" afterRefusal />

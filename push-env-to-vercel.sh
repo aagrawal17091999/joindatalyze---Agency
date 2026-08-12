@@ -38,7 +38,7 @@ VARS=(
   NEXT_PUBLIC_MIXPANEL_TOKEN
   NEXT_PUBLIC_SITE_URL
   # Ask Ansh's AI. A key missing from this list works locally and 500s in
-  # production — that is the single most common way to break this feature.
+  # production - that is the single most common way to break this feature.
   ANTHROPIC_API_KEY
   GHOST_CONTENT_API_KEY
   VOYAGE_API_KEY

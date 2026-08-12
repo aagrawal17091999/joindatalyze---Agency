@@ -11,7 +11,9 @@ const PRIMARY_LINKS = [
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/how-it-works', label: 'How it works' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/blog/', label: 'Blog', external: true },
+  // /blog is the Ghost proxy on this same domain - an internal link, not an
+  // external one, so it keeps crawl and link equity on-site.
+  { href: '/blog/', label: 'Blog' },
 ];
 
 const SECONDARY_LINKS = [
@@ -69,26 +71,15 @@ export default function Nav() {
           </Link>
 
           <div className="nav__links">
-            {primaryLinks.map((link) =>
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={pathname === link.href ? 'is-active' : undefined}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
+            {primaryLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={pathname === link.href ? 'is-active' : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           <div className="nav__right">
@@ -120,18 +111,7 @@ export default function Nav() {
         className={`nav__menu${menuOpen ? ' is-open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        {primaryLinks.map((link) =>
-          link.external ? (
-            <a
-              key={link.href}
-              href={link.href}
-              className="nav__menu-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.label}
-            </a>
-          ) : (
+        {primaryLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -139,8 +119,7 @@ export default function Nav() {
             >
               {link.label}
             </Link>
-          )
-        )}
+        ))}
         {SECONDARY_LINKS.map((link) => (
           <Link key={link.href} href={link.href}>
             {link.label}

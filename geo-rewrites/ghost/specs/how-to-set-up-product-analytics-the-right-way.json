@@ -1,0 +1,41 @@
+{
+  "slug": "how-to-set-up-product-analytics-the-right-way",
+  "tldr": "Pick one tool (PostHog if you want a warehouse bundled in, Mixpanel or Amplitude if you want the deepest pure product analytics). Write a tracking plan before anyone writes tracking code. Get proxy, server-side and identity stitching right at implementation. Then lay your numbers out as a funnel and start asking why.",
+  "tldr_label": "The short version",
+  "headings": [
+    ["Step 1: Pick your tool", "Step 1: Which product analytics tool should you pick?"],
+    ["Step 2: Get your event tracking right", "Step 2: What goes in an event tracking plan?"],
+    ["Step 3: The implementation your developer has to get right", "Step 3: What does your developer have to get right?"],
+    ["Step 4: Look at your numbers with the Pirate Funnel", "Step 4: How do you lay out your numbers? The Pirate Funnel"],
+    ["Step 5: Now go deeper", "Step 5: How do you turn a dashboard into growth?"]
+  ],
+  "faq": [
+    [
+      "Is GA4 enough for product analytics?",
+      "No. GA4 is built for traffic and marketing — where visitors came from, which campaign drove them — and it's good at that. It is not built to tell you what a user did inside your product. User-level funnels are shallow and retention is thin, which is why founders run it for a year and still can't get a straight answer."
+    ],
+    [
+      "Mixpanel vs Amplitude — which should I use?",
+      "They're near-twins and you won't go wrong with either. I pick Mixpanel: the learning curve is gentler and it's faster to build reports in. Amplitude can feel sluggish once you're deep in it. The real decision isn't Mixpanel vs Amplitude — it's PostHog vs the other two."
+    ],
+    [
+      "When should you choose PostHog instead?",
+      "When you want product analytics, session replay, feature flags, experiments and a data warehouse under one roof, and you don't already have a warehouse. The trade-off is depth: PostHog's product analytics isn't as strong, and complex reports push you into SQL."
+    ],
+    [
+      "How many events should you track?",
+      "Only the ones that change what you'd do. One company I worked with had 500 events flowing into their tool; when I audited it, 50 were in use. The rest was noise someone had spent weeks instrumenting. The test: if you don't track this, do you lose an insight you'd act on?"
+    ],
+    [
+      "What is identity stitching, and why does it break setups?",
+      "It's joining a person's anonymous activity to their logged-in activity so they count as one user, not two. Your marketing site and your app are usually different domains, so without stitching every funnel, retention curve and \"where do my paying users come from\" answer is wrong — and it all looks fine until you dig in."
+    ],
+    [
+      "Do you need server-side tracking and a proxy?",
+      "Yes, for anything that has to be exact. Ad blockers block analytics scripts, and Safari's tracking prevention caps browser-set cookies at around seven days, so returning users start looking brand new and your counts inflate. A proxy on your own domain plus server-side events for the important actions gets most of it back."
+    ]
+  ],
+  "faq_title": "Frequently asked questions",
+  "meta_title": "How to Set Up Product Analytics the Right Way",
+  "meta_description": "Pick the tool, write the tracking plan, get identity stitching right, then read your numbers as a funnel. The setup path we've run 150+ times."
+}

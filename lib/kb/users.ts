@@ -14,7 +14,7 @@ const DATASET_ID = process.env.BIGQUERY_DATASET_ID || 'datalyze';
  * Per-email question cap. Null = unlimited, which is the default.
  *
  * The email is the gate, not a rationing device: someone who hands over an
- * address gets to keep asking. Abuse is handled where it actually belongs —
+ * address gets to keep asking. Abuse is handled where it actually belongs -
  * the per-IP and global daily caps in lib/kb/limits.ts, which a fresh +1
  * address can't walk around. Set KB_QUESTION_LIMIT to a positive number to
  * bring the per-email cap back.
@@ -114,7 +114,7 @@ export async function getQuota(emailHash: string): Promise<Quota> {
 /**
  * Increment BEFORE generating, not after.
  *
- * A visitor who disconnects mid-answer has still consumed the work — billing us
+ * A visitor who disconnects mid-answer has still consumed the work - billing us
  * for a question that never counted against their quota is the obvious way to
  * get free unlimited answers.
  */

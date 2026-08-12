@@ -1,8 +1,8 @@
 /**
- * Three 480×180 diagrams — one per AI agent failure card.
- * 01 — Hallucination: same question, two different answers
- * 02 — Wrong question answered: real question → wrong table
- * 03 — Abandonment: usage spike then crash
+ * Three 480×180 diagrams - one per AI agent failure card.
+ * 01 - Hallucination: same question, two different answers
+ * 02 - Wrong question answered: real question → wrong table
+ * 03 - Abandonment: usage spike then crash
  */
 
 const fadeDelay = (n: number) =>

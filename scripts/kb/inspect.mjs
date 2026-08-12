@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // -----------------------------------------------------------------------------
-// Corpus inspector — the offline harness from docs/ai-avatar-plan.md step 2.
+// Corpus inspector - the offline harness from docs/ai-avatar-plan.md step 2.
 //
 //   node scripts/kb/inspect.mjs gdoc      classify the knowledge Doc, report blocks
 //   node scripts/kb/inspect.mjs ghost     pull Ghost posts, report tiers + chunking
@@ -11,7 +11,7 @@
 //   node scripts/kb/inspect.mjs probe     run a fixed question set through the gate
 //
 // Reads only. Writes nothing to BigQuery, calls no embedding API. The point is
-// to see exactly what the corpus looks like BEFORE anything is embedded — the
+// to see exactly what the corpus looks like BEFORE anything is embedded - the
 // old pipeline's problems were all visible at this stage and nobody looked.
 //
 // Runs the real lib/kb/* TypeScript through Next's compiler via a tiny loader
@@ -43,7 +43,7 @@ const { readFile } = await import('node:fs/promises');
 const command = process.argv[2] ?? 'gdoc';
 
 const n = (x) => String(x).padStart(6);
-const pct = (a, b) => (b ? `${((a / b) * 100).toFixed(1)}%` : '—');
+const pct = (a, b) => (b ? `${((a / b) * 100).toFixed(1)}%` : '-');
 
 async function loadDoc() {
   const markdown = await readFile(process.env.KB_GDOC_LOCAL_PATH, 'utf8');
@@ -120,7 +120,7 @@ async function cmdGhost() {
   const chunks = chunkAll(result.documents);
   const d = distribution(chunks.map((c) => c.text.length));
   console.log(
-    `\n  ${chunks.length} chunks — chars min ${d.min} p50 ${d.p50} p90 ${d.p90} max ${d.max} mean ${d.mean}`,
+    `\n  ${chunks.length} chunks - chars min ${d.min} p50 ${d.p50} p90 ${d.p90} max ${d.max} mean ${d.mean}`,
   );
 
   console.log('\n  Sample tutorial-tier titles:');
@@ -145,7 +145,7 @@ async function cmdDedup() {
   const leaked = docBlocks.filter((d) => ghostTitles.has(normalizeForHash(d.title)));
   console.log(
     leaked.length
-      ? `LEAK — ${leaked.length} kept Doc blocks share a Ghost title:`
+      ? `LEAK - ${leaked.length} kept Doc blocks share a Ghost title:`
       : 'No kept Doc block matches a Ghost post title. Clean split.',
   );
   for (const d of leaked) console.log(`  ! ${d.title.slice(0, 78)}`);
@@ -176,7 +176,7 @@ async function cmdPricing() {
   );
 
   console.log(
-    `REDACTED — ${totalFigures} figures across ${withRedactions.length} of ${prepared.length} documents\n`,
+    `REDACTED - ${totalFigures} figures across ${withRedactions.length} of ${prepared.length} documents\n`,
   );
   for (const doc of withRedactions) {
     console.log(`  ${doc.title.slice(0, 66)}  [${doc.sourceTier}]`);
@@ -197,7 +197,7 @@ async function cmdPricing() {
       }
     }
   }
-  console.log(`KEPT — ${survivors.length} sentences with figures that are NOT own-pricing:`);
+  console.log(`KEPT - ${survivors.length} sentences with figures that are NOT own-pricing:`);
   for (const [tier, sent] of survivors.slice(0, 10)) {
     console.log(`  [${tier}] ${sent.slice(0, 100)}`);
   }
@@ -205,7 +205,7 @@ async function cmdPricing() {
 
   try {
     assertNoPricingLeaks(prepared);
-    console.log('\n  assertNoPricingLeaks: PASS — no own-pricing survives redaction.');
+    console.log('\n  assertNoPricingLeaks: PASS - no own-pricing survives redaction.');
   } catch (err) {
     console.log(`\n  assertNoPricingLeaks: FAIL\n${err.message}`);
     process.exitCode = 1;
@@ -272,7 +272,7 @@ async function cmdSearch() {
 
   const c = await corpus();
   if (!hasVoyageKey()) {
-    console.log('! VOYAGE_API_KEY not set — LEXICAL ONLY (BM25). Dense recall is absent,');
+    console.log('! VOYAGE_API_KEY not set - LEXICAL ONLY (BM25). Dense recall is absent,');
     console.log('  so paraphrased questions will under-retrieve. Dev mode, not serving mode.\n');
   }
 
@@ -286,7 +286,7 @@ async function cmdSearch() {
         `[${r.document.sourceTier}] [${r.matchedBy.join('+') || 'none'}]`,
     );
     console.log(`     ${r.document.title.slice(0, 74)}`);
-    console.log(`     ${r.document.sourceUrl ?? '(internal — no link)'}`);
+    console.log(`     ${r.document.sourceUrl ?? '(internal - no link)'}`);
     console.log(`     ↳ ${r.bestChunk.headingPath.slice(0, 74)}`);
   });
   if (!results.length) console.log('  (no results)');
@@ -324,7 +324,7 @@ const PROBE_SET = [
 async function cmdProbe() {
   const c = await corpus();
   if (!hasVoyageKey()) {
-    console.log('! LEXICAL ONLY — no VOYAGE_API_KEY. Treat answerable-question');
+    console.log('! LEXICAL ONLY - no VOYAGE_API_KEY. Treat answerable-question');
     console.log('  misses as expected: BM25 alone cannot match paraphrases.\n');
   }
 

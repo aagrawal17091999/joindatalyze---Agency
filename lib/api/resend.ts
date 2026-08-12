@@ -32,7 +32,7 @@ function buildEmailHtml(tool: ToolConfig, token: string): string {
         ${tool.description}
       </p>
       <p style="color: #a8a8ad; font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-        Your download should have started automatically — here&apos;s the link to download it again:
+        Your download should have started automatically - here&apos;s the link to download it again:
         <a href="${downloadUrl}" style="color: #D4FF3F; text-decoration: none;">Download ${tool.label}</a>
       </p>
       <p style="color: #a8a8ad; font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
@@ -46,7 +46,7 @@ function buildEmailHtml(tool: ToolConfig, token: string): string {
       </p>
       <hr style="border: none; border-top: 1px solid #26262c; margin: 32px 0;" />
       <p style="color: #6f6f76; font-size: 12px; margin: 0;">
-        Datalyze &mdash; Analytics &amp; growth partner.
+        Datalyze - Analytics &amp; growth partner.
       </p>
     </div>
   </body>
@@ -55,7 +55,7 @@ function buildEmailHtml(tool: ToolConfig, token: string): string {
 
 function buildEmailText(tool: ToolConfig, token: string): string {
   const downloadUrl = buildDownloadUrl(token);
-  return `Your ${tool.label} is ready\n\n${tool.description}\n\nYour download should have started automatically — here's the link to download it again:\n${downloadUrl}\n\nNeed a custom tool, or help with analytics for your product? Feel free to book a call with Ansh: https://joindatalyze.com/contact\n\nQuestions? Reply to this email or reach us at ansh@joindatalyze.com\n\n-- Datalyze`;
+  return `Your ${tool.label} is ready\n\n${tool.description}\n\nYour download should have started automatically - here's the link to download it again:\n${downloadUrl}\n\nNeed a custom tool, or help with analytics for your product? Feel free to book a call with Ansh: https://joindatalyze.com/contact\n\nQuestions? Reply to this email or reach us at ansh@joindatalyze.com\n\n-- Datalyze`;
 }
 
 export async function sendToolDownloadEmail(

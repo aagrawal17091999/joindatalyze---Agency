@@ -3,7 +3,7 @@ import { listThreads } from '@/lib/kb/threads';
 
 // Who is this, and what have they asked before?
 //
-// /ask is a static page, so it can't read the cookie at render time — it asks
+// /ask is a static page, so it can't read the cookie at render time - it asks
 // here on mount instead. A 401 is the signal to raise the email gate; a 200
 // carries the visitor's threads so history follows the email rather than the
 // browser.

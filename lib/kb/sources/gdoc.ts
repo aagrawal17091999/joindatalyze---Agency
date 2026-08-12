@@ -6,7 +6,7 @@ import type { SourceDocument, SourceResult, SourceTier } from '../types';
 //
 // This source is where the corpus rebuild actually happens. The Doc as it
 // stands is a SUPERSET: it contains Ansh's internal context AND a verbatim copy
-// of 63 Ghost posts AND all 355 LinkedIn posts. Its own header says so —
+// of 63 Ghost posts AND all 355 LinkedIn posts. Its own header says so -
 // "Blog archive: blog.joindatalyze.com / Auto-synced from Ghost. 63 posts."
 //
 // Ingesting all of it alongside Ghost and Apify would index that content twice:
@@ -15,7 +15,7 @@ import type { SourceDocument, SourceResult, SourceTier } from '../types';
 // and the tier system would stop meaning anything.
 //
 // So blocks are CLASSIFIED, not guessed at silently, and every exclusion is
-// reported. Nothing is dropped without saying so — that was the old indexer's
+// reported. Nothing is dropped without saying so - that was the old indexer's
 // defining bug and it isn't repeated here.
 
 /**
@@ -124,7 +124,7 @@ function splitTopLevelBlocks(markdown: string): DocBlock[] {
  * Classify and convert a knowledge Doc into source documents.
  *
  * Returns both what was kept and what was excluded, so the caller can print a
- * report. Callers must surface `excluded` — an exclusion nobody sees is a
+ * report. Callers must surface `excluded` - an exclusion nobody sees is a
  * silent drop.
  */
 export function parseKnowledgeDoc(markdown: string, docId: string): ParsedDoc {
@@ -185,7 +185,7 @@ export function parseKnowledgeDoc(markdown: string, docId: string): ParsedDoc {
  * Fetch a Google Doc and render it as markdown-ish text.
  *
  * Port of the Colab `_load_gdoc_as_markdown`. Uses the same service account the
- * app already uses for BigQuery — it holds `documents.readonly` today, so there
+ * app already uses for BigQuery - it holds `documents.readonly` today, so there
  * is no new auth to provision, just the Doc shared with it.
  */
 export async function fetchGoogleDocMarkdown(docId: string): Promise<string> {
@@ -199,7 +199,7 @@ export async function fetchGoogleDocMarkdown(docId: string): Promise<string> {
   const token = await client.getAccessToken();
 
   // `includeTabsContent=true` is REQUIRED. Google Docs now supports tabs, and a
-  // tabbed document returns its content under `tabs[]` with `body` empty — so
+  // tabbed document returns its content under `tabs[]` with `body` empty - so
   // the plain request silently yields zero characters rather than an error.
   // That is exactly what happened with the live Doc: HTTP 200, no content.
   const res = await fetch(
@@ -263,10 +263,10 @@ type GdocResponse = { title?: string; body?: GdocBody; tabs?: GdocTab[] };
  * Load the knowledge Doc from whichever source is configured.
  *
  * `KB_GDOC_ID` points at the live Doc. `KB_GDOC_LOCAL_PATH` reads a markdown
- * file instead — used for the initial rebuild and for offline iteration on the
+ * file instead - used for the initial rebuild and for offline iteration on the
  * chunker, which is far faster than round-tripping the Docs API.
  */
-/** Below this, a Doc is empty in practice — a title and a blank page. */
+/** Below this, a Doc is empty in practice - a title and a blank page. */
 const MIN_USEFUL_CHARS = 500;
 
 export async function fetchGdocDocuments(): Promise<
@@ -297,7 +297,7 @@ export async function fetchGdocDocuments(): Promise<
         `KB_GDOC_ID ${docId} is readable but effectively EMPTY ` +
           `(${markdown.trim().length} chars). Falling back to the local snapshot ` +
           `${localPath}. Paste the internal knowledge base into that Doc to make ` +
-          'the weekly sync meaningful — until then it syncs a file that never changes.',
+          'the weekly sync meaningful - until then it syncs a file that never changes.',
       );
       markdown = await readFile(localPath, 'utf8');
       sourceId = 'local';
@@ -305,7 +305,7 @@ export async function fetchGdocDocuments(): Promise<
       // Empty live Doc and no local snapshot (the deployed runtime has none).
       // Do NOT throw: that would fail the whole weekly sync and block Ghost and
       // LinkedIn from ever updating because an unrelated source is empty.
-      // Instead skip this source entirely — `skipped` tells the caller to leave
+      // Instead skip this source entirely - `skipped` tells the caller to leave
       // existing gdoc documents alone rather than reconcile them as deleted.
       warnings.push(
         `KB_GDOC_ID ${docId} is readable but EMPTY (${markdown.trim().length} chars). ` +

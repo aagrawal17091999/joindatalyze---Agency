@@ -1,14 +1,14 @@
 // Curated questions for the /ask/[slug] SEO pages.
 //
 // CURATED, NEVER AUTO-GENERATED. Mass-producing answer pages from the refused-
-// query log is scaled content abuse and would put the whole domain at risk —
+// query log is scaled content abuse and would put the whole domain at risk -
 // including the /blog proxy this site depends on. Adding a question here is a
 // deliberate act; the answer is then drafted by `npm run kb:pages`, reviewed by
 // a human, and only then committed.
 //
 // Two rules for adding one:
 //   1. The corpus must genuinely answer it. If the generator refuses, the
-//      question doesn't become a page — it becomes a blog post first.
+//      question doesn't become a page - it becomes a blog post first.
 //   2. Phrase it the way a visitor would search, not the way a heading reads.
 
 export type AskQuestion = {

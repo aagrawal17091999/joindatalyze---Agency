@@ -1,0 +1,19 @@
+{
+  "slug": "d2c-playbook-5-how-to-actually-stitch-website-blinkit-and-swiggy-data",
+  "headings": [
+    ["Three matches for the same bottle", "Why is stitching three jobs, not one?"],
+    ["The mapping layer nobody budgets for", "What is a SKU mapping table, and why does every project stall here?"],
+    ["The three tiers of stitch", "What are the three tiers of stitch?"],
+    ["Where the stitch silently lies", "Where does a stitched dashboard silently lie?"],
+    ["What to do Monday", "What should you do Monday?"]
+  ],
+  "faq": [
+    ["What does it mean to stitch website, Blinkit and Swiggy data?", "Joining sales of the same product across channels that never share a customer identifier. It sounds like one job. It's really three — a clean key join, a rollup, and an estimate — and they are not equally trustworthy, so you have to know which one you're doing before you report from it."],
+    ["What is a SKU mapping table?", "One table that says your 250ml electrolyte bottle is this name on your site, that name on Blinkit, another on Swiggy Instamart and another on Amazon — with one canonical ID. Four platforms, four names, one physical bottle. Build this before you build a single pipeline; it's where most stitching projects stall."],
+    ["What are the three tiers of stitch?", "Tier 1 is deterministic: joins on keys that mean exactly the same thing on both sides — SKU, date, city, order ID within one system. The other two tiers are rollups and estimates. Keep them separate and label anything that isn't Tier 1, because mixing them is what ruins a cross-channel dashboard."],
+    ["Why don't quick commerce numbers match my backend?", "Gross versus net, most often. Quick commerce platforms report sell-out — units that left the dark store. Your backend reports net of returns and cancellations. Comparing the two without adjusting makes the platform look better than it is."],
+    ["Can I join on pincode or customer name?", "Not as Tier 1. Pincode rollups and name matching are estimates, and they belong in a labelled tier of their own. Join only on shared exact keys — SKU, date, city, channel — and mark everything else as an estimate."],
+    ["Where should I start?", "The mapping table. List every SKU, write down what it's called on each platform, pick one canonical ID. Then reconcile the basics once — gross versus net, timezones, currency — before you trust anything downstream."]
+  ],
+  "meta_title": "How to Stitch Website, Blinkit and Swiggy Data"
+}

@@ -3,18 +3,42 @@ import Link from 'next/link';
 import { toolById } from '@/lib/data/tools';
 import ToolDownloadForm from '@/app/_components/tool-download-form';
 import CtaButton from '@/app/_components/cta-button';
+import Faq from '@/app/_components/faq';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema, softwareApplicationSchema } from '@/lib/seo';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  softwareApplicationSchema,
+} from '@/lib/seo';
+
+const PLAN_FAQS = [
+  {
+    q: 'What is an event tracking plan?',
+    a: 'A structured document listing every user interaction in your product that should be tracked, with the properties each event carries and where it fires. It is the spec engineers implement against, and the thing that stops three people naming the same event three ways.',
+  },
+  {
+    q: 'What format does it output?',
+    a: 'A CSV in the standard format Mixpanel, PostHog, Amplitude and GA4 all accept, grouped by user journey: acquisition, signup, core, engagement, errors.',
+  },
+  {
+    q: 'What do I need to run it?',
+    a: "Claude Pro, Max or Team - skills aren't available on the free plan - plus the Claude in Chrome extension so it can walk your authenticated app.",
+  },
+  {
+    q: 'Can I use this if I already have tracking?',
+    a: "Yes, and it's arguably more useful: it surfaces what you're not tracking, which is the harder half. Compare the generated plan against your existing event list.",
+  },
+];
 
 const tool = toolById['event-tracking-plan-generator'];
 
 export const metadata: Metadata = {
-  title: { absolute: 'Free Event Tracking Plan Generator — Claude Skill' },
+  title: { absolute: 'Free Event Tracking Plan Generator - Claude Skill' },
   description:
-    'Generate a complete event tracking plan for your product in under an hour — a free Claude skill that outputs a Mixpanel/PostHog/Amplitude/GA4 CSV.',
+    'Generate a complete event tracking plan for your product in under an hour - a free Claude skill that outputs a Mixpanel/PostHog/Amplitude/GA4 CSV.',
   alternates: { canonical: '/tools/event-tracking-plan-generator' },
   openGraph: {
-    title: 'Free Event Tracking Plan Generator — Claude Skill',
+    title: 'Free Event Tracking Plan Generator - Claude Skill',
     description:
       'Generate a complete event tracking plan for your product in under an hour. Free Claude skill.',
     url: '/tools/event-tracking-plan-generator',
@@ -134,6 +158,7 @@ export default function EventTrackingPlanGeneratorPage() {
             { name: 'Tools', path: '/tools' },
             { name: tool.title, path: '/tools/event-tracking-plan-generator' },
           ]),
+          faqPageSchema(PLAN_FAQS),
           softwareApplicationSchema({
             name: tool.title,
             description: tool.description,
@@ -234,7 +259,7 @@ export default function EventTrackingPlanGeneratorPage() {
             An event tracking plan is a structured document listing every user
             interaction in your product that should be tracked, along with the
             data (properties) sent with each event. It&apos;s the single source
-            of truth your engineering team uses to instrument analytics — and
+            of truth your engineering team uses to instrument analytics - and
             the document your data team uses to know what&apos;s actually being
             captured.
           </p>
@@ -326,7 +351,7 @@ export default function EventTrackingPlanGeneratorPage() {
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>02</span>
-              Walks through your authenticated app section by section —
+              Walks through your authenticated app section by section -
               clicking, exploring, decoding what&apos;s a meaningful event vs.
               what&apos;s noise
             </li>
@@ -428,7 +453,7 @@ export default function EventTrackingPlanGeneratorPage() {
                   ],
                   [
                     'Has this been implemented?',
-                    'Empty — for your engineers to fill in',
+                    'Empty - for your engineers to fill in',
                   ],
                 ].map(([col, desc], i, arr) => (
                   <tr key={col}>
@@ -509,7 +534,7 @@ export default function EventTrackingPlanGeneratorPage() {
           </p>
           <blockquote style={blockquoteStyle}>
             &ldquo;I want to create a tracking plan for my product. The URL is{' '}
-            <code style={monoInlineStyle}>https://app.yourproduct.com</code> —
+            <code style={monoInlineStyle}>https://app.yourproduct.com</code> -
             it&apos;s a [one-line description].&rdquo;
           </blockquote>
           <p style={paragraphStyle}>
@@ -518,14 +543,14 @@ export default function EventTrackingPlanGeneratorPage() {
           <ol style={numberedListStyle}>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>01</span>
-              <strong>Product context</strong> — who uses it, what&apos;s the
+              <strong>Product context</strong> - who uses it, what&apos;s the
               core &ldquo;aha&rdquo; moment, what&apos;s the monetization
               model. A few sentences is enough; the more context you give, the
               better the event names will be.
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>02</span>
-              <strong>Detail level</strong> —{' '}
+              <strong>Detail level</strong> -{' '}
               <code style={monoInlineStyle}>Detailed</code> (every meaningful
               step in multi-step flows) or{' '}
               <code style={monoInlineStyle}>Simple</code> (only the most
@@ -537,7 +562,7 @@ export default function EventTrackingPlanGeneratorPage() {
             </li>
             <li style={numberedItemStyle}>
               <span style={numberBadgeStyle}>03</span>
-              <strong>Sections to cover</strong> —{' '}
+              <strong>Sections to cover</strong> -{' '}
               <code style={monoInlineStyle}>all</code> for the entire
               authenticated product, or list specific sections like{' '}
               <code style={monoInlineStyle}>
@@ -551,7 +576,7 @@ export default function EventTrackingPlanGeneratorPage() {
             navigate, click, scroll, and explore each section in real time.
             When it hits a login screen, it pauses and asks you to sign in.
             When it finishes a section, it pauses and shows you what it&apos;s
-            added — you can ask it to remove, rename, or add events before it
+            added - you can ask it to remove, rename, or add events before it
             moves on.
           </p>
           <p style={paragraphStyle}>
@@ -560,6 +585,8 @@ export default function EventTrackingPlanGeneratorPage() {
             product is. The CSV is delivered at the end.
           </p>
         </section>
+
+        <Faq items={PLAN_FAQS} title="Questions" eyebrow="Good to know" />
 
         <div
           style={{

@@ -1,0 +1,19 @@
+{
+  "slug": "connecting-marketing-and-product-data",
+  "headings": [
+    ["Two websites, one customer, zero connection", "Why are your marketing site and product two disconnected halves?"],
+    ["What it looks like when it is connected", "What does the connected picture look like?"],
+    ["Why you should not trust the platforms' own numbers", "Why can't you trust the ROAS Google and Meta report?"],
+    ["How you actually stitch it", "How do you stitch identity across www and app?"],
+    ["The one table you look at every week", "What's the one table you read every week?"]
+  ],
+  "faq": [
+    ["Why don't my marketing site and product share data?", "They're on two subdomains, and the anonymous ID set on www is a different ID from the one set on app. Nothing links them. For the user it's one journey — see the ad, read the page, sign up, use the product. The data captures it as two disconnected halves."],
+    ["What goes wrong when they're disconnected?", "Marketing optimises to visitors, because that's the last thing it can see. Signups are cheap and most are worthless, so a channel can look excellent on cost per visitor while delivering users who never activate and never pay."],
+    ["How do you stitch identity across subdomains?", "Set your analytics identity cookie at the parent-domain level — .company.com rather than www.company.com — so it's readable on both. Then capture the acquisition context on the marketing site and carry it through: UTM parameters and click IDs, gclid from Google and fbclid from Meta."],
+    ["Why is view-through attribution the worst offender?", "A user scrolls past your ad, never clicks, arrives some other way and converts — and the platform counts it as its own. Both Google and Meta want credit for the same conversion, and both are graded by the companies selling you the clicks."],
+    ["What table should you actually look at?", "Rows are ad sources broken down as far as useful — channel, then campaign, then ad. Columns are the full journey: spend from the platform, through to activation and revenue from your product data. That last column flips decisions, and when it disagrees with the platform, the platform is wrong."]
+  ],
+  "meta_title": "Connecting Marketing and Product Data",
+  "meta_description": "Your marketing site and product live on two subdomains and never share data. How to stitch identity across them, and the weekly table it unlocks."
+}

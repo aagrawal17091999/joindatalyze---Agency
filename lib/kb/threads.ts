@@ -6,7 +6,7 @@ import { BigQuery } from '@google-cloud/bigquery';
 // schema. That's deliberate: this table exists so a visitor who comes back on a
 // new laptop gets their threads, not so anyone queries them. The analytics
 // surface is ai_avatar_queries, which already has one row per question with the
-// gate scores attached — modelling turns twice would mean two things to keep in
+// gate scores attached - modelling turns twice would mean two things to keep in
 // step and no new answers.
 //
 // Writes are one MERGE per completed answer, not one per token. BigQuery is not
@@ -44,7 +44,7 @@ export type StoredThread = {
   title: string;
   createdAt: number;
   updatedAt: number;
-  /** The client's Turn[]. Opaque here — see the note above. */
+  /** The client's Turn[]. Opaque here - see the note above. */
   turns: unknown[];
 };
 
@@ -107,7 +107,7 @@ export async function saveThread(emailHash: string, thread: StoredThread): Promi
 
   // MERGE on (email_hash, conversation_id): the id is minted client-side, so
   // two devices editing the same thread converge on one row rather than racing
-  // to insert duplicates. Last write wins — acceptable for a transcript that
+  // to insert duplicates. Last write wins - acceptable for a transcript that
   // only ever grows at the end.
   await bq().query({
     query: `

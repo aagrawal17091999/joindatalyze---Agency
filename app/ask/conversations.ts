@@ -8,7 +8,7 @@
 //   - BigQuery (via /api/ask/conversations) is the durable copy, keyed by email
 //     hash, so history follows the person rather than the browser.
 //
-// The server is authoritative on conflict — see mergeConversations. Local-only
+// The server is authoritative on conflict - see mergeConversations. Local-only
 // threads are pushed up the moment an email exists to attach them to.
 
 export type Source = {
@@ -66,7 +66,7 @@ export function loadConversations(): Conversation[] {
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
     // A half-written record from an interrupted stream must not come back
-    // still claiming to be streaming — nothing is going to finish it.
+    // still claiming to be streaming - nothing is going to finish it.
     return parsed
       .filter((c): c is Conversation => !!c && typeof c.id === 'string' && Array.isArray(c.turns))
       .map((c) => ({ ...c, turns: c.turns.map((t) => ({ ...t, streaming: false })) }));
@@ -94,7 +94,7 @@ export function saveConversations(conversations: Conversation[]): void {
  *
  * Same id on both sides: whichever was updated last wins, because the only way
  * that happens is the same person on two devices and the later edit is the one
- * they'd expect to see. Different ids: keep both — a thread started before the
+ * they'd expect to see. Different ids: keep both - a thread started before the
  * email was given is still theirs.
  */
 export function mergeConversations(

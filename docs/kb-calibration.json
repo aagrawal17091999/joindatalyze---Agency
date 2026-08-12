@@ -13,7 +13,7 @@
     "offTopic": 5
   },
   "recallAt5": 0.72,
-  "verdict": "GO — coverage at zero leaks is acceptable.",
+  "verdict": "GO - coverage at zero leaks is acceptable.",
   "scored": [
     {
       "kind": "answerable",

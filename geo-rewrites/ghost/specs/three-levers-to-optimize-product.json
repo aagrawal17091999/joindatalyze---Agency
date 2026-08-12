@@ -1,0 +1,14 @@
+{
+  "slug": "three-levers-to-optimize-product",
+  "tldr": "Three levers for product experience: reduce friction, close the gap between what users expect and what they get, and remove the learning curve. Most product problems are one of these three wearing a different shirt.",
+  "headings": [
+    ["Reducing user friction", "Lever 1: How do you reduce user friction?"],
+    ["Aligning with user expectations - Avoiding mismatch", "Lever 2: How do you close the expectation gap?"],
+    ["Eliminating learning curves", "Lever 3: How do you eliminate the learning curve?"]
+  ],
+  "faq": [
+    ["What are the three levers?", "Reducing friction, aligning with user expectations, and eliminating learning curves. Most product experience problems are one of these three."],
+    ["What is an expectation mismatch?", "The gap between what a user came expecting and what the product actually gives them. It doesn't show up as an error — it shows up as people leaving without complaining."],
+    ["How do you spot friction in the data?", "Drop-off between steps that should be adjacent, and time-to-complete that's longer than the task warrants. Both are visible in a funnel once your events are trustworthy."]
+  ]
+}

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // -----------------------------------------------------------------------------
-// Ask Ansh's AI — build / refresh the knowledge base.
+// Ask Ansh's AI - build / refresh the knowledge base.
 //
 //   npx tsx scripts/kb/build.mjs --dry-run    report what would change, write nothing
 //   npx tsx scripts/kb/build.mjs              build and write to BigQuery
@@ -32,7 +32,7 @@ const { buildKnowledgeBase } = await import('../../lib/kb/build.ts');
 const dryRun = process.argv.includes('--dry-run');
 const skipEmbedding = process.argv.includes('--no-embed');
 const force = process.argv.includes('--force');
-// Only full runs reconcile deletes — see lib/kb/sources/linkedin.ts.
+// Only full runs reconcile deletes - see lib/kb/sources/linkedin.ts.
 const linkedinRunMode = process.argv.includes('--incremental') ? 'incremental' : 'full';
 
 const started = Date.now();

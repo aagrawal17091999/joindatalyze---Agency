@@ -1,5 +1,5 @@
 /* =============================================================================
-   Datalyze — Design System
+   Datalyze - Design System
    Editorial-brutalist. Dark. One electric lime accent. No Tailwind.
    Token reference: design-doc §2. Section styles: design-doc §4.
    ============================================================================= */
@@ -21,11 +21,11 @@
 
   /* Text */
   --text-primary: #fafaf9;
-  --text-secondary: #b8b8bd;
-  --text-muted: #9a9aa3;
+  --text-secondary: #d2d2d7;
+  --text-muted: #b9b9c1;
   --text-inverse: #0a0a0b;
 
-  /* Accent — the only color in the system */
+  /* Accent - the only color in the system */
   --accent: #d4ff3f;
   --accent-hover: #c4f02e;
   --accent-muted: rgba(212, 255, 63, 0.12);
@@ -35,7 +35,7 @@
   --positive: #d4ff3f;
   --negative: #ff6b47;
 
-  /* Typography scale — desktop */
+  /* Typography scale - desktop */
   --text-display-xl: 96px;
   --text-display-lg: 72px;
   --text-display-md: 56px;
@@ -84,7 +84,7 @@
   --radius-lg: 8px;
   --radius-full: 999px;
 
-  /* Elevation (dark-mode — borders + glows, not shadows) */
+  /* Elevation (dark-mode - borders + glows, not shadows) */
   --elevation-1: 0 0 0 1px var(--border-subtle);
   --elevation-2: 0 0 0 1px var(--border-default);
   --elevation-3: 0 0 0 1px var(--border-strong);
@@ -761,7 +761,7 @@ h6 {
   margin-top: var(--space-7);
 }
 
-/* Accent line directly below the H1 — the one italic Instrument Serif
+/* Accent line directly below the H1 - the one italic Instrument Serif
    moment in the hero, rendered in the lime accent token. */
 .hero__accent {
   font-family: var(--font-display), serif;
@@ -1044,6 +1044,13 @@ h6 {
   color: var(--text-muted);
   text-align: center;
   margin-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ba__caption-line {
+  display: block;
 }
 
 @media (max-width: 1024px) {
@@ -1081,7 +1088,7 @@ h6 {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--accent);
   border-radius: 999px;
-  color: rgba(232, 232, 230, 0.7);
+  color: rgba(232, 232, 230, 0.85);
   font-family: var(--font-body, ui-monospace, monospace);
   font-size: 14.5px;
   letter-spacing: 0.04em;
@@ -1280,7 +1287,7 @@ h6 {
   }
 }
 
-/* Hide static grid on mobile — marquee takes over.
+/* Hide static grid on mobile - marquee takes over.
    Placed AFTER the base .logo-wall__grid declaration so this wins the
    cascade when both rules apply. */
 @media (max-width: 768px) {
@@ -1551,7 +1558,7 @@ h6 {
   font-family: var(--font-body), sans-serif;
   font-size: 15px;
   line-height: 1.5;
-  /* The punchline of each scene — pure white so it reads, not the muted
+  /* The punchline of each scene - pure white so it reads, not the muted
      gray it used to be. */
   color: #ffffff;
   font-weight: 500;
@@ -2424,6 +2431,38 @@ h6 {
   }
 }
 
+/* Marks the section that leads a page in place of a .page-shell header
+   (/pricing, /how-it-works, /about). That section carries the h1, so it needs
+   the same clearance under the fixed nav that .page-shell gives - and no top
+   border, since there is nothing above it to divide from. Applied to the
+   section itself, or to a wrapper when the section comes from a component. */
+.page-lead > section,
+section.page-lead {
+  padding-top: calc(var(--space-12) + var(--space-6));
+  border-top: none;
+}
+
+@media (max-width: 1024px) {
+  .page-lead > section,
+  section.page-lead {
+    padding-top: var(--space-11);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-lead > section,
+  section.page-lead {
+    padding-top: var(--space-10);
+  }
+}
+
+@media (max-width: 480px) {
+  .page-lead > section,
+  section.page-lead {
+    padding-top: var(--space-9);
+  }
+}
+
 .page-header {
   text-align: left;
   max-width: 880px;
@@ -2457,7 +2496,7 @@ h6 {
   margin-inline: auto;
 }
 
-/* Contact page — "what you'll get" block below the Calendly widget. */
+/* Contact page - "what you'll get" block below the Calendly widget. */
 .contact-expect {
   max-width: 720px;
   margin: var(--space-10) auto 0;
@@ -2505,7 +2544,7 @@ h6 {
   font-weight: 600;
 }
 
-/* Tool landing — long-form context + FAQ below the download box. */
+/* Tool landing - long-form context + FAQ below the download box. */
 .tool-context {
   max-width: 720px;
   margin: var(--space-10) 0 0;
@@ -2870,88 +2909,6 @@ h6 {
    22. About page
    ----------------------------------------------------------------------------- */
 
-/* --- Hero --- */
-.about-hero {
-  position: relative;
-  padding: var(--space-12) 0 var(--space-11);
-  overflow: hidden;
-}
-
-.about-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 50% 0%,
-    rgba(212, 255, 63, 0.03),
-    transparent 60%
-  );
-  pointer-events: none;
-}
-
-.about-hero__inner {
-  position: relative;
-  max-width: 1080px;
-}
-
-.about-hero__headline {
-  font-family: var(--font-display), serif;
-  font-size: clamp(44px, 6vw, 80px);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  color: var(--text-primary);
-  font-weight: 400;
-  max-width: 920px;
-  margin-top: var(--space-7);
-}
-
-.about-hero__headline em {
-  font-style: italic;
-  color: var(--text-primary);
-}
-
-.about-hero__headline-accent {
-  color: var(--accent);
-}
-
-.about-hero__subhead {
-  font-family: var(--font-body), sans-serif;
-  font-size: clamp(18px, 1.5vw, 21px);
-  line-height: 1.6;
-  color: var(--text-secondary);
-  max-width: 680px;
-  margin-top: var(--space-7);
-}
-
-@keyframes about-hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.about-hero__eyebrow,
-.about-hero__headline,
-.about-hero__subhead {
-  animation: about-hero-rise 800ms var(--ease-out) both;
-}
-
-.about-hero__eyebrow {
-  animation-delay: 100ms;
-}
-
-.about-hero__headline {
-  animation-delay: 200ms;
-}
-
-.about-hero__subhead {
-  animation-delay: 350ms;
-}
-
 /* --- Founder note --- */
 .founder-note {
   padding: var(--space-11) 0;
@@ -3075,9 +3032,6 @@ h6 {
 
 /* About / shared sub-page section padding reductions */
 @media (max-width: 768px) {
-  .about-hero {
-    padding: var(--space-9) 0 var(--space-8);
-  }
   .founder-note,
   .principles,
   .team,
@@ -3091,9 +3045,6 @@ h6 {
 }
 
 @media (max-width: 480px) {
-  .about-hero {
-    padding: var(--space-8) 0 var(--space-7);
-  }
   .founder-note,
   .principles,
   .team,
@@ -3379,6 +3330,14 @@ h6 {
   border-radius: var(--radius-md);
   margin-top: var(--space-10);
   overflow: hidden;
+}
+
+.numbers__note {
+  max-width: 620px;
+  margin: var(--space-6) auto 0;
+  text-align: center;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 @media (max-width: 1024px) {
@@ -4676,7 +4635,7 @@ h6 {
   overflow: visible;
 }
 
-/* Line drawing animation — set pathLength="1" on the SVG path */
+/* Line drawing animation - set pathLength="1" on the SVG path */
 .gfx-path {
   stroke: var(--border-default);
   stroke-width: 1.5;
@@ -4743,7 +4702,7 @@ h6 {
   opacity: 1;
 }
 
-/* Scoped stroke overrides — bump stroke colors well above the dark
+/* Scoped stroke overrides - bump stroke colors well above the dark
    muted defaults so the stack reads clearly against the hero background. */
 .hero__foundation .gfx-path {
   stroke: #55555f;
@@ -4756,7 +4715,7 @@ h6 {
   stroke: #44444c;
 }
 .hero__foundation text {
-  fill: #b8b8bd;
+  fill: #d2d2d7;
   letter-spacing: 0.08em;
 }
 .hero__foundation text.gfx-label--active {
@@ -4837,9 +4796,6 @@ h6 {
   .hero__buttons,
   .hero__proof,
   .hero__chart,
-  .about-hero__eyebrow,
-  .about-hero__headline,
-  .about-hero__subhead,
   .ai-hero__eyebrow,
   .ai-hero__headline,
   .ai-hero__subhead,
@@ -4878,7 +4834,7 @@ h6 {
 }
 
 /* -----------------------------------------------------------------------------
-   Slide deck — stacked vertical viewer for hosted presentations
+   Slide deck - stacked vertical viewer for hosted presentations
    ----------------------------------------------------------------------------- */
 
 .deck {
@@ -4911,4 +4867,94 @@ h6 {
   .deck__slide {
     border-radius: 8px;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Content tables (GEO)
+   Comparison tables are the structure answer engines extract most reliably, so
+   several pages now render one. Shared styling lives here; `.cs-table` is the
+   single class they all use. Wide tables scroll inside their own container so
+   the page body never scrolls horizontally on mobile.
+   ------------------------------------------------------------------------ */
+.cs-overview {
+  margin-top: var(--space-10);
+}
+
+.cs-overview__title {
+  font-family: var(--font-display), serif;
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
+}
+
+.cs-overview__scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+}
+
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+  min-width: 640px;
+}
+
+.cs-table th,
+.cs-table td {
+  text-align: left;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border-default);
+  vertical-align: top;
+}
+
+.cs-table thead th {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--bg-surface);
+}
+
+.cs-table tbody tr:last-child th,
+.cs-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cs-table tbody th {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.cs-table td {
+  color: var(--text-secondary);
+}
+
+.cs-table a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-table a:hover {
+  color: var(--accent);
+}
+
+.res-more {
+  margin-top: var(--space-10);
+}
+
+.res-more__title {
+  font-family: var(--font-display), serif;
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: var(--space-5);
 }

@@ -1,0 +1,16 @@
+{
+  "slug": "the-mindset-for-solving-complex-problem",
+  "tldr": "Five habits: be willing to throw out your approach and start again, know the difference between correlation and causation, build an exhaustive hypothesis chart before narrowing, challenge your own assumptions and your data points, and accept that it takes real time.",
+  "headings": [
+    ["Being Open to Change Your Approach and Redo Everything from Scratch", "Are you willing to start over?"],
+    ["Understanding the Difference Between Correlation and Causation", "Do you know correlation from causation?"],
+    ["Ability to Create an Exhaustive Hypothesis Chart", "Can you build an exhaustive hypothesis chart?"],
+    ["Challenging Your Assumptions and Data Points", "Are you challenging your assumptions and your data?"],
+    ["You Have to Spend Time", "Are you giving it enough time?"]
+  ],
+  "faq": [
+    ["Why does correlation vs causation matter so much in analytics?", "Because almost every finding you'll surface is correlational, and acting on it as if it were causal is how teams ship changes that move nothing. Knowing which one you have decides whether you need an experiment."],
+    ["What is an exhaustive hypothesis chart?", "Every plausible explanation written down before you start narrowing. Skipping it means you test the first hypothesis you thought of, which is rarely the right one."],
+    ["Why should you challenge your own data points?", "Because a broken event doesn't announce itself. If a number surprises you, the first hypothesis should be that the number is wrong."]
+  ]
+}

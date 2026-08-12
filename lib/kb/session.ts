@@ -5,7 +5,7 @@ import { sha256 } from './text';
 //
 // Signed cookie, same HMAC shape as lib/api/download-token.ts. It carries who
 // the visitor is; it deliberately does NOT carry the question count, because a
-// cookie is replayable — a visitor could keep re-sending the cookie they had
+// cookie is replayable - a visitor could keep re-sending the cookie they had
 // after question one and never exhaust the quota. The authoritative count lives
 // in BigQuery (see lib/kb/users.ts).
 

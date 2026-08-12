@@ -1,0 +1,10 @@
+{
+  "slug": "getting-start-with-mixpanel-the-basics",
+  "tldr": "Apply to the Mixpanel startup program if you qualify, create the account, then confirm data is actually flowing before you build anything on top of it.",
+  "headings": [
+    ["Join the Mixpanel startup program", "Should you join the Mixpanel startup program?"],
+    ["Create Your Mixpanel Account", "How do you create your Mixpanel account?"],
+    ["Checking data flow into Mixpanel", "How do you check data is flowing into Mixpanel?"],
+    ["Next steps", "What are the next steps?"]
+  ]
+}

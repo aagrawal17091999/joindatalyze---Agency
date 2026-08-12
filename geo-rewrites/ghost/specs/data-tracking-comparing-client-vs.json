@@ -1,0 +1,18 @@
+{
+  "slug": "data-tracking-comparing-client-vs",
+  "tldr": "Client-side tracking is easy to set up and gives rich front-end detail, but ad blockers and browsers drop events. Server-side is immune to blockers and more reliable, but misses front-end context and costs more engineering. Hybrid combines them, and it's what most products should end up on.",
+  "headings": [
+    ["Client-side tracking", "What is client-side tracking?"],
+    ["Server side tracking", "What is server-side tracking?"],
+    ["Hybrid tracking", "What is hybrid tracking?"],
+    ["What impact will each tracking method have on my data?", "How does each method affect your data?"],
+    ["What should you choose?", "Which tracking method should you choose?"]
+  ],
+  "faq": [
+    ["What is client-side tracking?", "Collecting and sending data from the user's browser directly to the analytics server, via a tracking code embedded in your site or app. It gives detailed front-end insight but relies on the user's browser working as expected."],
+    ["What is server-side tracking?", "Sending data from your server to the analytics server, bypassing the browser entirely. Events are recorded from the backend of your product."],
+    ["What is hybrid tracking?", "Combining the two. The server reliably logs what it can, while the client fills in the gaps — immediate events like clicks and page views. It's a more complex setup, and it's the right answer for most products."],
+    ["Which should I choose?", "Client-side if you want detailed user interaction data and easy integration with multiple tools. Server-side if data privacy, ad blockers and site performance are your main concerns. Hybrid if you want to avoid data loss and still capture interaction detail."],
+    ["Does server-side tracking avoid ad blockers?", "Yes — it's immune to them, which is the main reason to move business-critical events there. It also improves site performance by offloading tracking work from the browser."]
+  ]
+}

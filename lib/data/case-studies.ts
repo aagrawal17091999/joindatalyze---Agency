@@ -8,11 +8,19 @@ export type CaseStudyListItem = {
   tags: string[];
   thumbClass: string;
   externalUrl: string;
+  /** Sector and focus, surfaced in the /case-studies overview table so the
+   *  index page is citable without a crawler following 16 links. */
+  sector: string;
+  focus: string;
+  result: string;
 };
 
 export const caseStudyList: CaseStudyListItem[] = [
   {
     slug: 'copyfy',
+    sector: 'AI website builder',
+    focus: 'Conversion, data quality',
+    result: 'Sign-up rate +31%, data unified',
     logo: '/logos/Copyfy.png',
     alt: 'Copyfy logo',
     meta: 'AI Website Builder · Analytics',
@@ -24,6 +32,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'foriio',
+    sector: 'Portfolio platform',
+    focus: 'Activation, lifecycle',
+    result: 'Activation +8%, retention +6%',
     logo: '/logos/Foriio.png',
     alt: 'Foriio logo',
     meta: 'Portfolio Platform · Activation',
@@ -35,6 +46,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'cred',
+    sector: 'Fintech',
+    focus: 'Monetization, reliability',
+    result: 'Payment success rate +7%, cost −12%, provider outages −93%',
     logo: '/logos/CRED.png',
     alt: 'CRED logo',
     meta: 'Fintech · Monetization',
@@ -47,6 +61,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'sama',
+    sector: 'Coaching SaaS',
+    focus: 'Retention, UX',
+    result: 'Retention +4%',
     logo: '/logos/Sama.png',
     alt: 'Sama.io logo',
     meta: 'Coaching SaaS · Retention',
@@ -58,6 +75,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'gametree',
+    sector: 'Social',
+    focus: 'Localization, activation',
+    result: 'Day 0 activation +5%',
     logo: '/logos/GameTree.png',
     alt: 'GameTree logo',
     meta: 'Social · Activation',
@@ -69,6 +89,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'petcademy',
+    sector: 'Pet tech',
+    focus: 'Messaging, personalization',
+    result: 'SMS cost −12% with no drop in engagement',
     logo: '/logos/PetAcademy.png',
     alt: 'Petcademy logo',
     meta: 'Pet Tech · Messaging',
@@ -80,6 +103,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'stealth',
+    sector: 'Stealth',
+    focus: 'Activation, pricing',
+    result: 'Activation +22%, time in app +2 min',
     logo: null,
     alt: 'Confidential Startup logo',
     meta: 'Stealth · Activation',
@@ -91,6 +117,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'videotap',
+    sector: 'AI video',
+    focus: 'Onboarding, activation',
+    result: 'Onboarding completion 28% → 80%, activation +12pt',
     logo: '/logos/videotap.png',
     alt: 'VideoTap logo',
     meta: 'AI Video · Activation',
@@ -102,6 +131,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'zeroone',
+    sector: 'Web3 social',
+    focus: 'Engagement, habit loops',
+    result: 'Week 2 retention +15%, engagement +30%',
     logo: '/logos/Zeroone.png',
     alt: 'zeroone logo',
     meta: 'Web3 Social · Engagement',
@@ -114,6 +146,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'speedyloans',
+    sector: 'Lending',
+    focus: 'Segmentation, cost',
+    result: 'Cost −30%, engagement +1%',
     logo: '/logos/FlexLoans.png',
     alt: 'Speedyloans logo',
     meta: 'Lending · Lifecycle',
@@ -125,6 +160,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'wellness-coach',
+    sector: 'Wellbeing',
+    focus: 'Taxonomy, data quality',
+    result: 'Trust in data restored',
     logo: '/logos/wellness%20coach.png',
     alt: 'Wellness Coach logo',
     meta: 'Wellbeing · Analytics',
@@ -136,6 +174,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'sol',
+    sector: 'Productivity',
+    focus: 'Governance, scalability',
+    result: 'Complex data structure simplified into an accurate setup',
     logo: '/logos/Sol.png',
     alt: 'Sol logo',
     meta: 'Productivity · Analytics',
@@ -148,6 +189,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'answering-agent',
+    sector: 'AI voice',
+    focus: 'Measurement, quality',
+    result: 'AI-generated call scoring built',
     logo: '/logos/answeringagent.png',
     alt: 'Answering Agent logo',
     meta: 'AI Voice · Quality',
@@ -159,6 +203,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'termplus',
+    sector: 'Finserv',
+    focus: 'Infrastructure',
+    result: 'Full analytics infra built, user journey unified',
     logo: '/logos/termplus.png',
     alt: 'TermPlus logo',
     meta: 'Finserv · Analytics',
@@ -171,6 +218,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'frai',
+    sector: 'Interview prep',
+    focus: 'Conversion, experiments',
+    result: 'Paid conversion rate 2×',
     logo: '/logos/final%20round%20ai.png',
     alt: 'FRAI logo',
     meta: 'Interview Prep · Conversion',
@@ -182,6 +232,9 @@ export const caseStudyList: CaseStudyListItem[] = [
   },
   {
     slug: 'anyip',
+    sector: 'Infrastructure',
+    focus: 'Marketing analytics',
+    result: 'Marketing visibility, improved CAC and spend efficiency',
     logo: '/logos/anyip.png',
     alt: 'AnyIP logo',
     meta: 'Infrastructure · Marketing',
@@ -191,6 +244,21 @@ export const caseStudyList: CaseStudyListItem[] = [
     tags: ['Marketing analytics', 'CAC', 'Dashboards'],
     thumbClass: 'bold',
     externalUrl: 'https://www.joindatalyze.com/blog/case-study-anyip/',
+  },
+  {
+    slug: 'buildern',
+    sector: 'Construction SaaS',
+    focus: 'Attribution, warehouse modelling',
+    result: 'Attribution fixed, warehouse modelled in dbt, account health scored',
+    logo: '/logos/Buildern.png',
+    alt: 'Buildern logo',
+    meta: 'Construction SaaS · Attribution',
+    title: 'Buildern',
+    description:
+      'Fixed attribution, modelled the warehouse in dbt, and scored account health.',
+    tags: ['Attribution', 'dbt', 'Churn risk'],
+    thumbClass: '',
+    externalUrl: 'https://www.joindatalyze.com/blog/case-study-buildern/',
   },
 ];
 

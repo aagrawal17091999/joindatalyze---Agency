@@ -4,7 +4,7 @@ import { insertContactLead } from '@/lib/api/bigquery';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Full-page Calendly scheduling link. We redirect the browser here (top-level,
-// first-party) instead of embedding an iframe — the ad-blocker / third-party
+// first-party) instead of embedding an iframe - the ad-blocker / third-party
 // storage failures that blank out the inline embed don't apply to a top-level
 // navigation to calendly.com, so this loads reliably for privacy-heavy visitors.
 const CALENDLY_BASE = 'https://calendly.com/ansh-datalyze/chat';
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
 
   // Capture is best-effort and runs after the response streams back: we never
   // block (or fail) a booking on our own analytics store. A dropped row is
-  // recoverable — the visitor is on their way to Calendly regardless.
+  // recoverable - the visitor is on their way to Calendly regardless.
   after(async () => {
     try {
       await insertContactLead({

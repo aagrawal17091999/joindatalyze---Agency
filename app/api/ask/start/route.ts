@@ -6,7 +6,7 @@ import { getQuota, upsertUser } from '@/lib/kb/users';
 // The email gate.
 //
 // Trades an email for access to the chat. Reuses addGhostMember() so every
-// visitor also becomes a newsletter subscriber — the function already exists
+// visitor also becomes a newsletter subscriber - the function already exists
 // and already swallows the 422-already-exists case.
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   // gets their real remaining count, not a fresh 3.
   const quota = await getQuota(session.emailHash).catch(() => null);
 
-  // Newsletter signup is a side effect, not a precondition — a Ghost outage
+  // Newsletter signup is a side effect, not a precondition - a Ghost outage
   // must never block access to the chat. addGhostMember throws on non-422
   // errors, so it runs after the response is committed.
   after(async () => {

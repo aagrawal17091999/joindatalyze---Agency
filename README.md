@@ -24,14 +24,14 @@ Open **http://localhost:3000**.
 
 ## Structure
 
-- **`app/`** — App Router routes, layouts, route handlers, and private `_components/`.
-- **`lib/`** — Fonts (`next/font`), analytics helper, data files, API helpers (BigQuery / Resend / Ghost / download tokens).
-- **`public/`** — Static assets (logos, fonts, videos, images).
-- **`next.config.ts`** — Framework config (image optimization, etc.).
+- **`app/`** - App Router routes, layouts, route handlers, and private `_components/`.
+- **`lib/`** - Fonts (`next/font`), analytics helper, data files, API helpers (BigQuery / Resend / Ghost / download tokens).
+- **`public/`** - Static assets (logos, fonts, videos, images).
+- **`next.config.ts`** - Framework config (image optimization, etc.).
 
 ## Key routes
 
-- `/` — Homepage
+- `/` - Homepage
 - `/about`, `/contact`, `/faqs`, `/resources`, `/ai-analytics-agent`
 - `/case-studies` (listing from `lib/data/case-studies.ts`; each card links out to `blog.joindatalyze.com`)
 - `/tools` + `/tools/[toolId]` (SSG'd from `lib/data/tools.ts`)
@@ -46,9 +46,9 @@ Copy `.env.example` to `.env.local` for local development. On Vercel, set the sa
 
 Hand-written CSS in `app/globals.css` built on the tokens in the `:root` block. Three fonts via `next/font`:
 
-- **Instrument Serif** — display headlines (`--font-display`)
-- **General Sans** — body copy (`--font-body`, self-hosted from `public/fonts/`)
-- **JetBrains Mono** — numbers, eyebrows, mono labels (`--font-mono`)
+- **Instrument Serif** - display headlines (`--font-display`)
+- **General Sans** - body copy (`--font-body`, self-hosted from `public/fonts/`)
+- **JetBrains Mono** - numbers, eyebrows, mono labels (`--font-mono`)
 
 Single electric lime accent `#D4FF3F`, used sparingly. Rest is greyscale.
 

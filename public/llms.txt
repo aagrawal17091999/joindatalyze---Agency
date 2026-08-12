@@ -7,8 +7,8 @@
 
 ## Core pages
 - [Homepage](https://www.joindatalyze.com/): What Datalyze does and who it's for.
-- [Pricing](https://www.joindatalyze.com/pricing): What an engagement costs — audits from $1k, projects $1.5k–$4k, embedded retainers $2k–$5k/month.
-- [How it works](https://www.joindatalyze.com/how-it-works): The four phases of an engagement — foundation, unification, visibility, compounding.
+- [Pricing](https://www.joindatalyze.com/pricing): What an engagement costs - audits from $1k, infra setup $1.5k–$3k, embedded retainers $2k–$5k/month.
+- [How it works](https://www.joindatalyze.com/how-it-works): The four phases of an engagement - foundation, unification, visibility, compounding.
 - [AI Analytics Agent](https://www.joindatalyze.com/ai-analytics-agent): Our AI agent that answers product/growth questions on your own data.
 - [Case Studies](https://www.joindatalyze.com/case-studies): Quantified client outcomes (CRED, Copyfy, VideoTap, FRAI, and more).
 - [FAQs](https://www.joindatalyze.com/faqs): Pricing, team, engagement model, and what to expect.

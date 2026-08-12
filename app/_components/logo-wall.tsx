@@ -8,11 +8,11 @@ export default function LogoWall() {
     <section className="section logo-wall" aria-label="Clients">
       <div className="container">
         <p className="logo-wall__intro">
-          From Seed rounds to Series C. Here are a few teams we&apos;ve worked
+          From Seed to Series C. Here are a few teams we&apos;ve worked
           with.
         </p>
 
-        {/* Categories — desktop renders the standard pill row; mobile
+        {/* Categories - desktop renders the standard pill row; mobile
             renders an auto-scrolling marquee with a duplicated copy. */}
         <div className="logo-wall__categories">
           {CATEGORIES.map((c) => (
@@ -46,7 +46,7 @@ export default function LogoWall() {
           </div>
         </div>
 
-        {/* Logos — desktop renders the static grid; mobile renders an
+        {/* Logos - desktop renders the static grid; mobile renders an
             auto-scrolling marquee with a duplicated copy. */}
         <div className="logo-wall__grid">
           {homeLogos.map((logo) => (

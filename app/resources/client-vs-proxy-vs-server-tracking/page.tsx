@@ -1,14 +1,40 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Faq from '@/app/_components/faq';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema } from '@/lib/seo';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  orgRef,
+  personRef,
+  SITE_URL,
+} from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Client vs Proxy vs Server Side Tracking',
   description:
-    'Where to fire each event and why it matters for your data. A practical guide to client, proxy, and server-side event tracking.',
+    'Server-side for revenue and sign-ups, client-side for behaviour, a first-party proxy to recover blocked events. Which method each event should use.',
   alternates: { canonical: '/resources/client-vs-proxy-vs-server-tracking' },
 };
+
+const TRACKING_FAQS = [
+  {
+    q: 'Is server-side tracking better than client-side?',
+    a: 'Not better - different. Server-side is more reliable and harder to tamper with, so it is right for revenue and sign-ups. Client-side sees the interface, so it is right for behaviour. Most products need both.',
+  },
+  {
+    q: 'Do I need a first-party proxy?',
+    a: 'If a meaningful share of your client events are being dropped by ad blockers or Safari\u2019s ITP, yes. It is the cheapest way to recover them without re-instrumenting everything server-side.',
+  },
+  {
+    q: 'Does server-side tracking break attribution?',
+    a: 'It can. Click IDs and campaign parameters arrive in the browser, so if you move an event server-side without passing that context through, attribution goes with it. Capture the attribution parameters client-side on landing, persist them, and attach them to the server-side event.',
+  },
+  {
+    q: 'Which events should fire from the server?',
+    a: 'Anything that must be exact or must not be blockable: purchases, subscription changes, sign-ups, trial starts. Anything that depends on what was on screen - clicks, feature use, form drop-off - belongs client-side.',
+  },
+];
 
 const SLIDE_COUNT = 13;
 
@@ -16,14 +42,31 @@ export default function ClientVsProxyVsServerPage() {
   return (
     <div className="page-shell">
       <JsonLd
-        data={breadcrumbSchema([
-          { name: 'Home', path: '/' },
-          { name: 'Resources', path: '/resources' },
+        data={[
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Resources', path: '/resources' },
+            {
+              name: 'Client vs proxy vs server-side tracking',
+              path: '/resources/client-vs-proxy-vs-server-tracking',
+            },
+          ]),
+          faqPageSchema(TRACKING_FAQS),
+          // This is the most citable page on the domain and it declared no
+          // author. TechArticle + an author reference to the site-wide Person
+          // is what lets an engine attribute the advice.
           {
-            name: 'Client vs proxy vs server-side tracking',
-            path: '/resources/client-vs-proxy-vs-server-tracking',
+            '@context': 'https://schema.org',
+            '@type': 'TechArticle',
+            '@id': `${SITE_URL}/resources/client-vs-proxy-vs-server-tracking#article`,
+            headline: 'Client vs proxy vs server-side tracking',
+            description:
+              'Server-side for revenue and sign-ups, client-side for behaviour, a first-party proxy to recover blocked events. Which method each event should use.',
+            url: `${SITE_URL}/resources/client-vs-proxy-vs-server-tracking`,
+            author: personRef,
+            publisher: orgRef,
           },
-        ])}
+        ]}
       />
       <div className="container">
         <header className="page-header">
@@ -31,12 +74,72 @@ export default function ClientVsProxyVsServerPage() {
           <h1 className="page-header__title">
             Client vs proxy vs server-side tracking
           </h1>
+          {/* Answer-first: the recommendation itself, before any explanation.
+              A model should be able to quote this paragraph and be correct. */}
           <p className="page-header__intro">
-            Where you fire each event decides how accurate, complete, and
-            trustworthy your product data is. Here&apos;s how the three
-            approaches compare, and how to combine them.
+            Fire revenue, sign-ups and anything that must be exact from your
+            server. Fire UI interactions, engagement and behavioural detail
+            from the client. Route those client events through a first-party
+            proxy on your own domain to recover what ad blockers and tracking
+            prevention would otherwise drop. Most products need all three,
+            split deliberately per event.
           </p>
         </header>
+
+        {/* The comparison table is what a "X vs Y" query gets cited for. */}
+        <section className="cs-overview">
+          <h2 className="cs-overview__title">The three approaches compared</h2>
+          <div className="cs-overview__scroll">
+            <table className="cs-table">
+              <thead>
+                <tr>
+                  <th scope="col" />
+                  <th scope="col">Client-side</th>
+                  <th scope="col">Proxy (first-party)</th>
+                  <th scope="col">Server-side</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Where it fires</th>
+                  <td>Browser or mobile app, via SDK</td>
+                  <td>Browser &rarr; endpoint on your domain &rarr; the tool</td>
+                  <td>Your backend, after the action is confirmed</td>
+                </tr>
+                <tr>
+                  <th scope="row">Completeness</th>
+                  <td>Lowest - blockers, ITP and network failures drop events silently</td>
+                  <td>High - requests look first-party, so most blocked events are recovered</td>
+                  <td>Highest - nothing on the user&apos;s machine can stop it</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tamper-resistance</th>
+                  <td>Low - the code runs on the user&apos;s machine</td>
+                  <td>Low - still originates client-side</td>
+                  <td>High</td>
+                </tr>
+                <tr>
+                  <th scope="row">Front-end context</th>
+                  <td>Full - clicks, page, referrer, device, UI sequence</td>
+                  <td>Full - same payload, different route</td>
+                  <td>Limited - the server can&apos;t see UI state</td>
+                </tr>
+                <tr>
+                  <th scope="row">Setup effort</th>
+                  <td>Lowest</td>
+                  <td>Medium - infrastructure to run and maintain</td>
+                  <td>Highest - real engineering per event</td>
+                </tr>
+                <tr>
+                  <th scope="row">Best for</th>
+                  <td>Engagement, UX behaviour, funnels through the interface</td>
+                  <td>Recovering blocked client events</td>
+                  <td>Revenue, sign-ups, anything business-critical</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         <article className="prose">
           <p>
@@ -96,7 +199,63 @@ export default function ClientVsProxyVsServerPage() {
             blockers would otherwise lose. Decide per event based on the outcome
             you need from it, not by picking a single approach for everything.
           </p>
+
+          <h2>Which method should each event use?</h2>
         </article>
+
+        <div className="cs-overview__scroll">
+          <table className="cs-table">
+            <thead>
+              <tr>
+                <th scope="col">Event</th>
+                <th scope="col">Fire it from</th>
+                <th scope="col">Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Purchase / payment completed</th>
+                <td>Server</td>
+                <td>Must be exact; must not be blockable or spoofable</td>
+              </tr>
+              <tr>
+                <th scope="row">Subscription started, renewed, cancelled</th>
+                <td>Server</td>
+                <td>Billing truth lives in your backend, not the browser</td>
+              </tr>
+              <tr>
+                <th scope="row">Sign-up / account created</th>
+                <td>Server</td>
+                <td>Drives CAC and activation denominators</td>
+              </tr>
+              <tr>
+                <th scope="row">Page or screen viewed</th>
+                <td>Client, via proxy</td>
+                <td>Needs front-end context; volume makes server instrumentation expensive</td>
+              </tr>
+              <tr>
+                <th scope="row">Button or CTA clicked</th>
+                <td>Client, via proxy</td>
+                <td>Only the client knows what was on screen</td>
+              </tr>
+              <tr>
+                <th scope="row">Feature used in-app</th>
+                <td>Client, via proxy</td>
+                <td>Behavioural detail the server can&apos;t see</td>
+              </tr>
+              <tr>
+                <th scope="row">Form errors, drop-off within a flow</th>
+                <td>Client, via proxy</td>
+                <td>Pure UI state</td>
+              </tr>
+              <tr>
+                <th scope="row">Email opened, link clicked</th>
+                <td>Server, from your ESP webhook</td>
+                <td>Not your front end at all</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div className="deck">
           {Array.from({ length: SLIDE_COUNT }, (_, i) => {
@@ -105,7 +264,7 @@ export default function ClientVsProxyVsServerPage() {
               <figure key={n} className="deck__slide">
                 <Image
                   src={`/decks/client-vs-proxy-vs-server/slide-${n}.png`}
-                  alt={`Client vs proxy vs server-side tracking — slide ${i + 1} of ${SLIDE_COUNT}`}
+                  alt={`Client vs proxy vs server-side tracking - slide ${i + 1} of ${SLIDE_COUNT}`}
                   width={2880}
                   height={1620}
                   sizes="(max-width: 1280px) 100vw, 1200px"
@@ -115,6 +274,12 @@ export default function ClientVsProxyVsServerPage() {
             );
           })}
         </div>
+
+        <Faq
+          items={TRACKING_FAQS}
+          title="Tracking questions"
+          eyebrow="Questions"
+        />
       </div>
     </div>
   );

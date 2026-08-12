@@ -1,13 +1,20 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaButton from '../_components/cta-button';
+import Faq from '../_components/faq';
 import JsonLd from '@/components/seo/JsonLd';
-import { breadcrumbSchema, orgRef, personRef, SITE_URL } from '@/lib/seo';
+import {
+  breadcrumbSchema,
+  faqPageSchema,
+  orgRef,
+  personRef,
+  SITE_URL,
+} from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'About Datalyze & Ansh Agrawal',
   description:
-    'Datalyze is an analytics consultancy founded by Ansh Agrawal. We\u2019ve helped 150+ startups fix their data foundations and grow revenue by 14% on average.',
+    'Datalyze is an analytics consultancy founded by Ansh Agrawal in 2019. Senior operators only - we rebuild data foundations, then find the growth.',
   alternates: { canonical: '/about' },
 };
 
@@ -18,7 +25,7 @@ const TEAM = [
     photo: '/Ansh.png',
     photoWidth: 1344,
     photoHeight: 768,
-    bio: 'Built analytics infrastructure for 90+ startups before founding Datalyze in 2025. Specializes in product analytics, experimentation, and the messy first 90 days of fixing a broken stack. Mixpanel Certified. Based in India.',
+    bio: 'Built analytics infrastructure for 150+ startups since founding Datalyze in 2019. Specializes in product analytics, experimentation, and the messy first 90 days of fixing a broken stack. Mixpanel Certified Partner. Based in India.',
   },
   {
     name: 'Sara Maarouf',
@@ -26,7 +33,28 @@ const TEAM = [
     photo: '/sara-maarouf.jpg',
     photoWidth: 1200,
     photoHeight: 666,
-    bio: 'Leads growth and experimentation engagements. Specializes in turning trustworthy data into the experiments that compound — pricing tests, onboarding flows, conversion paths.',
+    bio: 'Leads growth and experimentation engagements. Specializes in turning trustworthy data into the experiments that compound - pricing tests, onboarding flows, conversion paths.',
+  },
+];
+
+// Entity-resolution questions: "who is Ansh Agrawal", "what is Datalyze".
+// Every answer here restates a fact already published elsewhere on the site.
+const ABOUT_FAQS = [
+  {
+    q: 'Who is Ansh Agrawal?',
+    a: 'The founder of Datalyze. He started his analytics career at CRED, then spent several years freelancing analytics work for startups one at a time before founding Datalyze in 2019. Mixpanel Certified Partner, based in India.',
+  },
+  {
+    q: 'What is Datalyze?',
+    a: 'An analytics and growth consultancy for startups. We rebuild the data foundation - events, pipelines, definitions, models - then build the reporting and run the experiments on top of it. Engagements run from a $1,000 audit to $2,000\u2013$5,000 per month embedded work.',
+  },
+  {
+    q: 'How big is the team?',
+    a: 'Small and deliberately senior. Every person has built analytics foundations for dozens of companies before joining. You work directly with the people in your data - no account managers, no junior analysts learning on your budget.',
+  },
+  {
+    q: 'Is Datalyze a Mixpanel partner?',
+    a: 'Yes - Mixpanel Certified Partner, and a PostHog Implementation Specialist. We also work across Amplitude, Heap, BigQuery, Snowflake, dbt, Segment and the rest of the modern stack.',
   },
 ];
 
@@ -59,23 +87,13 @@ export default function AboutPage() {
             { name: 'About', path: '/about' },
           ]),
           aboutPageSchema,
+          faqPageSchema(ABOUT_FAQS),
         ]}
       />
-      {/* Section 1 — Hero */}
-      <section className="about-hero" id="about-hero">
-        <div className="container about-hero__inner">
-          <div className="eyebrow about-hero__eyebrow">About Datalyze</div>
-          <h1 className="about-hero__headline">
-            We don't sell dashboards. We build <span className="about-hero__headline-accent">foundations</span>.
-          </h1>
-          <p className="about-hero__subhead">
-            Datalyze was started by operators who'd spent years watching companies pour money into analytics tools that produced charts nobody trusted.
-          </p>
-        </div>
-      </section>
-
-      {/* Section 2 — Founder note */}
-      <section className="founder-note" id="founder-note">
+      {/* Section 1 - Founder note. This is the page's lead content, so its
+          title carries the h1; the hero above it only said the same thing in
+          third person. */}
+      <section className="founder-note page-lead" id="founder-note">
         <div className="container">
           <div className="founder-note__inner">
             <div className="founder-note__header">
@@ -97,13 +115,13 @@ export default function AboutPage() {
                 Ansh Agrawal · Founder
               </div>
 
-              <h2 className="founder-note__title">A note from the founder</h2>
+              <h1 className="founder-note__title">A note from the founder</h1>
             </div>
 
             <div className="founder-note__body">
               <p>
                 I started my analytics career at CRED. After that, I spent a
-                few years freelancing — one startup at a time, fixing
+                few years freelancing - one startup at a time, fixing
                 tracking, unblocking data teams, surfacing insights buried
                 under broken foundations.
               </p>
@@ -111,11 +129,11 @@ export default function AboutPage() {
                 By engagement 30 or 40, I&apos;d seen the same pattern at
                 every company: three tools, four dashboards, zero confidence
                 in any of the numbers. The fix wasn&apos;t more tools. It was
-                the foundation underneath them — the events, pipelines,
+                the foundation underneath them - the events, pipelines,
                 definitions, and models that nobody had time to fix.
               </p>
               <p>
-                In 2025, I started Datalyze to do this at scale. Senior
+                In 2019, I started Datalyze to do this at scale. Senior
                 operators only. No account managers, no junior analysts
                 learning on the client&apos;s budget. We fix the foundation
                 first, then turn it into the kind of insights that actually
@@ -129,7 +147,7 @@ export default function AboutPage() {
 
             <div className="founder-note__signature">
               <span className="founder-note__signature-name">
-                — Ansh Agrawal
+                - Ansh Agrawal
               </span>
               <span className="founder-note__signature-role">
                 Founder, Datalyze
@@ -139,12 +157,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 4 — Team */}
+      {/* Section 2 - Team */}
       <section className="team" id="team">
         <div className="container">
           <header className="team__header">
             <div className="eyebrow eyebrow--center">The Team</div>
-            <h2 className="team__title">The people in your data</h2>
+            <h2 className="team__title">Who actually does the work?</h2>
             <p className="team__intro">
               Small team. Senior operators only. Every person here has built
               analytics foundations for dozens of companies before joining
@@ -174,7 +192,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 5 — Numbers */}
+      {/* Section 5 - Numbers */}
       <section className="numbers" id="numbers">
         <div className="container">
           <div className="numbers__header">
@@ -192,10 +210,21 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          {/* An unexplained "14%" is a claim an answer engine hedges or drops.
+              One sentence makes it quotable. */}
+          <p className="numbers__note">
+            The 14% is before-and-after revenue impact of changes we shipped,
+            weighted across every engagement - not a best case.
+          </p>
         </div>
       </section>
 
-      {/* Section 6 — Final CTA */}
+      {/* Section 5b - FAQ. Targets the entity queries ("who is Ansh Agrawal",
+          "what is Datalyze") that the site answered nowhere. */}
+      <Faq items={ABOUT_FAQS} title="About Datalyze" eyebrow="Questions" />
+
+      {/* Section 6 - Final CTA */}
       <section className="about-cta" id="book">
         <div className="container">
           <div className="about-cta__inner">

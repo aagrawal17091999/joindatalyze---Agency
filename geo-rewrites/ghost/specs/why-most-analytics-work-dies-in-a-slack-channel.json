@@ -1,0 +1,18 @@
+{
+  "slug": "why-most-analytics-work-dies-in-a-slack-channel",
+  "tldr": "Most analytics work gets delivered, posted in a Slack channel, and never acted on. It isn't an insight quality problem — it's that nobody owned the decision the analysis was meant to inform. Ask who will act on this and what they'd do differently, before the work starts.",
+  "headings": [
+    ["The pattern", "What's the pattern?"],
+    ["What I used to think was wrong", "What I used to think was wrong"],
+    ["The realization", "What was actually going on"],
+    ["My share of the blame", "My share of the blame"],
+    ["When it actually works", "When does analytics work actually land?"],
+    ["The questions to ask before you start", "What should you ask before starting any analysis?"],
+    ["So before you invest in analytics", "Before you invest in analytics"]
+  ],
+  "faq": [
+    ["Why does analytics work get ignored?", "Not because the insight was wrong. Because no one owned the decision it was supposed to inform, so there was no one whose job it was to act on it."],
+    ["What questions should you ask before starting an analysis?", "Who will act on this, and what would they do differently depending on the answer? If neither has a clear answer, the analysis will land in a Slack channel and stop there."],
+    ["When does analytics actually change something?", "When there's a decision waiting on it, a person who owns that decision, and a date by which it has to be made. All three, not one."]
+  ]
+}

@@ -20,10 +20,10 @@ import { normalizeForHash, sha256 } from './text';
 const PROJECT_ID = process.env.BIGQUERY_PROJECT_ID;
 const DATASET_ID = process.env.BIGQUERY_DATASET_ID || 'datalyze';
 
-/** Global fuse. Never fires in normal operation — see plan §2.7. */
+/** Global fuse. Never fires in normal operation - see plan §2.7. */
 export const DAILY_ANSWER_CAP = Number(process.env.KB_DAILY_ANSWER_CAP ?? 1500);
 /**
- * Per-IP daily cap — the real per-person limit now that the email gate hands
+ * Per-IP daily cap - the real per-person limit now that the email gate hands
  * out unlimited questions. Sized to be invisible to anyone using the thing
  * honestly and hard to miss for anyone scripting it. Email alone can't do this
  * job: +1 addressing defeats it in one line.
@@ -76,7 +76,7 @@ export function readCache(question: string, indexVersion: string | null): Cached
   const entry = responseCache.get(cacheKey(question));
   if (!entry) return null;
 
-  // A rebuilt index invalidates every cached answer — otherwise a cached
+  // A rebuilt index invalidates every cached answer - otherwise a cached
   // response can keep citing a post that was deleted last night.
   if (entry.expires < Date.now() || entry.indexVersion !== indexVersion) {
     responseCache.delete(cacheKey(question));
@@ -98,7 +98,7 @@ export function writeCache(
     indexVersion,
   });
 
-  // Crude bound — this is a per-instance map, not a real cache.
+  // Crude bound - this is a per-instance map, not a real cache.
   if (responseCache.size > 500) {
     const oldest = [...responseCache.entries()].sort((a, b) => a[1].expires - b[1].expires)[0];
     if (oldest) responseCache.delete(oldest[0]);

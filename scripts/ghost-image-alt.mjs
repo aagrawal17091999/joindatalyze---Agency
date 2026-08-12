@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // -----------------------------------------------------------------------------
-// Ghost blog — image alt-text auditor & batch-filler
+// Ghost blog - image alt-text auditor & batch-filler
 //
 // The Screaming Frog SEO audit flags ~200 blog images with missing alt text.
 // Those images live in Ghost (storage.ghost.io), not in this Next.js repo, so
-// they can't be fixed in code — they have to be edited in the posts themselves.
+// they can't be fixed in code - they have to be edited in the posts themselves.
 // This script does both halves of that:
 //
 //   1. AUDIT   node scripts/ghost-image-alt.mjs audit
@@ -25,7 +25,7 @@
 //        place rather than round-tripping through HTML. --dry-run shows what
 //        would change without writing.
 //
-// Auth: uses GHOST_ADMIN_API_KEY + GHOST_API_URL from .env.local. No npm deps —
+// Auth: uses GHOST_ADMIN_API_KEY + GHOST_API_URL from .env.local. No npm deps -
 // the Admin JWT is signed with Node's built-in crypto, and fetch is global on
 // Node 18+.
 // -----------------------------------------------------------------------------
@@ -197,7 +197,7 @@ function parseCsv(text) {
 }
 
 // --- Claude vision: draft alt text for one image ----------------------------
-// Default model is claude-opus-4-8 (override with ALT_MODEL — e.g. claude-haiku-4-5
+// Default model is claude-opus-4-8 (override with ALT_MODEL - e.g. claude-haiku-4-5
 // is ~5x cheaper and plenty for alt text across hundreds of images).
 const ALT_MODEL = process.env.ALT_MODEL || 'claude-opus-4-8';
 const ALT_SYSTEM =
@@ -206,7 +206,7 @@ const ALT_SYSTEM =
   'Describe what the image actually shows so a screen-reader user and search engines ' +
   'understand it. 5-15 words. Do not start with "image of" or "picture of"; you may name ' +
   'the medium when it matters (e.g. "Mixpanel funnel report showing drop-off at checkout"). ' +
-  'No trailing period. Output ONLY the alt text — no preamble, no quotes.';
+  'No trailing period. Output ONLY the alt text - no preamble, no quotes.';
 
 async function draftAltText(imageUrl, postTitle, attempt = 0) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -253,7 +253,7 @@ async function draftAltText(imageUrl, postTitle, attempt = 0) {
   }
 
   const data = await res.json();
-  if (data.stop_reason === 'refusal') return null; // safety decline — skip this image
+  if (data.stop_reason === 'refusal') return null; // safety decline - skip this image
   const text = (data.content || [])
     .filter((b) => b.type === 'text')
     .map((b) => b.text)
@@ -316,7 +316,7 @@ async function suggest({ limit, overwrite }) {
     );
   }
   if (!existsSync(CSV_PATH)) {
-    console.log('No audit CSV yet — running audit first…');
+    console.log('No audit CSV yet - running audit first…');
     await audit();
     console.log('');
   }
@@ -365,7 +365,7 @@ async function suggest({ limit, overwrite }) {
 
 async function apply({ dryRun }) {
   if (!existsSync(CSV_PATH)) {
-    throw new Error(`${CSV_PATH} not found — run "audit" first and fill in suggested_alt.`);
+    throw new Error(`${CSV_PATH} not found - run "audit" first and fill in suggested_alt.`);
   }
   const rows = parseCsv(readFileSync(CSV_PATH, 'utf8'));
   const [header, ...body] = rows;
@@ -385,7 +385,7 @@ async function apply({ dryRun }) {
   }
 
   if (!byPost.size) {
-    console.log('No rows with a suggested_alt value — nothing to apply. Fill the column first.');
+    console.log('No rows with a suggested_alt value - nothing to apply. Fill the column first.');
     return;
   }
 

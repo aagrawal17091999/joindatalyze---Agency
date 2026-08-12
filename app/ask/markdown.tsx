@@ -2,8 +2,8 @@ import type { ReactNode } from 'react';
 
 // A deliberately small markdown renderer.
 //
-// The answers use a narrow subset — bold, inline code, links, bullets and the
-// occasional numbered list — and it has to render mid-stream, on text that is
+// The answers use a narrow subset - bold, inline code, links, bullets and the
+// occasional numbered list - and it has to render mid-stream, on text that is
 // still half-written. A real parser is more dependency (and more re-parsing per
 // token) than the job needs.
 //

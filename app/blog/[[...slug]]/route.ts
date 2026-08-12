@@ -93,7 +93,7 @@ async function handle(req: NextRequest) {
       // The Ghost origin (cms.*) carries a site-wide `noindex` robots meta (added
       // via Ghost code injection) so crawlers that hit cms.* directly drop it as a
       // duplicate of /blog. That meta MUST NOT reach the public /blog pages or it
-      // would deindex them too — strip any robots=noindex meta from the proxied
+      // would deindex them too - strip any robots=noindex meta from the proxied
       // HTML. This is the body-level twin of the x-robots-tag header deletion
       // above; together they keep cms deindexed while /blog stays indexable.
       body = body.replace(/<meta[^>]+name=["']robots["'][^>]*>/gi, (m) =>
@@ -133,7 +133,7 @@ async function handle(req: NextRequest) {
       ) {
         body = body.replace(
           '<main class="gh-main">',
-          `<main class="gh-main"><h1 style="${srOnly}">Datalyze blog — page ${pageNo[1]}</h1>`,
+          `<main class="gh-main"><h1 style="${srOnly}">Datalyze blog - page ${pageNo[1]}</h1>`,
         );
       }
 
@@ -160,7 +160,7 @@ async function handle(req: NextRequest) {
         const desc =
           !subject || /^blog$/i.test(subject)
             ? `Practical analytics, Mixpanel, and growth guides from the Datalyze team${pageSuffix}.`
-            : `${subject} — articles and guides on the Datalyze blog${pageSuffix}.`;
+            : `${subject} - articles and guides on the Datalyze blog${pageSuffix}.`;
         const escAttr = (s: string) =>
           s
             .replace(/&/g, '&amp;')

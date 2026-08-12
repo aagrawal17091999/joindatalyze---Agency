@@ -11,7 +11,7 @@ import { downloadArtifact, rebuildEmbeddedText, ARTIFACT_LOCATION } from '../art
 // documents before generation.
 //
 // "Retrieve small, generate big" (plan §2.1). One-chunk-per-post is right for
-// citation and for what the model reads, but wrong for search — a 2,000-word
+// citation and for what the model reads, but wrong for search - a 2,000-word
 // post compressed into one vector is a blurry average of everything it
 // discusses, and loses to a narrowly on-topic short post even when it answers
 // the question better. So we search sections and hand the model whole posts.
@@ -50,7 +50,7 @@ export type ScoredDocument = {
   /** Post-tier-multiplier score used by the gate. */
   score: number;
   rawScore: number;
-  /** Which retrievers found it — useful for debugging recall. */
+  /** Which retrievers found it - useful for debugging recall. */
   matchedBy: Array<'vector' | 'lexical'>;
 };
 
@@ -66,7 +66,7 @@ export type RetrieveResult = {
   documents: ScoredDocument[];
   /**
    * Which score `ScoredDocument.score` carries. The gate refuses outright on
-   * anything but 'rerank' — fused scores encode rank, not relevance.
+   * anything but 'rerank' - fused scores encode rank, not relevance.
    */
   scoreKind: 'rerank' | 'fused';
 };
@@ -89,7 +89,7 @@ function bqClient(): BigQuery {
  * BigQuery is the source of truth; this is a serving snapshot, cached at module
  * scope so warm invocations reuse it.
  *
- * SLOW PATH — fallback only. Measured ~47s cold even with packed embeddings,
+ * SLOW PATH - fallback only. Measured ~47s cold even with packed embeddings,
  * because the BigQuery client paginates a multi-megabyte result set over many
  * sequential REST round trips. `loadCorpus()` reads the GCS artifact instead
  * and only falls back here when that is missing.
@@ -150,7 +150,7 @@ export async function loadCorpusFromBigQuery(): Promise<Corpus> {
   );
 
   // Index the embedded text (breadcrumb + body) so heading terms are lexically
-  // searchable too — "Lexicon" appears in a heading far more often than in prose.
+  // searchable too - "Lexicon" appears in a heading far more often than in prose.
   const lexical = new BM25Index(
     chunks.map((c) => ({ id: c.chunkId, text: c.embeddedText })),
   );
@@ -289,7 +289,7 @@ export async function retrieveAndRerank(
 
   if (!candidates.length) return { documents: [], scoreKind: 'fused' };
 
-  // Stage 3: rerank. Chunk text only — the breadcrumb is already prefixed to
+  // Stage 3: rerank. Chunk text only - the breadcrumb is already prefixed to
   // embeddedText, which gives the cross-encoder the section's context.
   const hits = await rerank(
     query,
@@ -352,7 +352,7 @@ function corpusFrom(
  *
  * Artifact first (one gzipped GET), BigQuery as the fallback. The fallback is
  * correct but ~47s cold, so a missing artifact degrades latency rather than
- * availability — which is the right trade, but it should be loud: the warning
+ * availability - which is the right trade, but it should be loud: the warning
  * below is the signal that a sync failed to publish.
  */
 export async function loadCorpus(): Promise<Corpus> {
@@ -363,7 +363,7 @@ export async function loadCorpus(): Promise<Corpus> {
 
   if (!artifact) {
     console.warn(
-      `[kb] no serving artifact at ${ARTIFACT_LOCATION} — using the slow BigQuery ` +
+      `[kb] no serving artifact at ${ARTIFACT_LOCATION} - using the slow BigQuery ` +
         'path. Run `npm run kb:build` to publish one.',
     );
     return loadCorpusFromBigQuery();

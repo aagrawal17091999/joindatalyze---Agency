@@ -14,7 +14,7 @@ import Faq from './_components/faq';
 import { InlineCTA } from '@/components/inline-cta/InlineCTA';
 import JsonLd from '@/components/seo/JsonLd';
 import { faqPageSchema } from '@/lib/seo';
-import { homeFaqs } from '@/lib/data/home-faqs';
+import { homepageFaqs } from '@/lib/data/home-faqs';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
@@ -23,8 +23,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Built from the same homeFaqs array the <Faq> section renders below. */}
-      <JsonLd data={faqPageSchema(homeFaqs)} />
+      {/* Built from the same array the <Faq> section renders below. The
+          homepage carries only the buying questions; /faqs is the canonical
+          FAQ entity and covers all of them. */}
+      <JsonLd data={faqPageSchema(homepageFaqs)} />
       <Hero />
       <LogoWall />
       <PainSection />
@@ -55,7 +57,7 @@ export default function HomePage() {
         buttonLabel="Book a call"
       />
       <FinalCta />
-      <Faq />
+      <Faq items={homepageFaqs} />
     </>
   );
 }

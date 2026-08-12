@@ -1,0 +1,16 @@
+{
+  "slug": "mixpanel-setup-the-right-way",
+  "tldr": "Five steps, in order: write the event tracking spec, insert the code and verify data actually flows, build an analytics strategy on top, put up the dashboards, then do the deeper analysis. Most failed setups skip straight to step 4.",
+  "headings": [
+    ["Creating the Event Tracking implementation Spec", "Step 1: What goes in the event tracking spec?"],
+    ["Inserting code & ensuring accurate data flow into Mixpanel", "Step 2: How do you insert the code and verify the data?"],
+    ["Create an analytics strategy", "Step 3: How do you build the analytics strategy?"],
+    ["Building out dashboards on Mixpanel", "Step 4: How do you build the dashboards?"],
+    ["Deeper analysis", "Step 5: What does deeper analysis look like?"]
+  ],
+  "faq": [
+    ["What are the five steps of a Mixpanel setup?", "Event tracking spec, implementation with verified data flow, analytics strategy, dashboards, then deeper analysis. The order matters — each step depends on the one before it."],
+    ["Why can't you start with dashboards?", "Because a dashboard built on unverified events shows you numbers that look right and aren't. The spec and the verification are what make everything above them trustworthy."],
+    ["What's the most skipped step?", "Verification. Inserting the code is treated as the finish line, when the actual finish line is firing every event from every surface and confirming it lands with the right properties."]
+  ]
+}

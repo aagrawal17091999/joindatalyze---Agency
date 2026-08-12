@@ -1,0 +1,12 @@
+{
+  "slug": "my-love-hate-relationship-with-posthog-and-why-i-keep-recommending-it-anyway",
+  "tldr": "PostHog's pure product analytics is genuinely weaker than Mixpanel's or Amplitude's, and complex reports push you into SQL. I still recommend it to most founders, because it bundles session replay, feature flags, experiments and a real data warehouse into one tool at a stage when standing those up separately costs more than the analytics depth you give up.",
+  "faq": [
+    ["Should startups use PostHog?", "For most founders, yes — despite its product analytics being weaker than Mixpanel's or Amplitude's. It bundles product analytics, session replay, feature flags, experiments and a data warehouse in one place, which is worth more early than the analytics depth you trade away."],
+    ["What's actually frustrating about PostHog?", "The depth. Building a complex report through the UI gets painful, and for anything genuinely deep you drop into SQL — which costs you time that Mixpanel or Amplitude wouldn't."],
+    ["PostHog vs Mixpanel — which should I pick?", "If you already have a warehouse, or you want the best pure product analytics and nothing else, pick Mixpanel. If you want the whole stack under one roof without standing up a warehouse separately, PostHog is hard to beat."],
+    ["Is PostHog's data warehouse a real warehouse?", "Real enough to matter. You can run SQL across your product events alongside external data it pulls in from Stripe, Google Ads, HubSpot and dozens of other sources — which Mixpanel and Amplitude simply don't offer."],
+    ["When should you move off PostHog?", "When the analytics depth starts costing you more than the bundling saves — when your team is writing SQL for questions a purpose-built product analytics tool would answer in a few clicks."]
+  ],
+  "faq_title": "Frequently asked questions"
+}

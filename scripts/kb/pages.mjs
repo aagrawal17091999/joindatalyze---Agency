@@ -5,7 +5,7 @@
 //   npx tsx scripts/kb/pages.mjs            draft any question missing an answer
 //   npx tsx scripts/kb/pages.mjs --force    redraft everything
 //
-// Writes lib/data/ask-answers.generated.json. THE OUTPUT IS A DRAFT — read it
+// Writes lib/data/ask-answers.generated.json. THE OUTPUT IS A DRAFT - read it
 // before committing. These pages are published under Ansh's name, indexed by
 // Google, and quotable for years; a bad live-chat answer is seen by one person
 // and dies, so they get a different bar.
@@ -103,7 +103,7 @@ const unreviewed = Object.values(out).filter((a) => !a.reviewed).length;
 
 console.log(`\n  ${drafted} drafted, ${skipped.length} skipped -> ${OUT}`);
 if (skipped.length) {
-  console.log('\n  SKIPPED — the corpus does not answer these. Write the post first:');
+  console.log('\n  SKIPPED - the corpus does not answer these. Write the post first:');
   for (const [slug, reason, score] of skipped) console.log(`    ${slug.padEnd(38)} ${reason} (${score})`);
 }
 if (unreviewed) {

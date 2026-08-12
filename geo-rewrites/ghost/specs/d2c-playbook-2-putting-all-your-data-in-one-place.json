@@ -1,0 +1,19 @@
+{
+  "slug": "d2c-playbook-2-putting-all-your-data-in-one-place",
+  "headings": [
+    ["Four channels, four completely different things", "Why can't you get one unified view of your customer?"],
+    ["What each channel will and won't hand you", "What data does each channel actually give you?"],
+    ["The line that matters: stitch versus estimate", "What can you join, and what can you only estimate?"],
+    ["Where it all lands: one warehouse, three grains", "Where should all this data land? One warehouse, three grains"],
+    ["What to do Monday", "What should you do Monday?"]
+  ],
+  "faq": [
+    ["Can you build a single unified customer view across website, Blinkit, Swiggy and Amazon?", "No, and not because your setup is bad. Quick commerce and marketplace platforms hand you sales numbers, not people. Your website knows Priya — name, email, full history. The Blinkit dashboard knows that 47 units moved across a handful of Gurgaon pincodes on Tuesday. There is no identifier that joins those two."],
+    ["What can you actually join across channels?", "Things that describe the same object in a way that lines up. A SKU is a SKU — the 250ml bottle on your site is the same 250ml bottle on Blinkit. Time and geography join too. What you cannot join is whether the person who saw your ad is the person who bought on a marketplace; that data doesn't exist, so it can only be estimated."],
+    ["What is a data warehouse, in plain terms?", "One database everything flows into, so your numbers live in a single place instead of scattered across four dashboards. For D2C, BigQuery with dbt on top to clean things up is the sensible default."],
+    ["What are the three grains?", "The level of detail one row represents. Your data lands at three of them rather than one flat customer table — which is the honest structure, given that some channels give you people and others only give you aggregates."],
+    ["Which channel should you connect first?", "Amazon. SP-API is the only clean, documented, automated pipe you have, so getting your most structured channel flowing properly gives you an early win and a working pattern for the rest."],
+    ["What should you stop doing?", "Delete the phrase \"unified customer view\" from your plan. Chasing it means chasing data that does not exist, and you will either waste months or buy a tool that quietly fakes it."]
+  ],
+  "meta_title": "D2C Playbook 2: Putting All Your Data in One Place"
+}

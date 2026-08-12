@@ -4,7 +4,7 @@ import type { SourceTier } from '../types';
  * Reciprocal Rank Fusion.
  *
  * Chosen over weighted score averaging because BM25 scores and cosine
- * similarities live on incomparable scales — BM25 is unbounded and corpus
+ * similarities live on incomparable scales - BM25 is unbounded and corpus
  * dependent, cosine is [-1,1] and bunched near the top. Normalising them into
  * agreement requires tuning that drifts every time the corpus changes. RRF
  * ignores magnitudes and reads only rank order, has one parameter that
@@ -36,7 +36,7 @@ export function reciprocalRankFusion(
 }
 
 /**
- * Confidence-tier multipliers, applied to the RERANK score after retrieval —
+ * Confidence-tier multipliers, applied to the RERANK score after retrieval -
  * never to the embedding, and never during search. Retrieval should find the
  * best match on merit; ranking is where editorial policy belongs. Keeping it a
  * post-hoc multiplier means it's a number in a config file, changeable without
@@ -47,7 +47,7 @@ export const TIER_MULTIPLIER: Record<SourceTier, number> = {
   // The 28-part [Week N] Learning Mixpanel series is a third of the blog and
   // denser than average. Left at 1.0 it dominates anything Mixpanel-adjacent,
   // and "how do I do X in Mixpanel" overlaps heavily with "how should I think
-  // about X" — so strategy questions kept returning how-tos. 0.95 is
+  // about X" - so strategy questions kept returning how-tos. 0.95 is
   // deliberately gentle: it only breaks ties, because a 5% haircut can't
   // overcome a real relevance gap on a genuine how-to question.
   tutorial: 0.95,

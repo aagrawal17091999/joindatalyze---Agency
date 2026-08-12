@@ -17,14 +17,14 @@ const METHOD_STEPS = [
   {
     num: '01',
     title: 'We start with how your business actually works',
-    body: "We don't begin with your schema. We begin with your team. What questions do they ask the analyst every week? What metrics matter to your CEO? What language does your product team use that's different from your finance team? The answers to these questions become the foundation of the knowledge base — and the reason the agent will eventually understand the difference between \u201Cactive users\u201D and \u201Cpaying users\u201D without being asked twice.",
+    body: "We don't begin with your schema. We begin with your team. What questions do they ask the analyst every week? What metrics matter to your CEO? What language does your product team use that's different from your finance team? The answers to these questions become the foundation of the knowledge base - and the reason the agent will eventually understand the difference between \u201Cactive users\u201D and \u201Cpaying users\u201D without being asked twice.",
     fixesLabel: 'The "no business context" failure.',
     fixesRest: 'Most tools start with your data schema. We start with your business.',
   },
   {
     num: '02',
     title: 'We clean and model your data so the agent can reason over it',
-    body: 'Raw data breaks AI. Misnamed events, drifted definitions, broken pipelines, and stale tables produce hallucinated answers no matter how good the model is. We audit your full data layer — product events, warehouse tables, pipelines, definitions — and rebuild the parts that the agent will need to query. You end up with clean, reusable tables as a side benefit, even outside the AI agent itself.',
+    body: 'Raw data breaks AI. Misnamed events, drifted definitions, broken pipelines, and stale tables produce hallucinated answers no matter how good the model is. We audit your full data layer - product events, warehouse tables, pipelines, definitions - and rebuild the parts that the agent will need to query. You end up with clean, reusable tables as a side benefit, even outside the AI agent itself.',
     fixesLabel: 'The "hallucinated numbers" failure.',
     fixesRest:
       'Clean data inputs are non-negotiable. Skip this and the model will lie to you with confidence.',
@@ -32,7 +32,7 @@ const METHOD_STEPS = [
   {
     num: '03',
     title: "We build the agent's brain",
-    body: "This is what every other AI analytics tool skips, and it's the single biggest reason most of them don't work. We create a deep knowledge base covering your business context, metric definitions, table relationships, common questions, and the gotchas only a senior analyst would know (\u201Cif someone asks for revenue, use the deduped Stripe table, not the raw events one\u201D). The agent doesn't just see your schema — it understands your product.",
+    body: "This is what every other AI analytics tool skips, and it's the single biggest reason most of them don't work. We create a deep knowledge base covering your business context, metric definitions, table relationships, common questions, and the gotchas only a senior analyst would know (\u201Cif someone asks for revenue, use the deduped Stripe table, not the raw events one\u201D). The agent doesn't just see your schema - it understands your product.",
     fixesLabel: 'The "can\'t answer the questions that matter" failure.',
     fixesRest:
       'This is the difference between a chatbot that runs SQL and an agent that thinks like an analyst.',
@@ -40,7 +40,7 @@ const METHOD_STEPS = [
   {
     num: '04',
     title: 'We build the agent or set up the right tool',
-    body: "With clean data and a real knowledge base in place, we either build a custom AI agent tailored to your product, or we configure a best-in-class tool like Julius AI, Vanna.ai, or DataGPT on top of your foundation. The choice depends on your stack, your budget, and how custom your needs are. We'll recommend the right path on the first call — and we have no incentive to push you toward the more expensive option.",
+    body: "With clean data and a real knowledge base in place, we either build a custom AI agent tailored to your product, or we configure a best-in-class tool like Julius AI, Vanna.ai, or DataGPT on top of your foundation. The choice depends on your stack, your budget, and how custom your needs are. We'll recommend the right path on the first call - and we have no incentive to push you toward the more expensive option.",
     fixesLabel: 'Lock-in and overspend.',
     fixesRest:
       "Most agencies will sell you their custom build because that's what they make money on. We'll tell you when an off-the-shelf tool would do the job better.",
@@ -56,10 +56,10 @@ const METHOD_STEPS = [
   {
     num: '06',
     title: 'We keep it sharp over time',
-    body: "Your data changes. New tables, new events, new metrics, new questions from new hires. Without ongoing maintenance, the knowledge base goes stale and the agent's accuracy degrades within a quarter. We offer ongoing maintenance plans — keeping the data model current, expanding the knowledge base, and retraining when something material changes in how your business measures itself.",
+    body: "Your data changes. New tables, new events, new metrics, new questions from new hires. Without ongoing maintenance, the knowledge base goes stale and the agent's accuracy degrades within a quarter. We offer ongoing maintenance plans - keeping the data model current, expanding the knowledge base, and retraining when something material changes in how your business measures itself.",
     fixesLabel: 'Slow decay.',
     fixesRest:
-      "The reason AI tools die in production isn't the launch — it's the lack of upkeep.",
+      "The reason AI tools die in production isn't the launch - it's the lack of upkeep.",
   },
 ];
 
@@ -75,7 +75,7 @@ const PATHS = [
   {
     label: 'Path B',
     title: 'Tool Setup',
-    body: 'We configure a best-in-class AI analytics tool — Julius AI, Vanna.ai, or DataGPT — on top of your cleaned data and knowledge base. You get the polish of a productized tool with the foundation work that makes it actually accurate.',
+    body: 'We configure a best-in-class AI analytics tool - Julius AI, Vanna.ai, or DataGPT - on top of your cleaned data and knowledge base. You get the polish of a productized tool with the foundation work that makes it actually accurate.',
     bestFor:
       'Teams whose data and business logic fit cleanly into an existing tool\u2019s model, buyers who want a polished UI out of the box, or those who\u2019d rather pay a SaaS subscription than maintain custom code.',
     timeline: '3\u20134 weeks setup + ongoing maintenance',
@@ -84,12 +84,16 @@ const PATHS = [
 
 const AGENT_FAQS = [
   {
+    q: 'What is an AI analytics agent?',
+    a: 'A system that lets anyone on your team ask a data question in plain English and get the correct number back, by translating the question into a query against your warehouse. What separates one that works from one that does not is a knowledge base describing what your metrics actually mean - not the model.',
+  },
+  {
     q: 'How is this different from buying Julius AI or DataGPT directly?',
-    a: "You can absolutely buy those tools directly. Most companies that do find out within a month that the tools don't work on their data — because their data is messy, their definitions are inconsistent, and there's no business context loaded into the tool. We do the foundation work that makes those tools (or a custom agent) actually accurate. About a third of our engagements are tool setups, not custom builds.",
+    a: "You can absolutely buy those tools directly. Most companies that do find out within a month that the tools don't work on their data - because their data is messy, their definitions are inconsistent, and there's no business context loaded into the tool. We do the foundation work that makes those tools (or a custom agent) actually accurate. About a third of our engagements are tool setups, not custom builds.",
   },
   {
     q: 'Why do most AI analytics agents give bad answers?',
-    a: "Three reasons, in order of impact: (1) the data they're querying is broken — misnamed events, drifted definitions, stale tables; (2) the model has no idea what your business metrics actually mean — it's reading your schema like a tourist reading street signs in a foreign language; (3) nobody validated the answers in the first few weeks, so wrong answers slipped through and trust eroded. We solve all three.",
+    a: "Three reasons, in order of impact: (1) the data they're querying is broken - misnamed events, drifted definitions, stale tables; (2) the model has no idea what your business metrics actually mean - it's reading your schema like a tourist reading street signs in a foreign language; (3) nobody validated the answers in the first few weeks, so wrong answers slipped through and trust eroded. We solve all three.",
   },
   {
     q: 'How long does this take to build?',
@@ -97,15 +101,15 @@ const AGENT_FAQS = [
   },
   {
     q: 'Do I need SQL or technical skills to use the agent?',
-    a: 'No. That\u2019s the whole point. Your team asks questions in plain English ("what\u2019s our paid conversion rate in Germany this month?") and the agent runs the right query against the right table and returns the answer. The technical work happens once, during the build — your team never touches SQL.',
+    a: 'No. That\u2019s the whole point. Your team asks questions in plain English ("what\u2019s our paid conversion rate in Germany this month?") and the agent runs the right query against the right table and returns the answer. The technical work happens once, during the build - your team never touches SQL.',
   },
   {
     q: 'What if I already have an analyst?',
-    a: "Even better. The agent doesn't replace your analyst — it removes the repetitive questions from their queue so they can focus on the analysis that actually requires a human. Most of our clients see their analyst's productivity jump because they're no longer answering \u201Cwhat's our MRR\u201D for the fifth time this week.",
+    a: "Even better. The agent doesn't replace your analyst - it removes the repetitive questions from their queue so they can focus on the analysis that actually requires a human. Most of our clients see their analyst's productivity jump because they're no longer answering \u201Cwhat's our MRR\u201D for the fifth time this week.",
   },
   {
     q: 'What if the agent gives a wrong answer after we launch?',
-    a: 'It will, occasionally — every AI tool does. The difference is that during the supervised testing phase, we catch the failure modes early and refine the knowledge base before the team relies on the answers. After launch, ongoing maintenance keeps the accuracy up. We monitor the question patterns, and when the agent starts getting something wrong, we fix it within the week.',
+    a: 'It will, occasionally - every AI tool does. The difference is that during the supervised testing phase, we catch the failure modes early and refine the knowledge base before the team relies on the answers. After launch, ongoing maintenance keeps the accuracy up. We monitor the question patterns, and when the agent starts getting something wrong, we fix it within the week.',
   },
   {
     q: 'Can you work with our existing data warehouse?',
@@ -138,7 +142,7 @@ export default function AIAnalyticsAgentPage() {
           faqPageSchema(AGENT_FAQS),
         ]}
       />
-      {/* Section 1 — Hero */}
+      {/* Section 1 - Hero */}
       <section className="ai-hero" id="ai-hero">
         <div className="container ai-hero__inner">
           <div className="ai-hero__text">
@@ -148,13 +152,15 @@ export default function AIAnalyticsAgentPage() {
               <br />
               <em>Ours doesn&apos;t.</em>
             </h1>
+            {/* Opens with a definition of the thing being sold, so the page
+                can answer "what is an AI analytics agent" on its own. */}
             <p className="ai-hero__subhead">
-              The reason every &ldquo;ask your data in plain English&rdquo; tool
-              fails is the same: it&apos;s built on broken data, with no
-              understanding of your business. We fix the foundation, build the
-              context, and ship you an AI agent your team can actually trust —
-              custom-built for your product, or set up on top of Julius,
-              Vanna, or DataGPT.
+              An AI analytics agent lets your team ask questions in plain
+              English and get the right number back - but only if the data
+              underneath it is clean and the model understands your business.
+              We fix the foundation, build the context, and ship you an agent
+              your team can actually trust: custom-built for your product, or
+              set up on top of Julius, Vanna, or DataGPT.
             </p>
 
             <div className="ai-hero__buttons">
@@ -185,10 +191,10 @@ export default function AIAnalyticsAgentPage() {
         </div>
       </section>
 
-      {/* Section 2 — Failure modes */}
+      {/* Section 2 - Failure modes */}
       <Failures />
 
-      {/* Section 3 — The Datalyze Build (6 steps) */}
+      {/* Section 3 - The Datalyze Build (6 steps) */}
       <section className="ai-method" id="ai-method">
         <div className="container">
           <header className="ai-method__header">
@@ -225,7 +231,7 @@ export default function AIAnalyticsAgentPage() {
         </div>
       </section>
 
-      {/* Section 4 — Two paths */}
+      {/* Section 4 - Two paths */}
       <section className="paths" id="paths">
         <div className="container">
           <header className="paths__header">
@@ -236,7 +242,7 @@ export default function AIAnalyticsAgentPage() {
             </h2>
             <p className="paths__intro">
               Most engagements fall into one of two paths. Both start with the
-              same foundation work — clean data, knowledge base, validation.
+              same foundation work - clean data, knowledge base, validation.
               The difference is what gets built on top.
             </p>
           </header>
@@ -269,13 +275,13 @@ export default function AIAnalyticsAgentPage() {
           <p className="paths__not-sure">
             <strong>Not sure which?</strong> That&apos;s what the first call
             is for. We&apos;ll look at your stack, your data, and your
-            team&apos;s needs, and tell you which path fits — even if the
+            team&apos;s needs, and tell you which path fits - even if the
             answer is &ldquo;neither, you don&apos;t need this yet.&rdquo;
           </p>
         </div>
       </section>
 
-      {/* Section 5 — Proof / case study */}
+      {/* Section 5 - Proof / case study */}
       <section className="proof" id="proof">
         <div className="container">
           <header className="proof__header">
@@ -351,14 +357,14 @@ export default function AIAnalyticsAgentPage() {
         </div>
       </section>
 
-      {/* Section 7 — FAQ */}
+      {/* Section 7 - FAQ */}
       <Faq
         items={AGENT_FAQS}
         title="Frequently asked"
         eyebrow="Questions"
       />
 
-      {/* Section 8 — Final CTA */}
+      {/* Section 8 - Final CTA */}
       <section className="final-cta" id="book">
         <div className="container">
           <div className="final-cta__inner">
@@ -372,7 +378,7 @@ export default function AIAnalyticsAgentPage() {
               Book a 30-minute call. Bring your stack, your top 5 questions
               your team asks every week, and any AI tools you&apos;ve already
               tried. We&apos;ll tell you exactly what would need to happen to
-              make an AI analytics agent work for you — and whether it&apos;s
+              make an AI analytics agent work for you - and whether it&apos;s
               worth doing yet.
             </p>
             <CtaButton

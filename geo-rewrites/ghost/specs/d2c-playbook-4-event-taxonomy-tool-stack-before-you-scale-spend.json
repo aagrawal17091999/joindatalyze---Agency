@@ -1,0 +1,19 @@
+{
+  "slug": "d2c-playbook-4-event-taxonomy-tool-stack-before-you-scale-spend",
+  "headings": [
+    ["What to actually instrument", "Which events should a D2C brand actually track?"],
+    ["How to name events, and why properties beat more events", "How should you name events, and why do properties beat more events?"],
+    ["The stack: one analytics tool, one warehouse", "What tools do you need? One analytics tool, one warehouse"],
+    ["Who owns the tracking plan", "Who should own the tracking plan?"],
+    ["What to do Monday", "What should you do Monday?"]
+  ],
+  "faq": [
+    ["How many events should a D2C brand track?", "20 to 30 well-named events, decided before you scale spend. Fifteen cover the core funnel for almost any D2C brand. The 200-event accounts I audit didn't come from someone planning 200 events — they came from nobody agreeing on how to name one."],
+    ["Why is tracking too much worse than tracking too little?", "Because a dev fires a new event every time someone asks for a number, and a year later half of them are the same handful of actions recorded three different ways. You don't get more insight, you get three add-to-cart numbers that don't agree."],
+    ["What naming convention should you use?", "Object then action, in past tense — Product Viewed, Order Completed. Write it down on day one. Without it you get add_to_cart, AddToCart and btn_atc all meaning the same thing, none of them talking to each other."],
+    ["Should you add a property or a new event?", "A property, nearly always. Similar actions belong in one event distinguished by a property; only genuinely different actions deserve their own event. This is the single decision that keeps a plan at 25 events instead of 200."],
+    ["Can you run two product analytics tools?", "Don't. Running Mixpanel and Amplitude in parallel is how you end up with two sources of truth that disagree. Pick one of Mixpanel, PostHog or Amplitude, plus one warehouse."],
+    ["Which analytics tool should a D2C brand pick?", "PostHog for most founders, despite the pure analytics in Mixpanel and Amplitude being genuinely better — because it bundles the warehouse and the rest of the stack. If you already have a warehouse, or you want the deepest product analytics and nothing else, pick Mixpanel or Amplitude."]
+  ],
+  "meta_title": "D2C Playbook 4: Event Taxonomy & Tool Stack"
+}

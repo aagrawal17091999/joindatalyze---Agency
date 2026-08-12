@@ -1,0 +1,18 @@
+{
+  "slug": "how-to-actually-improve-your-apps-retention",
+  "tldr": "Get a baseline first. Then take two paths in parallel: who your users are, and what they do. Write your hypotheses before you go looking, time-box every behavioural one, and once you find the behaviour that separates retained users, push more users into it.",
+  "headings": [
+    ["Start with a baseline", "Why start with a baseline?"],
+    ["Path 1: Look at who your users are", "Path 1: Who are your retained users?"],
+    ["Path 2: Look at what your users do", "Path 2: What do your retained users do?"],
+    ["Write your hypotheses first", "Why write your hypotheses first?"],
+    ["Time-box every behavioral hypothesis", "Why time-box every behavioural hypothesis?"],
+    ["Then push more users into the winning behavior", "How do you push more users into the winning behaviour?"]
+  ],
+  "faq": [
+    ["Where do you start with a retention problem?", "A baseline. Until you know what your retention curve actually looks like — and over what window — you can't tell whether anything you ship moved it."],
+    ["What are the two paths?", "Who your users are (their characteristics) and what they do (their behaviour). Retained and non-retained users usually differ on both, and the two paths surface different kinds of fix."],
+    ["Why write hypotheses before looking at the data?", "Because otherwise you'll find something. Data explored without a hypothesis produces a pattern every time, and most of them are noise."],
+    ["Why time-box a behavioural hypothesis?", "Because \"users who do X retain better\" is meaningless without a window. Doing X in the first session and doing it in month three are different claims with different fixes."]
+  ]
+}

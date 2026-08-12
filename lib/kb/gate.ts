@@ -13,7 +13,7 @@ import { ungroundedCurrencyFigures } from './text';
 //   3. Grounded-figure check, after generation             (invented numbers)
 //
 // Deliberately NOT here: an LLM verification pass. It doubles latency and cost
-// and is the weakest of the checks — a model grading another model's grounding
+// and is the weakest of the checks - a model grading another model's grounding
 // on the same evidence. Add it only if the query log shows extrapolation is
 // what actually leaks. See plan §2.4.
 
@@ -42,7 +42,7 @@ export type RefusalReason =
  * score encodes rank position, not match quality, and is therefore USELESS as a
  * threshold signal.
  *
- * That is why reranking is not a quality upgrade for this product — it is the
+ * That is why reranking is not a quality upgrade for this product - it is the
  * component that makes the refusal gate possible at all. A cross-encoder score
  * means "is this passage actually responsive to this question", which is the
  * quantity τ needs to threshold.
@@ -52,13 +52,13 @@ export type ScoreKind = 'rerank' | 'fused';
 /**
  * Calibrated thresholds.
  *
- * PROVISIONAL — these are placeholders, not calibrated values. They must be set
+ * PROVISIONAL - these are placeholders, not calibrated values. They must be set
  * by the sweep in plan §2.4 (generate 25 answerable + 25 unanswerable questions,
  * pick the point where zero unanswerable questions get through, then step up
  * once for margin) before anything ships publicly.
  *
  * These become INVALID whenever the embedding model, the reranker, or the
- * chunking changes — each of those moves the score distribution. Recalibrate,
+ * chunking changes - each of those moves the score distribution. Recalibrate,
  * don't adjust by feel.
  */
 export type GateConfig = {
@@ -79,8 +79,8 @@ export const GATE_CONFIG: GateConfig = {
   // 25 answerable / 12 adjacent-absent /
   // 5 off-topic questions. Full record: docs/kb-calibration.json.
   //
-  // The distributions separated completely — the lowest answerable score (0.578)
-  // sits ABOVE the highest non-answerable score (0.508) — so tau was chosen at
+  // The distributions separated completely - the lowest answerable score (0.578)
+  // sits ABOVE the highest non-answerable score (0.508) - so tau was chosen at
   // the first zero-leak point plus one notch for margin.
   //   leaks    0/17
   //   coverage 96% of answerable questions
@@ -91,7 +91,7 @@ export const GATE_CONFIG: GateConfig = {
   // "here's the closest thing I've written" appears for adjacent-domain
   // questions and stays silent for genuinely unrelated ones. Offering a
   // half-relevant analytics post to someone asking for a pasta recipe reads as
-  // broken, not helpful — when in doubt, show nothing.
+  // broken, not helpful - when in doubt, show nothing.
   nearestFloor: 0.45,
   calibratedAt: '2026-08-11T06:28:45.474Z',
 };
@@ -120,7 +120,7 @@ export type GateDecision =
  * The GAP check is the one people leave out, and it catches the case that hurts
  * most: an adjacent-but-absent question. "How do I set up Snowflake row-level
  * security" is analytics-shaped, so several chunks score respectably and the
- * top score alone looks fine. But the distribution is FLAT — five results all
+ * top score alone looks fine. But the distribution is FLAT - five results all
  * vaguely about data, none about the question. A genuinely answerable question
  * produces one or two results clearly ahead of the rest. Flatness is the
  * signature of "not in the knowledge base".
@@ -151,7 +151,7 @@ export function evaluateGate(
   // and neither is satisfiable by accident:
   //
   //   1. The score must come from a reranker. Fused RRF scores are rank
-  //      artefacts — carbonara and Mixpanel both score 0.0164 — so thresholding
+  //      artefacts - carbonara and Mixpanel both score 0.0164 - so thresholding
   //      them would pass everything or nothing, with no relation to quality.
   //   2. τ must have been calibrated against a question set. An uncalibrated
   //      threshold on a product whose entire premise is refusal correctness is
@@ -166,7 +166,7 @@ export function evaluateGate(
   if (topScore < config.tau) {
     return { answer: false, reason: 'below_threshold', nearest, topScore, scoreGap, scoresTop5 };
   }
-  // A single result can't be flat — there's nothing to be flat against.
+  // A single result can't be flat - there's nothing to be flat against.
   if (results.length > 1 && scoreGap < config.delta) {
     return { answer: false, reason: 'flat_gap', nearest, topScore, scoreGap, scoresTop5 };
   }
@@ -188,7 +188,7 @@ export type ValidationResult =
 /**
  * Validate a generated answer against the context it was given.
  *
- * All deterministic — no model call, no latency, no cost. Cheap enough that
+ * All deterministic - no model call, no latency, no cost. Cheap enough that
  * there's no argument for skipping it.
  */
 export function validateAnswer(
@@ -203,7 +203,7 @@ export function validateAnswer(
     };
   }
 
-  // 1. Citations must exist. Don't ASK the model to cite honestly — check it.
+  // 1. Citations must exist. Don't ASK the model to cite honestly - check it.
   //    Inventing a plausible source ID is the most common hallucination in a
   //    citing system, and it's free to catch.
   const allowed = new Set(retrieved.map((r) => r.document.docId));
@@ -228,7 +228,7 @@ export function validateAnswer(
   // 3. Every currency figure must be quoted from the context, not invented.
   //    This is the real pricing guarantee (layer 3, plan §2.6). Datalyze's own
   //    rates are already redacted at ingest and never retrieved, so anything
-  //    the model produces that isn't in context is fabricated — including a
+  //    the model produces that isn't in context is fabricated - including a
   //    number it "inferred" from surrounding text.
   const context = retrieved.map((r) => r.document.fullText).join('\n');
   const ungrounded = ungroundedCurrencyFigures(model.answer, context);
@@ -245,7 +245,7 @@ export function validateAnswer(
 
 /**
  * Pricing questions are high-intent, so they get their own path rather than a
- * generic refusal. This is the best booking prompt in the product — someone
+ * generic refusal. This is the best booking prompt in the product - someone
  * asking what it costs is further down the funnel than someone asking how
  * attribution works.
  */

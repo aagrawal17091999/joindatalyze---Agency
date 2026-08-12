@@ -3,7 +3,7 @@ import { GoogleAuth } from 'google-auth-library';
 
 // The serving artifact.
 //
-// WHY THIS EXISTS — measured, not theoretical:
+// WHY THIS EXISTS - measured, not theoretical:
 //
 //   loadCorpus() straight from BigQuery      ~61s cold
 //   ...with base64 Float32 embeddings        ~47s cold
@@ -16,7 +16,7 @@ import { GoogleAuth } from 'google-auth-library';
 //
 // So serving reads ONE gzipped blob over ONE HTTP GET instead. BigQuery stays
 // the source of truth and the build layer; this is a derived, disposable
-// snapshot rebuilt after every sync — exactly the split the plan called for.
+// snapshot rebuilt after every sync - exactly the split the plan called for.
 //
 // Stored in the GCS bucket that already exists for the pipeline cache, using
 // the service account the app already has. No new dependency (google-auth-library
@@ -30,7 +30,7 @@ export type ArtifactChunk = {
   docId: string;
   text: string;
   headingPath: string;
-  /** base64 Float32 — decoded lazily by the reader. */
+  /** base64 Float32 - decoded lazily by the reader. */
   embedding: string;
 };
 
@@ -70,7 +70,7 @@ async function accessToken(scope: string): Promise<string> {
 }
 
 /**
- * `embedded_text` is deliberately NOT stored — it is exactly
+ * `embedded_text` is deliberately NOT stored - it is exactly
  * `${headingPath}\n\n${text}`, so storing it would duplicate every chunk's
  * body for no reason. The reader reconstitutes it.
  */
@@ -113,7 +113,7 @@ export async function downloadArtifact(): Promise<KbArtifact | null> {
     { headers: { Authorization: `Bearer ${token}` } },
   );
 
-  // A missing artifact is not an error — the caller falls back to BigQuery,
+  // A missing artifact is not an error - the caller falls back to BigQuery,
   // which is slow but correct. That keeps a failed upload from taking the
   // whole feature down.
   if (res.status === 404) return null;

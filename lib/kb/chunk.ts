@@ -5,7 +5,7 @@ import { containsOwnPricing, contentHash, estimateTokens } from './text';
 // three bugs (see docs/ai-avatar-plan.md §0.4):
 //
 //   1. It dropped every section under 200 chars silently. That cost 8 LinkedIn
-//      posts and an unknown number of short definitional sections — which are
+//      posts and an unknown number of short definitional sections - which are
 //      often the BEST Q&A answers ("what's a super property?" is three
 //      sentences). There is no minimum length here.
 //   2. Chunk IDs were `md5(text)[:12]`, so they changed whenever the text did
@@ -16,7 +16,7 @@ import { containsOwnPricing, contentHash, estimateTokens } from './text';
 //
 // Strategy is "retrieve small, generate big" (plan §2.1): we embed and search
 // at section level for precision, then expand to the whole parent document
-// before generation. So these chunks are deliberately small — they are search
+// before generation. So these chunks are deliberately small - they are search
 // keys, not the context the model reads.
 
 const MAX_CHARS = 2400;
@@ -66,7 +66,7 @@ function splitIntoSections(text: string): Section[] {
 
 /**
  * Split a section body that exceeds MAX_CHARS on paragraph boundaries. Prose
- * that has no paragraph breaks at all falls back to a hard slice — rare, but a
+ * that has no paragraph breaks at all falls back to a hard slice - rare, but a
  * pasted transcript would otherwise produce one enormous chunk.
  */
 function splitLongBody(body: string): string[] {
@@ -105,7 +105,7 @@ function splitLongBody(body: string): string[] {
 /**
  * Merge runs of very short sections into their neighbour.
  *
- * Not a length filter — nothing is dropped. A bare `### Register modes`
+ * Not a length filter - nothing is dropped. A bare `### Register modes`
  * followed by two lines is a worse search key on its own than it is attached to
  * the section beside it, but the *content* survives either way. This is the
  * safe version of the thing the old indexer got wrong.

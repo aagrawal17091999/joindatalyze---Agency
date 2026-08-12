@@ -7,7 +7,7 @@ import { normalizeForHash, sha256 } from './text';
 //
 // This table is the point of the whole feature, not an afterthought: the
 // refused half is the content roadmap, and the score columns are the only way
-// to recalibrate tau later. Nothing here can be reconstructed retroactively —
+// to recalibrate tau later. Nothing here can be reconstructed retroactively -
 // if it isn't logged at request time, it's gone.
 //
 // Written from `after()` in the route so it never blocks the response, matching
@@ -60,7 +60,7 @@ export type QueryLogInput = {
   outputTokens: number | null;
   questionIndexInSession: number | null;
   referrer: string | null;
-  /** Hashed, never raw — public unauthenticated endpoint. */
+  /** Hashed, never raw - public unauthenticated endpoint. */
   ipHash: string | null;
 };
 
@@ -69,7 +69,7 @@ export type QueryLogInput = {
  *
  * Uses a streaming insert deliberately: this is append-only event data (like
  * `insertContactLead`), never updated or deleted, so the streaming buffer's
- * DML restriction — which forced load jobs for kb_chunks — doesn't apply here.
+ * DML restriction - which forced load jobs for kb_chunks - doesn't apply here.
  */
 export async function logQuery(input: QueryLogInput): Promise<void> {
   if (!PROJECT_ID) return;
@@ -92,7 +92,7 @@ export async function logQuery(input: QueryLogInput): Promise<void> {
         refusal_reason: input.refusalReason,
         top_score: input.topScore,
         score_gap: input.scoreGap,
-        // The full distribution, not just the top — revisiting tau in three
+        // The full distribution, not just the top - revisiting tau in three
         // months needs the shape, and it can't be recovered later.
         scores_top5: input.scoresTop5,
         retrieved_chunk_ids: input.retrievedChunkIds,
@@ -108,7 +108,7 @@ export async function logQuery(input: QueryLogInput): Promise<void> {
         model: input.model,
         embedding_model: input.embeddingModel,
         // index_version + tau together answer "did this metric move because the
-        // content changed or because the config did?" — which comes up
+        // content changed or because the config did?" - which comes up
         // constantly and is unanswerable without both.
         index_version: input.indexVersion,
         tau: input.tau,

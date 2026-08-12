@@ -2,7 +2,7 @@ import { type VercelConfig } from '@vercel/config/v1';
 
 // Scheduled jobs.
 //
-// Two entries, deliberately different modes — this split is load-bearing:
+// Two entries, deliberately different modes - this split is load-bearing:
 //
 //   weekly  (incremental) picks up new Ghost posts and the last 30 days of
 //           LinkedIn. It does NOT reconcile deletes, because an incremental

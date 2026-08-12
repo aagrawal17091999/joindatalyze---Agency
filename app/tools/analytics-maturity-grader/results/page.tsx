@@ -44,7 +44,7 @@ export default function MaturityGraderResultsPage() {
         overall_score: results.overall.score,
       });
     } catch {
-      // Silently fail — user can screenshot instead
+      // Silently fail - user can screenshot instead
     }
   };
 
@@ -282,7 +282,7 @@ export default function MaturityGraderResultsPage() {
                 fontSize: 14,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                color: '#6f6f76',
+                color: '#8f8f97',
                 marginBottom: 16,
               }}
             >
@@ -308,7 +308,7 @@ export default function MaturityGraderResultsPage() {
               >
                 {overall.grade}
               </span>
-              <span style={{ fontSize: 20, color: '#a8a8ad' }}>
+              <span style={{ fontSize: 20, color: '#c4c4cb' }}>
                 {overall.score} / {overall.max}
               </span>
             </div>
@@ -353,7 +353,7 @@ export default function MaturityGraderResultsPage() {
                     <td
                       style={{
                         padding: '8px 0',
-                        color: '#a8a8ad',
+                        color: '#c4c4cb',
                         textAlign: 'center',
                       }}
                     >
@@ -363,7 +363,7 @@ export default function MaturityGraderResultsPage() {
                 ))}
               </tbody>
             </table>
-            <p style={{ marginTop: 32, color: '#6f6f76', fontSize: 12 }}>
+            <p style={{ marginTop: 32, color: '#8f8f97', fontSize: 12 }}>
               joindatalyze.com
             </p>
           </div>

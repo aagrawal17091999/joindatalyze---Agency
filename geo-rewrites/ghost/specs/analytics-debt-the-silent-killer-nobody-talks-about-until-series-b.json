@@ -1,0 +1,22 @@
+{
+  "slug": "analytics-debt-the-silent-killer-nobody-talks-about-until-series-b",
+  "replacements": [["90+ startups", "150+ startups"]],
+  "tldr": "Analytics debt is the gap between the data you have and the data you'd need to answer the questions you're about to be asked. It accumulates in five predictable stages, and the damage peaks at Stage 3 — when the company believes it's data-driven and the dashboards are built on broken events. You can audit yours in an afternoon with three checks and no new tools.",
+  "headings": [
+    ["What Analytics Debt Actually Is", "What is analytics debt?"],
+    ["The Five Stages of Analytics Debt", "What are the five stages of analytics debt?"],
+    ["The Real Cost (It's Not What You Think)", "What does analytics debt actually cost you?"],
+    ["How to Audit Your Analytics Debt (Without Buying Anything)", "How do you audit your analytics debt without buying anything?"],
+    ["Paying It Down: A Realistic Plan", "How do you pay analytics debt down?"],
+    ["The Uncomfortable Truth", "The uncomfortable truth"]
+  ],
+  "faq": [
+    ["What is analytics debt?", "The gap between the data you have and the data you'd need to answer the questions your team is about to ask. Like technical debt, it's borrowed on purpose early — you were building a product people want. Unlike technical debt, it barely has a name, so nobody plans sprints to pay it down."],
+    ["Which stage is the most damaging?", "Stage 3, the dashboard graveyard. The company now thinks it's data-driven and is making decisions off charts — but the underlying events are still a mess from Stage 2, so two people pull the same metric and get different numbers. Believing bad data is worse than having none."],
+    ["Why does it surface at Series B?", "Because that's when someone joins who knows what to ask — a VP of Product, a data hire, a board member. They run an audit, and the results are ugly: broken events, unreliable history, and a foundation that needs rebuilding while you're still shipping product."],
+    ["Is analytics debt avoidable?", "No, and trying to avoid it at pre-seed is its own mistake. You can't have debt if you haven't borrowed anything, and early on you should be finding product-market fit instead. The goal is to notice it before Stage 4, not to never take it on."],
+    ["How do you audit your own analytics debt?", "Three checks, no purchase required: the five-question test (can your setup answer them?), an event audit (how many of your events has anyone actually queried?), and a funnel walk (go through your product and check every event fires correctly)."],
+    ["What does the other side look like?", "Documented tracking plans, governed event schemas, and actual data trust across the org. The companies that survive Stage 4 come out with all three — the ones that don't keep rebuilding the same foundation."]
+  ],
+  "meta_title": "Analytics Debt: The Silent Killer Until Series B"
+}

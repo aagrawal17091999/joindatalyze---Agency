@@ -15,7 +15,7 @@ import type { EmbeddedChunk, KbChunk } from './types';
 // Cost is a non-issue and stays one: Voyage grants 200M free tokens, and the
 // whole corpus is ~150k. Re-embedding everything weekly would take 25+ years to
 // reach the paid tier. Nothing in this pipeline should be optimised to avoid
-// re-embedding — only to avoid churn and staleness.
+// re-embedding - only to avoid churn and staleness.
 
 const API_BASE = 'https://api.voyageai.com/v1';
 
@@ -54,7 +54,7 @@ async function post<T>(path: string, body: unknown): Promise<T> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => '');
-    // 429 is a rate limit, not a failure — the caller retries with backoff.
+    // 429 is a rate limit, not a failure - the caller retries with backoff.
     const err = new Error(`Voyage ${path} ${res.status}: ${text.slice(0, 300)}`);
     (err as Error & { status?: number }).status = res.status;
     throw err;
@@ -70,7 +70,7 @@ async function withRetry<T>(fn: () => Promise<T>, attempts = 4): Promise<T> {
     } catch (err) {
       lastError = err;
       const status = (err as { status?: number }).status;
-      // 4xx other than 429 is a request bug — retrying just burns time.
+      // 4xx other than 429 is a request bug - retrying just burns time.
       if (status && status !== 429 && status < 500) throw err;
       await new Promise((r) => setTimeout(r, 2 ** i * 1000));
     }
@@ -89,7 +89,7 @@ type FlatResponse = { data: Array<{ embedding: number[]; index: number }> };
  * Grouping is required for contextualised models and harmless otherwise, so
  * the call shape stays the same either way. Document grouping is also why the
  * document unit is kept small (plan §2.2): a chunk's vector depends on its
- * siblings, so an edit re-embeds its whole unit — which is fine when a unit is
+ * siblings, so an edit re-embeds its whole unit - which is fine when a unit is
  * one post or one Doc section, and wasteful if it's the entire corpus.
  */
 export async function embedChunks(
@@ -164,8 +164,8 @@ export async function embedChunks(
  *
  * MUST use the same model that built the index. If they differ, cosine
  * similarity returns plausible-looking garbage: scores land in a normal range,
- * retrieval returns confidently wrong chunks, and the refusal gate — which
- * trusts the score — waves them through. That is the exact failure this product
+ * retrieval returns confidently wrong chunks, and the refusal gate - which
+ * trusts the score - waves them through. That is the exact failure this product
  * exists to prevent, and it fails silently.
  */
 export async function embedQuery(question: string): Promise<number[]> {
@@ -195,7 +195,7 @@ export async function embedQuery(question: string): Promise<number[]> {
  * Sanity check that the query encoder matches the stored index.
  *
  * Embed text that appears verbatim in a known chunk and compare against its
- * stored vector: same model scores > 0.95, a different one scores 0.3-0.7 —
+ * stored vector: same model scores > 0.95, a different one scores 0.3-0.7 -
  * which looks plausible and is worthless. Run this after any model change.
  */
 export function cosineSimilarity(a: number[], b: number[]): number {

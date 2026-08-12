@@ -6,7 +6,7 @@ const PRINCIPLES = [
   {
     number: '01',
     title: 'We start with the foundation, not the dashboards',
-    body: 'Most analytics engagements start by building reports on top of broken data. We start by fixing the data — instrumentation, pipelines, definitions, models — because every dashboard built on bad inputs is a dashboard that lies to you. By the time we get to reporting, the numbers actually mean something.',
+    body: 'Most analytics engagements start by building reports on top of broken data. We start by fixing the data - instrumentation, pipelines, definitions, models - because every dashboard built on bad inputs is a dashboard that lies to you. By the time we get to reporting, the numbers actually mean something.',
   },
   {
     number: '02',
@@ -16,12 +16,12 @@ const PRINCIPLES = [
   {
     number: '03',
     title: 'Senior operators only. No middle layer.',
-    body: 'You don\u2019t get an account manager who routes messages to a junior analyst. You get the people who are actually in your data every day, fixing the problems and finding the answers. We\u2019ve kept the team small on purpose. Growth would mean hiring people who\u2019ve done this less — and that\u2019s a tradeoff we\u2019re not interested in making.',
+    body: 'You don\u2019t get an account manager who routes messages to a junior analyst. You get the people who are actually in your data every day, fixing the problems and finding the answers. We\u2019ve kept the team small on purpose. Growth would mean hiring people who\u2019ve done this less - and that\u2019s a tradeoff we\u2019re not interested in making.',
   },
   {
     number: '04',
     title: 'We go beyond the SOW',
-    body: 'When we find something outside the original scope that\u2019s costing you revenue, we fix it. You hired us to make your data work — that\u2019s what we do, even when it means doing more than the contract says. Most agencies hand you a change order. We hand you a fix.',
+    body: 'When we find something outside the original scope that\u2019s costing you revenue, we fix it. You hired us to make your data work - that\u2019s what we do, even when it means doing more than the contract says. Most agencies hand you a change order. We hand you a fix.',
   },
 ];
 

@@ -18,7 +18,7 @@ export default function BookedPage() {
           <div className="eyebrow eyebrow--center">Confirmed</div>
           <h1 className="page-header__title">You&apos;re booked 🎉</h1>
           <p className="page-header__intro">
-            Your call is confirmed — you&apos;ll get a calendar invite and a
+            Your call is confirmed - you&apos;ll get a calendar invite and a
             reminder by email. Come with your stack in mind; we&apos;ll dig in
             live.
           </p>

@@ -9,11 +9,11 @@ import styles from '../Ask.module.css';
 
 // Pre-rendered Q&A pages.
 //
-// /ask itself can never rank — it's an input box behind an email gate, and
+// /ask itself can never rank - it's an input box behind an email gate, and
 // Googlebot can't fill a form. These pages carry the SEO: real question, real
 // answer, real internal links to the posts they cite, all static HTML.
 //
-// Fully static. The answer is read from a reviewed, committed file — there is
+// Fully static. The answer is read from a reviewed, committed file - there is
 // no model call at request time, so these cost nothing to serve, can't be
 // gated, and can't drift.
 
@@ -24,7 +24,7 @@ export function generateStaticParams() {
   return PUBLISHED_ASKS.map((a) => ({ slug: a.slug }));
 }
 
-// Unknown slugs 404 rather than being generated on demand — a page that
+// Unknown slugs 404 rather than being generated on demand - a page that
 // nobody reviewed must never appear just because someone guessed a URL.
 export const dynamicParams = false;
 

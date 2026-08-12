@@ -9,7 +9,7 @@ export type SourceType = 'ghost' | 'linkedin' | 'gdoc';
 
 /**
  * Confidence tiers. Applied as a multiplier to the *rerank* score after
- * retrieval, never to the embedding — retrieval should find the best match on
+ * retrieval, never to the embedding - retrieval should find the best match on
  * merit, and ranking is where editorial policy belongs. See plan §2.6.
  */
 export type SourceTier = 'published' | 'tutorial' | 'internal' | 'draft';
@@ -52,7 +52,7 @@ export type PreparedDocument = SourceDocument & {
 export type KbChunk = {
   /**
    * Stable across edits: `<docId>#<chunkIndex>`. Deliberately NOT a content
-   * hash — the old Colab indexer used `md5(text)[:12]`, which changed whenever
+   * hash - the old Colab indexer used `md5(text)[:12]`, which changed whenever
    * the text did and made chunk IDs useless as citation anchors.
    */
   chunkId: string;
@@ -74,7 +74,7 @@ export type EmbeddedChunk = KbChunk & {
 };
 
 /**
- * How a source was pulled. Only `full` runs may drive delete reconciliation —
+ * How a source was pulled. Only `full` runs may drive delete reconciliation -
  * an `incremental` run returns a recent slice, and treating everything it
  * didn't return as deleted would wipe the corpus. See plan §2.5.
  */

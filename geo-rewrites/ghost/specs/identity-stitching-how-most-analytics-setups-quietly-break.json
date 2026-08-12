@@ -1,0 +1,20 @@
+{
+  "slug": "identity-stitching-how-most-analytics-setups-quietly-break",
+  "tldr": "Identity stitching joins a person's anonymous activity to their identified activity. It fails silently in three places: mobile-to-desktop without login, across genuinely different domains, and on a new browser with no auth. Some of those are fixable with click IDs or server-side stitching. One of them isn't fixable at all, and pretending otherwise is how setups quietly lie.",
+  "headings": [
+    ["What identity management actually is", "What is identity management?"],
+    ["Anonymous users vs identified users", "What's the difference between anonymous and identified users?"],
+    ["The happy path", "What does the happy path look like?"],
+    ["Problem 1: Mobile to desktop, without authentication", "Problem 1: How do you stitch mobile to desktop without a login?"],
+    ["Problem 2: Cross-domain (different domains, not subdomains)", "Problem 2: How do you stitch across different domains?"],
+    ["Problem 3: New browser, no authentication", "Problem 3: What about a new browser with no login?"],
+    ["Why this matters", "Why does this matter?"]
+  ],
+  "faq": [
+    ["What is identity stitching?", "Joining a person's anonymous activity to their identified activity so they count as one user rather than two. It's the step that decides whether your funnels and retention curves mean anything."],
+    ["Why does it fail silently?", "Because nothing errors. The events all arrive, the dashboards all render, and the numbers are simply wrong — one person counted as two. It looks fine until someone checks by hand."],
+    ["Can you stitch mobile to desktop without a login?", "Not reliably. You can email-gate the mobile landing page, or use ad platform click IDs, but there's no general solution — and fingerprinting isn't the answer people hope it is."],
+    ["How do you stitch across different domains?", "Two options: pass the ID in the URL on cross-domain links, or stitch server-side. Note this is a different problem from subdomains, where a parent-domain cookie solves it."],
+    ["What can't be fixed?", "A new browser with no authentication. There's no identifier shared between the two sessions, so no amount of setup joins them. The honest move is to know that gap exists rather than paper over it."]
+  ]
+}

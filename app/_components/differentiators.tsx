@@ -19,7 +19,9 @@ export default function Differentiators() {
       <div className="container">
         <header className="diff__header">
           <div className="eyebrow">Why Datalyze</div>
-          <h2 className="diff__title">Why 150+ companies chose Datalyze</h2>
+          <h2 className="diff__title">
+            What makes Datalyze different from an analytics agency?
+          </h2>
         </header>
 
         <div className="diff-grid">

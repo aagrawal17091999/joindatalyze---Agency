@@ -1,6 +1,6 @@
 import styles from './MethodVisuals.module.css';
 
-// Step 1 — Foundation
+// Step 1 - Foundation
 export function AuditReveal() {
   const events = [
     { name: 'signup_complete', status: 'ok', label: 'standardized' },
@@ -33,7 +33,7 @@ export function AuditReveal() {
   );
 }
 
-// Step 2 — Unification (mirrors hero Stage 3)
+// Step 2 - Unification (mirrors hero Stage 3)
 export function ConnectedStack() {
   return (
     <div className={styles.unified}>
@@ -68,7 +68,7 @@ export function ConnectedStack() {
   );
 }
 
-// Step 3 — Visibility
+// Step 3 - Visibility
 export function DashboardMockup() {
   return (
     <div className={styles.dashboard}>
@@ -95,7 +95,7 @@ export function DashboardMockup() {
   );
 }
 
-// Step 4 — Compounding
+// Step 4 - Compounding
 export function GrowthCurve() {
   return (
     <div className={styles.growth}>

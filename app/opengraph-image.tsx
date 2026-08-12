@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 // Sitewide default social-share image. Next applies this as og:image (and the
 // Twitter card falls back to it) for every route that doesn't define its own.
-export const alt = 'Datalyze — Analytics & Growth Partner';
+export const alt = 'Datalyze - Analytics & Growth Partner';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

@@ -1,0 +1,5 @@
+{
+  "slug": "case-study-cred",
+  "tldr": "CRED's payment routing was leaking money on both success rate and cost, with no fast way to spot provider outages. We built a linear-programming routing engine plus a real-time outage-detection model. Payment success rate up 7%, cost down 12%, provider outages down 93% month over month.",
+  "tldr_label": "In short"
+}

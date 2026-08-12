@@ -1,0 +1,14 @@
+{
+  "slug": "gamification-is-a-multiplier-but-multiply-by-zero-and-you-get-nothing",
+  "headings": [
+    ["What the research actually says", "What does the research on gamification actually say?"],
+    ["The Duolingo case", "Why did gamification work for Duolingo?"],
+    ["The Foursquare case", "Why did gamification fail for Foursquare?"]
+  ],
+  "faq": [
+    ["Does gamification actually work?", "It's a multiplier, not a substitute. It amplifies a product people already get value from, and multiplying zero by anything still gives you zero. If the underlying loop doesn't work, streaks and badges won't fix it."],
+    ["Why did it work for Duolingo?", "Because the core product already delivered something people wanted — language learning — and the streak amplified a habit that had somewhere to go. The mechanic was attached to real value."],
+    ["Why did it fail for Foursquare?", "Because badges and mayorships were the value, rather than an amplifier of it. Once the novelty wore off there was no underlying reason to keep checking in."],
+    ["When should you add gamification?", "After the fundamentals work — when people already come back for the product itself and you want more of them to. Before that, gamification is a distraction from the thing that's actually broken."]
+  ]
+}

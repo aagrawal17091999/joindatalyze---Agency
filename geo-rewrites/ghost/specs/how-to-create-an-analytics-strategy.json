@@ -1,0 +1,17 @@
+{
+  "slug": "how-to-create-an-analytics-strategy",
+  "tldr": "Break your product into pieces rather than tackling it whole — the AAARRR funnel works. Design a small number of metrics, testing each against whether it changes a decision. Then resist going deeper than you need to; tracking everything leaves you with nothing.",
+  "headings": [
+    ["Break down your product", "How do you break your product down?"],
+    ["Design metrics", "How do you design metrics that aren't vanity metrics?"],
+    ["Avoid going too deep into your product", "Why shouldn't you go too deep?"],
+    ["Bonus: Template to follow for your product", "Is there a template you can start from?"]
+  ],
+  "faq": [
+    ["What is an analytics strategy?", "A way to build a story around your product — how users are actually using it. It's what you write before you build dashboards or set up tracking, so the instrumentation maps to a decision."],
+    ["Why break the product into pieces first?", "Because a holistic approach overlooks the nuances of user behaviour within different parts of your product. Segment it — the AAARRR pirate funnel is one way — and analyse each piece on its own terms."],
+    ["How do you tell a vanity metric from an actionable one?", "Ask whether it offers clear insight into a decision or into user behaviour. If it doesn't, it's a vanity metric and it should be out of your strategy."],
+    ["How many metrics should you track?", "Fewer than you want to. The temptation is to track everything for a detailed picture, and it's a trap — you end up with nothing. Focus on the most impactful metrics and start with a broad understanding."],
+    ["Should you use a metrics template as-is?", "No. Use one as inspiration and design the metrics that make sense for your product. Blindly following someone else's AAARRR template is how you end up measuring things that don't apply to you."]
+  ]
+}

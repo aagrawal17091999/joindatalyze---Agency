@@ -1,0 +1,17 @@
+{
+  "slug": "5-biggest-problems-i-see-with-founders",
+  "tldr": "Five patterns I see in nearly every founder trying to be data-driven: underestimating the effort, acting on data that isn't significant yet, tracking far too many data points, watching vanity metrics instead of actionable ones, and stopping at what happened instead of asking why.",
+  "headings": [
+    ["Underestimating the Time and Effort Required", "1. Underestimating the time and effort required"],
+    ["Jumping the Gun with Insignificant Data", "2. Acting on data that isn't significant yet"],
+    ["Overloading on Data Points", "3. Tracking far too many data points"],
+    ["Monitoring Vanity Metrics Instead of Actionable Metrics", "4. Watching vanity metrics instead of actionable ones"],
+    ["Struggling with Deeper Analysis", "5. Stopping at what happened instead of asking why"]
+  ],
+  "faq": [
+    ["What's the most common mistake founders make with data?", "Underestimating what being data-driven actually takes. It isn't buying a tool — it's the tracking plan, the implementation, the verification, and the analysis habit on top."],
+    ["How much data do you need before acting on it?", "Enough that the difference you're seeing isn't noise. Acting on a small sample is one of the five patterns here, and it's how teams end up confidently shipping the wrong change."],
+    ["How many metrics should a startup track?", "Far fewer than most do. Overloading on data points produces overload rather than insight, and it's a separate failure from tracking the wrong things."],
+    ["Why do teams stop at surface-level analysis?", "Because dashboards answer what happened and stop there. The value is in the next question — why — and that requires digging past the chart into cohorts and behaviour."]
+  ]
+}

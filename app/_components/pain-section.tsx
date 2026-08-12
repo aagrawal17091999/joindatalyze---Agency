@@ -10,13 +10,10 @@ export default function PainSection() {
           <header className="pain__header">
             <div className="eyebrow">The Cost</div>
             <h2 className="pain__title">
-              Why most analytics work doesn't
+              Why doesn't analytics work
               <br />
-              <em>move the business</em>
+              <em>move the business?</em>
             </h2>
-            <p className="pain__subhead">
-              Most growing companies stall in one of these three places. None of them are obvious. All of them are expensive.
-            </p>
           </header>
 
           <PainScenes scenes={homePainScenes} />

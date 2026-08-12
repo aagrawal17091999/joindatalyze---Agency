@@ -1,0 +1,17 @@
+{
+  "slug": "developers-guide-to-implementing",
+  "tldr": "Get your project token, install and initialise the library, then track events with properties. The two parts developers most often get wrong are property types and identity management — and both break the data silently rather than throwing an error.",
+  "headings": [
+    ["Obtain Your Project Token", "Where do you get your project token?"],
+    ["Library installation & initialization", "How do you install and initialise the library?"],
+    ["Tracking events & properties", "How do you track events and properties?"],
+    ["Understanding property types", "What are the property types?"],
+    ["Identity management", "How does identity management work?"],
+    ["Ensuring accurate data flow into Mixpanel", "How do you verify the data is actually flowing?"]
+  ],
+  "faq": [
+    ["What do developers most often get wrong?", "Property types and identity management. Neither throws an error — the data just quietly means something different from what everyone assumes."],
+    ["Why does identity management matter?", "Because without it the same person is two users: one anonymous, one logged-in. Every funnel and retention number built on top is then wrong, and it looks fine until you dig in."],
+    ["How do you verify the implementation?", "Go through the product, fire every event from every surface, and check each one lands with the right properties and values. It's boring and it's non-negotiable."]
+  ]
+}

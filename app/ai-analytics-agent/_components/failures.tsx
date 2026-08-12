@@ -17,7 +17,7 @@ const FAILURES: Failure[] = [
     title: 'It hallucinates numbers that look right',
     body: "You ask it for last month's MRR. It returns a number. The number sounds reasonable. You paste it into a board update. Three days later, finance pulls the same metric and gets something different. Turns out the AI joined the wrong tables, used a stale event, and confidently invented a number that was off by 18%. The worst part is you didn't know to question it.",
     problem:
-      'No validation layer. The model doesn\u2019t know what "MRR" actually means in your business — only what it looks like in random examples from its training data.',
+      'No validation layer. The model doesn\u2019t know what "MRR" actually means in your business - only what it looks like in random examples from its training data.',
   },
   {
     number: '02',
@@ -31,7 +31,7 @@ const FAILURES: Failure[] = [
     number: '03',
     label: 'Abandonment',
     title: 'It works for two weeks, then your team stops using it',
-    body: "Onboarding goes well. The first few queries land. Then the team hits the third or fourth wrong answer in a row — and just goes back to asking the analyst directly. Six months later, the tool is still in your stack, and nobody\u2019s logged in since March.",
+    body: "Onboarding goes well. The first few queries land. Then the team hits the third or fourth wrong answer in a row - and just goes back to asking the analyst directly. Six months later, the tool is still in your stack, and nobody\u2019s logged in since March.",
     problem:
       'No feedback loop. Nobody validated the answers in the early weeks, nobody refined the knowledge base when the model got it wrong, and trust eroded faster than the team had patience for.',
   },
