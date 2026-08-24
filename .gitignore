@@ -30,3 +30,6 @@ coverage
 
 # Generated working file from scripts/ghost-image-alt.mjs
 ghost-alt-audit.csv
+
+# generated KB snapshots (scripts/kb/export.mjs)
+kb-export/

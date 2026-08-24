@@ -121,7 +121,15 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <span>© {year} Datalyze. All rights reserved.</span>
-          <span>Analytics & growth partner · 150+ startups</span>
+          <span>Analytics &amp; growth partner · 150+ startups</span>
+          <a
+            className="footer__badge"
+            href="https://www.designrush.com/agency/big-data-analytics-companies"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Listed on DesignRush
+          </a>
         </div>
       </div>
     </footer>
